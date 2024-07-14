@@ -1,0 +1,75 @@
+html {
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+body {
+  padding-left: 20vw;
+  padding-right: 20vw;
+}
+
+h1 {
+  font-size: 40px;
+  text-align: left;
+  padding-top: 10px;
+  overflow: hidden;
+}
+
+h2 {
+  font-size: 20px;
+  text-align: left;
+  overflow: hidden;
+}
+
+p {
+  text-align: justify;
+  font-size: 14px;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+table,
+th,
+td {
+  border-collapse: collapse;
+  border: 1px solid black;
+  padding: 5px;
+}
+.tableletters {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}
+.expandable-row-content {
+  display: none;
+}
+.clickable {
+  cursor: pointer;
+  color: #0056b3;
+  text-decoration: underline;
+}
+.clickable:hover {
+  text-decoration: none;
+}
+.clickable::after {
+  content: " \25BC"; /* Down-pointing triangle, indicating expandable */
+  font-size: 0.8em;
+}
+.expanded::after {
+  content: " \25B2"; /* Up-pointing triangle, indicating collapsible */
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    padding-left: 1vw;
+    padding-right: 1vw;
+  }
+
+  h1 {
+    font-size: 20px;
+    text-align: left;
+    padding-top: 10px;
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="HTML History and Element Wiki for Web Enthusiasts"
+    />
+    <meta
+      property="og:image"
+      content="https://developer.mozilla.org/mdn-social-share.png"
+    />
+    <meta
+      property="og:description"
+      content="The Mozilla Developer Network (MDN) provides information 
+      about Open Web technologies including HTML, CSS, and APIs for both 
+      websites and HTML Apps."
+    />
+    <meta
+      property="og:title"
+      content="Hypertext: HTML History and Element Wiki"
+    />
+    <meta
+      name="twitter:title"
+      content="Hypertext: HTML History and Element Wiki"
+    />
+    <title>Hypertext - HTML Element Wiki</title>
+    <link href="main.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.css"
+    />
+    <link rel="icon" href="favicon.ico" />
+    <base href="http://127.0.0.1:3000/index.html" />
+    <script>
+      function toggleDetail(detailId, event) {
+        var detailRow = document.getElementById(detailId);
+        var isExpanded = detailRow.style.display === "table-row";
+        detailRow.style.display = isExpanded ? "none" : "table-row";
+
+        if (isExpanded) {
+          event.target.classList.remove("expanded");
+        } else {
+          event.target.classList.add("expanded");
+        }
+      }
+    </script>
+    <style>
+      p {
+        text-align: justify;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>PROGRAMMING NOTES</h1>
+    </header>
+    <main>
+      <section id="elements">
+        <h2>Index</h2>
+        <p>Content last updated on 14/07/2024</p>
+      </section>
+      <hr />
+      <div class="alphsort">
+        <a href="#comments">Comments</a>
+        <a href="#data-types">Data Types</a>
+        <a href="#functions">Functions</a>
+        <a href="#scope">Scope</a>
+      </div>
+      <hr />
+      <br />
+      <table>
+        <tbody>
+          <tr>
+            <td id="a" class="tableletters">Comments</td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-slc', event)">
+              Single Line Comment
+            </td>
+          </tr>
+          <tr id="detail-tag-slc" class="expandable-row-content">
+            <td>
+              <h3>Single Line Comments</h3>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-html">
+&lt;!-- Linking to an absolute URL: --&gt;
+&lt;a href="https://www.mozilla.com"&gt;Mozilla&lt;/a&gt;
+
+
+&lt;!-- Linking to relative URLs: --&gt;
+&lt;a href="//example.com"&gt;Scheme-relative URL&lt;/a&gt;
+&lt;a href="/en-US/docs/Web/HTML"&gt;Origin-relative URL&lt;/a&gt;
+&lt;a href="./p"&gt;Directory-relative URL&lt;/a&gt;</code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-mlc', event)">
+              Multi Line Comment
+            </td>
+          </tr>
+          <tr id="detail-tag-mlc" class="expandable-row-content">
+            <td>
+              <h3>Multi Line Comment</h3>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-html">
+&lt;!-- Linking to an absolute URL: --&gt;
+&lt;a href="https://www.mozilla.com"&gt;Mozilla&lt;/a&gt;
+
+
+&lt;!-- Linking to relative URLs: --&gt;
+&lt;a href="//example.com"&gt;Scheme-relative URL&lt;/a&gt;
+&lt;a href="/en-US/docs/Web/HTML"&gt;Origin-relative URL&lt;/a&gt;
+&lt;a href="./p"&gt;Directory-relative URL&lt;/a&gt;</code></pre>
+              <br />
+            </td>
+          </tr>
+
+
+            <td id="data-types" class="tableletters">Data Types</td>
+          </tr>
+          <tr>
+            <td
+              class="clickable"
+              onclick="toggleDetail('detail-tag-data-types', event)"
+            >
+              Strings
+            </td>
+          </tr>
+          <tr id="detail-tag-data-types" class="expandable-row-content">
+            <td>
+              <h3>Single Line Comments</h3>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-html">
+&lt;!-- Linking to an absolute URL: --&gt;
+&lt;a href="https://www.mozilla.com"&gt;Mozilla&lt;/a&gt;
+
+
+&lt;!-- Linking to relative URLs: --&gt;
+&lt;a href="//example.com"&gt;Scheme-relative URL&lt;/a&gt;
+&lt;a href="/en-US/docs/Web/HTML"&gt;Origin-relative URL&lt;/a&gt;
+&lt;a href="./p"&gt;Directory-relative URL&lt;/a&gt;</code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr></tr>
+        </tbody>
+
+        <tfoot></tfoot>
+      </table>
+      <br />
+    </main>
+    <footer>
+      <small> No Rights Reserved. </small>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
+  </body>
+</html>
