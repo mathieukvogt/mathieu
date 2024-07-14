@@ -5,27 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="HTML History and Element Wiki for Web Enthusiasts"
-    />
-    <meta
-      property="og:image"
-      content="https://developer.mozilla.org/mdn-social-share.png"
-    />
-    <meta
-      property="og:description"
-      content="The Mozilla Developer Network (MDN) provides information 
-      about Open Web technologies including HTML, CSS, and APIs for both 
-      websites and HTML Apps."
+      content="Programming Syntax Notes"
     />
     <meta
       property="og:title"
-      content="Hypertext: HTML History and Element Wiki"
+      content="Programming Syntax Notes"
     />
     <meta
       name="twitter:title"
-      content="Hypertext: HTML History and Element Wiki"
+      content="Programming Syntax Notes"
     />
-    <title>Hypertext - HTML Element Wiki</title>
+    <title>Syntax Notes</title>
     <link href="main.css" rel="stylesheet" />
     <link
       rel="stylesheet"
@@ -66,15 +56,14 @@
       <div class="alphsort">
         <a href="#comments">Comments</a>
         <a href="#data-types">Data Types</a>
-        <a href="#functions">Functions</a>
-        <a href="#scope">Scope</a>
+        <a href="#ao">Arithmetic Operators</a>
       </div>
       <hr />
       <br />
       <table>
         <tbody>
           <tr>
-            <td id="a" class="tableletters">Comments</td>
+            <td id="comments" class="tableletters">Comments</td>
           </tr>
           <tr>
             <td class="clickable" onclick="toggleDetail('detail-tag-slc', event)">
@@ -84,17 +73,34 @@
           <tr id="detail-tag-slc" class="expandable-row-content">
             <td>
               <h3>Single Line Comments</h3>
+              <p>In JavaScript, single-line comments are used to add brief explanations or notes within the code. They are created using two forward slashes //. Everything following the // on that line will be considered a comment and ignored by the JavaScript engine during execution.</p>
               <h4><u>Specifications</u></h4>
               <pre>
-           <code class="language-html">
-&lt;!-- Linking to an absolute URL: --&gt;
-&lt;a href="https://www.mozilla.com"&gt;Mozilla&lt;/a&gt;
+           <code class="language-js">
+// This is a single-line comment
 
+// Declare and initialize a variable to store age
+let age = 25;
+           
+// Check if the score is greater than or equal to 80
+let score = 85;
+if (score >= 80) {
+  console.log('Great job!');
+} else {
+  console.log('Keep trying!');
+}    
 
-&lt;!-- Linking to relative URLs: --&gt;
-&lt;a href="//example.com"&gt;Scheme-relative URL&lt;/a&gt;
-&lt;a href="/en-US/docs/Web/HTML"&gt;Origin-relative URL&lt;/a&gt;
-&lt;a href="./p"&gt;Directory-relative URL&lt;/a&gt;</code></pre>
+// Loop through numbers from 1 to 5
+for (let i = 1; i <= 5; i++) {
+  console.log(i); // Output the current number
+}
+ 
+// Function to add two numbers
+function add(a, b) {
+  return a + b; // Return the sum
+}
+console.log(add(2, 3)); // Output: 5
+            </code></pre>
               <br />
             </td>
           </tr>
@@ -106,17 +112,38 @@
           <tr id="detail-tag-mlc" class="expandable-row-content">
             <td>
               <h3>Multi Line Comment</h3>
+              <p>Multi-line comments in JavaScript are used to comment out blocks of code or add longer explanations within the code. They start with /* and end with */. Everything between these delimiters is considered a comment and ignored by the JavaScript engine during execution.</p>
               <h4><u>Specifications</u></h4>
               <pre>
-           <code class="language-html">
-&lt;!-- Linking to an absolute URL: --&gt;
-&lt;a href="https://www.mozilla.com"&gt;Mozilla&lt;/a&gt;
+           <code class="language-js">
+/*
+  This is a multi-line comment.
+  It can span multiple lines.
+*/
 
+/*
+  Declare and initialize a variable to store the user's age.
+  This value will be used to determine access permissions.
+*/
+let age = 30;
 
-&lt;!-- Linking to relative URLs: --&gt;
-&lt;a href="//example.com"&gt;Scheme-relative URL&lt;/a&gt;
-&lt;a href="/en-US/docs/Web/HTML"&gt;Origin-relative URL&lt;/a&gt;
-&lt;a href="./p"&gt;Directory-relative URL&lt;/a&gt;</code></pre>
+/*
+  Function to greet the user.
+  It prints a welcome message to the console.
+*/
+function greetUser(name) {
+  console.log('Hello, ' + name + '!');
+}
+
+/*
+  Loop through an array of numbers.
+  Print each number to the console.
+*/
+let numbers = [1, 2, 3, 4, 5];
+for (let i = 0; i < numbers.length; i++) {
+  console.log(numbers[i]); // Print the current number
+}
+           </code></pre>
               <br />
             </td>
           </tr>
@@ -128,28 +155,430 @@
             <td
               class="clickable"
               onclick="toggleDetail('detail-tag-data-types', event)"
-            >
-              Strings
+            >7 Primitive Data Types & Objects
             </td>
           </tr>
           <tr id="detail-tag-data-types" class="expandable-row-content">
             <td>
-              <h3>Single Line Comments</h3>
+              <h3>7 Primitive Data Types & Objects</h3>
+              <p>JavaScript has a variety of data types that can be categorized into primitive types and objects. Primitive types are immutable and compared by value, while objects are mutable and compared by reference.</p>
+              <ol>
+                <li>String: Represents text and is enclosed in quotes.</li>
+                <li>Number: Represents both integers and floating-point numbers.</li>
+                <li>Boolean: Represents true or false values.</li>
+                <li>Boolean: Represents true or false values.</li>
+                <li>Null: Represents the intentional absence of any object value.</li>
+                <li>Symbol: Represents a unique identifier created using the Symbol function.</li>
+                <li>BigInt: Represents integers larger than the maximum safe integer limit for Number.</li>
+                <li>Object: A complex data type that allows you to store collections of data in key-value pairs.</li>
+              </ol>
+
               <h4><u>Specifications</u></h4>
               <pre>
-           <code class="language-html">
-&lt;!-- Linking to an absolute URL: --&gt;
-&lt;a href="https://www.mozilla.com"&gt;Mozilla&lt;/a&gt;
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+let name = 'Alice';
+let phrase = `JavaScript is fun!`; // Template literals allow for embedded expressions
 
+// Number
+let age = 25;
+let pi = 3.14159;
+let negativeNumber = -42; // Negative number example
 
-&lt;!-- Linking to relative URLs: --&gt;
-&lt;a href="//example.com"&gt;Scheme-relative URL&lt;/a&gt;
-&lt;a href="/en-US/docs/Web/HTML"&gt;Origin-relative URL&lt;/a&gt;
-&lt;a href="./p"&gt;Directory-relative URL&lt;/a&gt;</code></pre>
+// Boolean
+let isStudent = true;
+let hasGraduated = false;
+let isLoggedIn = true;
+
+// Undefined
+let x;
+let y = undefined;
+let z; // Undefined by default when not assigned
+
+// Null
+let emptyValue = null;
+let noValue = null;
+let response = null; // Commonly used to indicate no response or empty result
+
+// Symbol
+let sym1 = Symbol('unique');
+let sym2 = Symbol('unique');
+let sym3 = Symbol(); // Symbol without a description
+
+// BigInt
+let bigInt1 = 1234567890123456789012345678901234567890n;
+let bigInt2 = BigInt(1234567890123456789012345678901234567890);
+let bigInt3 = 9007199254740991n; // Maximum safe integer + 1
+
+// Object
+let person = {
+  name: "Alice",
+  age: 25
+};
+let car = {
+  brand: "Toyota",
+  model: "Corolla"
+};
+let book = {
+  title: "JavaScript: The Good Parts",
+  author: "Douglas Crockford"
+};
+          
+
+</code></pre>
               <br />
             </td>
           </tr>
-          <tr></tr>
+          <td id="ao" class="tableletters">Arithmetic Operators</td>
+          </tr>
+          <tr>
+            <td
+              class="clickable"
+              onclick="toggleDetail('detail-tag-add', event)"
+            >
+            Addition (+)
+            </td>
+          </tr>
+          <tr id="detail-tag-add" class="expandable-row-content">
+            <td>
+              <h3>Addition (+)</h3>
+              <p>In JavaScript, the + operator is used for two primary purposes: numeric addition and string concatenation. When used with numbers, + performs arithmetic addition to calculate their sum. For example, 5 + 3 results in 8 and 10 + 15 results in 25, while 7 + -2 adds a negative number to get 5. When used with strings, the + operator concatenates them into a single string. For instance, "Hello, " + "world!" produces "Hello, world!", and concatenating "Alice" and "Johnson" with a space results in "Alice Johnson". If you add a number to a string, the number is converted to a string and concatenated. For example, 10 + " apples" yields "10 apples", and "The result is " + (2 + 3) first evaluates the addition inside the parentheses to get 5, then concatenates it with the string to produce "The result is 5". A special case of addition is adding null to a number, where null is treated as 0, so 5 + null results in 5. Similarly, adding undefined to a string results in "undefined" as a string, so "Value is " + undefined produces "Value is undefined".</p>
+
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Numeric Addition
+let sum1 = 5 + 3;       // 8
+let sum2 = 10 + 15;     // 25
+let sum3 = 7 + -2;      // 5 (adding a negative number)
+
+// String Concatenation
+let greeting = "Hello, " + "world!";  // "Hello, world!"
+let firstName = "Alice";
+let lastName = "Johnson";
+let fullName = firstName + " " + lastName;  // "Alice Johnson"
+
+// Number and String Concatenation
+let number = 10;
+let text = "The number is " + number;  // "The number is 10"
+
+// Adding a String and a Number (Implicit Conversion)
+let addition = 5 + " apples";  // "5 apples" (number converted to string)
+let result = "The result is " + (2 + 3);  // "The result is 5"
+
+// Adding null to a number
+let resultNull = 5 + null;  // 5 (null is converted to 0)
+
+// Adding undefined to a string
+let resultUndefined = "Value is " + undefined;  // "Value is undefined"
+
+</code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td
+              class="clickable"
+              onclick="toggleDetail('detail-tag-sub', event)"
+            >
+            Subtraction (-)
+            </td>
+          </tr>
+          <tr id="detail-tag-sub" class="expandable-row-content">
+            <td>
+              <h3>Subtraction (-)</h3>
+              <p>In JavaScript, the - operator is used primarily for numeric subtraction. It subtracts the right operand from the left operand to yield a numerical result. If used with two numbers, such as 8 - 3, it calculates the difference, which is 5. Subtraction can also be applied to negative numbers, for instance, 10 - (-4) results in 14 as it effectively adds the absolute value of the negative number. When - is used with non-numeric types, JavaScript first tries to convert the operands to numbers. If one operand is a string and the other is a number, JavaScript attempts to convert the string to a number; for example, "10" - 5 results in 5 because "10" is converted to the number 10. If the string cannot be converted to a number, such as in "hello" - 5, the result is NaN (Not-a-Number). Additionally, subtracting null from a number results in the number itself, as null is converted to 0; for instance, 15 - null equals 15. However, subtracting undefined from a number results in NaN, as undefined cannot be converted to a number, so 10 - undefined yields NaN.</p>
+
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Numeric Subtraction
+let difference1 = 8 - 3;         // 5
+let difference2 = 10 - 4;        // 6
+let difference3 = 10 - (-4);     // 14 (subtracting a negative number)
+
+// Subtracting a String from a Number (Implicit Conversion)
+let result1 = "10" - 5;         // 5 (string "10" is converted to number 10)
+let result2 = "20" - "5";       // 15 (both strings are converted to numbers)
+
+// Subtracting Non-Numeric Strings
+let result3 = "hello" - 5;      // NaN (non-numeric string cannot be converted to a number)
+
+// Subtracting null from a Number
+let result4 = 15 - null;       // 15 (null is converted to 0)
+
+// Subtracting undefined from a Number
+let result5 = 10 - undefined;  // NaN (undefined cannot be converted to a number)
+
+</code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td
+              class="clickable"
+              onclick="toggleDetail('detail-tag-multi', event)"
+            >
+            Multiplication (*)
+            </td>
+          </tr>
+          <tr id="detail-tag-multi" class="expandable-row-content">
+            <td>
+              <h3>Multiplication (*)</h3>
+              <p>In JavaScript, the * operator is used for numeric multiplication. It multiplies the two operands and returns the product. For example, using 5 * 3 results in 15, as it multiplies 5 by 3. The * operator also supports multiplication with floating-point numbers, where 2.5 * 4 results in 10.0. JavaScript handles cases where one or both operands are non-numeric values by attempting to convert them into numbers before performing the multiplication. If one operand is a string that represents a number, like "7", multiplying it by a number results in 7, as the string "7" is converted to the number 7. However, if the string cannot be converted to a number, such as "hello" * 3, the result is NaN (Not-a-Number). Additionally, multiplying null by a number treats null as 0, so null * 4 yields 0. When undefined is involved in multiplication with a number, the result is also NaN, as undefined cannot be converted to a number, so 5 * undefined results in NaN.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Numeric Multiplication
+let product1 = 5 * 3;         // 15
+let product2 = 2.5 * 4;       // 10.0
+let product3 = -7 * 6;        // -42 (multiplying a negative number)
+
+// Multiplying a String that Represents a Number
+let result1 = "7" * 2;        // 14 (string "7" is converted to number 7)
+let result2 = "5.5" * 2;      // 11.0 (string "5.5" is converted to number 5.5)
+let result3 = "10" * 3;       // 30 (string "10" is converted to number 10)
+
+// Multiplying Non-Numeric Strings
+let result4 = "hello" * 3;    // NaN (non-numeric string cannot be converted to a number)
+
+// Multiplying null by a Number
+let result5 = null * 4;      // 0 (null is converted to 0)
+
+// Multiplying undefined by a Number
+let result6 = 5 * undefined; // NaN (undefined cannot be converted to a number)
+
+</code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td
+              class="clickable"
+              onclick="toggleDetail('detail-tag-div', event)"
+            >
+            Division (/)
+            </td>
+          </tr>
+          <tr id="detail-tag-div" class="expandable-row-content">
+            <td>
+              <h3>Division (/)</h3>
+              <p>In JavaScript, the / operator is used for numeric division. It divides the left operand by the right operand and returns the quotient. For example, 10 / 2 results in 5, as it divides 10 by 2. The / operator supports division with both integers and floating-point numbers, such as 7.5 / 2 which results in 3.75. When one or both of the operands are non-numeric types, JavaScript attempts to convert them to numbers before performing the division. For instance, if one operand is a string that represents a number, like "8", dividing it by a number yields 4, since the string "8" is converted to the number 8. However, if the string cannot be converted to a number, such as "hello" / 2, the result is NaN (Not-a-Number). Additionally, dividing a number by null treats null as 0, so dividing by null results in Infinity or -Infinity depending on the sign of the dividend. For example, 10 / null yields Infinity, while -10 / null results in -Infinity. When undefined is used in division with a number, the result is NaN, as undefined cannot be converted to a number, so 5 / undefined results in NaN.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Numeric Division
+let quotient1 = 10 / 2;         // 5
+let quotient2 = 7.5 / 2;       // 3.75
+let quotient3 = -10 / 2;       // -5 (dividing a negative number)
+
+// Dividing a String that Represents a Number
+let result1 = "8" / 2;        // 4 (string "8" is converted to number 8)
+let result2 = "5.5" / 2;      // 2.75 (string "5.5" is converted to number 5.5)
+let result3 = "12" / 4;       // 3 (string "12" is converted to number 12)
+
+// Dividing Non-Numeric Strings
+let result4 = "hello" / 2;    // NaN (non-numeric string cannot be converted to a number)
+
+// Dividing by null
+let result5 = 10 / null;     // Infinity (null is converted to 0)
+let result6 = -10 / null;    // -Infinity (null is converted to 0)
+
+// Dividing by undefined
+let result7 = 5 / undefined; // NaN (undefined cannot be converted to a number)
+
+// Special Cases
+let zeroDiv = 5 / 0;      // Infinity (dividing by zero yields Infinity)
+let negativeZeroDiv = -5 / 0;  // -Infinity (dividing by zero yields -Infinity)
+
+</code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td
+              class="clickable"
+              onclick="toggleDetail('detail-tag-rem', event)"
+            >
+            Remainder (%)
+            </td>
+          </tr>
+          <tr id="detail-tag-rem" class="expandable-row-content">
+            <td>
+              <h3>Remainder (%)</h3>
+              <p>In JavaScript, the % operator is used to calculate the remainder of the division between two numbers. It performs a division operation and returns the remainder after the division. For example, 10 % 3 results in 1, as 10 divided by 3 is 3 with a remainder of 1. The % operator works with both positive and negative numbers, where -10 % 3 results in -1, as it computes the remainder considering the sign of the dividend. When used with non-numeric values, JavaScript attempts to convert the operands to numbers before calculating the remainder. For instance, if one operand is a string that represents a number, like "9", the operation "9" % 4 yields 1, as "9" is converted to 9 and then the remainder of 9 divided by 4 is 1. If the string cannot be converted to a number, such as "hello" % 2, the result is NaN (Not-a-Number). Additionally, when null is used as an operand, null is treated as 0, so 10 % null yields NaN because division by 0 is undefined. When undefined is involved, the result of the operation is also NaN, as undefined cannot be converted to a number, so 5 % undefined results in NaN.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Numeric Remainder
+let remainder1 = 10 % 3;        // 1 (10 divided by 3 has a remainder of 1)
+let remainder2 = 20 % 4;        // 0 (20 divided by 4 has no remainder)
+let remainder3 = -10 % 3;       // -1 (negative dividend with positive divisor)
+
+// Remainder with a String that Represents a Number
+let result1 = "9" % 4;         // 1 (string "9" is converted to number 9)
+let result2 = "15" % 6;        // 3 (string "15" is converted to number 15)
+let result3 = "8" % 2;         // 0 (string "8" is converted to number 8)
+
+// Remainder with Non-Numeric Strings
+let result4 = "hello" % 2;     // NaN (non-numeric string cannot be converted to a number)
+
+// Remainder with null
+let result5 = 10 % null;      // NaN (null is converted to 0, division by 0 is undefined)
+
+// Remainder with undefined
+let result6 = 5 % undefined;  // NaN (undefined cannot be converted to a number)
+
+// Special Cases
+let zeroDiv = 0 % 5;          // 0 (0 divided by any number has a remainder of 0)
+let negZeroDiv = -5 % 2;      // -1 (negative dividend with positive divisor)
+
+</code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td
+              class="clickable"
+              onclick="toggleDetail('detail-tag-expo', event)"
+            >
+            Exponentiation (**)
+            </td>
+          </tr>
+          <tr id="detail-tag-expo" class="expandable-row-content">
+            <td>
+              <h3>Exponentiation (**)</h3>
+              <p>In JavaScript, the / operator is used for numeric division. It divides the left operand by the right operand and returns the quotient. For example, 10 / 2 results in 5, as it divides 10 by 2. The / operator supports division with both integers and floating-point numbers, such as 7.5 / 2 which results in 3.75. When one or both of the operands are non-numeric types, JavaScript attempts to convert them to numbers before performing the division. For instance, if one operand is a string that represents a number, like "8", dividing it by a number yields 4, since the string "8" is converted to the number 8. However, if the string cannot be converted to a number, such as "hello" / 2, the result is NaN (Not-a-Number). Additionally, dividing a number by null treats null as 0, so dividing by null results in Infinity or -Infinity depending on the sign of the dividend. For example, 10 / null yields Infinity, while -10 / null results in -Infinity. When undefined is used in division with a number, the result is NaN, as undefined cannot be converted to a number, so 5 / undefined results in NaN.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Numeric Exponentiation
+let power1 = 2 ** 3;          // 8 (2 raised to the power of 3 is 8)
+let power2 = 4 ** -2;         // 0.0625 (4 raised to the power of -2 is 1/16)
+let power3 = 2.5 ** 2;       // 6.25 (2.5 raised to the power of 2 is 6.25)
+
+// Exponentiation with a String that Represents a Number
+let result1 = "3" ** 2;      // 9 (string "3" is converted to number 3)
+let result2 = "5.5" ** 2;    // 30.25 (string "5.5" is converted to number 5.5)
+let result3 = "7" ** 0;      // 1 (any number to the power of 0 is 1)
+
+// Exponentiation with Non-Numeric Strings
+let result4 = "hello" ** 2; // NaN (non-numeric string cannot be converted to a number)
+
+// Exponentiation with null
+let result5 = null ** 2;    // 0 (null is treated as 0 for exponentiation)
+
+// Exponentiation with undefined
+let result6 = 5 ** undefined; // NaN (undefined cannot be converted to a number)
+
+// Special Cases
+let zeroBase = 0 ** 3;          // 0 (0 raised to any power other than 0 yields 0)
+let negativeExponent = 2 ** -3; // 0.125 (2 raised to the power of -3 is 1/8)
+
+</code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td
+              class="clickable"
+              onclick="toggleDetail('detail-tag-inc', event)"
+            >
+            Increment (++)
+            </td>
+          </tr>
+          <tr id="detail-tag-inc" class="expandable-row-content">
+            <td>
+              <h3>Increment (++)</h3>
+              <p>In JavaScript, the ++ operator is used to increment a number by one. This operator can be applied in two ways: as a prefix (before the operand) or as a postfix (after the operand). When used as a prefix, such as ++x, the value of x is incremented before it is used in an expression. Conversely, when used as a postfix, such as x++, the value of x is incremented after its current value has been used in the expression. The ++ operator only affects numbers; when applied to non-numeric values, JavaScript attempts to convert them to numbers. For example, "5"++ converts "5" to 5 and increments it to 6. If the string cannot be converted to a number, such as "hello"++, it results in NaN (Not-a-Number). Applying the ++ operator to null treats null as 0, so null++ increments null to 1. However, applying the ++ operator to undefined results in NaN because undefined cannot be converted to a number, so undefined++ yields NaN.</p>
+
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Prefix Increment
+let x = 5;
+let y = ++x;       // 6 (x is incremented to 6 before assigning to y)
+
+// Postfix Increment
+let a = 3;
+let b = a++;       // 3 (a is assigned to b first, then a is incremented to 4)
+
+// Increment with a String that Represents a Number
+let result1 = "7"++;  // Results in an error (Postfix ++ does not work with strings)
+
+// Increment with Non-Numeric Strings
+let result2 = "hello"++; // NaN (non-numeric string cannot be incremented)
+
+// Increment with null
+let result3 = null++;  // 1 (null is treated as 0, then incremented to 1)
+
+// Increment with undefined
+let result4 = undefined++; // NaN (undefined cannot be incremented)
+
+// Special Cases
+let object = { count: 1 };
+object.count++;       // 2 (increments the `count` property of the object)
+
+// Prefix and Postfix Increment with Arrays
+let array = [1, 2, 3];
+++array[0];           // 2 (prefix increment on the first element of the array)
+array[1]++;           // 3 (postfix increment on the second element of the array)
+
+</code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td
+              class="clickable"
+              onclick="toggleDetail('detail-tag-dec', event)"
+            >
+            Decrement (--)
+            </td>
+          </tr>
+          <tr id="detail-tag-dec" class="expandable-row-content">
+            <td>
+              <h3>Decrement (--)</h3>
+              <p>In JavaScript, the -- operator is used to decrement a number by one. This operator can be utilized in two distinct ways: as a prefix (before the operand) or as a postfix (after the operand). When used as a prefix, such as --x, the value of x is decremented before it is used in any expression. Conversely, when used as a postfix, such as x--, the value of x is decremented after its current value has been used. The -- operator operates exclusively on numbers; if applied to non-numeric values, JavaScript attempts to convert the operands to numbers before performing the decrement operation. For example, "5"-- converts the string "5" to 5 and decrements it to 4. If the string cannot be converted to a number, such as "hello"--, it results in NaN (Not-a-Number). When null is decremented, null is treated as 0, so null-- decrements null to -1. However, decrementing undefined results in NaN because undefined cannot be converted to a number, so undefined-- yields NaN.</p>
+
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Prefix Decrement
+let x = 5;
+let y = --x;       // 4 (x is decremented to 4 before assigning to y)
+
+// Postfix Decrement
+let a = 3;
+let b = a--;       // 3 (a is assigned to b first, then a is decremented to 2)
+
+// Decrement with a String that Represents a Number
+let result1 = "7"--;  // 6 (string "7" is converted to number 7 and decremented to 6)
+let result2 = "3"--;  // 2 (string "3" is converted to number 3 and decremented to 2)
+
+// Decrement with Non-Numeric Strings
+let result3 = "hello"--; // NaN (non-numeric string cannot be decremented)
+
+// Decrement with null
+let result4 = null--;  // -1 (null is treated as 0, then decremented to -1)
+
+// Decrement with undefined
+let result5 = undefined--; // NaN (undefined cannot be decremented)
+
+// Special Cases
+let object = { count: 5 };
+object.count--;       // 5 (decrements the `count` property of the object to 4)
+
+// Prefix and Postfix Decrement with Arrays
+let array = [3, 4, 5];
+--array[0];           // 2 (prefix decrement on the first element of the array)
+array[1]--;           // 3 (postfix decrement on the second element of the array)
+
+</code></pre>
+              <br />
+            </td>
+          </tr>
         </tbody>
 
         <tfoot></tfoot>

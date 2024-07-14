@@ -1,6 +1,7 @@
 html {
   overflow-y: auto;
   overflow-x: auto;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -21,9 +22,15 @@ h2 {
   overflow: hidden;
 }
 
+.hljs {
+  border-radius: 5px;
+  font-family: JetBrains Mono, monospace;
+  font-size: 14px;
+}
+
 p {
   text-align: justify;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 table {
