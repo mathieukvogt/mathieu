@@ -34,15 +34,15 @@
   <body>
     <header>
       <h1>PROGRAMMING SYNTAX NOTES</h1>
-      <p>"Small actions are at the heart of kaizen. By taking steps so tiny that they seem trivial or even laughable, you'll sail calmly past obstacles that have defeated you before. Slowly - but painlessly! - you'll cultivate an appetite for continued success and lay down a permanent new route to change."</p>
+      <p>Content last updated on 21/07/2024</p>
     </header>
     <main>
       <section id="elements">
         <h2>Index</h2>
-        <p>Content last updated on 15/07/2024</p>
       </section>
       <hr />
       <div class="alphsort">
+        <a href="#variables">Variables</a>
         <a href="#comments">Comments</a>
         <a href="#data-types">Data Types</a>
         <a href="#ao">Arithmetic Operators</a>
@@ -51,6 +51,213 @@
       <br />
       <table>
         <tbody>
+          <tr>
+            <td id="variables" class="tableletters">Variables</td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-let', event)">
+              let
+            </td>
+          </tr>
+          <tr id="detail-tag-let" class="expandable-row-content">
+            <td>
+              <h3>let</h3>
+              <p>A variable in programming is a storage location identified by a name, which can hold data that may be modified during the execution of a program. Variables are used to store values so that these values can be used and manipulated throughout the program. They can hold different types of data, such as numbers, strings, objects, and more. Variables enable developers to write flexible and dynamic code by providing a way to reference and operate on data without hard-coding values directly into the program.
+
+                <br><br>In JavaScript, the let keyword is used to declare a variable that is block-scoped, which means it is limited to the block, statement, or expression where it is declared. This contrasts with the older var keyword, which declares a variable globally or locally to an entire function regardless of block scope. The let keyword was introduced in ECMAScript 6 (ES6) to provide better control over variable scope and to avoid issues related to variable hoisting that are associated with var.
+                
+                <br><br>When you declare a variable using let, it is not hoisted to the top of its enclosing block. Instead, it is hoisted to the top of the block but not initialized, which means it cannot be accessed until the execution reaches the line of code where it is declared. This behavior is known as the "temporal dead zone" and helps prevent errors that can occur when variables are used before they are defined.
+                
+                <br><br>For example, in a block, trying to access a variable declared with let before its declaration line results in a ReferenceError. Once the declaration line is reached, the variable can be accessed and used. The let keyword also prevents the redeclaration of the same variable within the same scope, providing an additional layer of error checking. Attempting to redeclare a variable with let in the same scope results in a SyntaxError, which helps to catch mistakes and enforce cleaner code practices.
+                
+                <br><br>Overall, the let keyword in JavaScript provides a way to declare variables that are confined to their block scope, reducing the likelihood of errors related to variable hoisting and redeclaration, and promoting better coding practices by encouraging the use of variables only within their intended context.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Example 1: Redeclaration in the same block
+let x = 10;
+// let x = 20; // SyntaxError: Identifier 'x' has already been declared
+x = 20; // Allowed: updating the value
+console.log(x); // 20
+
+// Example 2: Redeclaration in nested blocks
+let y = 30;
+{
+  // let y = 40; // SyntaxError: Identifier 'y' has already been declared
+  let z = 50;
+  console.log(z); // 50
+}
+{
+  let y = 40; // Allowed: different block scope
+  console.log(y); // 40
+}
+console.log(y); // 30 (original y)
+
+// Example 3: Redeclaration in a function
+function redeclareLet() {
+  let a = 60;
+  // let a = 70; // SyntaxError: Identifier 'a' has already been declared
+  a = 70; // Allowed: updating the value
+  console.log(a); // 70
+}
+redeclareLet();
+
+// Example 4: Redeclaration in an if block
+let condition = true;
+if (condition) {
+  let status = 'active';
+  // let status = 'inactive'; // SyntaxError: Identifier 'status' has already been declared
+  status = 'inactive'; // Allowed: updating the value
+  console.log(status); // 'inactive'
+}
+
+// Example 5: Block scope
+{
+  let x = 10;
+  console.log(x); // 10
+}
+console.log(typeof x); // undefined (x is not accessible here)
+
+// Example 6: Temporal Dead Zone
+{
+  // console.log(y); // ReferenceError: Cannot access 'y' before initialization
+  let y = 20;
+  console.log(y); // 20
+}
+
+// Example 7: let in a loop block
+for (let i = 0; i < 3; i++) {
+  console.log(i); // 0, 1, 2
+}
+// console.log(i); // ReferenceError: i is not defined (i is not accessible here)
+
+// Example 8: Nested blocks
+{
+  let outer = 'outer';
+  {
+    let inner = 'inner';
+    console.log(outer); // outer
+    console.log(inner); // inner
+  }
+  // console.log(inner); // ReferenceError: inner is not defined
+}
+
+// Example 9: let in functions
+function testLet() {
+  let z = 50;
+  console.log(z); // 50
+}
+// console.log(z); // ReferenceError: z is not defined
+testLet();
+
+// Example 10: Updating let variables
+let score = 10;
+score += 5;
+console.log(score); // 15
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-const', event)">
+              const
+            </td>
+          </tr>
+          <tr id="detail-tag-const" class="expandable-row-content">
+            <td>
+              <h3>const</h3>
+              <p>The `const` keyword in JavaScript is used to declare variables that are intended to be constant, meaning their values are not supposed to change after they are initialized. Similar to the `let` keyword, `const` creates block-scoped variables. This means that the variable declared with `const` is limited to the block, statement, or expression where it is defined, and cannot be accessed outside of that scope. 
+
+                <br><br>When you declare a variable with `const`, it must be initialized with a value at the time of declaration. This is because `const` variables are read-only after they are assigned a value. Trying to declare a `const` variable without initializing it will result in a syntax error. Once assigned, the variable cannot be reassigned a new value, which helps enforce immutability at the variable level.
+                
+                <br><br>It's important to note that while the `const` keyword prevents reassignment of the variable itself, it does not make the value immutable. For example, if the value assigned to a `const` variable is an object or an array, the contents of that object or array can still be modified. This means you can change the properties of an object or elements of an array, but you cannot reassign the variable to a different object or array. 
+                
+                <br><br>Using `const` for variables that should remain unchanged helps improve code reliability and readability by signaling the intent that the variable's value should not be altered. It also reduces the risk of unintended side effects caused by variable reassignment. However, because `const` is block-scoped like `let`, it can only be accessed within the block it is declared in, and it cannot be redeclared within that same block. 
+                
+                <br><br>In summary, the `const` keyword in JavaScript is used to declare variables with a constant value that should not be reassigned. It provides block scope similar to `let` and enforces immutability for the variable binding itself, though not necessarily for the value it holds if that value is an object or array.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Example 1: Redeclaration in the same block
+const a = 10;
+// const a = 20; // SyntaxError: Identifier 'a' has already been declared
+// a = 20; // TypeError: Assignment to constant variable
+console.log(a); // 10
+
+// Example 2: Redeclaration in nested blocks
+const b = 30;
+{
+  // const b = 40; // SyntaxError: Identifier 'b' has already been declared
+  const c = 50;
+  console.log(c); // 50
+}
+{
+  const b = 40; // Allowed: different block scope
+  console.log(b); // 40
+}
+console.log(b); // 30 (original b)
+
+// Example 3: Redeclaration in functions
+function exampleFunction() {
+  const d = 60;
+  // const d = 70; // SyntaxError: Identifier 'd' has already been declared
+  console.log(d); // 60
+}
+exampleFunction();
+
+// Example 4: Redeclaration in if block
+const condition = true;
+if (condition) {
+  const status = 'active';
+  // const status = 'inactive'; // SyntaxError: Identifier 'status' has already been declared
+  console.log(status); // 'active'
+}
+
+// Example 5: Initializing const without assignment
+// const e; // SyntaxError: Missing initializer in const declaration
+
+// Example 6: Modifying properties of a const object
+const obj = { key: 'value' };
+obj.key = 'newValue'; // Allowed: modifying object properties
+console.log(obj.key); // 'newValue'
+
+// Example 7: Modifying array elements of a const array
+const arr = [1, 2, 3];
+arr[0] = 10; // Allowed: modifying array elements
+console.log(arr[0]); // 10
+
+// Example 8: Block scope with const
+{
+  const f = 70;
+  console.log(f); // 70
+}
+// console.log(f); // ReferenceError: f is not defined
+
+// Example 9: const in loops
+for (const g of [1, 2, 3]) {
+  console.log(g); // 1, 2, 3
+}
+// console.log(g); // ReferenceError: g is not defined
+
+// Example 10: const in a switch case
+const h = 'A';
+switch (h) {
+  case 'A':
+    const grade = 'Excellent';
+    console.log(grade); // 'Excellent'
+    break;
+  case 'B':
+    // const grade = 'Good'; // SyntaxError: Identifier 'grade' has already been declared
+    break;
+  default:
+    const grade = 'Unknown'; // Allowed: different block scope
+    console.log(grade); // 'Unknown'
+}
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          
           <tr>
             <td id="comments" class="tableletters">Comments</td>
           </tr>
@@ -583,16 +790,16 @@ array[1]--;           // 3 (postfix decrement on the second element of the array
     </script>
     <script>
       function toggleDetail(detailId, event) {
-  var detailRow = document.getElementById(detailId);
-  var isExpanded = detailRow.style.display === "table-row";
-  detailRow.style.display = isExpanded ? "none" : "table-row";
+    var detailRow = document.getElementById(detailId);
+    var isExpanded = detailRow.style.display === "table-row";
+    detailRow.style.display = isExpanded ? "none" : "table-row";
 
-  if (isExpanded) {
-    event.target.classList.remove("expanded");
-  } else {
-    event.target.classList.add("expanded");
+    if (isExpanded) {
+      event.target.classList.remove("expanded");
+    } else {
+      event.target.classList.add("expanded");
+    }
   }
-}
-    </script>
+    </script> 
   </body>
 </html>
