@@ -43,12 +43,12 @@
       <div class="alphsort">
         <a href="#variables">Variables</a>
         <a href="#conditionals">Conditionals</a>
-        <a href="#comments">Comments</a>
-        <a href="#data-types">Data Types</a>
         <a href="#ao">Arithmetic Operators</a>
         <a href="#functions">Functions</a>
         <a href="#scope">Scope</a>
         <a href="#arrays">Arrays</a>
+        <a href="#comments">Comments</a>
+        <a href="#data-types">Data Types</a>
       </div>
       <hr />
       <br />
@@ -1079,175 +1079,6 @@ if (value6) {
             <td>
               <h3>best practices</h3>
               <p>Best practices for conditionals in JavaScript focus on writing clear, readable, and efficient code. First, always use strict equality (`===`) and strict inequality (`!==`) to avoid unexpected type coercion, ensuring that both the value and type are compared. Second, keep conditionals simple and avoid deeply nested structures; if a function becomes too complex, consider breaking it into smaller, more manageable pieces. Third, leverage short-circuit evaluation to provide default values or to avoid unnecessary computations. For example, use `||` to set default values and `&&` to execute code only if certain conditions are met. Fourth, use descriptive variable names and comments to make the purpose of the condition clear. Additionally, handle edge cases explicitly and use the `default` case in `switch` statements to cover unexpected values. Finally, when multiple conditions need to be checked, consider using `switch` statements for better readability over multiple `if...else if` statements. Following these practices will result in more maintainable and less error-prone code.</p>
-              <br />
-            </td>
-          </tr>
-          
-          <tr>
-            <td id="comments" class="tableletters">Comments</td>
-          </tr>
-          <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-slc', event)">
-              single line comments
-            </td>
-          </tr>
-          <tr id="detail-tag-slc" class="expandable-row-content">
-            <td>
-              <h3>single line comments</h3>
-              <p>In JavaScript, single-line comments are used to add brief explanations or notes within the code. They are created using two forward slashes //. Everything following the // on that line will be considered a comment and ignored by the JavaScript engine during execution.</p>
-              <h4><u>Specifications</u></h4>
-              <pre>
-           <code class="language-js">
-// This is a single-line comment
-
-// Declare and initialize a variable to store age
-let age = 25;
-           
-// Check if the score is greater than or equal to 80
-let score = 85;
-if (score >= 80) {
-  console.log('Great job!');
-} else {
-  console.log('Keep trying!');
-}    
-
-// Loop through numbers from 1 to 5
-for (let i = 1; i <= 5; i++) {
-  console.log(i); // Output the current number
-}
- 
-// Function to add two numbers
-function add(a, b) {
-  return a + b; // Return the sum
-}
-console.log(add(2, 3)); // Output: 5
-            </code></pre>
-              <br />
-            </td>
-          </tr>
-          <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-mlc', event)">
-              multi line comments
-            </td>
-          </tr>
-          <tr id="detail-tag-mlc" class="expandable-row-content">
-            <td>
-              <h3>multi line comments</h3>
-              <p>Multi-line comments in JavaScript are used to comment out blocks of code or add longer explanations within the code. They start with /* and end with */. Everything between these delimiters is considered a comment and ignored by the JavaScript engine during execution.</p>
-              <h4><u>Specifications</u></h4>
-              <pre>
-           <code class="language-js">
-/*
-  This is a multi-line comment.
-  It can span multiple lines.
-*/
-
-/*
-  Declare and initialize a variable to store the user's age.
-  This value will be used to determine access permissions.
-*/
-let age = 30;
-
-/*
-  Function to greet the user.
-  It prints a welcome message to the console.
-*/
-function greetUser(name) {
-  console.log('Hello, ' + name + '!');
-}
-
-/*
-  Loop through an array of numbers.
-  Print each number to the console.
-*/
-let numbers = [1, 2, 3, 4, 5];
-for (let i = 0; i < numbers.length; i++) {
-  console.log(numbers[i]); // Print the current number
-}
-           </code></pre>
-              <br />
-            </td>
-          </tr>
-
-
-            <td id="data-types" class="tableletters">Data Types</td>
-          </tr>
-          <tr>
-            <td
-              class="clickable"
-              onclick="toggleDetail('detail-tag-data-types', event)"
-            >7 primitive data types & objects
-            </td>
-          </tr>
-          <tr id="detail-tag-data-types" class="expandable-row-content">
-            <td>
-              <h3>7 primitive data types & objects</h3>
-              <p>JavaScript has a variety of data types that can be categorized into primitive types and objects. Primitive types are immutable and compared by value, while objects are mutable and compared by reference.</p>
-              <ol>
-                <li>String: Represents text and is enclosed in quotes.</li>
-                <li>Number: Represents both integers and floating-point numbers.</li>
-                <li>Boolean: Represents true or false values.</li>
-                <li>Boolean: Represents true or false values.</li>
-                <li>Null: Represents the intentional absence of any object value.</li>
-                <li>Symbol: Represents a unique identifier created using the Symbol function.</li>
-                <li>BigInt: Represents integers larger than the maximum safe integer limit for Number.</li>
-                <li>Object: A complex data type that allows you to store collections of data in key-value pairs.</li>
-              </ol>
-
-              <h4><u>Specifications</u></h4>
-              <pre>
-           <code class="language-js">
-// String
-let greeting = "Hello, world!";
-let name = 'Alice';
-let phrase = `JavaScript is fun!`; // Template literals allow for embedded expressions
-
-// Number
-let age = 25;
-let pi = 3.14159;
-let negativeNumber = -42; // Negative number example
-
-// Boolean
-let isStudent = true;
-let hasGraduated = false;
-let isLoggedIn = true;
-
-// Undefined
-let x;
-let y = undefined;
-let z; // Undefined by default when not assigned
-
-// Null
-let emptyValue = null;
-let noValue = null;
-let response = null; // Commonly used to indicate no response or empty result
-
-// Symbol
-let sym1 = Symbol('unique');
-let sym2 = Symbol('unique');
-let sym3 = Symbol(); // Symbol without a description
-
-// BigInt
-let bigInt1 = 1234567890123456789012345678901234567890n;
-let bigInt2 = BigInt(1234567890123456789012345678901234567890);
-let bigInt3 = 9007199254740991n; // Maximum safe integer + 1
-
-// Object
-let person = {
-  name: "Alice",
-  age: 25
-};
-let car = {
-  brand: "Toyota",
-  model: "Corolla"
-};
-let book = {
-  title: "JavaScript: The Good Parts",
-  author: "Douglas Crockford"
-};
-          
-
-</code></pre>
               <br />
             </td>
           </tr>
@@ -3368,6 +3199,174 @@ let removedElement = matrix[0].pop(); // Removes the last element of the first r
 console.log(removedElement); // Output: 3
 console.log(matrix); // Output: [[1, 2], [4, 5, 6], [7, 10, 9], [10, 11, 12]]
             </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td id="comments" class="tableletters">Comments</td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-slc', event)">
+              single line comments
+            </td>
+          </tr>
+          <tr id="detail-tag-slc" class="expandable-row-content">
+            <td>
+              <h3>single line comments</h3>
+              <p>In JavaScript, single-line comments are used to add brief explanations or notes within the code. They are created using two forward slashes //. Everything following the // on that line will be considered a comment and ignored by the JavaScript engine during execution.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// This is a single-line comment
+
+// Declare and initialize a variable to store age
+let age = 25;
+           
+// Check if the score is greater than or equal to 80
+let score = 85;
+if (score >= 80) {
+  console.log('Great job!');
+} else {
+  console.log('Keep trying!');
+}    
+
+// Loop through numbers from 1 to 5
+for (let i = 1; i <= 5; i++) {
+  console.log(i); // Output the current number
+}
+ 
+// Function to add two numbers
+function add(a, b) {
+  return a + b; // Return the sum
+}
+console.log(add(2, 3)); // Output: 5
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-mlc', event)">
+              multi line comments
+            </td>
+          </tr>
+          <tr id="detail-tag-mlc" class="expandable-row-content">
+            <td>
+              <h3>multi line comments</h3>
+              <p>Multi-line comments in JavaScript are used to comment out blocks of code or add longer explanations within the code. They start with /* and end with */. Everything between these delimiters is considered a comment and ignored by the JavaScript engine during execution.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+/*
+  This is a multi-line comment.
+  It can span multiple lines.
+*/
+
+/*
+  Declare and initialize a variable to store the user's age.
+  This value will be used to determine access permissions.
+*/
+let age = 30;
+
+/*
+  Function to greet the user.
+  It prints a welcome message to the console.
+*/
+function greetUser(name) {
+  console.log('Hello, ' + name + '!');
+}
+
+/*
+  Loop through an array of numbers.
+  Print each number to the console.
+*/
+let numbers = [1, 2, 3, 4, 5];
+for (let i = 0; i < numbers.length; i++) {
+  console.log(numbers[i]); // Print the current number
+}
+           </code></pre>
+              <br />
+            </td>
+          </tr>
+
+
+            <td id="data-types" class="tableletters">Data Types</td>
+          </tr>
+          <tr>
+            <td
+              class="clickable"
+              onclick="toggleDetail('detail-tag-data-types', event)"
+            >7 primitive data types & objects
+            </td>
+          </tr>
+          <tr id="detail-tag-data-types" class="expandable-row-content">
+            <td>
+              <h3>7 primitive data types & objects</h3>
+              <p>JavaScript has a variety of data types that can be categorized into primitive types and objects. Primitive types are immutable and compared by value, while objects are mutable and compared by reference.</p>
+              <ol>
+                <li>String: Represents text and is enclosed in quotes.</li>
+                <li>Number: Represents both integers and floating-point numbers.</li>
+                <li>Boolean: Represents true or false values.</li>
+                <li>Boolean: Represents true or false values.</li>
+                <li>Null: Represents the intentional absence of any object value.</li>
+                <li>Symbol: Represents a unique identifier created using the Symbol function.</li>
+                <li>BigInt: Represents integers larger than the maximum safe integer limit for Number.</li>
+                <li>Object: A complex data type that allows you to store collections of data in key-value pairs.</li>
+              </ol>
+
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+let name = 'Alice';
+let phrase = `JavaScript is fun!`; // Template literals allow for embedded expressions
+
+// Number
+let age = 25;
+let pi = 3.14159;
+let negativeNumber = -42; // Negative number example
+
+// Boolean
+let isStudent = true;
+let hasGraduated = false;
+let isLoggedIn = true;
+
+// Undefined
+let x;
+let y = undefined;
+let z; // Undefined by default when not assigned
+
+// Null
+let emptyValue = null;
+let noValue = null;
+let response = null; // Commonly used to indicate no response or empty result
+
+// Symbol
+let sym1 = Symbol('unique');
+let sym2 = Symbol('unique');
+let sym3 = Symbol(); // Symbol without a description
+
+// BigInt
+let bigInt1 = 1234567890123456789012345678901234567890n;
+let bigInt2 = BigInt(1234567890123456789012345678901234567890);
+let bigInt3 = 9007199254740991n; // Maximum safe integer + 1
+
+// Object
+let person = {
+  name: "Alice",
+  age: 25
+};
+let car = {
+  brand: "Toyota",
+  model: "Corolla"
+};
+let book = {
+  title: "JavaScript: The Good Parts",
+  author: "Douglas Crockford"
+};
+          
+
+</code></pre>
               <br />
             </td>
           </tr>
