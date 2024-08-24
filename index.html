@@ -2975,9 +2975,45 @@ console.log(Array.prototype.at.call(arrayLike, 0)); // Output: "a"
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Find the index of a string in an array of strings
+let fruits = ["apple", "banana", "cherry"];
+let indexBanana = fruits.indexOf("banana"); // returns 1
+
+// 2. Find the index of a number in an array of numbers
+let numbers = [10, 20, 30, 40];
+let indexThirty = numbers.indexOf(30); // returns 2
+
+// 3. Case-sensitive search in a string
+let phrase = "Hello World";
+let indexHello = phrase.indexOf("Hello"); // returns 0
+
+// 4. Search for a substring that is not present
+let sentence = "The quick brown fox";
+let indexCat = sentence.indexOf("cat"); // returns -1
+
+// 5. Using indexOf to find the first occurrence of a character in a string
+let text = "banana";
+let indexFirstA = text.indexOf("a"); // returns 1
+
+// 6. Search for an element in an array of objects by string property
+let users = [{name: "Alice"}, {name: "Bob"}, {name: "Charlie"}];
+let indexBob = users.map(user => user.name).indexOf("Bob"); // returns 1
+
+// 7. Using indexOf to find the index of the first whitespace in a string
+let sentenceWithSpaces = "Find the space";
+let indexSpace = sentenceWithSpaces.indexOf(" "); // returns 4
+
+// 8. Using indexOf with the second parameter to start search at a specific position
+let repeatedText = "ababcabc";
+let indexSecondB = repeatedText.indexOf("b", 3); // returns 4
+
+// 9. Find the index of an element in a sparse array
+let sparseArray = [1, , , 4, 5];
+let indexFour = sparseArray.indexOf(4); // returns 3
+
+// 10. Search for the first occurrence of an array element that exists more than once
+let animals = ["dog", "cat", "dog", "bird"];
+let indexDog = animals.indexOf("dog"); // returns 0    
           </code></pre>
               <br />
             </td>
@@ -2992,9 +3028,45 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Find the last occurrence of a string in an array of strings
+let fruits = ["apple", "banana", "cherry", "banana"];
+let lastIndexBanana = fruits.lastIndexOf("banana"); // returns 3
+
+// 2. Find the last occurrence of a number in an array of numbers
+let numbers = [10, 20, 30, 20, 40];
+let lastIndexTwenty = numbers.lastIndexOf(20); // returns 3
+
+// 3. Find the last occurrence of a character in a string
+let text = "hello world";
+let lastIndexL = text.lastIndexOf("l"); // returns 9
+
+// 4. Search for the last occurrence of a substring that is not present
+let sentence = "The quick brown fox";
+let lastIndexCat = sentence.lastIndexOf("cat"); // returns -1
+
+// 5. Using lastIndexOf to find the last occurrence of a whitespace in a string
+let sentenceWithSpaces = "Find the space";
+let lastIndexSpace = sentenceWithSpaces.lastIndexOf(" "); // returns 9
+
+// 6. Using lastIndexOf with a specific starting position
+let phrase = "ababcabc";
+let lastIndexBBefore3 = phrase.lastIndexOf("b", 3); // returns 1
+
+// 7. Find the last occurrence of an element in a sparse array
+let sparseArray = [1, , , 4, 5, 4];
+let lastIndexFour = sparseArray.lastIndexOf(4); // returns 5
+
+// 8. Search for the last occurrence of an array element that exists more than once
+let animals = ["dog", "cat", "dog", "bird"];
+let lastIndexDog = animals.lastIndexOf("dog"); // returns 2
+
+// 9. Using lastIndexOf with an array of mixed data types
+let mixedArray = [10, "10", 10, "ten"];
+let lastIndexOf10 = mixedArray.lastIndexOf(10); // returns 2
+
+// 10. Find the last occurrence of a substring within a larger string
+let longText = "The rain in Spain stays mainly in the plain";
+let lastIndexIn = longText.lastIndexOf("in"); // returns 36        
           </code></pre>
               <br />
             </td>
@@ -3009,9 +3081,47 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Check if an array includes a specific string
+let fruits = ["apple", "banana", "cherry"];
+let includesBanana = fruits.includes("banana"); // returns true
+
+// 2. Check if an array includes a specific number
+let numbers = [10, 20, 30, 40];
+let includesTwenty = numbers.includes(20); // returns true
+
+// 3. Case-sensitive check for a substring in a string
+let phrase = "Hello World";
+let includesHello = phrase.includes("Hello"); // returns true
+
+// 4. Check if a string does not include a specific substring
+let sentence = "The quick brown fox";
+let includesCat = sentence.includes("cat"); // returns false
+
+// 5. Check if an array includes an element, starting the search at a specific index
+let colors = ["red", "green", "blue", "green"];
+let includesGreenAfter2 = colors.includes("green", 2); // returns true
+
+// 6. Check if an array includes a value in a sparse array
+let sparseArray = [1, , , 4, 5];
+let includesFour = sparseArray.includes(4); // returns true
+
+// 7. Using includes to check for a boolean value in an array
+let boolArray = [true, false, false, true];
+let includesTrue = boolArray.includes(true); // returns true
+
+// 8. Check if a string includes a character at a specific position
+let word = "javascript";
+let includesJAfter3 = word.includes("j", 3); // returns false
+
+// 9. Check if an array includes a NaN value
+let mixedArray = [10, "10", NaN, "ten"];
+let includesNaN = mixedArray.includes(NaN); // returns true
+
+// 10. Check if an array includes an object reference
+let obj1 = {name: "Alice"};
+let obj2 = {name: "Bob"};
+let objArray = [obj1, obj2];
+let includesObj1 = objArray.includes(obj1); // returns true    
           </code></pre>
               <br />
             </td>
@@ -3026,9 +3136,59 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Find the first number greater than 20 in an array
+let numbers = [10, 20, 30, 40];
+let firstGreaterThanTwenty = numbers.find(num => num > 20); // returns 30
+
+// 2. Find the first even number in an array
+let mixedNumbers = [1, 3, 7, 8, 10];
+let firstEvenNumber = mixedNumbers.find(num => num % 2 === 0); // returns 8
+
+// 3. Find the first string with length greater than 5
+let words = ["apple", "banana", "cherry", "date"];
+let longWord = words.find(word => word.length > 5); // returns "banana"
+
+// 4. Find the first object with a specific property value
+let users = [
+    {name: "Alice", age: 25},
+    {name: "Bob", age: 30},
+    {name: "Charlie", age: 35}
+];
+let userBob = users.find(user => user.name === "Bob"); // returns {name: "Bob", age: 30}
+
+// 5. Find the first number less than 10 in a descending sorted array
+let descendingNumbers = [50, 40, 30, 20, 10, 5];
+let firstLessThanTen = descendingNumbers.find(num => num < 10); // returns 5
+
+// 6. Find the first string that includes a specific substring
+let phrases = ["The quick brown fox", "jumps over", "the lazy dog"];
+let phraseWithFox = phrases.find(phrase => phrase.includes("fox")); // returns "The quick brown fox"
+
+// 7. Find the first negative number in an array
+let mixedValues = [10, -20, 30, -40];
+let firstNegative = mixedValues.find(num => num < 0); // returns -20
+
+// 8. Find the first element in an array that is an instance of a specific class
+class Car {
+    constructor(make, model) {
+        this.make = make;
+        this.model = model;
+    }
+}
+let vehicles = [
+    new Car("Toyota", "Camry"),
+    {make: "Ford", model: "F-150"},
+    new Car("Honda", "Civic")
+];
+let firstCar = vehicles.find(vehicle => vehicle instanceof Car); // returns Car {make: "Toyota", model: "Camry"}
+
+// 9. Find the first array element that is greater than 100 in a multi-dimensional array
+let multiArray = [[10, 20], [100, 150], [200, 250]];
+let firstGreaterThan100 = multiArray.flat().find(num => num > 100); // returns 150
+
+// 10. Find the first element in a string array that starts with a specific letter
+let names = ["Alice", "Bob", "Charlie", "David"];
+let nameStartingWithC = names.find(name => name.startsWith("C")); // returns "Charlie"     
           </code></pre>
               <br />
             </td>
@@ -3043,9 +3203,59 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Find the index of the first number greater than 20 in an array
+let numbers = [10, 20, 30, 40];
+let indexGreaterThanTwenty = numbers.findIndex(num => num > 20); // returns 2
+
+// 2. Find the index of the first even number in an array
+let mixedNumbers = [1, 3, 7, 8, 10];
+let indexFirstEven = mixedNumbers.findIndex(num => num % 2 === 0); // returns 3
+
+// 3. Find the index of the first string with length greater than 5
+let words = ["apple", "banana", "cherry", "date"];
+let indexLongWord = words.findIndex(word => word.length > 5); // returns 1
+
+// 4. Find the index of the first object with a specific property value
+let users = [
+    {name: "Alice", age: 25},
+    {name: "Bob", age: 30},
+    {name: "Charlie", age: 35}
+];
+let indexBob = users.findIndex(user => user.name === "Bob"); // returns 1
+
+// 5. Find the index of the first number less than 10 in a descending sorted array
+let descendingNumbers = [50, 40, 30, 20, 10, 5];
+let indexFirstLessThanTen = descendingNumbers.findIndex(num => num < 10); // returns 5
+
+// 6. Find the index of the first string that includes a specific substring
+let phrases = ["The quick brown fox", "jumps over", "the lazy dog"];
+let indexPhraseWithFox = phrases.findIndex(phrase => phrase.includes("fox")); // returns 0
+
+// 7. Find the index of the first negative number in an array
+let mixedValues = [10, -20, 30, -40];
+let indexFirstNegative = mixedValues.findIndex(num => num < 0); // returns 1
+
+// 8. Find the index of the first element that is an instance of a specific class
+class Car {
+    constructor(make, model) {
+        this.make = make;
+        this.model = model;
+    }
+}
+let vehicles = [
+    new Car("Toyota", "Camry"),
+    {make: "Ford", model: "F-150"},
+    new Car("Honda", "Civic")
+];
+let indexFirstCar = vehicles.findIndex(vehicle => vehicle instanceof Car); // returns 0
+
+// 9. Find the index of the first array element that is greater than 100 in a multi-dimensional array
+let multiArray = [[10, 20], [100, 150], [200, 250]];
+let indexFirstGreaterThan100 = multiArray.flat().findIndex(num => num > 100); // returns 3
+
+// 10. Find the index of the first element in a string array that starts with a specific letter
+let names = ["Alice", "Bob", "Charlie", "David"];
+let indexNameStartingWithC = names.findIndex(name => name.startsWith("C")); // returns 2      
           </code></pre>
               <br />
             </td>
@@ -3060,9 +3270,60 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Find the last number greater than 20 in an array
+let numbers = [10, 20, 30, 40];
+let lastGreaterThanTwenty = numbers.findLast(num => num > 20); // returns 40
+
+// 2. Find the last even number in an array
+let mixedNumbers = [1, 3, 7, 8, 10];
+let lastEvenNumber = mixedNumbers.findLast(num => num % 2 === 0); // returns 10
+
+// 3. Find the last string with length greater than 5
+let words = ["apple", "banana", "cherry", "date"];
+let lastLongWord = words.findLast(word => word.length > 5); // returns "banana"
+
+// 4. Find the last object with a specific property value
+let users = [
+    {name: "Alice", age: 25},
+    {name: "Bob", age: 30},
+    {name: "Charlie", age: 35},
+    {name: "Bob", age: 40}
+];
+let lastUserBob = users.findLast(user => user.name === "Bob"); // returns {name: "Bob", age: 40}
+
+// 5. Find the last number less than 10 in an array
+let mixedNumbers2 = [50, 5, 40, 10, 3];
+let lastLessThanTen = mixedNumbers2.findLast(num => num < 10); // returns 3
+
+// 6. Find the last string that includes a specific substring
+let phrases = ["The quick brown fox", "jumps over", "the lazy dog", "over the moon"];
+let lastPhraseWithOver = phrases.findLast(phrase => phrase.includes("over")); // returns "over the moon"
+
+// 7. Find the last negative number in an array
+let mixedValues = [10, -20, 30, -40, 50];
+let lastNegative = mixedValues.findLast(num => num < 0); // returns -40
+
+// 8. Find the last element in an array that is an instance of a specific class
+class Animal {
+    constructor(type) {
+        this.type = type;
+    }
+}
+let creatures = [
+    new Animal("Dog"),
+    {type: "Cat"},
+    new Animal("Bird"),
+    {type: "Fish"}
+];
+let lastAnimal = creatures.findLast(creature => creature instanceof Animal); // returns Animal {type: "Bird"}
+
+// 9. Find the last array element that is greater than 100 in a multi-dimensional array
+let multiArray = [[10, 20], [100, 150], [200, 250]];
+let lastGreaterThan100 = multiArray.flat().findLast(num => num > 100); // returns 250
+
+// 10. Find the last element in a string array that starts with a specific letter
+let names = ["Alice", "Bob", "Charlie", "David", "Charles"];
+let lastNameStartingWithC = names.findLast(name => name.startsWith("C")); // returns "Charles"   
           </code></pre>
               <br />
             </td>
@@ -3077,9 +3338,60 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Find the last index of a number greater than 20 in an array
+let numbers = [10, 20, 30, 40];
+let lastIndexGreaterThanTwenty = numbers.findLastIndex(num => num > 20); // returns 3
+
+// 2. Find the last index of an even number in an array
+let mixedNumbers = [1, 3, 7, 8, 10];
+let lastIndexEvenNumber = mixedNumbers.findLastIndex(num => num % 2 === 0); // returns 4
+
+// 3. Find the last index of a string with length greater than 5
+let words = ["apple", "banana", "cherry", "date"];
+let lastIndexLongWord = words.findLastIndex(word => word.length > 5); // returns 1
+
+// 4. Find the last index of an object with a specific property value
+let users = [
+    {name: "Alice", age: 25},
+    {name: "Bob", age: 30},
+    {name: "Charlie", age: 35},
+    {name: "Bob", age: 40}
+];
+let lastIndexUserBob = users.findLastIndex(user => user.name === "Bob"); // returns 3
+
+// 5. Find the last index of a number less than 10 in an array
+let mixedNumbers2 = [50, 5, 40, 10, 3];
+let lastIndexLessThanTen = mixedNumbers2.findLastIndex(num => num < 10); // returns 4
+
+// 6. Find the last index of a string that includes a specific substring
+let phrases = ["The quick brown fox", "jumps over", "the lazy dog", "over the moon"];
+let lastIndexPhraseWithOver = phrases.findLastIndex(phrase => phrase.includes("over")); // returns 3
+
+// 7. Find the last index of a negative number in an array
+let mixedValues = [10, -20, 30, -40, 50];
+let lastIndexNegative = mixedValues.findLastIndex(num => num < 0); // returns 3
+
+// 8. Find the last index of an element in an array that is an instance of a specific class
+class Animal {
+    constructor(type) {
+        this.type = type;
+    }
+}
+let creatures = [
+    new Animal("Dog"),
+    {type: "Cat"},
+    new Animal("Bird"),
+    {type: "Fish"}
+];
+let lastIndexAnimal = creatures.findLastIndex(creature => creature instanceof Animal); // returns 2
+
+// 9. Find the last index of an array element that is greater than 100 in a multi-dimensional array
+let multiArray = [[10, 20], [100, 150], [200, 250]];
+let lastIndexGreaterThan100 = multiArray.flat().findLastIndex(num => num > 100); // returns 5
+
+// 10. Find the last index of an element in a string array that starts with a specific letter
+let names = ["Alice", "Bob", "Charlie", "David", "Charles"];
+let lastIndexNameStartingWithC = names.findLastIndex(name => name.startsWith("C")); // returns 4 
           </code></pre>
               <br />
             </td>
@@ -3094,9 +3406,107 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Get entries of an array of numbers and iterate through them
+let numbers = [10, 20, 30];
+let entriesNumbers = numbers.entries();
+for (let [index, value] of entriesNumbers) {
+  console.log(`Index: ${index}, Value: ${value}`);
+}
+// Output:
+// Index: 0, Value: 10
+// Index: 1, Value: 20
+// Index: 2, Value: 30
+
+// 2. Get entries of a string array
+let fruits = ["apple", "banana", "cherry"];
+let entriesFruits = fruits.entries();
+for (let [index, value] of entriesFruits) {
+  console.log(`Index: ${index}, Value: ${value}`);
+}
+// Output:
+// Index: 0, Value: apple
+// Index: 1, Value: banana
+// Index: 2, Value: cherry
+
+// 3. Get entries of a mixed array (numbers and strings)
+let mixedArray = [1, "two", 3];
+let entriesMixedArray = mixedArray.entries();
+for (let [index, value] of entriesMixedArray) {
+  console.log(`Index: ${index}, Value: ${value}`);
+}
+// Output:
+// Index: 0, Value: 1
+// Index: 1, Value: two
+// Index: 2, Value: 3
+
+// 4. Use entries to iterate over an array of objects
+let users = [
+  {name: "Alice", age: 25},
+  {name: "Bob", age: 30},
+  {name: "Charlie", age: 35}
+];
+let entriesUsers = users.entries();
+for (let [index, user] of entriesUsers) {
+  console.log(`Index: ${index}, Name: ${user.name}, Age: ${user.age}`);
+}
+// Output:
+// Index: 0, Name: Alice, Age: 25
+// Index: 1, Name: Bob, Age: 30
+// Index: 2, Name: Charlie, Age: 35
+
+// 5. Use entries to iterate over an array and modify values
+let letters = ["a", "b", "c"];
+let entriesLetters = letters.entries();
+for (let [index, value] of entriesLetters) {
+  letters[index] = value.toUpperCase();
+}
+console.log(letters); // Output: ["A", "B", "C"]
+
+// 6. Get entries of an array with sparse elements
+let sparseArray = [10, , 30];
+let entriesSparse = sparseArray.entries();
+for (let [index, value] of entriesSparse) {
+  console.log(`Index: ${index}, Value: ${value}`);
+}
+// Output:
+// Index: 0, Value: 10
+// Index: 1, Value: undefined
+// Index: 2, Value: 30
+
+// 7. Convert an entries iterator into an array
+let colors = ["red", "green", "blue"];
+let entriesColors = colors.entries();
+let entriesArray = Array.from(entriesColors);
+console.log(entriesArray);
+// Output: [[0, "red"], [1, "green"], [2, "blue"]]
+
+// 8. Iterate over a nested array using entries
+let nestedArray = [["a", "b"], ["c", "d"]];
+let entriesNested = nestedArray.entries();
+for (let [index, value] of entriesNested) {
+  console.log(`Index: ${index}, Value: ${value}`);
+}
+// Output:
+// Index: 0, Value: a,b
+// Index: 1, Value: c,d
+
+// 9. Use entries with a for...of loop to iterate through an array of booleans
+let boolArray = [true, false, true];
+let entriesBoolArray = boolArray.entries();
+for (let [index, value] of entriesBoolArray) {
+  console.log(`Index: ${index}, Value: ${value}`);
+}
+// Output:
+// Index: 0, Value: true
+// Index: 1, Value: false
+// Index: 2, Value: true
+
+// 10. Get entries of an array and map them to a new array with modified values
+let scores = [100, 200, 300];
+let entriesScores = scores.entries();
+let modifiedScores = Array.from(entriesScores, ([index, value]) => [index, value + 10]);
+console.log(modifiedScores);
+// Output: [[0, 110], [1, 210], [2, 310]]  
           </code></pre>
               <br />
             </td>
@@ -3111,9 +3521,107 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Get the keys (indices) of an array of numbers and iterate through them
+let numbers = [10, 20, 30];
+let keysNumbers = numbers.keys();
+for (let key of keysNumbers) {
+  console.log(`Key: ${key}`);
+}
+// Output:
+// Key: 0
+// Key: 1
+// Key: 2
+
+// 2. Get the keys of an array of strings
+let fruits = ["apple", "banana", "cherry"];
+let keysFruits = fruits.keys();
+for (let key of keysFruits) {
+  console.log(`Key: ${key}`);
+}
+// Output:
+// Key: 0
+// Key: 1
+// Key: 2
+
+// 3. Get the keys of a mixed array (numbers and strings)
+let mixedArray = [1, "two", 3];
+let keysMixedArray = mixedArray.keys();
+for (let key of keysMixedArray) {
+  console.log(`Key: ${key}`);
+}
+// Output:
+// Key: 0
+// Key: 1
+// Key: 2
+
+// 4. Use keys to iterate over the indices of an array of objects
+let users = [
+  {name: "Alice", age: 25},
+  {name: "Bob", age: 30},
+  {name: "Charlie", age: 35}
+];
+let keysUsers = users.keys();
+for (let key of keysUsers) {
+  console.log(`Key: ${key}`);
+}
+// Output:
+// Key: 0
+// Key: 1
+// Key: 2
+
+// 5. Use keys to iterate over the indices of a sparse array
+let sparseArray = [10, , 30];
+let keysSparse = sparseArray.keys();
+for (let key of keysSparse) {
+  console.log(`Key: ${key}`);
+}
+// Output:
+// Key: 0
+// Key: 1
+// Key: 2
+
+// 6. Get the keys of an array and convert them to an array using Array.from()
+let colors = ["red", "green", "blue"];
+let keysColors = colors.keys();
+let keysArray = Array.from(keysColors);
+console.log(keysArray);
+// Output: [0, 1, 2]
+
+// 7. Iterate over the keys of a nested array
+let nestedArray = [["a", "b"], ["c", "d"]];
+let keysNested = nestedArray.keys();
+for (let key of keysNested) {
+  console.log(`Key: ${key}`);
+}
+// Output:
+// Key: 0
+// Key: 1
+
+// 8. Use keys with a for...of loop to iterate through the indices of an array of booleans
+let boolArray = [true, false, true];
+let keysBoolArray = boolArray.keys();
+for (let key of keysBoolArray) {
+  console.log(`Key: ${key}`);
+}
+// Output:
+// Key: 0
+// Key: 1
+// Key: 2
+
+// 9. Get the keys of an array and map them to a new array of doubled indices
+let scores = [100, 200, 300];
+let keysScores = scores.keys();
+let doubledKeys = Array.from(keysScores, key => key * 2);
+console.log(doubledKeys);
+// Output: [0, 2, 4]
+
+// 10. Get the keys of an empty array
+let emptyArray = [];
+let keysEmpty = emptyArray.keys();
+for (let key of keysEmpty) {
+  console.log(`Key: ${key}`);
+}
+// Output: (No output as the array is empty)
           </code></pre>
               <br />
             </td>
@@ -3128,9 +3636,107 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Get the values of an array of numbers and iterate through them
+let numbers = [10, 20, 30];
+let valuesNumbers = numbers.values();
+for (let value of valuesNumbers) {
+  console.log(`Value: ${value}`);
+}
+// Output:
+// Value: 10
+// Value: 20
+// Value: 30
+
+// 2. Get the values of an array of strings
+let fruits = ["apple", "banana", "cherry"];
+let valuesFruits = fruits.values();
+for (let value of valuesFruits) {
+  console.log(`Value: ${value}`);
+}
+// Output:
+// Value: apple
+// Value: banana
+// Value: cherry
+
+// 3. Get the values of a mixed array (numbers and strings)
+let mixedArray = [1, "two", 3];
+let valuesMixedArray = mixedArray.values();
+for (let value of valuesMixedArray) {
+  console.log(`Value: ${value}`);
+}
+// Output:
+// Value: 1
+// Value: two
+// Value: 3
+
+// 4. Use values to iterate over an array of objects
+let users = [
+  {name: "Alice", age: 25},
+  {name: "Bob", age: 30},
+  {name: "Charlie", age: 35}
+];
+let valuesUsers = users.values();
+for (let value of valuesUsers) {
+  console.log(`Name: ${value.name}, Age: ${value.age}`);
+}
+// Output:
+// Name: Alice, Age: 25
+// Name: Bob, Age: 30
+// Name: Charlie, Age: 35
+
+// 5. Use values to iterate over a sparse array
+let sparseArray = [10, , 30];
+let valuesSparse = sparseArray.values();
+for (let value of valuesSparse) {
+  console.log(`Value: ${value}`);
+}
+// Output:
+// Value: 10
+// Value: undefined
+// Value: 30
+
+// 6. Get the values of an array and convert them to an array using Array.from()
+let colors = ["red", "green", "blue"];
+let valuesColors = colors.values();
+let valuesArray = Array.from(valuesColors);
+console.log(valuesArray);
+// Output: ["red", "green", "blue"]
+
+// 7. Iterate over the values of a nested array
+let nestedArray = [["a", "b"], ["c", "d"]];
+let valuesNested = nestedArray.values();
+for (let value of valuesNested) {
+  console.log(`Value: ${value}`);
+}
+// Output:
+// Value: a,b
+// Value: c,d
+
+// 8. Use values with a for...of loop to iterate through the values of an array of booleans
+let boolArray = [true, false, true];
+let valuesBoolArray = boolArray.values();
+for (let value of valuesBoolArray) {
+  console.log(`Value: ${value}`);
+}
+// Output:
+// Value: true
+// Value: false
+// Value: true
+
+// 9. Get the values of an array and map them to a new array of doubled values
+let scores = [100, 200, 300];
+let valuesScores = scores.values();
+let doubledValues = Array.from(valuesScores, value => value * 2);
+console.log(doubledValues);
+// Output: [200, 400, 600]
+
+// 10. Get the values of an empty array
+let emptyArray = [];
+let valuesEmpty = emptyArray.values();
+for (let value of valuesEmpty) {
+  console.log(`Value: ${value}`);
+}
+// Output: (No output as the array is empty)   
           </code></pre>
               <br />
             </td>
@@ -3148,9 +3754,73 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Concatenate two arrays of numbers
+let array1 = [1, 2, 3];
+let array2 = [4, 5, 6];
+let concatenatedArray = array1.concat(array2);
+console.log(concatenatedArray); 
+// Output: [1, 2, 3, 4, 5, 6]
+
+// 2. Concatenate multiple arrays of strings
+let fruits1 = ["apple", "banana"];
+let fruits2 = ["cherry", "date"];
+let fruits3 = ["elderberry", "fig"];
+let allFruits = fruits1.concat(fruits2, fruits3);
+console.log(allFruits); 
+// Output: ["apple", "banana", "cherry", "date", "elderberry", "fig"]
+
+// 3. Concatenate an array with additional elements
+let numbers = [10, 20, 30];
+let moreNumbers = numbers.concat(40, 50);
+console.log(moreNumbers); 
+// Output: [10, 20, 30, 40, 50]
+
+// 4. Concatenate nested arrays
+let nestedArray1 = [[1], [2]];
+let nestedArray2 = [[3], [4]];
+let concatenatedNestedArray = nestedArray1.concat(nestedArray2);
+console.log(concatenatedNestedArray); 
+// Output: [[1], [2], [3], [4]]
+
+// 5. Concatenate arrays with different types of elements
+let mixedArray1 = [1, "two"];
+let mixedArray2 = [true, {name: "Alice"}];
+let concatenatedMixedArray = mixedArray1.concat(mixedArray2);
+console.log(concatenatedMixedArray); 
+// Output: [1, "two", true, {name: "Alice"}]
+
+// 6. Concatenate arrays with empty arrays
+let arrayWithEmpty = [1, 2, 3];
+let emptyArray = [];
+let resultArray = arrayWithEmpty.concat(emptyArray);
+console.log(resultArray); 
+// Output: [1, 2, 3]
+
+// 7. Concatenate an array with itself
+let letters = ["a", "b", "c"];
+let repeatedLetters = letters.concat(letters);
+console.log(repeatedLetters); 
+// Output: ["a", "b", "c", "a", "b", "c"]
+
+// 8. Concatenate arrays and non-array values
+let values = [100, 200];
+let moreValues = values.concat(300, [400, 500]);
+console.log(moreValues); 
+// Output: [100, 200, 300, 400, 500]
+
+// 9. Concatenate arrays with undefined values
+let numbersWithUndefined = [1, 2, undefined];
+let moreNumbersWithUndefined = [undefined, 3, 4];
+let concatenatedWithUndefined = numbersWithUndefined.concat(moreNumbersWithUndefined);
+console.log(concatenatedWithUndefined); 
+// Output: [1, 2, undefined, undefined, 3, 4]
+
+// 10. Concatenate arrays of objects
+let objects1 = [{name: "Alice"}, {name: "Bob"}];
+let objects2 = [{name: "Charlie"}, {name: "David"}];
+let concatenatedObjects = objects1.concat(objects2);
+console.log(concatenatedObjects); 
+// Output: [{name: "Alice"}, {name: "Bob"}, {name: "Charlie"}, {name: "David"}]  
           </code></pre>
               <br />
             </td>
@@ -3165,9 +3835,65 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Copy elements within the same array (starting from index 0 to index 2) to index 3
+let array1 = [1, 2, 3, 4, 5];
+array1.copyWithin(3, 0, 2);
+console.log(array1); 
+// Output: [1, 2, 3, 1, 2]
+
+// 2. Copy elements to the beginning of the array
+let array2 = [10, 20, 30, 40, 50];
+array2.copyWithin(0, 3);
+console.log(array2); 
+// Output: [40, 50, 30, 40, 50]
+
+// 3. Copy elements to a specific index in the array
+let array3 = ["a", "b", "c", "d", "e"];
+array3.copyWithin(1, 3, 4);
+console.log(array3); 
+// Output: ["a", "d", "c", "d", "e"]
+
+// 4. Copy elements within the array using negative indices
+let array4 = [1, 2, 3, 4, 5];
+array4.copyWithin(-2, 0, 2);
+console.log(array4); 
+// Output: [1, 2, 3, 1, 2]
+
+// 5. Copy the entire array starting from index 2 to the start of the array
+let array5 = ["x", "y", "z"];
+array5.copyWithin(0, 2);
+console.log(array5); 
+// Output: ["z", "y", "z"]
+
+// 6. Copy a part of the array to overwrite itself
+let array6 = [1, 2, 3, 4, 5];
+array6.copyWithin(2, 1, 4);
+console.log(array6); 
+// Output: [1, 2, 2, 3, 4]
+
+// 7. Copy elements to the same position (no changes to the array)
+let array7 = [10, 20, 30, 40];
+array7.copyWithin(1, 1);
+console.log(array7); 
+// Output: [10, 20, 30, 40]
+
+// 8. Use copyWithin with no end parameter (copies from index 2 to end)
+let array8 = ["a", "b", "c", "d"];
+array8.copyWithin(1, 2);
+console.log(array8); 
+// Output: ["a", "c", "d", "d"]
+
+// 9. Copy the first two elements to the end of the array
+let array9 = [5, 10, 15, 20];
+array9.copyWithin(-2, 0, 2);
+console.log(array9); 
+// Output: [5, 10, 5, 10]
+
+// 10. Copy elements within an array of objects
+let array10 = [{a: 1}, {b: 2}, {c: 3}, {d: 4}];
+array10.copyWithin(2, 0, 2);
+console.log(array10); 
+// Output: [{a: 1}, {b: 2}, {a: 1}, {b: 2}]
           </code></pre>
               <br />
             </td>
@@ -3182,9 +3908,65 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Fill the entire array with a single value
+let array1 = [1, 2, 3, 4, 5];
+array1.fill(0);
+console.log(array1); 
+// Output: [0, 0, 0, 0, 0]
+
+// 2. Fill the array with a value starting from a specific index
+let array2 = [1, 2, 3, 4, 5];
+array2.fill(9, 2);
+console.log(array2); 
+// Output: [1, 2, 9, 9, 9]
+
+// 3. Fill the array with a value between two specific indices
+let array3 = [1, 2, 3, 4, 5];
+array3.fill(7, 1, 3);
+console.log(array3); 
+// Output: [1, 7, 7, 4, 5]
+
+// 4. Fill the array with a string value
+let array4 = [1, 2, 3, 4, 5];
+array4.fill("x");
+console.log(array4); 
+// Output: ["x", "x", "x", "x", "x"]
+
+// 5. Fill the array with an object reference
+let array5 = [1, 2, 3];
+array5.fill({a: 1});
+console.log(array5); 
+// Output: [{a: 1}, {a: 1}, {a: 1}]
+
+// 6. Fill only the last two elements of the array
+let array6 = [1, 2, 3, 4, 5];
+array6.fill(8, -2);
+console.log(array6); 
+// Output: [1, 2, 3, 8, 8]
+
+// 7. Fill the array using a negative start index and end index
+let array7 = [1, 2, 3, 4, 5];
+array7.fill(6, -3, -1);
+console.log(array7); 
+// Output: [1, 2, 6, 6, 5]
+
+// 8. Fill a sparse array
+let array8 = new Array(5);
+array8.fill(4);
+console.log(array8); 
+// Output: [4, 4, 4, 4, 4]
+
+// 9. Fill the array with boolean values
+let array9 = [0, 1, 2, 3];
+array9.fill(true, 1, 3);
+console.log(array9); 
+// Output: [0, true, true, 3]
+
+// 10. Fill an array with null values
+let array10 = [5, 10, 15, 20];
+array10.fill(null);
+console.log(array10); 
+// Output: [null, null, null, null]   
           </code></pre>
               <br />
             </td>
@@ -3199,9 +3981,78 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Filter out numbers greater than 10
+let numbers = [5, 10, 15, 20];
+let filteredNumbers = numbers.filter(num => num > 10);
+console.log(filteredNumbers); 
+// Output: [15, 20]
+
+// 2. Filter out odd numbers
+let mixedNumbers = [1, 2, 3, 4, 5];
+let evenNumbers = mixedNumbers.filter(num => num % 2 === 0);
+console.log(evenNumbers); 
+// Output: [2, 4]
+
+// 3. Filter strings with length greater than 3
+let strings = ["a", "abc", "abcd", "abcde"];
+let longStrings = strings.filter(str => str.length > 3);
+console.log(longStrings); 
+// Output: ["abcd", "abcde"]
+
+// 4. Filter out falsy values from an array
+let values = [0, "hello", false, 42, "", null];
+let truthyValues = values.filter(Boolean);
+console.log(truthyValues); 
+// Output: ["hello", 42]
+
+// 5. Filter an array of objects by a property value
+let users = [
+    {name: "Alice", age: 25},
+    {name: "Bob", age: 20},
+    {name: "Charlie", age: 30}
+];
+let adults = users.filter(user => user.age >= 21);
+console.log(adults); 
+// Output: [{name: "Alice", age: 25}, {name: "Charlie", age: 30}]
+
+// 6. Filter elements in an array that are strings
+let mixedArray = [1, "two", 3, "four", 5];
+let stringsOnly = mixedArray.filter(item => typeof item === "string");
+console.log(stringsOnly); 
+// Output: ["two", "four"]
+
+// 7. Filter array elements that contain a specific substring
+let phrases = ["apple pie", "banana split", "cherry tart"];
+let withApple = phrases.filter(phrase => phrase.includes("apple"));
+console.log(withApple); 
+// Output: ["apple pie"]
+
+// 8. Filter elements that are instances of a specific class
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+}
+let animals = [new Animal("Dog"), {type: "Cat"}, new Animal("Bird")];
+let onlyAnimals = animals.filter(item => item instanceof Animal);
+console.log(onlyAnimals); 
+// Output: [Animal {name: "Dog"}, Animal {name: "Bird"}]
+
+// 9. Filter numbers in an array that are prime
+let primes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].filter(num => {
+    for (let i = 2; i < num; i++) {
+        if (num % i === 0) return false;
+    }
+    return num > 1;
+});
+console.log(primes); 
+// Output: [2, 3, 5, 7]
+
+// 10. Filter an array of nested arrays to only include arrays with a specific length
+let nestedArrays = [[1, 2], [3, 4, 5], [6]];
+let lengthTwo = nestedArrays.filter(arr => arr.length === 2);
+console.log(lengthTwo); 
+// Output: [[1, 2]]
           </code></pre>
               <br />
             </td>
@@ -3216,9 +4067,69 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Double each number in an array
+let numbers = [1, 2, 3, 4];
+let doubled = numbers.map(num => num * 2);
+console.log(doubled); 
+// Output: [2, 4, 6, 8]
+
+// 2. Convert an array of strings to uppercase
+let strings = ["hello", "world"];
+let uppercased = strings.map(str => str.toUpperCase());
+console.log(uppercased); 
+// Output: ["HELLO", "WORLD"]
+
+// 3. Extract a specific property from an array of objects
+let users = [
+    {name: "Alice", age: 25},
+    {name: "Bob", age: 30},
+    {name: "Charlie", age: 35}
+];
+let names = users.map(user => user.name);
+console.log(names); 
+// Output: ["Alice", "Bob", "Charlie"]
+
+// 4. Add a suffix to each string in an array
+let fruits = ["apple", "banana", "cherry"];
+let suffixedFruits = fruits.map(fruit => fruit + " pie");
+console.log(suffixedFruits); 
+// Output: ["apple pie", "banana pie", "cherry pie"]
+
+// 5. Create an array of object keys as an array of arrays
+let objArray = [{a: 1}, {b: 2}, {c: 3}];
+let keysArray = objArray.map(obj => Object.keys(obj));
+console.log(keysArray); 
+// Output: [["a"], ["b"], ["c"]]
+
+// 6. Calculate the square of each number in an array
+let nums = [1, 2, 3, 4];
+let squares = nums.map(num => num ** 2);
+console.log(squares); 
+// Output: [1, 4, 9, 16]
+
+// 7. Format an array of numbers as currency strings
+let amounts = [100, 200, 300];
+let formattedAmounts = amounts.map(amount => `$${amount.toFixed(2)}`);
+console.log(formattedAmounts); 
+// Output: ["$100.00", "$200.00", "$300.00"]
+
+// 8. Convert an array of boolean values to their opposite
+let booleans = [true, false, true, false];
+let opposites = booleans.map(bool => !bool);
+console.log(opposites); 
+// Output: [false, true, false, true]
+
+// 9. Create an array of lengths of strings
+let words = ["cat", "elephant", "giraffe"];
+let lengths = words.map(word => word.length);
+console.log(lengths); 
+// Output: [3, 8, 7]
+
+// 10. Generate an array of HTML list items from an array of strings
+let items = ["item1", "item2", "item3"];
+let htmlListItems = items.map(item => `<li>${item}</li>`);
+console.log(htmlListItems); 
+// Output: ["<li>item1</li>", "<li>item2</li>", "<li>item3</li>"]       
           </code></pre>
               <br />
             </td>
@@ -3233,9 +4144,65 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Flatten a simple nested array by one level
+let array1 = [1, [2, 3], [4, 5]];
+let flatArray1 = array1.flat();
+console.log(flatArray1); 
+// Output: [1, 2, 3, 4, 5]
+
+// 2. Flatten a deeply nested array by one level
+let array2 = [1, [2, [3, 4]], 5];
+let flatArray2 = array2.flat();
+console.log(flatArray2); 
+// Output: [1, 2, [3, 4], 5]
+
+// 3. Flatten a deeply nested array completely (using Infinity)
+let array3 = [1, [2, [3, [4, 5]]]];
+let flatArray3 = array3.flat(Infinity);
+console.log(flatArray3); 
+// Output: [1, 2, 3, 4, 5]
+
+// 4. Flatten an array with empty slots (sparse array)
+let array4 = [1, , 3, [4, 5]];
+let flatArray4 = array4.flat();
+console.log(flatArray4); 
+// Output: [1, 3, 4, 5]
+
+// 5. Flatten an array of arrays and filter out `null` values
+let array5 = [[1, 2], [3, null], [4, 5]];
+let flatArray5 = array5.flat().filter(x => x !== null);
+console.log(flatArray5); 
+// Output: [1, 2, 3, 4, 5]
+
+// 6. Flatten a 3-level nested array by two levels
+let array6 = [1, [2, [3, 4]], 5];
+let flatArray6 = array6.flat(2);
+console.log(flatArray6); 
+// Output: [1, 2, 3, 4, 5]
+
+// 7. Flatten an array of objects with arrays as properties
+let array7 = [{a: [1, 2]}, {b: [3, 4]}, {c: [5]}];
+let flatArray7 = array7.map(obj => Object.values(obj).flat());
+console.log(flatArray7); 
+// Output: [[1, 2], [3, 4], [5]]
+
+// 8. Flatten an array with a mix of strings and nested arrays
+let array8 = ["a", ["b", "c"], ["d", ["e", "f"]]];
+let flatArray8 = array8.flat(2);
+console.log(flatArray8); 
+// Output: ["a", "b", "c", "d", "e", "f"]
+
+// 9. Flatten an array containing boolean values and nested arrays
+let array9 = [true, [false, [true, false]]];
+let flatArray9 = array9.flat(Infinity);
+console.log(flatArray9); 
+// Output: [true, false, true, false]
+
+// 10. Flatten an array of arrays where each sub-array has different depths
+let array10 = [[1, 2, [3]], [[4, 5]], 6];
+let flatArray10 = array10.flat(2);
+console.log(flatArray10); 
+// Output: [1, 2, 3, 4, 5, 6]  
           </code></pre>
               <br />
             </td>
@@ -3250,9 +4217,66 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Map each element to an array and flatten the result by one level
+let numbers = [1, 2, 3];
+let doubledAndFlattened = numbers.flatMap(num => [num, num * 2]);
+console.log(doubledAndFlattened);
+// Output: [1, 2, 2, 4, 3, 6]
+
+// 2. Split each string in an array into characters and flatten the result
+let words = ["hello", "world"];
+let chars = words.flatMap(word => word.split(''));
+console.log(chars);
+// Output: ["h", "e", "l", "l", "o", "w", "o", "r", "l", "d"]
+
+// 3. Map and remove `null` values in a single step
+let numbersWithNull = [1, null, 2, null, 3];
+let noNulls = numbersWithNull.flatMap(num => num !== null ? [num] : []);
+console.log(noNulls);
+// Output: [1, 2, 3]
+
+// 4. Map and add extra elements
+let nums = [1, 2, 3];
+let withExtraZeros = nums.flatMap(num => [num, 0]);
+console.log(withExtraZeros);
+// Output: [1, 0, 2, 0, 3, 0]
+
+// 5. Flatten an array of arrays and double each number
+let arrayOfArrays = [[1, 2], [3, 4], [5, 6]];
+let doubledNumbers = arrayOfArrays.flatMap(arr => arr.map(num => num * 2));
+console.log(doubledNumbers);
+// Output: [2, 4, 6, 8, 10, 12]
+
+// 6. Extract and flatten values from objects within an array
+let people = [{name: "Alice", skills: ["JS", "React"]}, {name: "Bob", skills: ["Python", "Django"]}];
+let allSkills = people.flatMap(person => person.skills);
+console.log(allSkills);
+// Output: ["JS", "React", "Python", "Django"]
+
+// 7. Flatten arrays and add indices as extra elements
+let items = ["a", "b", "c"];
+let itemsWithIndex = items.flatMap((item, index) => [item, index]);
+console.log(itemsWithIndex);
+// Output: ["a", 0, "b", 1, "c", 2]
+
+// 8. Map and flatten nested objects
+let nestedObjects = [{a: {x: 1}}, {b: {y: 2}}, {c: {z: 3}}];
+let flattenedObjects = nestedObjects.flatMap(obj => Object.values(obj));
+console.log(flattenedObjects);
+// Output: [{x: 1}, {y: 2}, {z: 3}]
+
+// 9. Create pairs of elements from two arrays
+let arr1 = [1, 2];
+let arr2 = ["a", "b"];
+let pairs = arr1.flatMap(num => arr2.map(letter => [num, letter]));
+console.log(pairs);
+// Output: [[1, "a"], [1, "b"], [2, "a"], [2, "b"]]
+
+// 10. Map and flatten numbers by converting them to ranges
+let ranges = [1, 4, 7];
+let expandedRanges = ranges.flatMap(num => [num, num + 1, num + 2]);
+console.log(expandedRanges);
+// Output: [1, 2, 3, 4, 5, 6, 7, 8, 9]
           </code></pre>
               <br />
             </td>
@@ -3267,9 +4291,70 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Extract a portion of an array
+let numbers = [1, 2, 3, 4, 5];
+let slicedNumbers = numbers.slice(1, 4);
+console.log(slicedNumbers); 
+// Output: [2, 3, 4]
+
+// 2. Slice the first two elements of an array
+let fruits = ["apple", "banana", "cherry", "date"];
+let firstTwoFruits = fruits.slice(0, 2);
+console.log(firstTwoFruits); 
+// Output: ["apple", "banana"]
+
+// 3. Slice from a specific index to the end of the array
+let letters = ["a", "b", "c", "d", "e"];
+let slicedFromC = letters.slice(2);
+console.log(slicedFromC); 
+// Output: ["c", "d", "e"]
+
+// 4. Slice the last two elements of an array using negative indices
+let colors = ["red", "green", "blue", "yellow"];
+let lastTwoColors = colors.slice(-2);
+console.log(lastTwoColors); 
+// Output: ["blue", "yellow"]
+
+// 5. Create a shallow copy of an array using slice
+let originalArray = [1, 2, 3];
+let copiedArray = originalArray.slice();
+console.log(copiedArray); 
+// Output: [1, 2, 3]
+
+// 6. Slice an array without the first and last elements
+let arrayWithBounds = [10, 20, 30, 40, 50];
+let middleElements = arrayWithBounds.slice(1, -1);
+console.log(middleElements); 
+// Output: [20, 30, 40]
+
+// 7. Slice a string into an array of characters
+let str = "JavaScript";
+let slicedStr = str.split("").slice(4);
+console.log(slicedStr); 
+// Output: ["S", "c", "r", "i", "p", "t"]
+
+// 8. Slice a portion of a nested array
+let nestedArray = [[1, 2], [3, 4], [5, 6], [7, 8]];
+let slicedNested = nestedArray.slice(1, 3);
+console.log(slicedNested); 
+// Output: [[3, 4], [5, 6]]
+
+// 9. Slice an array of objects based on indices
+let users = [
+    {name: "Alice", age: 25},
+    {name: "Bob", age: 30},
+    {name: "Charlie", age: 35},
+    {name: "David", age: 40}
+];
+let slicedUsers = users.slice(1, 3);
+console.log(slicedUsers); 
+// Output: [{name: "Bob", age: 30}, {name: "Charlie", age: 35}]
+
+// 10. Use slice to reverse a portion of an array
+let numArray = [10, 20, 30, 40, 50];
+let reversedSlice = numArray.slice(1, 4).reverse();
+console.log(reversedSlice); 
+// Output: [40, 30, 20]
           </code></pre>
               <br />
             </td>
@@ -3284,9 +4369,67 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Remove elements from an array
+let numbers = [1, 2, 3, 4, 5];
+let removedElements = numbers.splice(2, 2);
+console.log(numbers); 
+// Output: [1, 2, 5]
+console.log(removedElements); 
+// Output: [3, 4]
+
+// 2. Add elements to an array
+let fruits = ["apple", "banana", "cherry"];
+fruits.splice(1, 0, "blueberry", "kiwi");
+console.log(fruits); 
+// Output: ["apple", "blueberry", "kiwi", "banana", "cherry"]
+
+// 3. Replace elements in an array
+let letters = ["a", "b", "c", "d"];
+letters.splice(1, 2, "x", "y");
+console.log(letters); 
+// Output: ["a", "x", "y", "d"]
+
+// 4. Remove all elements from a specific index onwards
+let colors = ["red", "green", "blue", "yellow"];
+colors.splice(2);
+console.log(colors); 
+// Output: ["red", "green"]
+
+// 5. Insert elements at the beginning of an array
+let numbers2 = [4, 5, 6];
+numbers2.splice(0, 0, 1, 2, 3);
+console.log(numbers2); 
+// Output: [1, 2, 3, 4, 5, 6]
+
+// 6. Remove the first element from an array
+let animals = ["cat", "dog", "rabbit"];
+animals.splice(0, 1);
+console.log(animals); 
+// Output: ["dog", "rabbit"]
+
+// 7. Remove and replace all elements in an array
+let items = ["item1", "item2", "item3"];
+items.splice(0, items.length, "newItem1", "newItem2");
+console.log(items); 
+// Output: ["newItem1", "newItem2"]
+
+// 8. Remove the last element from an array
+let numbers3 = [10, 20, 30, 40];
+numbers3.splice(-1);
+console.log(numbers3); 
+// Output: [10, 20, 30]
+
+// 9. Insert elements into an empty array
+let emptyArray = [];
+emptyArray.splice(0, 0, "first", "second");
+console.log(emptyArray); 
+// Output: ["first", "second"]
+
+// 10. Replace elements in the middle of an array
+let months = ["January", "February", "April", "May"];
+months.splice(2, 1, "March");
+console.log(months); 
+// Output: ["January", "February", "March", "May"]  
           </code></pre>
               <br />
             </td>
@@ -3304,9 +4447,69 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Log each element of an array to the console
+let numbers = [1, 2, 3, 4, 5];
+numbers.forEach(num => console.log(num));
+// Output: 1, 2, 3, 4, 5 (each on a new line)
+
+// 2. Calculate the sum of an array
+let sum = 0;
+numbers.forEach(num => sum += num);
+console.log(sum); 
+// Output: 15
+
+// 3. Modify each element in an array of objects
+let users = [
+    {name: "Alice", age: 25},
+    {name: "Bob", age: 30},
+    {name: "Charlie", age: 35}
+];
+users.forEach(user => user.age += 1);
+console.log(users); 
+// Output: [{name: "Alice", age: 26}, {name: "Bob", age: 31}, {name: "Charlie", age: 36}]
+
+// 4. Convert each string in an array to uppercase
+let fruits = ["apple", "banana", "cherry"];
+fruits.forEach((fruit, index, arr) => arr[index] = fruit.toUpperCase());
+console.log(fruits); 
+// Output: ["APPLE", "BANANA", "CHERRY"]
+
+// 5. Log the index of each element in an array
+let letters = ["a", "b", "c", "d"];
+letters.forEach((letter, index) => console.log(`Index: ${index}, Letter: ${letter}`));
+// Output: "Index: 0, Letter: a", "Index: 1, Letter: b", "Index: 2, Letter: c", "Index: 3, Letter: d" (each on a new line)
+
+// 6. Append elements to another array
+let numbers2 = [10, 20, 30];
+let results = [];
+numbers2.forEach(num => results.push(num * 2));
+console.log(results); 
+// Output: [20, 40, 60]
+
+// 7. Count occurrences of a specific value in an array
+let items = ["apple", "banana", "apple", "orange", "banana", "apple"];
+let count = 0;
+items.forEach(item => {
+    if (item === "apple") count++;
+});
+console.log(count); 
+// Output: 3
+
+// 8. Add properties to an array of objects
+let products = [{name: "Shirt"}, {name: "Pants"}, {name: "Shoes"}];
+products.forEach(product => product.price = 20);
+console.log(products); 
+// Output: [{name: "Shirt", price: 20}, {name: "Pants", price: 20}, {name: "Shoes", price: 20}]
+
+// 9. Chain with other array methods
+let numbers3 = [1, 2, 3, 4, 5];
+numbers3.filter(num => num > 2).forEach(num => console.log(num));
+// Output: 3, 4, 5 (each on a new line)
+
+// 10. Print a message for each item in an array
+let animals = ["cat", "dog", "bird"];
+animals.forEach(animal => console.log(`I love my ${animal}!`));
+// Output: "I love my cat!", "I love my dog!", "I love my bird!" (each on a new line)      
           </code></pre>
               <br />
             </td>
@@ -3321,9 +4524,69 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Check if all numbers in an array are greater than 10
+let numbers = [12, 15, 20, 25];
+let allGreaterThanTen = numbers.every(num => num > 10);
+console.log(allGreaterThanTen); 
+// Output: true
+
+// 2. Check if all elements in an array are strings
+let mixedArray = ["apple", "banana", "cherry"];
+let allStrings = mixedArray.every(item => typeof item === "string");
+console.log(allStrings); 
+// Output: true
+
+// 3. Check if all elements in an array are even numbers
+let nums = [2, 4, 6, 8];
+let allEven = nums.every(num => num % 2 === 0);
+console.log(allEven); 
+// Output: true
+
+// 4. Check if all elements in an array are positive
+let values = [1, 2, 3, 4, 5];
+let allPositive = values.every(num => num > 0);
+console.log(allPositive); 
+// Output: true
+
+// 5. Check if all elements in an array are objects
+let objectsArray = [{}, {}, {}];
+let allObjects = objectsArray.every(item => typeof item === "object");
+console.log(allObjects); 
+// Output: true
+
+// 6. Check if all users in an array are adults (age 18 or older)
+let users = [
+    {name: "Alice", age: 25},
+    {name: "Bob", age: 30},
+    {name: "Charlie", age: 35}
+];
+let allAdults = users.every(user => user.age >= 18);
+console.log(allAdults); 
+// Output: true
+
+// 7. Check if all elements in an array are less than 100
+let numbers2 = [50, 60, 70, 80];
+let allLessThanHundred = numbers2.every(num => num < 100);
+console.log(allLessThanHundred); 
+// Output: true
+
+// 8. Check if all strings in an array have a length greater than 3
+let strings = ["hello", "world", "JavaScript"];
+let allLongerThanThree = strings.every(str => str.length > 3);
+console.log(allLongerThanThree); 
+// Output: true
+
+// 9. Check if all elements in an array are truthy
+let bools = [true, true, true];
+let allTruthy = bools.every(bool => Boolean(bool));
+console.log(allTruthy); 
+// Output: true
+
+// 10. Check if all elements in an array of arrays have length greater than 2
+let nestedArrays = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+let allLengthGreaterThanTwo = nestedArrays.every(arr => arr.length > 2);
+console.log(allLengthGreaterThanTwo); 
+// Output: true    
           </code></pre>
               <br />
             </td>
@@ -3338,9 +4601,69 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Check if some numbers in an array are greater than 10
+let numbers = [5, 8, 12, 3];
+let someGreaterThanTen = numbers.some(num => num > 10);
+console.log(someGreaterThanTen); 
+// Output: true
+
+// 2. Check if some elements in an array are strings
+let mixedArray = [1, "banana", 3, 4];
+let someStrings = mixedArray.some(item => typeof item === "string");
+console.log(someStrings); 
+// Output: true
+
+// 3. Check if some elements in an array are odd numbers
+let nums = [2, 4, 6, 7];
+let someOdd = nums.some(num => num % 2 !== 0);
+console.log(someOdd); 
+// Output: true
+
+// 4. Check if some elements in an array are negative
+let values = [1, -2, 3, -4, 5];
+let someNegative = values.some(num => num < 0);
+console.log(someNegative); 
+// Output: true
+
+// 5. Check if some elements in an array are objects
+let objectsArray = [1, "string", {}, 3];
+let someObjects = objectsArray.some(item => typeof item === "object");
+console.log(someObjects); 
+// Output: true
+
+// 6. Check if some users in an array are minors (under 18)
+let users = [
+    {name: "Alice", age: 25},
+    {name: "Bob", age: 17},
+    {name: "Charlie", age: 35}
+];
+let someMinors = users.some(user => user.age < 18);
+console.log(someMinors); 
+// Output: true
+
+// 7. Check if some elements in an array are greater than 100
+let numbers2 = [50, 60, 120, 80];
+let someGreaterThanHundred = numbers2.some(num => num > 100);
+console.log(someGreaterThanHundred); 
+// Output: true
+
+// 8. Check if some strings in an array have a length greater than 5
+let strings = ["hello", "world", "JavaScript"];
+let someLongerThanFive = strings.some(str => str.length > 5);
+console.log(someLongerThanFive); 
+// Output: true
+
+// 9. Check if some elements in an array are falsy
+let bools = [true, false, true];
+let someFalsy = bools.some(bool => !Boolean(bool));
+console.log(someFalsy); 
+// Output: true
+
+// 10. Check if some elements in a nested array are arrays themselves
+let nestedArrays = [1, [2, 3], 4, [5, 6]];
+let someArrays = nestedArrays.some(arr => Array.isArray(arr));
+console.log(someArrays); 
+// Output: true    
           </code></pre>
               <br />
             </td>
@@ -3355,9 +4678,82 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Sum all numbers in an array
+let numbers = [1, 2, 3, 4, 5];
+let sum = numbers.reduce((acc, num) => acc + num, 0);
+console.log(sum); 
+// Output: 15
+
+// 2. Multiply all numbers in an array
+let product = numbers.reduce((acc, num) => acc * num, 1);
+console.log(product); 
+// Output: 120
+
+// 3. Find the maximum value in an array
+let max = numbers.reduce((acc, num) => (num > acc ? num : acc), numbers[0]);
+console.log(max); 
+// Output: 5
+
+// 4. Flatten a nested array
+let nestedArray = [[1, 2], [3, 4], [5, 6]];
+let flatArray = nestedArray.reduce((acc, arr) => acc.concat(arr), []);
+console.log(flatArray); 
+// Output: [1, 2, 3, 4, 5, 6]
+
+// 5. Count the occurrences of each element in an array
+let fruits = ["apple", "banana", "apple", "orange", "banana", "apple"];
+let fruitCount = fruits.reduce((acc, fruit) => {
+  acc[fruit] = (acc[fruit] || 0) + 1;
+  return acc;
+}, {});
+console.log(fruitCount); 
+// Output: {apple: 3, banana: 2, orange: 1}
+
+// 6. Create an object from an array of key-value pairs
+let keyValuePairs = [["name", "Alice"], ["age", 25], ["city", "Wonderland"]];
+let obj = keyValuePairs.reduce((acc, [key, value]) => {
+  acc[key] = value;
+  return acc;
+}, {});
+console.log(obj); 
+// Output: {name: "Alice", age: 25, city: "Wonderland"}
+
+// 7. Calculate the total price of items in a shopping cart
+let cart = [
+  {name: "Shirt", price: 20},
+  {name: "Pants", price: 30},
+  {name: "Shoes", price: 50}
+];
+let totalPrice = cart.reduce((acc, item) => acc + item.price, 0);
+console.log(totalPrice); 
+// Output: 100
+
+// 8. Group objects by a property
+let people = [
+  {name: "Alice", age: 25},
+  {name: "Bob", age: 30},
+  {name: "Charlie", age: 25}
+];
+let groupedByAge = people.reduce((acc, person) => {
+  if (!acc[person.age]) {
+    acc[person.age] = [];
+  }
+  acc[person.age].push(person);
+  return acc;
+}, {});
+console.log(groupedByAge); 
+// Output: {25: [{name: "Alice", age: 25}, {name: "Charlie", age: 25}], 30: [{name: "Bob", age: 30}]}
+
+// 9. Reverse a string
+let str = "JavaScript";
+let reversedStr = str.split("").reduce((acc, char) => char + acc, "");
+console.log(reversedStr); 
+// Output: "tpircSavaJ"
+
+// 10. Calculate the factorial of a number
+let factorial = [1, 2, 3, 4, 5].reduce((acc, num) => acc * num, 1);
+console.log(factorial); 
+// Output: 120
           </code></pre>
               <br />
             </td>
@@ -3372,9 +4768,68 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Reverse a string using reduceRight
+let str = "JavaScript";
+let reversedStr = str.split("").reduceRight((acc, char) => acc + char, "");
+console.log(reversedStr); 
+// Output: "tpircSavaJ"
+
+// 2. Flatten a nested array in reverse order
+let nestedArray = [[1, 2], [3, 4], [5, 6]];
+let flatArray = nestedArray.reduceRight((acc, arr) => acc.concat(arr), []);
+console.log(flatArray); 
+// Output: [5, 6, 3, 4, 1, 2]
+
+// 3. Concatenate an array of strings in reverse order
+let words = ["world", "hello"];
+let sentence = words.reduceRight((acc, word) => acc + " " + word);
+console.log(sentence); 
+// Output: "hello world"
+
+// 4. Subtract numbers in reverse order
+let numbers = [1, 2, 3, 4];
+let reverseSubtraction = numbers.reduceRight((acc, num) => acc - num);
+console.log(reverseSubtraction); 
+// Output: -2  (1 - (2 - (3 - 4)) = -2)
+
+// 5. Create a nested object structure from an array of keys
+let keys = ["level1", "level2", "level3"];
+let nestedObject = keys.reduceRight((acc, key) => ({ [key]: acc }), {});
+console.log(nestedObject); 
+// Output: { level1: { level2: { level3: {} } } }
+
+// 6. Calculate the product of numbers in reverse order
+let numbers2 = [2, 3, 4];
+let reverseProduct = numbers2.reduceRight((acc, num) => acc * num, 1);
+console.log(reverseProduct); 
+// Output: 24  (4 * 3 * 2)
+
+// 7. Build an HTML string in reverse order
+let elements = ["div", "span", "a"];
+let htmlString = elements.reduceRight((acc, el) => `<${el}>${acc}</${el}>`, "content");
+console.log(htmlString); 
+// Output: "<div><span><a>content</a></span></div>"
+
+// 8. Combine objects from right to left
+let objectsArray = [{ a: 1 }, { b: 2 }, { c: 3 }];
+let combinedObject = objectsArray.reduceRight((acc, obj) => Object.assign(acc, obj), {});
+console.log(combinedObject); 
+// Output: { c: 3, b: 2, a: 1 }
+
+// 9. Calculate cumulative sum in reverse order
+let nums = [10, 20, 30, 40];
+let reverseCumulativeSum = nums.reduceRight((acc, num, i) => {
+  acc[i] = (acc[i + 1] || 0) + num;
+  return acc;
+}, []);
+console.log(reverseCumulativeSum); 
+// Output: [100, 90, 70, 40]
+
+// 10. Decode a base64 string by reversing the operations
+let encoded = ["W", "X", "Y", "Z"];
+let decoded = encoded.reduceRight((acc, char) => acc + atob(char), "");
+console.log(decoded);
+// Output: Decoded string in reverse order (assuming `atob` was encoding in reverse)       
           </code></pre>
               <br />
             </td>
@@ -3392,9 +4847,83 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Remove the last element from an array of numbers
+let numbers = [1, 2, 3, 4, 5];
+let lastNumber = numbers.pop();
+console.log(numbers); 
+// Output: [1, 2, 3, 4]
+console.log(lastNumber); 
+// Output: 5
+
+// 2. Remove the last element from an array of strings
+let fruits = ["apple", "banana", "cherry"];
+let lastFruit = fruits.pop();
+console.log(fruits); 
+// Output: ["apple", "banana"]
+console.log(lastFruit); 
+// Output: "cherry"
+
+// 3. Use pop in a loop to empty an array
+let letters = ["a", "b", "c", "d"];
+while (letters.length > 0) {
+    letters.pop();
+}
+console.log(letters); 
+// Output: []
+
+// 4. Pop elements from an array until a condition is met
+let values = [10, 20, 30, 40, 50];
+while (values.length && values[values.length - 1] > 30) {
+    values.pop();
+}
+console.log(values); 
+// Output: [10, 20, 30]
+
+// 5. Track removed elements from an array
+let items = ["item1", "item2", "item3"];
+let removedItems = [];
+while (items.length > 0) {
+    removedItems.push(items.pop());
+}
+console.log(removedItems); 
+// Output: ["item3", "item2", "item1"]
+
+// 6. Pop from an array of objects
+let users = [{name: "Alice"}, {name: "Bob"}, {name: "Charlie"}];
+let lastUser = users.pop();
+console.log(users); 
+// Output: [{name: "Alice"}, {name: "Bob"}]
+console.log(lastUser); 
+// Output: {name: "Charlie"}
+
+// 7. Pop an element from an array and use it immediately
+let tasks = ["task1", "task2", "task3"];
+let taskToDo = tasks.pop();
+console.log(`Doing ${taskToDo}`); 
+// Output: "Doing task3"
+
+// 8. Remove and log elements until an array is empty
+let logs = ["log1", "log2", "log3"];
+while (logs.length > 0) {
+    console.log(logs.pop());
+}
+// Output: "log3", "log2", "log1" (each on a new line)
+
+// 9. Pop elements from a nested array
+let nestedArray = [[1, 2], [3, 4], [5, 6]];
+let lastSubArray = nestedArray.pop();
+console.log(nestedArray); 
+// Output: [[1, 2], [3, 4]]
+console.log(lastSubArray); 
+// Output: [5, 6]
+
+// 10. Use pop on an empty array (returns undefined)
+let emptyArray = [];
+let result = emptyArray.pop();
+console.log(result); 
+// Output: undefined
+console.log(emptyArray); 
+// Output: []   
           </code></pre>
               <br />
             </td>
@@ -3409,9 +4938,74 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Add a single element to the end of an array
+let numbers = [1, 2, 3];
+numbers.push(4);
+console.log(numbers); 
+// Output: [1, 2, 3, 4]
+
+// 2. Add multiple elements to the end of an array
+let fruits = ["apple", "banana"];
+fruits.push("cherry", "date");
+console.log(fruits); 
+// Output: ["apple", "banana", "cherry", "date"]
+
+// 3. Push elements to an empty array
+let emptyArray = [];
+emptyArray.push(1, 2, 3);
+console.log(emptyArray); 
+// Output: [1, 2, 3]
+
+// 4. Use push in a loop to add elements dynamically
+let letters = [];
+for (let i = 0; i < 5; i++) {
+    letters.push(String.fromCharCode(97 + i)); // adds "a", "b", "c", "d", "e"
+}
+console.log(letters); 
+// Output: ["a", "b", "c", "d", "e"]
+
+// 5. Push objects into an array
+let users = [];
+users.push({name: "Alice"});
+users.push({name: "Bob"});
+console.log(users); 
+// Output: [{name: "Alice"}, {name: "Bob"}]
+
+// 6. Combine two arrays using push and spread operator
+let array1 = [1, 2, 3];
+let array2 = [4, 5, 6];
+array1.push(...array2);
+console.log(array1); 
+// Output: [1, 2, 3, 4, 5, 6]
+
+// 7. Push a nested array into an array
+let nestedArray = [];
+nestedArray.push([1, 2]);
+nestedArray.push([3, 4]);
+console.log(nestedArray); 
+// Output: [[1, 2], [3, 4]]
+
+// 8. Push elements and get the new length of the array
+let items = ["item1", "item2"];
+let newLength = items.push("item3");
+console.log(items); 
+// Output: ["item1", "item2", "item3"]
+console.log(newLength); 
+// Output: 3
+
+// 9. Push elements conditionally based on a check
+let values = [10, 20, 30];
+if (values[values.length - 1] < 50) {
+    values.push(40);
+}
+console.log(values); 
+// Output: [10, 20, 30, 40]
+
+// 10. Use push to add elements to an array stored in an object property
+let obj = { numbers: [1, 2, 3] };
+obj.numbers.push(4);
+console.log(obj.numbers); 
+// Output: [1, 2, 3, 4]  
           </code></pre>
               <br />
             </td>
@@ -3426,9 +5020,91 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Remove the first element from an array of numbers
+let numbers = [10, 20, 30, 40];
+let firstNumber = numbers.shift();
+console.log(numbers); 
+// Output: [20, 30, 40]
+console.log(firstNumber); 
+// Output: 10
+
+// 2. Remove the first element from an array of strings
+let fruits = ["apple", "banana", "cherry"];
+let firstFruit = fruits.shift();
+console.log(fruits); 
+// Output: ["banana", "cherry"]
+console.log(firstFruit); 
+// Output: "apple"
+
+// 3. Use shift in a loop to empty an array
+let letters = ["a", "b", "c", "d"];
+while (letters.length > 0) {
+    letters.shift();
+}
+console.log(letters); 
+// Output: []
+
+// 4. Remove and log each element until the array is empty
+let items = ["item1", "item2", "item3"];
+while (items.length > 0) {
+    console.log(items.shift());
+}
+// Output: "item1", "item2", "item3" (each on a new line)
+
+// 5. Use shift to remove the first object from an array of objects
+let users = [
+    {name: "Alice", age: 25},
+    {name: "Bob", age: 30},
+    {name: "Charlie", age: 35}
+];
+let firstUser = users.shift();
+console.log(users); 
+// Output: [{name: "Bob", age: 30}, {name: "Charlie", age: 35}]
+console.log(firstUser); 
+// Output: {name: "Alice", age: 25}
+
+// 6. Remove elements from an array of arrays
+let nestedArray = [[1, 2], [3, 4], [5, 6]];
+let firstSubArray = nestedArray.shift();
+console.log(nestedArray); 
+// Output: [[3, 4], [5, 6]]
+console.log(firstSubArray); 
+// Output: [1, 2]
+
+// 7. Use shift to process a queue of tasks
+let tasks = ["task1", "task2", "task3"];
+let currentTask = tasks.shift();
+console.log(`Processing ${currentTask}`); 
+// Output: "Processing task1"
+console.log(tasks); 
+// Output: ["task2", "task3"]
+
+// 8. Use shift on an array of mixed data types
+let mixedArray = [1, "two", true, null];
+let firstElement = mixedArray.shift();
+console.log(mixedArray); 
+// Output: ["two", true, null]
+console.log(firstElement); 
+// Output: 1
+
+// 9. Remove and use elements conditionally
+let values = [5, 10, 15];
+let removedValue;
+if (values[0] < 10) {
+    removedValue = values.shift();
+}
+console.log(values); 
+// Output: [10, 15]
+console.log(removedValue); 
+// Output: 5
+
+// 10. Use shift on an empty array (returns undefined)
+let emptyArray = [];
+let result = emptyArray.shift();
+console.log(result); 
+// Output: undefined
+console.log(emptyArray); 
+// Output: []    
           </code></pre>
               <br />
             </td>
@@ -3443,9 +5119,70 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Add a single element to the beginning of an array
+let numbers = [2, 3, 4];
+numbers.unshift(1);
+console.log(numbers); 
+// Output: [1, 2, 3, 4]
+
+// 2. Add multiple elements to the beginning of an array
+let fruits = ["banana", "cherry"];
+fruits.unshift("apple", "orange");
+console.log(fruits); 
+// Output: ["apple", "orange", "banana", "cherry"]
+
+// 3. Unshift elements into an empty array
+let emptyArray = [];
+emptyArray.unshift(5, 10, 15);
+console.log(emptyArray); 
+// Output: [5, 10, 15]
+
+// 4. Use unshift to add elements in reverse order
+let letters = ["c", "d"];
+letters.unshift("a", "b");
+console.log(letters); 
+// Output: ["a", "b", "c", "d"]
+
+// 5. Add objects to the beginning of an array
+let users = [{name: "Charlie"}];
+users.unshift({name: "Alice"}, {name: "Bob"});
+console.log(users); 
+// Output: [{name: "Alice"}, {name: "Bob"}, {name: "Charlie"}]
+
+// 6. Combine two arrays using unshift and spread operator
+let array1 = [3, 4];
+let array2 = [1, 2];
+array1.unshift(...array2);
+console.log(array1); 
+// Output: [1, 2, 3, 4]
+
+// 7. Add nested arrays to the beginning of an array
+let nestedArray = [[3, 4]];
+nestedArray.unshift([1, 2]);
+console.log(nestedArray); 
+// Output: [[1, 2], [3, 4]]
+
+// 8. Add elements and get the new length of the array
+let items = ["item2", "item3"];
+let newLength = items.unshift("item1");
+console.log(items); 
+// Output: ["item1", "item2", "item3"]
+console.log(newLength); 
+// Output: 3
+
+// 9. Use unshift to add elements conditionally
+let values = [20, 30];
+if (values[0] > 10) {
+    values.unshift(10);
+}
+console.log(values); 
+// Output: [10, 20, 30]
+
+// 10. Add elements to an array stored in an object property
+let obj = { numbers: [2, 3, 4] };
+obj.numbers.unshift(1);
+console.log(obj.numbers); 
+// Output: [1, 2, 3, 4] 
           </code></pre>
               <br />
             </td>
@@ -3460,9 +5197,71 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Reverse an array of numbers
+let numbers = [1, 2, 3, 4, 5];
+numbers.reverse();
+console.log(numbers); 
+// Output: [5, 4, 3, 2, 1]
+
+// 2. Reverse an array of strings
+let fruits = ["apple", "banana", "cherry"];
+fruits.reverse();
+console.log(fruits); 
+// Output: ["cherry", "banana", "apple"]
+
+// 3. Reverse an array of mixed data types
+let mixedArray = [1, "two", true, null];
+mixedArray.reverse();
+console.log(mixedArray); 
+// Output: [null, true, "two", 1]
+
+// 4. Reverse an array of objects
+let users = [
+    {name: "Alice", age: 25},
+    {name: "Bob", age: 30},
+    {name: "Charlie", age: 35}
+];
+users.reverse();
+console.log(users); 
+// Output: [{name: "Charlie", age: 35}, {name: "Bob", age: 30}, {name: "Alice", age: 25}]
+
+// 5. Reverse a nested array
+let nestedArray = [[1, 2], [3, 4], [5, 6]];
+nestedArray.reverse();
+console.log(nestedArray); 
+// Output: [[5, 6], [3, 4], [1, 2]]
+
+// 6. Reverse an array and join it into a string
+let letters = ["a", "b", "c", "d"];
+let reversedString = letters.reverse().join("");
+console.log(reversedString); 
+// Output: "dcba"
+
+// 7. Reverse an array of booleans
+let booleans = [true, false, false, true];
+booleans.reverse();
+console.log(booleans); 
+// Output: [true, false, false, true]
+
+// 8. Reverse a sparse array
+let sparseArray = [1, , 3, , 5];
+sparseArray.reverse();
+console.log(sparseArray); 
+// Output: [5, empty, 3, empty, 1]
+
+// 9. Reverse an array of numbers and calculate the sum of the reversed array
+let nums = [1, 2, 3, 4, 5];
+let sum = nums.reverse().reduce((acc, num) => acc + num, 0);
+console.log(nums); 
+// Output: [5, 4, 3, 2, 1]
+console.log(sum); 
+// Output: 15
+
+// 10. Reverse an array of strings and convert to uppercase
+let words = ["one", "two", "three"];
+let reversedUppercase = words.reverse().map(word => word.toUpperCase());
+console.log(reversedUppercase); 
+// Output: ["THREE", "TWO", "ONE"]
           </code></pre>
               <br />
             </td>
@@ -3477,9 +5276,70 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Sort an array of numbers in ascending order
+let numbers = [5, 3, 8, 1, 2];
+numbers.sort((a, b) => a - b);
+console.log(numbers); 
+// Output: [1, 2, 3, 5, 8]
+
+// 2. Sort an array of numbers in descending order
+numbers.sort((a, b) => b - a);
+console.log(numbers); 
+// Output: [8, 5, 3, 2, 1]
+
+// 3. Sort an array of strings in alphabetical order
+let fruits = ["banana", "apple", "cherry"];
+fruits.sort();
+console.log(fruits); 
+// Output: ["apple", "banana", "cherry"]
+
+// 4. Sort an array of strings in reverse alphabetical order
+fruits.sort((a, b) => b.localeCompare(a));
+console.log(fruits); 
+// Output: ["cherry", "banana", "apple"]
+
+// 5. Sort an array of objects by a numeric property
+let users = [
+    {name: "Alice", age: 25},
+    {name: "Bob", age: 30},
+    {name: "Charlie", age: 20}
+];
+users.sort((a, b) => a.age - b.age);
+console.log(users); 
+// Output: [{name: "Charlie", age: 20}, {name: "Alice", age: 25}, {name: "Bob", age: 30}]
+
+// 6. Sort an array of objects by a string property
+users.sort((a, b) => a.name.localeCompare(b.name));
+console.log(users); 
+// Output: [{name: "Alice", age: 25}, {name: "Bob", age: 30}, {name: "Charlie", age: 20}]
+
+// 7. Sort an array of mixed case strings, case-insensitive
+let mixedCaseStrings = ["Banana", "apple", "Cherry"];
+mixedCaseStrings.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+console.log(mixedCaseStrings); 
+// Output: ["apple", "Banana", "Cherry"]
+
+// 8. Sort an array of numbers as strings
+let numberStrings = ["10", "2", "30", "1"];
+numberStrings.sort();
+console.log(numberStrings); 
+// Output: ["1", "10", "2", "30"] // String comparison sorts "10" before "2"
+
+// 9. Sort an array of dates in ascending order
+let dates = [
+    new Date(2023, 11, 24),
+    new Date(2022, 5, 12),
+    new Date(2023, 0, 1)
+];
+dates.sort((a, b) => a - b);
+console.log(dates); 
+// Output: [Date 2022-06-12, Date 2023-01-01, Date 2023-12-24]
+
+// 10. Sort an array of arrays based on the first element of each sub-array
+let arrayOfArrays = [[3, "c"], [1, "a"], [2, "b"]];
+arrayOfArrays.sort((a, b) => a[0] - b[0]);
+console.log(arrayOfArrays); 
+// Output: [[1, "a"], [2, "b"], [3, "c"]]  
           </code></pre>
               <br />
             </td>
@@ -3497,9 +5357,65 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Join an array of strings into a single string with commas
+let fruits = ["apple", "banana", "cherry"];
+let fruitString = fruits.join(", ");
+console.log(fruitString); 
+// Output: "apple, banana, cherry"
+
+// 2. Join an array of numbers into a single string
+let numbers = [1, 2, 3, 4];
+let numberString = numbers.join("-");
+console.log(numberString); 
+// Output: "1-2-3-4"
+
+// 3. Join an array of words into a sentence
+let words = ["Hello", "world", "this", "is", "JavaScript"];
+let sentence = words.join(" ");
+console.log(sentence); 
+// Output: "Hello world this is JavaScript"
+
+// 4. Join an array of letters with no separator
+let letters = ["a", "b", "c", "d"];
+let joinedLetters = letters.join("");
+console.log(joinedLetters); 
+// Output: "abcd"
+
+// 5. Join an array with a custom separator (e.g., "|")
+let items = ["item1", "item2", "item3"];
+let joinedItems = items.join(" | ");
+console.log(joinedItems); 
+// Output: "item1 | item2 | item3"
+
+// 6. Join an array of objects' properties into a string
+let users = [{name: "Alice"}, {name: "Bob"}, {name: "Charlie"}];
+let userNames = users.map(user => user.name).join(", ");
+console.log(userNames); 
+// Output: "Alice, Bob, Charlie"
+
+// 7. Join an array of booleans into a string
+let booleans = [true, false, true];
+let booleanString = booleans.join(" and ");
+console.log(booleanString); 
+// Output: "true and false and true"
+
+// 8. Join an array of mixed data types into a string
+let mixedArray = [1, "two", 3, "four"];
+let mixedString = mixedArray.join(" + ");
+console.log(mixedString); 
+// Output: "1 + two + 3 + four"
+
+// 9. Join an array of nested arrays into a string
+let nestedArray = [[1, 2], [3, 4], [5, 6]];
+let nestedString = nestedArray.join(" | ");
+console.log(nestedString); 
+// Output: "1,2 | 3,4 | 5,6"
+
+// 10. Join an array of numbers into a string with a fixed format
+let prices = [10, 20, 30];
+let priceString = prices.join("$, $");
+console.log("$" + priceString + "$"); 
+// Output: "$10$, $20$, $30$"
           </code></pre>
               <br />
             </td>
@@ -3514,9 +5430,67 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Convert an array of numbers to a string
+let numbers = [1, 2, 3, 4];
+let numberString = numbers.toString();
+console.log(numberString); 
+// Output: "1,2,3,4"
+
+// 2. Convert an array of strings to a single string
+let fruits = ["apple", "banana", "cherry"];
+let fruitString = fruits.toString();
+console.log(fruitString); 
+// Output: "apple,banana,cherry"
+
+// 3. Convert an array of mixed data types to a string
+let mixedArray = [1, "two", true, null];
+let mixedString = mixedArray.toString();
+console.log(mixedString); 
+// Output: "1,two,true,"
+
+// 4. Convert a nested array to a string
+let nestedArray = [[1, 2], [3, 4]];
+let nestedString = nestedArray.toString();
+console.log(nestedString); 
+// Output: "1,2,3,4"
+
+// 5. Convert an object to a string (using Object's toString method)
+let obj = {name: "Alice", age: 25};
+let objString = obj.toString();
+console.log(objString); 
+// Output: "[object Object]"
+
+// 6. Convert a date object to a string
+let date = new Date(2023, 11, 24);
+let dateString = date.toString();
+console.log(dateString); 
+// Output: "Sun Dec 24 2023 00:00:00 GMT+0000 (Coordinated Universal Time)"
+
+// 7. Convert a function to a string
+function greet() {
+  return "Hello, world!";
+}
+let functionString = greet.toString();
+console.log(functionString); 
+// Output: "function greet() {\n  return \"Hello, world!\";\n}"
+
+// 8. Convert a boolean value to a string
+let boolValue = true;
+let boolString = boolValue.toString();
+console.log(boolString); 
+// Output: "true"
+
+// 9. Convert a number to a string
+let num = 123;
+let numString = num.toString();
+console.log(numString); 
+// Output: "123"
+
+// 10. Convert an array with undefined and null values to a string
+let arrayWithUndefined = [undefined, null, 1];
+let undefinedString = arrayWithUndefined.toString();
+console.log(undefinedString); 
+// Output: ",,1"   
           </code></pre>
               <br />
             </td>
@@ -3531,9 +5505,62 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Convert a number to a string with localized formatting
+let number = 1234567.89;
+let localizedNumber = number.toLocaleString();
+console.log(localizedNumber); 
+// Output: "1,234,567.89" (depending on the locale)
+
+// 2. Convert a number to a string with a specific locale (German)
+let germanNumber = number.toLocaleString('de-DE');
+console.log(germanNumber); 
+// Output: "1.234.567,89" (German locale)
+
+// 3. Format a date object using the default locale
+let date = new Date(2023, 11, 24);
+let localizedDate = date.toLocaleString();
+console.log(localizedDate); 
+// Output: "12/24/2023, 12:00:00 AM" (depending on the locale)
+
+// 4. Format a date object with a specific locale and options
+let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+let formattedDate = date.toLocaleString('en-US', options);
+console.log(formattedDate); 
+// Output: "Sunday, December 24, 2023" (English, US locale)
+
+// 5. Format a currency value in US dollars
+let currencyValue = 123456.789;
+let formattedCurrency = currencyValue.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+console.log(formattedCurrency); 
+// Output: "$123,456.79"
+
+// 6. Format a currency value in Japanese Yen
+let yenCurrency = currencyValue.toLocaleString('ja-JP', { style: 'currency', currency: 'JPY' });
+console.log(yenCurrency); 
+// Output: "￥123,457"
+
+// 7. Format a percentage value
+let percentage = 0.5678;
+let formattedPercentage = percentage.toLocaleString('en-US', { style: 'percent' });
+console.log(formattedPercentage); 
+// Output: "56.78%"
+
+// 8. Format a number with specific digit options
+let preciseNumber = 1234.56789;
+let formattedPreciseNumber = preciseNumber.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 4 });
+console.log(formattedPreciseNumber); 
+// Output: "1,234.5679"
+
+// 9. Format a large number in Indian numbering system
+let indianNumber = 123456789;
+let formattedIndianNumber = indianNumber.toLocaleString('en-IN');
+console.log(formattedIndianNumber); 
+// Output: "12,34,56,789" (Indian locale)
+
+// 10. Format a date and time with a specific timezone
+let timezoneDate = date.toLocaleString('en-US', { timeZone: 'Asia/Tokyo' });
+console.log(timezoneDate); 
+// Output: "12/24/2023, 2:00:00 PM" (Tokyo time)
           </code></pre>
               <br />
             </td>
@@ -3548,9 +5575,75 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Reverse an array of numbers without mutating the original array
+let numbers = [1, 2, 3, 4, 5];
+let reversedNumbers = numbers.toReversed();
+console.log(reversedNumbers); 
+// Output: [5, 4, 3, 2, 1]
+console.log(numbers); 
+// Output: [1, 2, 3, 4, 5] (original array remains unchanged)
+
+// 2. Reverse an array of strings without mutating the original array
+let fruits = ["apple", "banana", "cherry"];
+let reversedFruits = fruits.toReversed();
+console.log(reversedFruits); 
+// Output: ["cherry", "banana", "apple"]
+console.log(fruits); 
+// Output: ["apple", "banana", "cherry"] (original array remains unchanged)
+
+// 3. Reverse an array of mixed data types
+let mixedArray = [1, "two", true, null];
+let reversedMixedArray = mixedArray.toReversed();
+console.log(reversedMixedArray); 
+// Output: [null, true, "two", 1]
+
+// 4. Reverse a nested array
+let nestedArray = [[1, 2], [3, 4], [5, 6]];
+let reversedNestedArray = nestedArray.toReversed();
+console.log(reversedNestedArray); 
+// Output: [[5, 6], [3, 4], [1, 2]]
+
+// 5. Reverse an array and join it into a string
+let letters = ["a", "b", "c", "d"];
+let reversedString = letters.toReversed().join("");
+console.log(reversedString); 
+// Output: "dcba"
+
+// 6. Reverse an array of booleans
+let booleans = [true, false, false, true];
+let reversedBooleans = booleans.toReversed();
+console.log(reversedBooleans); 
+// Output: [true, false, false, true]
+
+// 7. Reverse a sparse array (array with empty slots)
+let sparseArray = [1, , 3, , 5];
+let reversedSparseArray = sparseArray.toReversed();
+console.log(reversedSparseArray); 
+// Output: [5, empty, 3, empty, 1]
+
+// 8. Reverse an array of numbers and calculate the sum of the reversed array
+let nums = [1, 2, 3, 4, 5];
+let reversedSum = nums.toReversed().reduce((acc, num) => acc + num, 0);
+console.log(reversedSum); 
+// Output: 15
+
+// 9. Reverse an array of strings and convert them to uppercase
+let words = ["one", "two", "three"];
+let reversedUppercaseWords = words.toReversed().map(word => word.toUpperCase());
+console.log(reversedUppercaseWords); 
+// Output: ["THREE", "TWO", "ONE"]
+
+// 10. Reverse an array of objects by a specific property without mutating the original
+let users = [
+    {name: "Alice", age: 25},
+    {name: "Bob", age: 30},
+    {name: "Charlie", age: 35}
+];
+let reversedUsers = users.toReversed();
+console.log(reversedUsers); 
+// Output: [{name: "Charlie", age: 35}, {name: "Bob", age: 30}, {name: "Alice", age: 25}]
+console.log(users); 
+// Output: [{name: "Alice", age: 25}, {name: "Bob", age: 30}, {name: "Charlie", age: 35}] (original array remains unchanged)
           </code></pre>
               <br />
             </td>
@@ -3565,9 +5658,78 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Sort an array of numbers in ascending order without mutating the original array
+let numbers = [5, 3, 8, 1, 2];
+let sortedNumbers = numbers.toSorted((a, b) => a - b);
+console.log(sortedNumbers); 
+// Output: [1, 2, 3, 5, 8]
+console.log(numbers); 
+// Output: [5, 3, 8, 1, 2] (original array remains unchanged)
+
+// 2. Sort an array of numbers in descending order
+let sortedNumbersDesc = numbers.toSorted((a, b) => b - a);
+console.log(sortedNumbersDesc); 
+// Output: [8, 5, 3, 2, 1]
+
+// 3. Sort an array of strings alphabetically
+let fruits = ["banana", "apple", "cherry"];
+let sortedFruits = fruits.toSorted();
+console.log(sortedFruits); 
+// Output: ["apple", "banana", "cherry"]
+console.log(fruits); 
+// Output: ["banana", "apple", "cherry"] (original array remains unchanged)
+
+// 4. Sort an array of strings in reverse alphabetical order
+let sortedFruitsDesc = fruits.toSorted((a, b) => b.localeCompare(a));
+console.log(sortedFruitsDesc); 
+// Output: ["cherry", "banana", "apple"]
+
+// 5. Sort an array of objects by a numeric property
+let users = [
+    {name: "Alice", age: 25},
+    {name: "Bob", age: 30},
+    {name: "Charlie", age: 20}
+];
+let sortedByAge = users.toSorted((a, b) => a.age - b.age);
+console.log(sortedByAge); 
+// Output: [{name: "Charlie", age: 20}, {name: "Alice", age: 25}, {name: "Bob", age: 30}]
+console.log(users); 
+// Output: [{name: "Alice", age: 25}, {name: "Bob", age: 30}, {name: "Charlie", age: 20}] (original array remains unchanged)
+
+// 6. Sort an array of objects by a string property
+let sortedByName = users.toSorted((a, b) => a.name.localeCompare(b.name));
+console.log(sortedByName); 
+// Output: [{name: "Alice", age: 25}, {name: "Bob", age: 30}, {name: "Charlie", age: 20}]
+
+// 7. Sort an array of mixed-case strings, case-insensitive
+let mixedCaseStrings = ["Banana", "apple", "Cherry"];
+let sortedMixedCaseStrings = mixedCaseStrings.toSorted((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+console.log(sortedMixedCaseStrings); 
+// Output: ["apple", "Banana", "Cherry"]
+
+// 8. Sort an array of numbers represented as strings
+let numberStrings = ["10", "2", "30", "1"];
+let sortedNumberStrings = numberStrings.toSorted((a, b) => parseInt(a) - parseInt(b));
+console.log(sortedNumberStrings); 
+// Output: ["1", "2", "10", "30"]
+
+// 9. Sort an array of dates in ascending order
+let dates = [
+    new Date(2023, 11, 24),
+    new Date(2022, 5, 12),
+    new Date(2023, 0, 1)
+];
+let sortedDates = dates.toSorted((a, b) => a - b);
+console.log(sortedDates); 
+// Output: [Date 2022-06-12, Date 2023-01-01, Date 2023-12-24]
+
+// 10. Sort an array of arrays based on the first element of each sub-array
+let arrayOfArrays = [[3, "c"], [1, "a"], [2, "b"]];
+let sortedArrayOfArrays = arrayOfArrays.toSorted((a, b) => a[0] - b[0]);
+console.log(sortedArrayOfArrays); 
+// Output: [[1, "a"], [2, "b"], [3, "c"]]
+console.log(arrayOfArrays); 
+// Output: [[3, "c"], [1, "a"], [2, "b"]] (original array remains unchanged)
           </code></pre>
               <br />
             </td>
@@ -3582,9 +5744,85 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Remove elements from an array without mutating the original array
+let numbers = [1, 2, 3, 4, 5];
+let splicedNumbers = numbers.toSpliced(2, 2); // Removes 2 elements starting at index 2
+console.log(splicedNumbers); 
+// Output: [1, 2, 5]
+console.log(numbers); 
+// Output: [1, 2, 3, 4, 5] (original array remains unchanged)
+
+// 2. Add elements to an array without mutating the original array
+let fruits = ["apple", "banana", "cherry"];
+let newFruits = fruits.toSpliced(1, 0, "orange", "grape");
+console.log(newFruits); 
+// Output: ["apple", "orange", "grape", "banana", "cherry"]
+console.log(fruits); 
+// Output: ["apple", "banana", "cherry"] (original array remains unchanged)
+
+// 3. Replace elements in an array without mutating the original array
+let letters = ["a", "b", "c", "d"];
+let replacedLetters = letters.toSpliced(1, 2, "x", "y");
+console.log(replacedLetters); 
+// Output: ["a", "x", "y", "d"]
+console.log(letters); 
+// Output: ["a", "b", "c", "d"] (original array remains unchanged)
+
+// 4. Remove all elements after a certain index
+let colors = ["red", "green", "blue", "yellow"];
+let shortenedColors = colors.toSpliced(2);
+console.log(shortenedColors); 
+// Output: ["red", "green"]
+console.log(colors); 
+// Output: ["red", "green", "blue", "yellow"] (original array remains unchanged)
+
+// 5. Insert elements at the beginning of an array
+let nums = [4, 5, 6];
+let newNums = nums.toSpliced(0, 0, 1, 2, 3);
+console.log(newNums); 
+// Output: [1, 2, 3, 4, 5, 6]
+console.log(nums); 
+// Output: [4, 5, 6] (original array remains unchanged)
+
+// 6. Replace all elements in an array
+let items = ["item1", "item2", "item3"];
+let replacedItems = items.toSpliced(0, items.length, "newItem1", "newItem2");
+console.log(replacedItems); 
+// Output: ["newItem1", "newItem2"]
+console.log(items); 
+// Output: ["item1", "item2", "item3"] (original array remains unchanged)
+
+// 7. Remove the first element from an array
+let animals = ["cat", "dog", "rabbit"];
+let withoutFirstAnimal = animals.toSpliced(0, 1);
+console.log(withoutFirstAnimal); 
+// Output: ["dog", "rabbit"]
+console.log(animals); 
+// Output: ["cat", "dog", "rabbit"] (original array remains unchanged)
+
+// 8. Insert elements in the middle of an array
+let sequence = [1, 2, 5, 6];
+let correctedSequence = sequence.toSpliced(2, 0, 3, 4);
+console.log(correctedSequence); 
+// Output: [1, 2, 3, 4, 5, 6]
+console.log(sequence); 
+// Output: [1, 2, 5, 6] (original array remains unchanged)
+
+// 9. Replace a single element in an array
+let weekdays = ["Monday", "Tuesday", "Wednesday"];
+let updatedWeekdays = weekdays.toSpliced(1, 1, "Thursday");
+console.log(updatedWeekdays); 
+// Output: ["Monday", "Thursday", "Wednesday"]
+console.log(weekdays); 
+// Output: ["Monday", "Tuesday", "Wednesday"] (original array remains unchanged)
+
+// 10. Remove and add elements in an array simultaneously
+let letters2 = ["a", "b", "c", "d"];
+let modifiedLetters = letters2.toSpliced(1, 2, "x", "y", "z");
+console.log(modifiedLetters); 
+// Output: ["a", "x", "y", "z", "d"]
+console.log(letters2); 
+// Output: ["a", "b", "c", "d"] (original array remains unchanged)
           </code></pre>
               <br />
             </td>
@@ -3599,9 +5837,89 @@ let greeting = "Hello, world!";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// String
-let greeting = "Hello, world!";
-          
+// 1. Replace an element in an array without mutating the original array
+let numbers = [1, 2, 3, 4, 5];
+let newNumbers = numbers.with(2, 10); // Replaces the element at index 2 with 10
+console.log(newNumbers); 
+// Output: [1, 2, 10, 4, 5]
+console.log(numbers); 
+// Output: [1, 2, 3, 4, 5] (original array remains unchanged)
+
+// 2. Replace the first element in an array
+let fruits = ["apple", "banana", "cherry"];
+let newFruits = fruits.with(0, "orange");
+console.log(newFruits); 
+// Output: ["orange", "banana", "cherry"]
+console.log(fruits); 
+// Output: ["apple", "banana", "cherry"] (original array remains unchanged)
+
+// 3. Replace the last element in an array
+let colors = ["red", "green", "blue"];
+let newColors = colors.with(colors.length - 1, "yellow");
+console.log(newColors); 
+// Output: ["red", "green", "yellow"]
+console.log(colors); 
+// Output: ["red", "green", "blue"] (original array remains unchanged)
+
+// 4. Replace an element in a sparse array
+let sparseArray = [1, , 3];
+let newSparseArray = sparseArray.with(1, 2);
+console.log(newSparseArray); 
+// Output: [1, 2, 3]
+console.log(sparseArray); 
+// Output: [1, empty, 3] (original array remains unchanged)
+
+// 5. Replace an element in an array of objects
+let users = [
+    {name: "Alice", age: 25},
+    {name: "Bob", age: 30},
+    {name: "Charlie", age: 35}
+];
+let newUsers = users.with(1, {name: "Bob", age: 31});
+console.log(newUsers); 
+// Output: [{name: "Alice", age: 25}, {name: "Bob", age: 31}, {name: "Charlie", age: 35}]
+console.log(users); 
+// Output: [{name: "Alice", age: 25}, {name: "Bob", age: 30}, {name: "Charlie", age: 35}] (original array remains unchanged)
+
+// 6. Replace an element in an array of strings
+let letters = ["a", "b", "c", "d"];
+let newLetters = letters.with(3, "z");
+console.log(newLetters); 
+// Output: ["a", "b", "c", "z"]
+console.log(letters); 
+// Output: ["a", "b", "c", "d"] (original array remains unchanged)
+
+// 7. Replace an element in a nested array
+let nestedArray = [[1, 2], [3, 4], [5, 6]];
+let newNestedArray = nestedArray.with(1, [7, 8]);
+console.log(newNestedArray); 
+// Output: [[1, 2], [7, 8], [5, 6]]
+console.log(nestedArray); 
+// Output: [[1, 2], [3, 4], [5, 6]] (original array remains unchanged)
+
+// 8. Replace an element with `null`
+let items = ["item1", "item2", "item3"];
+let newItems = items.with(2, null);
+console.log(newItems); 
+// Output: ["item1", "item2", null]
+console.log(items); 
+// Output: ["item1", "item2", "item3"] (original array remains unchanged)
+
+// 9. Replace an element in an array of booleans
+let booleans = [true, false, true];
+let newBooleans = booleans.with(1, true);
+console.log(newBooleans); 
+// Output: [true, true, true]
+console.log(booleans); 
+// Output: [true, false, true] (original array remains unchanged)
+
+// 10. Replace an element in an array of mixed data types
+let mixedArray = [1, "two", true];
+let newMixedArray = mixedArray.with(1, "three");
+console.log(newMixedArray); 
+// Output: [1, "three", true]
+console.log(mixedArray); 
+// Output: [1, "two", true] (original array remains unchanged)    
           </code></pre>
               <br />
             </td>
