@@ -2743,300 +2743,6 @@ console.log(cars[lastIndex]); // Output: 'BMW'
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-push', event)">
-              .push() method
-            </td>
-          </tr>
-          <tr id="detail-tag-push" class="expandable-row-content">
-            <td>
-              <h3>.push() method</h3>
-              <p>The `.push()` method in JavaScript arrays is a built-in function used to add one or more elements to the end of an array, thereby increasing its length. This method modifies the original array in place and returns the new length of the array after the elements have been added. It is a versatile and commonly used method, especially when working with dynamic data where new elements need to be appended regularly. The `.push()` method can accept multiple arguments, allowing developers to add several elements simultaneously without needing multiple calls. For example, if you have an array `let fruits = ['apple', 'banana']`, using `fruits.push('cherry', 'orange')` will result in `['apple', 'banana', 'cherry', 'orange']`. This makes `.push()` an efficient way to expand an array when dealing with tasks such as collecting user inputs, handling data from external sources, or accumulating results within loops. Furthermore, because it operates on the existing array, `.push()` helps maintain memory efficiency, as it does not create a new array instance. Overall, the `.push()` method is a fundamental part of JavaScript's array manipulation capabilities, enabling developers to manage collections of data with ease and flexibility.</p>
-              <h4><u>Specifications</u></h4>
-              <pre>
-           <code class="language-js">
-// Example 1: Adding a single element to an array
-let fruits = ['apple', 'banana'];
-fruits.push('cherry');
-console.log(fruits); // Output: ['apple', 'banana', 'cherry']
-
-// Example 2: Adding multiple elements to an array
-let colors = ['red', 'green'];
-colors.push('blue', 'yellow');
-console.log(colors); // Output: ['red', 'green', 'blue', 'yellow']
-
-// Example 3: Using push() to add an element to an empty array
-let numbers = [];
-numbers.push(1);
-console.log(numbers); // Output: [1]
-
-// Example 4: Adding elements of different data types
-let mixedArray = ['text', 42];
-mixedArray.push(true, null);
-console.log(mixedArray); // Output: ['text', 42, true, null]
-
-// Example 5: Adding an array to another array as a single element
-let array1 = [1, 2];
-let array2 = [3, 4];
-array1.push(array2);
-console.log(array1); // Output: [1, 2, [3, 4]]
-
-// Example 6: Pushing elements from a function
-function addElement(arr, element) {
-  arr.push(element);
-}
-
-let animals = ['dog', 'cat'];
-addElement(animals, 'rabbit');
-console.log(animals); // Output: ['dog', 'cat', 'rabbit']
-
-// Example 7: Using push() to build a list from user input
-let userInputs = [];
-userInputs.push('John');
-userInputs.push('Doe');
-console.log(userInputs); // Output: ['John', 'Doe']
-
-// Example 8: Using push() to track actions
-let actions = [];
-actions.push('login');
-actions.push('view_page');
-console.log(actions); // Output: ['login', 'view_page']
-
-// Example 9: Dynamically adding data to an array
-let dataLog = [];
-dataLog.push({ timestamp: '2024-01-01', value: 100 });
-dataLog.push({ timestamp: '2024-01-02', value: 200 });
-console.log(dataLog); 
-// Output: [{ timestamp: '2024-01-01', value: 100 }, { timestamp: '2024-01-02', value: 200 }]
-
-// Example 10: Returning the new length of the array after push
-let books = ['1984', 'Brave New World'];
-let newLength = books.push('Fahrenheit 451');
-console.log(books); // Output: ['1984', 'Brave New World', 'Fahrenheit 451']
-console.log(newLength); // Output: 3
-            </code></pre>
-              <br/>
-            </td>
-          </tr>
-          <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-pop', event)">
-              .pop() method
-            </td>
-          </tr>
-          <tr id="detail-tag-pop" class="expandable-row-content">
-            <td>
-              <h3>.pop() method</h3>
-              <p>The `.pop()` method in JavaScript arrays is a built-in function that removes the last element from an array, decreasing its length by one, and returns the removed element. This method modifies the original array directly and is particularly useful for operations where you need to retrieve and simultaneously remove the most recent addition to an array, following the Last-In-First-Out (LIFO) principle often used in stack data structures. For example, if you have an array `let fruits = ['apple', 'banana', 'cherry']`, calling `fruits.pop()` will remove `'cherry'` from the array, leaving `['apple', 'banana']`, and return the value `'cherry'`. This behavior makes `.pop()` an essential tool for tasks that require managing collections of data in a sequential manner, such as undo operations, backtracking algorithms, or buffer management. It's important to note that if the array is empty, calling `.pop()` will return `undefined` without throwing an error, providing a safe way to attempt removal without needing explicit checks for emptiness. Additionally, because `.pop()` only affects the last element of the array, it maintains the efficiency of the operation, allowing for quick retrieval and deletion without needing to re-index the entire array. As such, the `.pop()` method is a fundamental and frequently used part of JavaScript's array manipulation toolkit, offering a simple yet powerful way to manage and manipulate data collections.</p>
-              <h4><u>Specifications</u></h4>
-              <pre>
-           <code class="language-js">
-// Example 1: Removing the last element from an array
-let fruits = ['apple', 'banana', 'cherry'];
-let lastFruit = fruits.pop();
-console.log(fruits); // Output: ['apple', 'banana']
-console.log(lastFruit); // Output: 'cherry'
-
-// Example 2: Using pop() on an empty array
-let emptyArray = [];
-let poppedElement = emptyArray.pop();
-console.log(emptyArray); // Output: []
-console.log(poppedElement); // Output: undefined
-
-// Example 3: Removing the last element from a single-element array
-let singleElementArray = ['onlyElement'];
-let removedElement = singleElementArray.pop();
-console.log(singleElementArray); // Output: []
-console.log(removedElement); // Output: 'onlyElement'
-
-// Example 4: Using pop() to manage a stack of tasks
-let tasks = ['task1', 'task2', 'task3'];
-let lastTask = tasks.pop();
-console.log(tasks); // Output: ['task1', 'task2']
-console.log(lastTask); // Output: 'task3'
-
-// Example 5: Chaining pop() with other array methods
-let colors = ['red', 'green', 'blue'];
-let removedColor = colors.sort().pop(); // Sorts and then removes the last element
-console.log(colors); // Output: ['green', 'red']
-console.log(removedColor); // Output: 'blue'
-
-// Example 6: Using pop() to process and remove elements
-let numbers = [10, 20, 30, 40];
-while (numbers.length > 0) {
-  console.log(numbers.pop()); // Output: 40, 30, 20, 10 (one by one)
-}
-console.log(numbers); // Output: []
-
-// Example 7: Removing elements until a condition is met
-let scores = [85, 90, 78, 92];
-while (scores.pop() < 90) {
-  console.log("Removed a score below 90");
-}
-console.log(scores); // Output: [85, 90]
-
-// Example 8: Using pop() to manage a history of actions
-let history = ['start', 'login', 'view'];
-let lastAction = history.pop();
-console.log(history); // Output: ['start', 'login']
-console.log(lastAction); // Output: 'view'
-
-// Example 9: Using pop() to implement undo functionality
-let commands = ['draw', 'erase', 'fill'];
-let undoCommand = commands.pop();
-console.log(commands); // Output: ['draw', 'erase']
-console.log(`Undo action: ${undoCommand}`); // Output: 'Undo action: fill'
-
-// Example 10: Using pop() with nested arrays
-let nestedArrays = [[1, 2], [3, 4], [5, 6]];
-let lastNestedArray = nestedArrays.pop();
-console.log(nestedArrays); // Output: [[1, 2], [3, 4]]
-console.log(lastNestedArray); // Output: [5, 6]
-            </code></pre>
-              <br />
-            </td>
-          </tr>
-          <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-join', event)">
-              .join() method
-            </td>
-          </tr>
-          <tr id="detail-tag-join" class="expandable-row-content">
-            <td>
-              <h3>.join() method</h3>
-              <p>The `.join()` method in JavaScript arrays is a built-in function that creates and returns a new string by concatenating all the elements of an array, separated by a specified delimiter. This method does not modify the original array; instead, it provides a way to represent array contents as a string. By default, if no delimiter is specified, the elements are separated by commas. For example, if you have an array `let fruits = ['apple', 'banana', 'cherry']`, calling `fruits.join()` will result in the string `"apple,banana,cherry"`. However, you can specify a different delimiter, such as `fruits.join(' - ')`, which would produce the string `"apple - banana - cherry"`. The `.join()` method is particularly useful for generating formatted strings from array data, such as creating CSV (Comma Separated Values) strings, constructing paths, or displaying list items in a readable format. Additionally, when used on an array containing elements that are not strings, `.join()` implicitly converts them to strings before concatenation, ensuring that any type of array can be effectively joined into a single string representation. This makes the `.join()` method a versatile and valuable tool in JavaScript for transforming and presenting array data in a clean and customizable string format.</p>
-              <h4><u>Specifications</u></h4>
-              <pre>
-           <code class="language-js">
-// Example 1: Joining elements of an array with a comma (default separator)
-let fruits = ['apple', 'banana', 'cherry'];
-let fruitsString = fruits.join();
-console.log(fruitsString); // Output: 'apple,banana,cherry'
-
-// Example 2: Joining elements with a custom separator
-let colors = ['red', 'green', 'blue'];
-let colorString = colors.join(' - ');
-console.log(colorString); // Output: 'red - green - blue'
-
-// Example 3: Joining elements without any separator
-let letters = ['a', 'b', 'c'];
-let letterString = letters.join('');
-console.log(letterString); // Output: 'abc'
-
-// Example 4: Joining elements of an array with a space
-let words = ['Hello', 'world'];
-let sentence = words.join(' ');
-console.log(sentence); // Output: 'Hello world'
-
-// Example 5: Joining numbers with a colon as a separator
-let numbers = [1, 2, 3, 4, 5];
-let numberString = numbers.join(':');
-console.log(numberString); // Output: '1:2:3:4:5'
-
-// Example 6: Joining elements of a mixed array
-let mixedArray = ['apple', 42, true, null];
-let mixedString = mixedArray.join(', ');
-console.log(mixedString); // Output: 'apple, 42, true, null'
-
-// Example 7: Creating a CSV string from an array of data
-let data = ['Name', 'Age', 'Country'];
-let csv = data.join(',');
-console.log(csv); // Output: 'Name,Age,Country'
-
-// Example 8: Joining nested arrays into a single string
-let nestedArray = [[1, 2], [3, 4], [5, 6]];
-let flatString = nestedArray.map(arr => arr.join('-')).join('; ');
-console.log(flatString); // Output: '1-2; 3-4; 5-6'
-
-// Example 9: Handling empty slots in sparse arrays
-let sparseArray = [1, , 3, , 5];
-let sparseString = sparseArray.join('-');
-console.log(sparseString); // Output: '1--3--5'
-
-// Example 10: Joining an array of objects using a property
-let users = [{name: 'Alice'}, {name: 'Bob'}, {name: 'Charlie'}];
-let names = users.map(user => user.name).join(', ');
-console.log(names); // Output: 'Alice, Bob, Charlie'
-            </code></pre>
-              <br />
-            </td>
-          </tr>
-          <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-shift', event)">
-              .shift() method
-            </td>
-          </tr>
-          <tr id="detail-tag-shift" class="expandable-row-content">
-            <td>
-              <h3>.shift() method</h3>
-              <p>The `.shift()` method in JavaScript arrays is a built-in function that removes the first element from an array and returns that removed element, effectively decreasing the array's length by one. This method directly modifies the original array, making it particularly useful for scenarios where the first element needs to be extracted and processed, such as in First-In-First-Out (FIFO) data structures like queues. For instance, if you have an array `let queue = ['task1', 'task2', 'task3']`, invoking `queue.shift()` will remove `'task1'` from the array, resulting in `['task2', 'task3']`, and return the value `'task1'`. The `.shift()` method is advantageous in applications that require sequential processing of elements, such as handling tasks in order, managing buffers, or processing data streams. Unlike the `.pop()` method, which removes elements from the end of an array, `.shift()` operates on the first element, which can be less efficient for large arrays as it requires re-indexing of the remaining elements. If the array is empty, calling `.shift()` will return `undefined` without throwing an error, offering a safe way to attempt removal without pre-checking the array's size. Overall, the `.shift()` method is an essential tool in JavaScript for managing arrays where order and sequence of elements are crucial, enabling developers to efficiently manipulate data collections by removing elements from the front.</p>
-              <h4><u>Specifications</u></h4>
-              <pre>
-           <code class="language-js">
-// Example 1: Removing the first element from an array
-let fruits = ['apple', 'banana', 'cherry'];
-let firstFruit = fruits.shift();
-console.log(fruits); // Output: ['banana', 'cherry']
-console.log(firstFruit); // Output: 'apple'
-
-// Example 2: Using shift() on an empty array
-let emptyArray = [];
-let shiftedElement = emptyArray.shift();
-console.log(emptyArray); // Output: []
-console.log(shiftedElement); // Output: undefined
-
-// Example 3: Removing the first element from a single-element array
-let singleElementArray = ['onlyElement'];
-let removedElement = singleElementArray.shift();
-console.log(singleElementArray); // Output: []
-console.log(removedElement); // Output: 'onlyElement'
-
-// Example 4: Using shift() to manage a queue of tasks
-let tasks = ['task1', 'task2', 'task3'];
-let firstTask = tasks.shift();
-console.log(tasks); // Output: ['task2', 'task3']
-console.log(firstTask); // Output: 'task1'
-
-// Example 5: Chaining shift() with other array methods
-let colors = ['red', 'green', 'blue'];
-let removedColor = colors.reverse().shift(); // Reverses and then removes the first element
-console.log(colors); // Output: ['blue', 'green']
-console.log(removedColor); // Output: 'red'
-
-// Example 6: Using shift() to process and remove elements
-let numbers = [10, 20, 30, 40];
-while (numbers.length > 0) {
-  console.log(numbers.shift()); // Output: 10, 20, 30, 40 (one by one)
-}
-console.log(numbers); // Output: []
-
-// Example 7: Removing elements until a condition is met
-let scores = [85, 90, 78, 92];
-while (scores[0] < 90) {
-  console.log("Removed a score below 90:", scores.shift());
-}
-console.log(scores); // Output: [90, 78, 92]
-
-// Example 8: Using shift() to manage a history of actions
-let history = ['start', 'login', 'view'];
-let firstAction = history.shift();
-console.log(history); // Output: ['login', 'view']
-console.log(firstAction); // Output: 'start'
-
-// Example 9: Using shift() to implement a "first-come, first-served" system
-let customers = ['Alice', 'Bob', 'Charlie'];
-let servedCustomer = customers.shift();
-console.log(customers); // Output: ['Bob', 'Charlie']
-console.log(`Served customer: ${servedCustomer}`); // Output: 'Served customer: Alice'
-
-// Example 10: Using shift() with nested arrays
-let nestedArrays = [[1, 2], [3, 4], [5, 6]];
-let firstNestedArray = nestedArrays.shift();
-console.log(nestedArrays); // Output: [[3, 4], [5, 6]]
-console.log(firstNestedArray); // Output: [1, 2]
-            </code></pre>
-              <br />
-            </td>
-          </tr>
-          <tr>
             <td class="clickable" onclick="toggleDetail('detail-tag-ainf', event)">
               scope of arrays in functions
             </td>
@@ -3265,7 +2971,7 @@ console.log(Array.prototype.at.call(arrayLike, 0)); // Output: "a"
           <tr id="detail-tag-indexof" class="expandable-row-content">
             <td>
               <h3>.indexOf() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.indexOf()` method in JavaScript is used to determine the first occurrence of a specified value within a string or an array, returning the index of that value. If the value is found, the method returns the index (a zero-based integer) where the specified value first appears. If the value is not found, `.indexOf()` returns `-1`. This method is case-sensitive when used on strings, meaning that it distinguishes between uppercase and lowercase characters. Additionally, an optional second parameter can be provided to specify the position in the string or array from which the search should begin. This method is particularly useful for checking the existence and position of elements or substrings, facilitating tasks like validation, search operations, or conditional logic in JavaScript programs.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3282,7 +2988,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-lastindexof" class="expandable-row-content">
             <td>
               <h3>.lastIndexOf() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.lastIndexOf()` method in JavaScript is used to find the last occurrence of a specified value within a string or an array, returning the index of that value. Unlike the `.indexOf()` method, which searches from the beginning, `.lastIndexOf()` searches from the end of the string or array towards the beginning. If the specified value is found, the method returns the index (a zero-based integer) where the value last appears; if the value is not found, it returns `-1`. This method is case-sensitive when dealing with strings, meaning it distinguishes between uppercase and lowercase characters. An optional second parameter can be provided, which indicates the position within the string or array at which to start the search backwards. This method is particularly useful when you need to find the last occurrence of an element or substring, allowing for more flexible search and manipulation operations in JavaScript. </p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3299,7 +3005,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-includes" class="expandable-row-content">
             <td>
               <h3>.includes() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.includes()` method in JavaScript is used to determine whether a specific value exists within a string or an array, returning a boolean value (`true` or `false`). When used on a string, it checks if a particular substring is present within that string, while in an array, it checks if a particular element is included among the array's elements. The method is case-sensitive for strings, meaning it differentiates between uppercase and lowercase characters. Additionally, an optional second parameter can be provided to specify the index at which the search should start. If the value is found anywhere within the specified portion of the string or array, the method returns `true`; otherwise, it returns `false`. This method is especially useful for quickly checking the presence of a value without needing to know its exact position, making it a convenient tool for validation and conditional logic in JavaScript programming. </p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3316,7 +3022,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-find" class="expandable-row-content">
             <td>
               <h3>.find() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.find()` method in JavaScript is used to locate the first element in an array that satisfies a provided testing function, returning the value of that element. If no elements meet the condition specified by the function, the method returns `undefined`. The testing function is executed for each element in the array in index order until a match is found, at which point the search stops. The function itself takes three arguments: the current element being processed, the index of that element, and the array being traversed. The `.find()` method is particularly useful when you need to retrieve a specific item from an array based on a dynamic condition, such as finding an object with a certain property or a number that meets a particular criterion. Unlike methods that return indices, `.find()` returns the actual element, making it a powerful tool for filtering and searching through arrays in JavaScript.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3333,7 +3039,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-findindex" class="expandable-row-content">
             <td>
               <h3>.findIndex() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.findIndex()` method in JavaScript is used to identify the index of the first element in an array that satisfies a given testing function. It returns the index of this element as a zero-based integer. If no element passes the test, the method returns `-1`. The testing function is applied to each element in the array, starting from the first, and continues until it finds an element that meets the specified condition. The function provided to `.findIndex()` receives three arguments: the current element, its index, and the array itself. This method is particularly useful when you need to know the position of an element that meets certain criteria within an array, such as finding the index of an object with a specific property or identifying the location of a value that matches a particular condition. Unlike `.find()`, which returns the element itself, `.findIndex()` is focused on retrieving the index, making it essential for tasks that require knowledge of an element's position in an array.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3350,7 +3056,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-findlast" class="expandable-row-content">
             <td>
               <h3>.findLast() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.findLast()` method in JavaScript is a relatively newer addition that allows you to locate the last element in an array that satisfies a specified testing function, returning the value of that element. If no elements in the array match the condition set by the testing function, the method returns `undefined`. Unlike the `.find()` method, which searches from the beginning of the array, `.findLast()` searches from the end towards the beginning, making it useful when you need the most recent element that meets a particular criterion. The testing function provided to `.findLast()` is called with three arguments: the current element, its index, and the array itself. This method is particularly useful in scenarios where the most recent or last occurrence of an element matching a condition is more relevant than the first, such as when searching through historical data or logs.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3367,7 +3073,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-findlastindex" class="expandable-row-content">
             <td>
               <h3>.findLastIndex() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.findLastIndex()` method in JavaScript is designed to return the index of the last element in an array that satisfies a given testing function. It searches the array from the end towards the beginning, returning the index of the first (in reverse order) element that meets the specified condition. If no such element is found, the method returns `-1`. The testing function passed to `.findLastIndex()` is invoked with three arguments: the current element, its index, and the array itself. This method is particularly useful when the position of the last matching element in an array is needed, such as when dealing with data that is ordered by time or priority, where the latest or most significant occurrence is more relevant. By providing the index of this element, `.findLastIndex()` allows for efficient access and manipulation based on the location of elements that meet specific criteria.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3384,7 +3090,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-entries" class="expandable-row-content">
             <td>
               <h3>.entries() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.entries()` method in JavaScript is used to create an iterator object that contains key/value pairs for each index in an array. Each key/value pair is represented as an array, where the first element is the index (the key) and the second element is the value at that index. When called on an array, the `.entries()` method returns a new Array Iterator object that can be used in loops or with iteration methods like `for...of` to access both the index and the value simultaneously. This method is particularly useful when you need to process or manipulate both the indices and the values of an array, such as when performing operations that require knowledge of an element's position within the array. By providing a structured way to access both parts, `.entries()` enhances the flexibility and functionality of array iteration in JavaScript.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3401,7 +3107,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-keys" class="expandable-row-content">
             <td>
               <h3>.keys() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.keys()` method in JavaScript is used to create an iterator object that contains the keys (or indices) for each element in an array. When invoked on an array, the method returns a new Array Iterator object that allows you to iterate over the array's indices. This can be particularly useful when you are only interested in the positions of elements within the array, rather than the values themselves. The `.keys()` method is often used in conjunction with looping constructs like `for...of` or in other scenarios where you need to access or manipulate the indices directly, such as when tracking element positions or performing operations that depend on the order of elements. By focusing on the indices alone, `.keys()` provides a streamlined way to work with the structure of an array without involving the array's values.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3418,7 +3124,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-values" class="expandable-row-content">
             <td>
               <h3>.values() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.values()` method in JavaScript is used to create an iterator object that contains the values for each element in an array. When called on an array, this method returns a new Array Iterator object that can be used to iterate through the array's values in the order they appear. This method is particularly useful when you need to process or examine the values of an array without concern for their corresponding indices. By using `.values()` in conjunction with a `for...of` loop or other iteration constructs, you can efficiently access and manipulate each element's value. This method provides a clear and straightforward way to work with the contents of an array, making it a handy tool for scenarios where the focus is solely on the data within the array, rather than its structure or order.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3438,7 +3144,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-concat" class="expandable-row-content">
             <td>
               <h3>.concat() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.concat()` method in JavaScript is used to merge two or more arrays into a single new array. When called on an array, the method takes one or more arrays or values as arguments and appends them to the end of the original array, creating a new array that contains all the elements from the original and the provided arrays or values in the order they were passed. Importantly, `.concat()` does not alter the original array but instead returns a new array with the combined elements, ensuring that the original data remains unchanged. This method is particularly useful for combining datasets, adding elements to an array without mutating the original, or creating a composite array from multiple sources. Because `.concat()` can accept both arrays and individual values as arguments, it provides a flexible and powerful way to build and manipulate arrays in JavaScript.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3455,7 +3161,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-copywithin" class="expandable-row-content">
             <td>
               <h3>.copyWithin() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.copyWithin()` method in JavaScript is used to shallowly copy a portion of an array to another location within the same array, modifying the array in place. This method takes three arguments: the target index where the copy will begin, the start index of the source data to be copied, and an optional end index which specifies the end of the source data (the end index is non-inclusive). If the end index is not provided, it defaults to the length of the array. The method does not add any new elements but rather overwrites existing ones with the copied values. Since `.copyWithin()` modifies the array directly, it can be useful for rearranging elements within an array quickly without the need for additional memory or new arrays. However, because it mutates the original array, it should be used with care when the preservation of the original array structure is important.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3472,7 +3178,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-fill" class="expandable-row-content">
             <td>
               <h3>.fill() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.fill()` method in JavaScript is used to replace all or part of the elements in an array with a static value, modifying the array in place. This method allows you to specify a value that will be used to fill the array and can target specific portions of the array by providing optional start and end indices. The start index determines where the filling begins, and the end index (non-inclusive) determines where it stops. If no start and end indices are provided, the entire array is filled with the specified value. The `.fill()` method is particularly useful for quickly populating an array with a single value, resetting array elements, or initializing arrays with a default value. Since `.fill()` changes the original array, it’s important to use it in contexts where mutating the array is desired, as it does not create a new array but directly alters the existing one.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3489,7 +3195,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-filter" class="expandable-row-content">
             <td>
               <h3>.filter() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.filter()` method in JavaScript is used to create a new array containing all the elements of an existing array that meet a specified condition, leaving the original array unchanged. This method takes a callback function as an argument, which is applied to each element of the array. The callback function returns a boolean value—`true` for elements that should be included in the new array and `false` for those that should be excluded. The `.filter()` method is particularly powerful for extracting a subset of data from an array based on specific criteria, such as filtering out unwanted items, selecting elements that match a certain property, or processing arrays in a way that removes irrelevant data. Since `.filter()` does not modify the original array but instead returns a new array with only the elements that pass the test, it is a safe and effective tool for refining and manipulating data sets in JavaScript.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3506,7 +3212,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-map" class="expandable-row-content">
             <td>
               <h3>.map() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.map()` method in JavaScript is used to create a new array by applying a specified function to each element of an existing array. This method takes a callback function as an argument, which is executed on every element in the array, producing a new value for each element. The result is a new array of the same length, with each element transformed according to the logic defined in the callback function. The original array remains unchanged, as `.map()` does not alter the source array but rather generates a new one based on the transformations. This method is particularly useful for scenarios where you need to perform consistent operations on every element of an array, such as converting data formats, computing new values, or extracting specific properties from objects. By providing a flexible and efficient way to transform arrays, `.map()` is a fundamental tool in functional programming within JavaScript.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3523,7 +3229,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-flat" class="expandable-row-content">
             <td>
               <h3>.flat() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.flat()` method in JavaScript is used to create a new array by flattening nested arrays up to a specified depth, effectively reducing the dimensionality of the array structure. When called on an array, `.flat()` returns a new array where sub-arrays are concatenated into the main array, based on the depth level provided as an argument. If no depth is specified, `.flat()` defaults to a depth of 1, meaning it will only flatten one level of nested arrays. For example, it will turn `[1, [2, [3]]]` into `[1, 2, [3]]`. If you provide a greater depth, it will continue flattening deeper levels of nested arrays. This method is particularly useful for simplifying complex, multi-dimensional arrays into more manageable, single-level arrays, especially when dealing with data that has been nested multiple times. By creating a new, flattened array without altering the original, `.flat()` provides a straightforward way to handle and manipulate deeply nested data structures in JavaScript.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3540,7 +3246,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-flatmap" class="expandable-row-content">
             <td>
               <h3>.flatMap() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.flatMap()` method in JavaScript is a versatile and powerful array method that combines the operations of `.map()` and `.flat()` into a single step. It first applies a mapping function to each element of the array, which can return an array itself, and then flattens the result by one level. This means that for each element, the mapping function can produce multiple elements that will be included in the final flattened array. The `.flatMap()` method is particularly useful when you need to transform and flatten an array in one go, such as when you want to process an array of strings into an array of words or when dealing with arrays that require both transformation and reduction in nesting. Like `.map()`, it does not modify the original array but instead returns a new array. By combining these two operations efficiently, `.flatMap()` simplifies scenarios where mapping and flattening are commonly needed together, making code cleaner and more concise.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3557,7 +3263,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-slice" class="expandable-row-content">
             <td>
               <h3>.slice() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.slice()` method in JavaScript is used to create a shallow copy of a portion of an array or string, without modifying the original array or string. When called on an array or string, it takes two arguments: the start index, which is the beginning of the section to be copied, and the optional end index, which is non-inclusive and defines where the section ends. If the end index is not provided, `.slice()` will include all elements from the start index to the end of the array or string. This method is particularly useful for extracting specific segments, creating sub-arrays or substrings, or duplicating parts of data while leaving the original intact. Since `.slice()` returns a new array or string, it is a non-destructive operation that allows for flexible data manipulation and extraction in JavaScript, making it a valuable tool for working with sequences of elements.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3574,7 +3280,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-splice" class="expandable-row-content">
             <td>
               <h3>.splice() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.splice()` method in JavaScript is a powerful tool used to modify the contents of an array by adding, removing, or replacing elements. Unlike `.slice()`, which creates a new array without altering the original, `.splice()` directly mutates the original array. The method takes at least two arguments: the start index, where the changes will begin, and the number of elements to be removed. Additional arguments can be provided to specify the elements to be added at the start index. For example, `.splice(2, 1, 'newItem')` would remove one element at index 2 and insert `'newItem'` in its place. The method returns an array containing the removed elements, if any. This versatility makes `.splice()` particularly useful for tasks like inserting elements at specific positions, deleting parts of an array, or replacing elements, allowing for dynamic and flexible array manipulation. However, because it alters the original array, it's important to use `.splice()` carefully when array preservation is necessary.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3594,7 +3300,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-foreach" class="expandable-row-content">
             <td>
               <h3>.forEach() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.forEach()` method in JavaScript is used to execute a provided function once for each element in an array. Unlike some other iteration methods, such as `.map()` or `.filter()`, `.forEach()` does not return a new array or any other value; instead, it simply performs the specified operation on each element of the array in the order they appear. The method takes a callback function as its argument, and this function can access the current element, its index, and the array itself. `.forEach()` is particularly useful for tasks that involve side effects, such as logging, modifying external variables, or interacting with DOM elements, where you need to perform an action for each array item but do not need to transform or filter the array. Because it does not alter the array or produce a new one, `.forEach()` is best suited for scenarios where you are interested in performing an operation on each element without needing a resulting value or array.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3611,7 +3317,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-every" class="expandable-row-content">
             <td>
               <h3>.every() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.every()` method in JavaScript is used to test whether all elements in an array pass a specified test implemented by a provided function. This method takes a callback function as an argument, which is executed for each element of the array. If the callback function returns `true` for every element, `.every()` returns `true`; if the function returns `false` for any element, the method immediately returns `false` and stops further iteration. This makes `.every()` particularly useful for validating that all items in an array meet a certain condition, such as checking if all numbers in an array are positive, or if all objects in a list have a required property. Since `.every()` stops evaluating as soon as it encounters a `false` result, it can be efficient for large arrays where a failure condition might occur early. It does not modify the original array and is a valuable tool when a boolean assessment across an entire dataset is needed.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3628,7 +3334,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-some" class="expandable-row-content">
             <td>
               <h3>.some() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.some()` method in JavaScript is used to test whether at least one element in an array passes a specified test implemented by a provided function. This method takes a callback function as an argument, which is executed for each element in the array. If the callback function returns `true` for any one of the elements, `.some()` immediately returns `true` and stops further iteration. If the function returns `false` for all elements, the method returns `false`. This makes `.some()` particularly useful for scenarios where you need to check if any element in an array meets a certain condition, such as determining if any numbers in an array are negative, or if any objects in a list contain a specific property. Since `.some()` stops processing as soon as it finds a matching element, it can be more efficient than methods that need to evaluate every element. Like other array methods, `.some()` does not modify the original array, making it a convenient tool for quick, conditional checks across arrays in JavaScript.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3645,7 +3351,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-reduce" class="expandable-row-content">
             <td>
               <h3>.reduce() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.reduce()` method in JavaScript is a powerful array method used to accumulate a single value from an array by applying a reducer function to each element, moving through the array from left to right. The method takes two arguments: a callback function (the reducer) and an optional initial value. The reducer function itself takes four arguments: the accumulator (which holds the accumulated result), the current element, the current index, and the array being processed. On each iteration, the reducer function processes the current element and updates the accumulator, which eventually holds the final result after all elements have been processed. If no initial value is provided, `.reduce()` uses the first element of the array as the initial accumulator value and starts the iteration from the second element. The `.reduce()` method is particularly useful for tasks such as summing numbers, concatenating strings, or flattening arrays, where a single output value is derived from the entire array. It is a versatile tool for transforming and combining array data into a single result, making it essential for more complex data processing in JavaScript.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3662,7 +3368,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-reduceright" class="expandable-row-content">
             <td>
               <h3>.reduceRight() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.reduceRight()` method in JavaScript is similar to the `.reduce()` method, but it processes the elements of an array from right to left, rather than from left to right. This means that the accumulation of the array’s elements starts from the last element and moves towards the first. Like `.reduce()`, it takes a reducer function as its primary argument, along with an optional initial value. The reducer function receives four arguments: the accumulator, the current element, the current index, and the array itself. If no initial value is provided, `.reduceRight()` uses the last element of the array as the initial accumulator value and starts the iteration from the second-to-last element. This method is particularly useful in situations where the order of operations matters, such as when dealing with right-associative operations or when you need to reverse the direction of processing, like when constructing or evaluating expressions in reverse order. By processing elements from the end of the array to the beginning, `.reduceRight()` offers a flexible approach to complex data transformations where the direction of accumulation is significant.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3682,7 +3388,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-pop" class="expandable-row-content">
             <td>
               <h3>.pop() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.pop()` method in JavaScript is used to remove the last element from an array, reducing its length by one, and returns the removed element. This method directly modifies the original array, making it shorter by one element each time it is called. If the array is empty, `.pop()` returns `undefined` and does not alter the array. The `.pop()` method is particularly useful when you need to manage data structures like stacks, where the last-in, first-out (LIFO) principle is important. It allows for efficient removal and retrieval of the most recently added elements. Since `.pop()` is a mutative method, it should be used with care when preserving the original array is necessary, as it permanently alters the array's content and length.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3699,7 +3405,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-push" class="expandable-row-content">
             <td>
               <h3>.push() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.push()` method in JavaScript is used to add one or more elements to the end of an array, expanding its length accordingly. This method directly modifies the original array by appending the new elements and returns the new length of the array after the elements have been added. The `.push()` method is particularly useful for managing data in arrays where you need to dynamically add items, such as building lists or stacking elements in a last-in, first-out (LIFO) manner. Because it alters the array in place, `.push()` is a mutative method, which means the original array is changed, and no new array is created. This makes `.push()` efficient for adding elements but requires caution if the original array needs to remain unchanged.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3716,7 +3422,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-shift" class="expandable-row-content">
             <td>
               <h3>.shift() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.shift()` method in JavaScript is used to remove the first element from an array and returns that removed element. This method directly modifies the original array by reducing its length by one and shifting all remaining elements one position forward, effectively decreasing their indices by one. If the array is empty, `.shift()` returns `undefined` and does not alter the array. The `.shift()` method is particularly useful in scenarios where you need to process or dequeue elements in a first-in, first-out (FIFO) manner, such as when handling tasks in a queue. Since `.shift()` alters the original array, it is considered a mutative method, meaning that it changes the array in place without creating a new one. This makes it efficient for removing the first element but requires caution if the original order of elements needs to be preserved elsewhere in your program.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3733,7 +3439,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-unshift" class="expandable-row-content">
             <td>
               <h3>.unshift() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.unshift()` method in JavaScript is used to add one or more elements to the beginning of an array, increasing its length and shifting all existing elements to higher indices to make room for the new elements. This method modifies the original array in place and returns the new length of the array after the elements have been added. The `.unshift()` method is particularly useful when you need to prepend items to an array, such as adding new data at the start of a list or managing a queue where elements are added in a first-in, first-out (FIFO) order. Since `.unshift()` directly alters the array by shifting all elements and extending its length, it is a mutative operation. This means that the original array is changed, and no new array is created, so it should be used when you want to modify the array directly while keeping the original sequence of elements intact but expanded at the beginning.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3750,7 +3456,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-reverse" class="expandable-row-content">
             <td>
               <h3>.reverse() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.reverse()` method in JavaScript is used to reverse the order of the elements in an array, effectively flipping the array so that the last element becomes the first and the first element becomes the last. This method modifies the original array in place, meaning it changes the array itself rather than creating a new one. The `.reverse()` method is particularly useful when you need to invert the order of elements for tasks like displaying data in a different sequence or when implementing algorithms that require a reversed array order. Because it is a mutative method, using `.reverse()` should be done with care if you need to preserve the original order of the array for other operations, as the original array is permanently altered. The method returns the array itself after reversing, allowing for further chaining of methods if needed.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3767,7 +3473,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-sort" class="expandable-row-content">
             <td>
               <h3>.sort() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.sort()` method in JavaScript is used to arrange the elements of an array in place, modifying the original array based on a specific order. By default, `.sort()` converts the elements to strings and sorts them in ascending lexicographical order, which means that numbers, letters, and symbols are sorted according to Unicode values. This can lead to unexpected results when sorting numbers unless a custom comparator function is provided. The comparator function allows you to define your own sorting logic, such as sorting numbers in numerical order or arranging objects based on a specific property. Since `.sort()` directly alters the original array, it is considered a mutative method, meaning the array is changed permanently, and no new array is created. The method returns the sorted array, enabling method chaining if further operations are needed. The `.sort()` method is highly useful for organizing data in a specific sequence, whether alphabetically, numerically, or according to custom criteria, but it should be used carefully when preserving the original array order is important.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3787,7 +3493,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-join" class="expandable-row-content">
             <td>
               <h3>.join() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.join()` method in JavaScript is used to concatenate all the elements of an array into a single string, with each element separated by a specified separator. When you call `.join()` on an array, you can provide an optional string argument that serves as the separator between the array elements in the resulting string. If no separator is specified, the method defaults to using a comma. This method is particularly useful for creating strings from arrays, such as converting a list of words into a sentence or formatting data for display or storage. Since `.join()` returns a new string and does not alter the original array, it is a non-mutative method, allowing the array to remain unchanged. The `.join()` method is a convenient and efficient way to combine array elements into a cohesive string, especially when you need to represent the contents of an array in a readable or specific format.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3804,7 +3510,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-tostring" class="expandable-row-content">
             <td>
               <h3>.toString() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.toString()` method in JavaScript is used to convert an array or other objects into a string representation. When called on an array, the `.toString()` method joins all the elements of the array into a single string, separated by commas, similar to using the `.join()` method without specifying a separator. This method is particularly useful when you need to quickly convert an array into a string for display, logging, or other purposes where a textual representation of the array is required. The `.toString()` method does not alter the original array, making it a non-mutative operation. Additionally, `.toString()` can be invoked on other types of objects, like numbers and dates, to convert them into strings based on their specific format rules. Overall, `.toString()` provides a simple and effective way to obtain a string version of various data types, especially arrays, in JavaScript.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3821,7 +3527,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-tolocalstring" class="expandable-row-content">
             <td>
               <h3>.tolocalstring() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.toLocaleString()` method in JavaScript is used to convert an array or other objects, such as numbers and dates, into a string that represents the elements or values in a locale-sensitive format. When called on an array, each element is converted to a string using its own `.toLocaleString()` method, and then the array elements are joined together with a locale-specific separator, usually a comma. This method is particularly useful when you need to display data in a format that is tailored to the conventions of a particular locale, such as formatting dates, times, currencies, or numbers according to regional standards. For instance, a date might be formatted differently depending on whether the locale is set to the United States, Europe, or Japan. The `.toLocaleString()` method is non-mutative, meaning it does not alter the original array or object but instead returns a new string with the localized formatting. This makes it a valuable tool for creating user interfaces and applications that need to be adaptable to different cultural and regional settings.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3838,7 +3544,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-toreversed" class="expandable-row-content">
             <td>
               <h3>.toReversed() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.toReversed()` method in JavaScript is a relatively new addition that allows you to create a reversed copy of an array without modifying the original array. When you call `.toReversed()` on an array, it returns a new array with the elements in the opposite order, starting from the last element and ending with the first. This method is non-mutative, meaning the original array remains unchanged, which is particularly useful when you need to preserve the original data while working with a reversed version of it. The introduction of `.toReversed()` provides a more convenient and expressive way to reverse an array compared to using `.slice().reverse()`, which was a common practice before this method was available. It enhances code readability and reduces the risk of unintended side effects, making it a valuable tool for handling arrays in situations where both the original and reversed versions of the data are needed.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3855,7 +3561,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-tosorted" class="expandable-row-content">
             <td>
               <h3>.toSorted() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.toSorted()` method in JavaScript is a modern array method that returns a new array with the elements sorted in a specified order, without altering the original array. When you call `.toSorted()` on an array, you can optionally pass a comparator function that defines how the elements should be compared and ordered. If no comparator is provided, the method sorts the elements in ascending order based on their string Unicode values, similar to the behavior of the `.sort()` method. The key difference between `.toSorted()` and `.sort()` is that `.toSorted()` is non-mutative—it does not modify the original array, instead creating and returning a sorted copy. This makes `.toSorted()` particularly useful when you need to sort data without affecting the original dataset, preserving its integrity for other operations. The introduction of `.toSorted()` enhances code clarity and safety, reducing the chances of accidental data mutation while providing a straightforward way to work with sorted data.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3872,7 +3578,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-toSpliced" class="expandable-row-content">
             <td>
               <h3>.toSpliced() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.toSpliced()` method in JavaScript is a recent addition that allows you to create a modified copy of an array by inserting, removing, or replacing elements, without altering the original array. When you call `.toSpliced()`, you specify a start index where the changes should begin, the number of elements to remove, and optionally, the elements to add at that position. Unlike the traditional `.splice()` method, which mutates the original array, `.toSpliced()` returns a new array with the modifications applied, leaving the original array untouched. This non-mutative approach is particularly useful when you need to perform complex modifications on an array while preserving the original data for other operations or references. The introduction of `.toSpliced()` provides a safer and more predictable way to work with array modifications, especially in functional programming contexts where immutability is often preferred.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -3889,7 +3595,7 @@ let greeting = "Hello, world!";
           <tr id="detail-tag-with" class="expandable-row-content">
             <td>
               <h3>.with() method</h3>
-              <p>JavaScript has a variety of data </p>
+              <p>The `.with()` method in JavaScript is a modern array method that allows you to create a copy of an array with one element replaced at a specified index, without altering the original array. When you call `.with()`, you provide the index of the element you want to replace and the new value that should take its place. The method then returns a new array with the specified change, while the rest of the array remains unchanged. This method is particularly useful when you need to update a specific element in an array while ensuring the original array remains intact, which is important in scenarios where immutability is desired, such as in functional programming or when working with state in React. The `.with()` method simplifies the process of making targeted updates to arrays, offering a clear and concise way to handle array modifications without the risk of mutating the original data.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
