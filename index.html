@@ -33,8 +33,8 @@
   <body>
     <header>
       <h1>JAVASCRIPT SYNTAX NOTES</h1>
-      <p>Content last updated on 11/08/2024 by <em>Mathieu</em></p>
-      <p>UI/UX inspired by <a href="https://motherfuckingwebsite.com" target=_blank>the website of all websites</a></p>
+      <p>Content last updated on 25/08/2024 by <em>Mathieu</em></p>
+      <p>Hi, I'm Mathieu, an indie programmer with proficiency in both front-end and back-end development. I'm well-versed in Git, HTML, CSS, JavaScript, Node.js, React, Next.js, Python, SQL, PostgreSQL, Firebase, and GraphQL. Feel free to reach out for commissioned work or collaborations.</a></p>
     </header>
     <main>
       <section id="elements">
@@ -48,6 +48,11 @@
         <a href="#functions">Functions</a>
         <a href="#scope">Scope</a>
         <a href="#arrays">Arrays</a>
+        <a href="#array-access">Array Inspection</a>
+        <a href="#array-transformation">Array Transformation</a>
+        <a href="#array-iteration">Array Iteration</a>
+        <a href="#array-mutation">Array Mutation</a>
+        <a href="#array-utility">Array Utility</a>
         <a href="#comments">Comments</a>
         <a href="#data-types">Data Types</a>
       </div>
@@ -3204,6 +3209,699 @@ console.log(matrix); // Output: [[1, 2], [4, 5, 6], [7, 10, 9], [10, 11, 12]]
             </td>
           </tr>
           <tr>
+            <td id="array-access" class="tableletters">Array Access/Inspection Methods</td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-at', event)" >.at() method</td>
+          </tr>
+          <tr id="detail-tag-at" class="expandable-row-content">
+            <td>
+              <h3>.at() method</h3>
+              <p>The `at()` method in JavaScript provides a way to access elements of an array using a specific index, including negative indices, which count from the end of the array. Unlike traditional bracket notation, where negative numbers are treated as non-existent, `at()` allows you to easily retrieve elements from the end of an array. For instance, `array.at(-1)` would return the last element. This method enhances code readability and reduces errors in accessing elements near the ends of arrays, especially in contexts where the array length might not be known beforehand.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Accessing the first element
+const array1 = [10, 20, 30];
+console.log(array1.at(0)); // Output: 10
+
+// 2. Accessing the last element using a negative index
+console.log(array1.at(-1)); // Output: 30
+
+// 3. Accessing the second-to-last element
+console.log(array1.at(-2)); // Output: 20
+
+// 4. Using .at() on an empty array
+const emptyArray = [];
+console.log(emptyArray.at(0)); // Output: undefined
+
+// 5. Accessing an element beyond the array length
+console.log(array1.at(5)); // Output: undefined
+
+// 6. Accessing an element using a negative index greater than array length
+console.log(array1.at(-4)); // Output: undefined
+
+// 7. Accessing the first element in a string array
+const fruits = ["apple", "banana", "cherry"];
+console.log(fruits.at(0)); // Output: "apple"
+
+// 8. Accessing the last character of a string using .at()
+const str = "hello";
+console.log(str.at(-1)); // Output: "o"
+
+// 9. Using .at() on a TypedArray
+const intArray = new Int8Array([1, 2, 3]);
+console.log(intArray.at(1)); // Output: 2
+
+// 10. Accessing the first element in an array-like object
+const arrayLike = { 0: 'a', 1: 'b', length: 2 };
+console.log(Array.prototype.at.call(arrayLike, 0)); // Output: "a"
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-indexof', event)" >.indexOf() method</td>
+          </tr>
+          <tr id="detail-tag-indexof" class="expandable-row-content">
+            <td>
+              <h3>.indexOf() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-lastindexof', event)" >.lastIndexOf() method</td>
+          </tr>
+          <tr id="detail-tag-lastindexof" class="expandable-row-content">
+            <td>
+              <h3>.lastIndexOf() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-includes', event)" >.includes() method</td>
+          </tr>
+          <tr id="detail-tag-includes" class="expandable-row-content">
+            <td>
+              <h3>.includes() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-find', event)" >.find() method</td>
+          </tr>
+          <tr id="detail-tag-find" class="expandable-row-content">
+            <td>
+              <h3>.find() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-findindex', event)" >.findIndex() method</td>
+          </tr>
+          <tr id="detail-tag-findindex" class="expandable-row-content">
+            <td>
+              <h3>.findIndex() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-findlast', event)" >.findLast() method</td>
+          </tr>
+          <tr id="detail-tag-findlast" class="expandable-row-content">
+            <td>
+              <h3>.findLast() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-findlastindex', event)" >.findLastIndex() method</td>
+          </tr>
+          <tr id="detail-tag-findlastindex" class="expandable-row-content">
+            <td>
+              <h3>.findLastIndex() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-entries', event)" >.entries() method</td>
+          </tr>
+          <tr id="detail-tag-entries" class="expandable-row-content">
+            <td>
+              <h3>.entries() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-keys', event)" >.keys() method</td>
+          </tr>
+          <tr id="detail-tag-keys" class="expandable-row-content">
+            <td>
+              <h3>.keys() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-values', event)" >.values() method</td>
+          </tr>
+          <tr id="detail-tag-values" class="expandable-row-content">
+            <td>
+              <h3>.values() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td id="array-transformation" class="tableletters">Array Transformation Methods</td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-concat', event)" >.concat() method</td>
+          </tr>
+          <tr id="detail-tag-concat" class="expandable-row-content">
+            <td>
+              <h3>.concat() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-copywithin', event)" >.copyWithin() method</td>
+          </tr>
+          <tr id="detail-tag-copywithin" class="expandable-row-content">
+            <td>
+              <h3>.copyWithin() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-fill', event)" >.fill() method</td>
+          </tr>
+          <tr id="detail-tag-fill" class="expandable-row-content">
+            <td>
+              <h3>.fill() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-filter', event)" >.filter() method</td>
+          </tr>
+          <tr id="detail-tag-filter" class="expandable-row-content">
+            <td>
+              <h3>.filter() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-map', event)" >.map() method</td>
+          </tr>
+          <tr id="detail-tag-map" class="expandable-row-content">
+            <td>
+              <h3>.map() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-flat', event)" >.flat() method</td>
+          </tr>
+          <tr id="detail-tag-flat" class="expandable-row-content">
+            <td>
+              <h3>.flat() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-flatmap', event)" >.flatMap() method</td>
+          </tr>
+          <tr id="detail-tag-flatmap" class="expandable-row-content">
+            <td>
+              <h3>.flatMap() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-slice', event)" >.slice() method</td>
+          </tr>
+          <tr id="detail-tag-slice" class="expandable-row-content">
+            <td>
+              <h3>.slice() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-splice', event)" >.splice() method</td>
+          </tr>
+          <tr id="detail-tag-splice" class="expandable-row-content">
+            <td>
+              <h3>.splice() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td id="array-iteration" class="tableletters">Array Iteration Methods</td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-foreach', event)" >.forEach() method</td>
+          </tr>
+          <tr id="detail-tag-foreach" class="expandable-row-content">
+            <td>
+              <h3>.forEach() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-every', event)" >.every() method</td>
+          </tr>
+          <tr id="detail-tag-every" class="expandable-row-content">
+            <td>
+              <h3>.every() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-some', event)" >.some() method</td>
+          </tr>
+          <tr id="detail-tag-some" class="expandable-row-content">
+            <td>
+              <h3>.some() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-reduce', event)" >.reduce() method</td>
+          </tr>
+          <tr id="detail-tag-reduce" class="expandable-row-content">
+            <td>
+              <h3>.reduce() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-reduceright', event)" >.reduceRight() method</td>
+          </tr>
+          <tr id="detail-tag-reduceright" class="expandable-row-content">
+            <td>
+              <h3>.reduceRight() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td id="array-mutation" class="tableletters">Array Mutation Methods</td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-pop', event)" >.pop() method</td>
+          </tr>
+          <tr id="detail-tag-pop" class="expandable-row-content">
+            <td>
+              <h3>.pop() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-push', event)" >.push() method</td>
+          </tr>
+          <tr id="detail-tag-push" class="expandable-row-content">
+            <td>
+              <h3>.push() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-shift', event)" >.shift() method</td>
+          </tr>
+          <tr id="detail-tag-shift" class="expandable-row-content">
+            <td>
+              <h3>.shift() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-unshift', event)" >.unshift() method</td>
+          </tr>
+          <tr id="detail-tag-unshift" class="expandable-row-content">
+            <td>
+              <h3>.unshift() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-reverse', event)" >.reverse() method</td>
+          </tr>
+          <tr id="detail-tag-reverse" class="expandable-row-content">
+            <td>
+              <h3>.reverse() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-sort', event)" >.sort() method</td>
+          </tr>
+          <tr id="detail-tag-sort" class="expandable-row-content">
+            <td>
+              <h3>.sort() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td id="array-utility" class="tableletters">Array Utility Methods</td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-join', event)" >.join() method</td>
+          </tr>
+          <tr id="detail-tag-join" class="expandable-row-content">
+            <td>
+              <h3>.join() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-tostring', event)" >.toString() method</td>
+          </tr>
+          <tr id="detail-tag-tostring" class="expandable-row-content">
+            <td>
+              <h3>.toString() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-tolocalstring', event)" >.toLocalString() method</td>
+          </tr>
+          <tr id="detail-tag-tolocalstring" class="expandable-row-content">
+            <td>
+              <h3>.tolocalstring() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-toreversed', event)" >.toReversed() method</td>
+          </tr>
+          <tr id="detail-tag-toreversed" class="expandable-row-content">
+            <td>
+              <h3>.toReversed() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-tosorted', event)" >.toSorted() method</td>
+          </tr>
+          <tr id="detail-tag-tosorted" class="expandable-row-content">
+            <td>
+              <h3>.toSorted() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-toSpliced', event)" >.toSpliced() method</td>
+          </tr>
+          <tr id="detail-tag-toSpliced" class="expandable-row-content">
+            <td>
+              <h3>.toSpliced() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-with', event)" >.with() method</td>
+          </tr>
+          <tr id="detail-tag-with" class="expandable-row-content">
+            <td>
+              <h3>.with() method</h3>
+              <p>JavaScript has a variety of data </p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// String
+let greeting = "Hello, world!";
+          
+          </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
             <td id="comments" class="tableletters">Comments</td>
           </tr>
           <tr>
@@ -3403,8 +4101,3 @@ let book = {
     <script src="https://unpkg.com/smoothscroll-anchor-polyfill"></script>
   </body>
 </html>
-
-
-
-
-
