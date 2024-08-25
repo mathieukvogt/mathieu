@@ -52,6 +52,8 @@
         <a href="#array-iteration">Array Iteration</a>
         <a href="#array-mutation">Array Mutation</a>
         <a href="#array-utility">Array Utility</a>
+        <a href="#loops">Loops</a>
+        <a href="#objects">Objects</a>
         <a href="#comments">Comments</a>
         <a href="#data-types">Data Types</a>
       </div>
@@ -5925,6 +5927,1236 @@ console.log(mixedArray);
             </td>
           </tr>
           <tr>
+            <td id="loops" class="tableletters">Loops</td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-loopsoverview', event)">overview</td>
+          </tr>
+          <tr id="detail-tag-loopsoverview" class="expandable-row-content">
+            <td>
+              <h3>overview</h3>
+              <p>Loops in JavaScript are a powerful and essential programming construct that enable developers to automate repetitive tasks, handle large datasets, and implement complex algorithms efficiently. At their core, loops allow a block of code to be executed repeatedly based on a specified condition. This condition is evaluated before or after each iteration, depending on the type of loop, and as long as it holds true, the loop continues to execute. For instance, if you need to perform an operation on each element of an array, a loop can iterate through each item, applying the desired action without the need for manual, repetitive coding. JavaScript provides several types of loops, such as the `for` loop, which is ideal for situations where the number of iterations is known; the `while` loop, which is useful when the condition for continuation is more dynamic; and the `do...while` loop, which guarantees that the loop body is executed at least once. Additionally, there are specialized loops like `for...in` and `for...of` for iterating over object properties and iterable objects, respectively. By using loops, developers can write more efficient, readable, and maintainable code, particularly when dealing with tasks that require multiple iterations, such as data processing, automation, and traversal of collections. Loops not only save time but also reduce the likelihood of errors, making them a cornerstone of effective programming in JavaScript.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-forloop', event)">for loop</td>
+          </tr>
+          <tr id="detail-tag-forloop" class="expandable-row-content">
+            <td>
+              <h3>for loop</h3>
+              <p>The `for` loop in JavaScript is one of the most commonly used looping structures, designed to execute a block of code a specific number of times. It consists of three main parts: an initialization statement, a condition, and an increment or decrement operation. The initialization is typically used to set up a loop counter, the condition is evaluated before each iteration to determine whether the loop should continue, and the increment or decrement adjusts the loop counter at the end of each iteration. For example, in a basic `for` loop, you might initialize a counter variable to zero, set a condition to keep looping as long as the counter is less than a certain value, and then increment the counter by one after each iteration. This structure is particularly useful when the number of iterations is known in advance, such as when you need to iterate over the elements of an array or perform a repetitive task a fixed number of times. The `for` loop provides a concise and flexible way to handle repeated actions, making it a fundamental tool for controlling flow in JavaScript programs.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Basic for loop counting up
+// Logs: 0 1 2 3 4
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+
+// 2. For loop iterating through an array
+// Logs: Apple Banana Orange
+const fruits = ["Apple", "Banana", "Orange"];
+for (let i = 0; i < fruits.length; i++) {
+    console.log(fruits[i]);
+}
+
+// 3. For loop counting down
+// Logs: 4 3 2 1 0
+for (let i = 4; i >= 0; i--) {
+    console.log(i);
+}
+
+// 4. For loop with a step of 2
+// Logs: 0 2 4 6 8
+for (let i = 0; i < 10; i += 2) {
+    console.log(i);
+}
+
+// 5. For loop through an object's keys
+// Logs: name age occupation
+const person = { name: "John", age: 30, occupation: "Engineer" };
+for (let key in person) {
+    console.log(key);
+}
+
+// 6. For loop through an object's values
+// Logs: John 30 Engineer
+for (let key in person) {
+    console.log(person[key]);
+}
+
+// 7. For loop with nested loops (multiplication table)
+// Logs: Multiplication table from 1 to 3
+for (let i = 1; i <= 3; i++) {
+    for (let j = 1; j <= 3; j++) {
+        console.log(`${i} * ${j} = ${i * j}`);
+    }
+}
+
+// 8. For loop with continue statement
+// Logs: 0 1 3 4 (skips 2)
+for (let i = 0; i < 5; i++) {
+    if (i === 2) continue;
+    console.log(i);
+}
+
+// 9. For loop with break statement
+// Logs: 0 1 2 (stops at 2)
+for (let i = 0; i < 5; i++) {
+    if (i === 3) break;
+    console.log(i);
+}
+
+// 10. For loop using for...of with an array
+// Logs: Car Bus Train
+const vehicles = ["Car", "Bus", "Train"];
+for (const vehicle of vehicles) {
+    console.log(vehicle);
+}
+
+// 11. For loop using for...in with an array (indexes)
+// Logs: 0 1 2
+for (let index in vehicles) {
+    console.log(index);
+}
+
+// 12. For loop summing array elements
+// Logs: 6
+const numbers = [1, 2, 3];
+let sum = 0;
+for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+}
+console.log(sum);
+
+// 13. For loop over a string
+// Logs: H e l l o
+const greeting = "Hello";
+for (let i = 0; i < greeting.length; i++) {
+    console.log(greeting[i]);
+}
+
+// 14. For loop generating a pattern (triangle)
+// Logs: *
+//       **
+//       ***
+//       ****
+//       *****
+for (let i = 1; i <= 5; i++) {
+    let pattern = '';
+    for (let j = 0; j < i; j++) {
+        pattern += '*';
+    }
+    console.log(pattern);
+}
+
+// 15. For loop filtering even numbers from an array
+// Logs: 2 4
+const numbersArray = [1, 2, 3, 4, 5];
+for (let i = 0; i < numbersArray.length; i++) {
+    if (numbersArray[i] % 2 === 0) {
+        console.log(numbersArray[i]);
+    }
+}
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-nestedf', event)">nested for loop</td>
+          </tr>
+          <tr id="detail-tag-nestedf" class="expandable-row-content">
+            <td>
+              <h3>nested for loop</h3>
+              <p>Nested for loops in JavaScript are loops placed inside another loop, and they are often used when dealing with nested arrays, which are arrays within arrays. This type of structure allows you to iterate through multi-dimensional data efficiently. For example, if you have a 2D array, where each element in the main array is itself an array (like a grid or matrix), the outer loop can iterate through each array (row), and the inner loop can iterate through each element within that row (column). This approach is powerful for tasks like processing or accessing data in a grid-like format, such as creating tables or performing operations across rows and columns simultaneously. However, it's crucial to understand that nested loops, especially with nested arrays, can lead to increased computational complexity, making the code slower as the size of the data grows. Careful consideration should be given to ensure that nested loops are necessary and optimized for performance, especially when working with large or complex datasets.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Basic nested for loop (multiplication table)
+// Logs: Multiplication table from 1 to 3
+for (let i = 1; i <= 3; i++) {
+    for (let j = 1; j <= 3; j++) {
+        console.log(`${i} * ${j} = ${i * j}`);
+    }
+}
+
+// 2. Iterating through a 2D array (grid)
+// Logs: Elements of the 2D array row by row
+const grid = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+for (let i = 0; i < grid.length; i++) {
+    for (let j = 0; j < grid[i].length; j++) {
+        console.log(grid[i][j]);
+    }
+}
+
+// 3. Finding mutual followers between two users
+// Logs: List of mutual followers between two users
+const userA_followers = ['John', 'Alice', 'Bob', 'Eve'];
+const userB_followers = ['Bob', 'Eve', 'Charlie'];
+let mutualFollowers = [];
+for (let i = 0; i < userA_followers.length; i++) {
+    for (let j = 0; j < userB_followers.length; j++) {
+        if (userA_followers[i] === userB_followers[j]) {
+            mutualFollowers.push(userA_followers[i]);
+        }
+    }
+}
+console.log('Mutual Followers:', mutualFollowers);
+
+// 4. Calculating the intersection of two arrays
+// Logs: Intersection of two arrays [2, 4]
+const array1 = [1, 2, 3, 4];
+const array2 = [2, 4, 6, 8];
+let intersection = [];
+for (let i = 0; i < array1.length; i++) {
+    for (let j = 0; j < array2.length; j++) {
+        if (array1[i] === array2[j]) {
+            intersection.push(array1[i]);
+        }
+    }
+}
+console.log('Intersection:', intersection);
+
+// 5. Creating a follow suggestion list (users not followed by User A)
+// Logs: List of users not followed by User A from User B's followers
+let followSuggestions = [];
+for (let i = 0; i < userB_followers.length; i++) {
+    let isFollowed = false;
+    for (let j = 0; j < userA_followers.length; j++) {
+        if (userB_followers[i] === userA_followers[j]) {
+            isFollowed = true;
+            break;
+        }
+    }
+    if (!isFollowed) {
+        followSuggestions.push(userB_followers[i]);
+    }
+}
+console.log('Follow Suggestions:', followSuggestions);
+
+// 6. Counting duplicate elements in an array
+// Logs: Number of duplicate elements [3]
+const arr = [1, 2, 3, 2, 4, 1, 1];
+let duplicates = [];
+for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+        if (arr[i] === arr[j] && !duplicates.includes(arr[i])) {
+            duplicates.push(arr[i]);
+        }
+    }
+}
+console.log('Duplicates:', duplicates);
+
+// 7. Checking if a 2D array (grid) contains a specific value
+// Logs: Whether the grid contains the value (true or false)
+const valueToFind = 5;
+let found = false;
+for (let i = 0; i < grid.length; i++) {
+    for (let j = 0; j < grid[i].length; j++) {
+        if (grid[i][j] === valueToFind) {
+            found = true;
+            break;
+        }
+    }
+    if (found) break;
+}
+console.log(`Value ${valueToFind} found:`, found);
+
+// 8. Comparing products in an e-commerce app (comparing features)
+// Logs: Features present in both products
+const productA_features = ['WiFi', 'Bluetooth', 'GPS'];
+const productB_features = ['Bluetooth', '4G', 'GPS'];
+let commonFeatures = [];
+for (let i = 0; i < productA_features.length; i++) {
+    for (let j = 0; j < productB_features.length; j++) {
+        if (productA_features[i] === productB_features[j]) {
+            commonFeatures.push(productA_features[i]);
+        }
+    }
+}
+console.log('Common Features:', commonFeatures);
+
+// 9. Checking for symmetrical matrices (common in games or grids)
+// Logs: Whether the matrix is symmetrical
+let isSymmetric = true;
+for (let i = 0; i < grid.length; i++) {
+    for (let j = 0; j < grid[i].length; j++) {
+        if (grid[i][j] !== grid[j][i]) {
+            isSymmetric = false;
+            break;
+        }
+    }
+    if (!isSymmetric) break;
+}
+console.log('Is grid symmetric:', isSymmetric);
+
+// 10. Finding common tags between two blog posts
+// Logs: List of common tags between two blog posts
+const post1_tags = ['JavaScript', 'Web', 'Programming'];
+const post2_tags = ['Programming', 'Tutorial', 'JavaScript'];
+let commonTags = [];
+for (let i = 0; i < post1_tags.length; i++) {
+    for (let j = 0; j < post2_tags.length; j++) {
+        if (post1_tags[i] === post2_tags[j]) {
+            commonTags.push(post1_tags[i]);
+        }
+    }
+}
+console.log('Common Tags:', commonTags);
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-loopingarrays', event)">looping through arrays</td>
+          </tr>
+          <tr id="detail-tag-loopingarrays" class="expandable-row-content">
+            <td>
+              <h3>looping through arrays</h3>
+              <p>Looping through arrays in JavaScript is a fundamental operation that allows you to access and manipulate each element within an array. One common approach is using a `for` loop, which iterates over the array by starting from the first index (0) and continues until the last element is reached. The `.length` property of an array plays a crucial role in this process, as it returns the total number of elements in the array. By using this property, the loop can dynamically adjust to the size of the array, ensuring that it iterates through every element, regardless of the array's length. For example, in a `for` loop, you might use `i < array.length` as the condition, where `i` is the loop's counter variable. This condition ensures the loop continues running until it has processed every element. This method is highly efficient for accessing, modifying, or performing operations on each item in the array, making it a versatile tool for developers working with arrays in JavaScript.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Looping through an array of usernames to greet each user
+// Logs: Hello, Alice! Hello, Bob! Hello, Charlie!
+const usernames = ['Alice', 'Bob', 'Charlie'];
+for (let i = 0; i < usernames.length; i++) {
+    console.log(`Hello, ${usernames[i]}!`);
+}
+
+// 2. Looping through a list of product prices to calculate the total cost
+// Logs: Total cost is: $60
+const prices = [10, 20, 30];
+let totalCost = 0;
+for (let i = 0; i < prices.length; i++) {
+    totalCost += prices[i];
+}
+console.log(`Total cost is: $${totalCost}`);
+
+// 3. Looping through a list of posts to generate HTML snippets
+// Logs: <div>Post 1</div> <div>Post 2</div> <div>Post 3</div>
+const posts = ['Post 1', 'Post 2', 'Post 3'];
+for (let i = 0; i < posts.length; i++) {
+    console.log(`<div>${posts[i]}</div>`);
+}
+
+// 4. Looping through an array of likes to count how many likes are above 100
+// Logs: 2 posts have more than 100 likes
+const likes = [50, 150, 200, 80];
+let count = 0;
+for (let i = 0; i < likes.length; i++) {
+    if (likes[i] > 100) {
+        count++;
+    }
+}
+console.log(`${count} posts have more than 100 likes`);
+
+// 5. Looping through a list of comments to find the longest comment
+// Logs: The longest comment is: "This is the longest comment!"
+const comments = ['Nice post!', 'Great!', 'This is the longest comment!', 'Good job!'];
+let longestComment = comments[0];
+for (let i = 1; i < comments.length; i++) {
+    if (comments[i].length > longestComment.length) {
+        longestComment = comments[i];
+    }
+}
+console.log(`The longest comment is: "${longestComment}"`);
+
+// 6. Looping through a list of email addresses to check for invalid emails
+// Logs: Invalid email found: "invalidemail.com"
+const emails = ['user@example.com', 'admin@website.org', 'invalidemail.com'];
+for (let i = 0; i < emails.length; i++) {
+    if (!emails[i].includes('@')) {
+        console.log(`Invalid email found: "${emails[i]}"`);
+    }
+}
+
+// 7. Looping through a list of tasks to mark all as completed
+// Logs: Task 1: completed, Task 2: completed, Task 3: completed
+const tasks = ['Task 1', 'Task 2', 'Task 3'];
+for (let i = 0; i < tasks.length; i++) {
+    console.log(`${tasks[i]}: completed`);
+}
+
+// 8. Looping through an array of followers to display follower count
+// Logs: You have 3 followers
+const followers = ['Follower1', 'Follower2', 'Follower3'];
+console.log(`You have ${followers.length} followers`);
+
+// 9. Looping through an array of messages to find the first unread message
+// Logs: First unread message is: "You have a new friend request"
+const messages = ['Read: Welcome!', 'Unread: You have a new friend request', 'Unread: Don’t miss out on our sale!'];
+let unreadMessage = null;
+for (let i = 0; i < messages.length; i++) {
+    if (messages[i].startsWith('Unread')) {
+        unreadMessage = messages[i];
+        break;
+    }
+}
+console.log(`First unread message is: "${unreadMessage}"`);
+
+// 10. Looping through a list of product ratings to calculate the average rating
+// Logs: The average rating is: 4.2
+const ratings = [5, 4, 3, 5, 4];
+let sumRatings = 0;
+for (let i = 0; i < ratings.length; i++) {
+    sumRatings += ratings[i];
+}
+const averageRating = sumRatings / ratings.length;
+console.log(`The average rating is: ${averageRating.toFixed(1)}`);
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-reverseloop', event)">reverse loop</td>
+          </tr>
+          <tr id="detail-tag-reverseloop" class="expandable-row-content">
+            <td>
+              <h3>reverse loop</h3>
+              <p>Reverse for loops in JavaScript are a variation of the traditional for loop, where the loop starts from the last element of an array and iterates backward to the first element. This type of loop is useful when you need to process or manipulate elements in reverse order, such as when you want to iterate over an array from the end to the beginning. The structure of a reverse for loop typically involves initializing the loop counter to the last index of the array (which is the array's length minus one), setting the condition to continue the loop as long as the counter is greater than or equal to zero, and decrementing the counter in each iteration. This approach ensures that every element of the array is accessed in reverse order. Reverse loops are particularly helpful in situations where modifying the array during iteration might affect the remaining elements, as processing from the end can prevent unintended side effects.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Reverse loop to print numbers from 5 to 1
+// Logs: 5 4 3 2 1
+for (let i = 5; i >= 1; i--) {
+    console.log(i);
+}
+
+// 2. Reverse loop to iterate through an array of names
+// Logs: Charlie Bob Alice
+const names = ['Alice', 'Bob', 'Charlie'];
+for (let i = names.length - 1; i >= 0; i--) {
+    console.log(names[i]);
+}
+
+// 3. Reverse loop to remove elements from an array while iterating
+// Logs: [2] [2, 1] [2, 1, 0]
+let numbers = [0, 1, 2, 3];
+for (let i = numbers.length - 1; i >= 0; i--) {
+    numbers.pop();
+    console.log(numbers);
+}
+
+// 4. Reverse loop to build a string in reverse order
+// Logs: "!dlroW olleH"
+const str = "Hello World!";
+let reversedStr = '';
+for (let i = str.length - 1; i >= 0; i--) {
+    reversedStr += str[i];
+}
+console.log(reversedStr);
+
+// 5. Reverse loop to count down even numbers
+// Logs: 10 8 6 4 2 0
+for (let i = 10; i >= 0; i -= 2) {
+    console.log(i);
+}
+
+// 6. Reverse loop to log only the last three elements of an array
+// Logs: 3 4 5
+const arr = [1, 2, 3, 4, 5];
+for (let i = arr.length - 1; i >= arr.length - 3; i--) {
+    console.log(arr[i]);
+}
+
+// 7. Reverse loop to filter out negative numbers
+// Logs: [3, 0, 2]
+let nums = [3, -1, 0, -4, 2];
+let positiveNums = [];
+for (let i = nums.length - 1; i >= 0; i--) {
+    if (nums[i] >= 0) {
+        positiveNums.push(nums[i]);
+    }
+}
+console.log(positiveNums);
+
+// 8. Reverse loop to find the first even number
+// Logs: 4
+const numbersArray = [1, 3, 5, 4, 7];
+let firstEven = null;
+for (let i = numbersArray.length - 1; i >= 0; i--) {
+    if (numbersArray[i] % 2 === 0) {
+        firstEven = numbersArray[i];
+        break;
+    }
+}
+console.log(firstEven);
+
+// 9. Reverse loop to display array elements in reverse order
+// Logs: 3 2 1
+let smallArr = [1, 2, 3];
+for (let i = smallArr.length - 1; i >= 0; i--) {
+    console.log(smallArr[i]);
+}
+
+// 10. Reverse loop to check for palindromes
+// Logs: true (since the word "madam" is a palindrome)
+const word = "madam";
+let isPalindrome = true;
+for (let i = 0; i < word.length / 2; i++) {
+    if (word[i] !== word[word.length - 1 - i]) {
+        isPalindrome = false;
+        break;
+    }
+}
+console.log(isPalindrome);
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-forof', event)">for...of loop</td>
+          </tr>
+          <tr id="detail-tag-forof" class="expandable-row-content">
+            <td>
+              <h3>for...op loop</h3>
+              <p>The `for...of` loop in JavaScript is a modern and concise way to iterate over iterable objects such as arrays, strings, maps, sets, and more. Unlike traditional `for` loops that require managing an index or counter, `for...of` automatically retrieves each element of the iterable in sequence, making the code cleaner and easier to read. This loop is particularly useful when you don't need the index or key of the items, just the values themselves. For example, when iterating over an array with `for...of`, each loop iteration directly accesses the array's elements, allowing you to perform operations on them without worrying about managing the loop's iteration index. This makes `for...of` ideal for simple iterations where only the values matter, contributing to more readable and maintainable code in JavaScript. However, it's important to note that `for...of` cannot be used to iterate over objects directly, as objects are not inherently iterable in JavaScript; instead, `for...in` or `Object.keys()` can be used for object iteration.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Loop through an array of numbers and log each number
+// Logs: 1 2 3 4 5
+const numbers = [1, 2, 3, 4, 5];
+for (const num of numbers) {
+    console.log(num);
+}
+
+// 2. Loop through an array of strings and log each string
+// Logs: Apple Banana Cherry
+const fruits = ['Apple', 'Banana', 'Cherry'];
+for (const fruit of fruits) {
+    console.log(fruit);
+}
+
+// 3. Loop through a string and log each character
+// Logs: H e l l o
+const str = "Hello";
+for (const char of str) {
+    console.log(char);
+}
+
+// 4. Loop through an array of objects and log a specific property
+// Logs: Alice Bob Charlie
+const users = [{ name: 'Alice' }, { name: 'Bob' }, { name: 'Charlie' }];
+for (const user of users) {
+    console.log(user.name);
+}
+
+// 5. Loop through a Set and log each value
+// Logs: a b c
+const mySet = new Set(['a', 'b', 'c']);
+for (const value of mySet) {
+    console.log(value);
+}
+
+// 6. Loop through a Map and log each key-value pair
+// Logs: a: 1, b: 2, c: 3
+const myMap = new Map([['a', 1], ['b', 2], ['c', 3]]);
+for (const [key, value] of myMap) {
+    console.log(`${key}: ${value}`);
+}
+
+// 7. Loop through an array and log the square of each number
+// Logs: 1 4 9 16 25
+for (const num of numbers) {
+    console.log(num * num);
+}
+
+// 8. Loop through a list of boolean values and log whether each is true or false
+// Logs: true false true false
+const bools = [true, false, true, false];
+for (const bool of bools) {
+    console.log(bool);
+}
+
+// 9. Loop through an array and log the length of each string
+// Logs: 5 6 6
+const words = ['apple', 'banana', 'cherry'];
+for (const word of words) {
+    console.log(word.length);
+}
+
+// 10. Loop through an array of grades and log if they are passing
+// Logs: Passed! Failed! Passed!
+const grades = [80, 50, 90];
+for (const grade of grades) {
+    if (grade >= 60) {
+        console.log("Passed!");
+    } else {
+        console.log("Failed!");
+    }
+}
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-breakcontinue', event)">break & continue keyword</td>
+          </tr>
+          <tr id="detail-tag-breakcontinue" class="expandable-row-content">
+            <td>
+              <h3>break & continue keyword/h3>
+              <p>The `break` and `continue` keywords in JavaScript are powerful tools used to control the flow of loops. The `break` keyword is used to immediately exit a loop, terminating the loop's execution entirely and moving the control to the code that follows the loop. This is particularly useful in situations where a specific condition is met, and further iterations of the loop are unnecessary or could lead to undesirable outcomes. The `continue` keyword, on the other hand, is used to skip the current iteration of the loop and jump directly to the next iteration, effectively ignoring any code that follows it within the loop's current cycle. This is useful when certain conditions require bypassing part of the loop's body without exiting the loop altogether. Both `break` and `continue` can be used in various types of loops in JavaScript, including `for`, `while`, and `do...while` loops. They provide fine-grained control over loop execution, allowing developers to manage loop behavior based on specific conditions or logic within the loop.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Using break to exit a loop when a number is found
+// Logs: 1 2 3
+for (let i = 1; i <= 5; i++) {
+    if (i === 4) {
+        break;
+    }
+    console.log(i);
+}
+
+// 2. Using continue to skip even numbers
+// Logs: 1 3 5
+for (let i = 1; i <= 5; i++) {
+    if (i % 2 === 0) {
+        continue;
+    }
+    console.log(i);
+}
+
+// 3. Using break in a while loop to stop when a condition is met
+// Logs: 0 1 2
+let count = 0;
+while (count < 5) {
+    if (count === 3) {
+        break;
+    }
+    console.log(count);
+    count++;
+}
+
+// 4. Using continue in a while loop to skip a specific iteration
+// Logs: 0 1 3 4
+count = 0;
+while (count < 5) {
+    count++;
+    if (count === 2) {
+        continue;
+    }
+    console.log(count);
+}
+
+// 5. Using break in a for loop to exit when a specific string is found
+// Logs: Alice Bob
+const names = ['Alice', 'Bob', 'Charlie', 'Dave'];
+for (let i = 0; i < names.length; i++) {
+    if (names[i] === 'Charlie') {
+        break;
+    }
+    console.log(names[i]);
+}
+
+// 6. Using continue in a for loop to skip a specific string
+// Logs: Alice Bob Dave
+for (let i = 0; i < names.length; i++) {
+    if (names[i] === 'Charlie') {
+        continue;
+    }
+    console.log(names[i]);
+}
+
+// 7. Using break in a for loop to stop checking after finding the first match
+// Logs: 1st found: 5
+const numbers = [1, 3, 5, 7, 9];
+for (const num of numbers) {
+    if (num % 5 === 0) {
+        console.log('1st found:', num);
+        break;
+    }
+}
+
+// 8. Using continue to skip non-positive numbers
+// Logs: 1 5 9
+const moreNumbers = [1, -3, 5, 0, 9];
+for (const num of moreNumbers) {
+    if (num <= 0) {
+        continue;
+    }
+    console.log(num);
+}
+
+// 9. Using break to exit nested loops when a condition is met
+// Logs: 1 1, 1 2, 1 3
+outerLoop: for (let i = 1; i <= 3; i++) {
+    for (let j = 1; j <= 3; j++) {
+        if (j === 4) {
+            break outerLoop;
+        }
+        console.log(i, j);
+    }
+}
+
+// 10. Using continue to skip a specific iteration in a nested loop
+// Logs: 1 1, 1 2, 2 1, 2 2
+for (let i = 1; i <= 2; i++) {
+    for (let j = 1; j <= 2; j++) {
+        if (i === 2 && j === 3) {
+            continue;
+        }
+        console.log(i, j);
+    }
+}
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-while', event)">while loop</td>
+          </tr>
+          <tr id="detail-tag-while" class="expandable-row-content">
+            <td>
+              <h3>while loop</h3>
+              <p>The `while` loop in JavaScript is a control flow statement that allows code to be executed repeatedly based on a given Boolean condition. The loop continues to execute as long as the specified condition remains true. The `while` loop is particularly useful when the number of iterations is not known beforehand, as the loop will run until the condition evaluates to false. Inside the loop, any code block can be placed, and it's crucial to ensure that the loop includes logic that will eventually make the condition false, otherwise, the loop will run indefinitely, leading to an infinite loop. This loop is often used for scenarios like waiting for a certain state to be reached, repeatedly processing items until none are left, or iterating over user input until a valid response is provided. The simplicity of the `while` loop makes it a fundamental tool in JavaScript for managing repetitive tasks where the exact number of iterations cannot be determined before entering the loop.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Simple countdown using while loop
+// Logs: 5 4 3 2 1
+let count = 5;
+while (count > 0) {
+    console.log(count);
+    count--;
+}
+
+// 2. Reading input until a valid number is provided
+// Logs: "Please enter a valid number." until a valid number is entered
+let input;
+while (isNaN(input)) {
+    input = prompt("Enter a number:");
+    if (isNaN(input)) {
+        console.log("Please enter a valid number.");
+    }
+}
+// Logs: "Valid number entered!"
+console.log("Valid number entered!");
+
+// 3. Loop until a random number greater than 0.8 is generated
+// Logs random numbers until one greater than 0.8 is found
+let num;
+while (num <= 0.8) {
+    num = Math.random();
+    console.log(num);
+}
+// Logs: "Number greater than 0.8 found!"
+console.log("Number greater than 0.8 found!");
+
+// 4. Accumulating sum until it exceeds 100
+// Logs: the sum at each step until it exceeds 100
+let sum = 0;
+while (sum <= 100) {
+    sum += Math.floor(Math.random() * 20);
+    console.log(`Current sum: ${sum}`);
+}
+// Logs: "Sum exceeded 100!"
+console.log("Sum exceeded 100!");
+
+// 5. Removing elements from an array until empty
+// Logs each removed element until the array is empty
+let numbers = [1, 2, 3, 4, 5];
+while (numbers.length > 0) {
+    const removed = numbers.pop();
+    console.log(`Removed: ${removed}`);
+}
+// Logs: "Array is now empty"
+console.log("Array is now empty");
+
+// 6. Looping until a specific value is found in an array
+// Logs each value until the specific value (e.g., 7) is found
+let values = [2, 4, 6, 7, 9, 12];
+let i = 0;
+while (values[i] !== 7) {
+    console.log(`Checked: ${values[i]}`);
+    i++;
+}
+// Logs: "Value 7 found!"
+console.log("Value 7 found!");
+
+// 7. Repeatedly prompt until user clicks "OK"
+// Logs: "Do you want to continue?" until user clicks "OK"
+let proceed = false;
+while (!proceed) {
+    proceed = confirm("Do you want to continue?");
+}
+// Logs: "Continuing..."
+console.log("Continuing...");
+
+// 8. Loop until a number divisible by 5 is found
+// Logs random numbers until one divisible by 5 is found
+let number;
+while (number % 5 !== 0) {
+    number = Math.floor(Math.random() * 100);
+    console.log(number);
+}
+// Logs: "Found a number divisible by 5!"
+console.log("Found a number divisible by 5!");
+
+// 9. Emptying a string by removing its last character
+// Logs the string until it's empty
+let text = "JavaScript";
+while (text.length > 0) {
+    text = text.slice(0, -1);
+    console.log(text);
+}
+// Logs: "String is now empty"
+console.log("String is now empty");
+
+// 10. Counting down in an array until a specific value is found
+// Logs each number until a specific value (e.g., 3) is found, then stops
+let countdown = [5, 4, 3, 2, 1];
+while (countdown.length > 0) {
+    const current = countdown.shift();
+    console.log(current);
+    if (current === 3) {
+        break;
+    }
+}
+// Logs: "Stopped at value 3"
+console.log("Stopped at value 3");
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-dowhile', event)">do...while loop</td>
+          </tr>
+          <tr id="detail-tag-dowhile" class="expandable-row-content">
+            <td>
+              <h3>do...while loop</h3>
+              <p>The `do...while` loop in JavaScript is a control flow statement that allows code to be executed repeatedly based on a given condition, but with a key difference compared to a `while` loop: the `do...while` loop guarantees that the code inside the loop will run at least once, regardless of whether the condition is initially true or false. This is because the condition is evaluated after the code block is executed. The structure of the `do...while` loop starts with the `do` keyword, followed by a block of code enclosed in curly braces, and then the `while` keyword with the condition in parentheses. After the code block is executed, the condition is checked, and if it evaluates to true, the loop runs again. This loop is particularly useful in situations where the loop's code must run at least once, such as when you need to prompt a user for input and you want to ensure the prompt appears at least once before any validation occurs. The `do...while` loop provides a straightforward way to handle scenarios where the loop's logic requires an initial execution before condition checking.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Basic example: Simple countdown using do...while loop
+// Logs: 5 4 3 2 1
+let count = 5;
+do {
+    console.log(count);
+    count--;
+} while (count > 0);
+
+// 2. Basic example: Logging numbers from 1 to 5
+// Logs: 1 2 3 4 5
+let num = 1;
+do {
+    console.log(num);
+    num++;
+} while (num <= 5);
+
+// 3. Basic example: Executing a loop once even if the condition is false
+// Logs: "This runs at least once!"
+let flag = false;
+do {
+    console.log("This runs at least once!");
+} while (flag);
+
+// 4. Basic example: Looping until a specific condition is met
+// Logs: 2 4 6
+let number = 2;
+do {
+    console.log(number);
+    number += 2;
+} while (number <= 6);
+
+// 5. Basic example: Looping through an array until it's empty
+// Logs: Removed: 3 Removed: 2 Removed: 1
+let numbers = [3, 2, 1];
+do {
+    console.log(`Removed: ${numbers.pop()}`);
+} while (numbers.length > 0);
+
+// 6. Intermediate example: Accumulating random numbers until a threshold is met
+// Logs: random numbers until sum exceeds 20, e.g., "Sum: 3", "Sum: 10", "Sum: 22"
+let sum = 0;
+do {
+    const randomNumber = Math.floor(Math.random() * 10) + 1;
+    sum += randomNumber;
+    console.log(`Sum: ${sum}`);
+} while (sum <= 20);
+// Logs: "Threshold of 20 exceeded!"
+
+// 7. Intermediate example: Prompting user until a valid age is entered
+// Logs: "Please enter a valid age." until a number between 1 and 120 is entered
+let age;
+do {
+    age = prompt("Enter your age (1-120):");
+    if (isNaN(age) || age < 1 || age > 120) {
+        console.log("Please enter a valid age.");
+    }
+} while (isNaN(age) || age < 1 || age > 120);
+// Logs: "Valid age entered!"
+
+// 8. Intermediate example: Emptying a string by removing characters one by one
+// Logs: "JavaScript" "JavaScrip" "JavaScri" ... "J"
+let text = "JavaScript";
+do {
+    text = text.slice(0, -1);
+    console.log(text);
+} while (text.length > 0);
+// Logs: "String is now empty"
+
+// 9. Intermediate example: Random number generation until a specific number is found
+// Logs: random numbers until a number divisible by 5 is generated, e.g., "7", "14", "5"
+let randomNum;
+do {
+    randomNum = Math.floor(Math.random() * 20) + 1;
+    console.log(randomNum);
+} while (randomNum % 5 !== 0);
+// Logs: "Number divisible by 5 found!"
+
+// 10. Intermediate example: Simulating a basic guessing game
+// Logs: "Incorrect guess." until the correct number is guessed
+const secretNumber = Math.floor(Math.random() * 10) + 1;
+let guess;
+do {
+    guess = prompt("Guess the secret number (1-10):");
+    if (guess != secretNumber) {
+        console.log("Incorrect guess.");
+    }
+} while (guess != secretNumber);
+// Logs: "Congratulations! You guessed it!"
+console.log("Congratulations! You guessed it!");
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-loopingobjects', event)">looping through objects</td>
+          </tr>
+          <tr id="detail-tag-loopingobjects" class="expandable-row-content">
+            <td>
+              <h3>looping through objects</h3>
+              <p>Looping through objects in JavaScript is a common task that allows you to access and manipulate the properties and values of an object. Unlike arrays, which are indexed and iterable using loops like `for` or `for...of`, objects are collections of key-value pairs where each key is a unique string (or symbol) and the values can be any data type. To loop through an object, you typically use the `for...in` loop, which iterates over the object's enumerable properties, allowing you to access each key. Within this loop, you can retrieve the corresponding value using the bracket notation or dot notation (e.g., `object[key]`). Additionally, modern JavaScript offers methods like `Object.keys()`, `Object.values()`, and `Object.entries()` to retrieve an array of keys, values, or key-value pairs respectively, which can then be looped over using a `for` loop, `forEach`, or `for...of`. These methods provide flexibility in how you access and manipulate object data, making them powerful tools for handling objects in JavaScript.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Using for...in to loop through an object's properties
+// Logs: name: Alice, age: 30, occupation: Developer
+const person = { name: "Alice", age: 30, occupation: "Developer" };
+for (const key in person) {
+    console.log(`${key}: ${person[key]}`);
+}
+
+// 2. Using Object.keys() to loop through an object's keys
+// Logs: name, age, occupation
+const keys = Object.keys(person);
+for (const key of keys) {
+    console.log(key);
+}
+
+// 3. Using Object.values() to loop through an object's values
+// Logs: Alice, 30, Developer
+const values = Object.values(person);
+for (const value of values) {
+    console.log(value);
+}
+
+// 4. Using Object.entries() to loop through an object's key-value pairs
+// Logs: name: Alice, age: 30, occupation: Developer
+const entries = Object.entries(person);
+for (const [key, value] of entries) {
+    console.log(`${key}: ${value}`);
+}
+
+// 5. Looping through a nested object
+// Logs: address: street: 123 Main St, city: Anytown, zip: 12345
+const user = {
+    name: "John",
+    address: {
+        street: "123 Main St",
+        city: "Anytown",
+        zip: "12345"
+    }
+};
+for (const key in user) {
+    if (typeof user[key] === 'object') {
+        for (const subKey in user[key]) {
+            console.log(`${key}: ${subKey}: ${user[key][subKey]}`);
+        }
+    } else {
+        console.log(`${key}: ${user[key]}`);
+    }
+}
+
+// 6. Looping through an object to calculate the total of numeric properties
+// Logs: Total: 55
+const scores = { math: 15, science: 20, english: 20 };
+let total = 0;
+for (const key in scores) {
+    total += scores[key];
+}
+console.log(`Total: ${total}`);
+
+// 7. Looping through an object to create a new array of formatted strings
+// Logs: ["Math: 15", "Science: 20", "English: 20"]
+let formattedScores = [];
+for (const key in scores) {
+    formattedScores.push(`${key.charAt(0).toUpperCase() + key.slice(1)}: ${scores[key]}`);
+}
+console.log(formattedScores);
+
+// 8. Using for...in with inherited properties (demonstrates skipping prototype properties)
+// Logs: name: Laptop, price: 1200
+function Product(name, price) {
+    this.name = name;
+    this.price = price;
+}
+Product.prototype.category = "Electronics";
+const product = new Product("Laptop", 1200);
+for (const key in product) {
+    if (product.hasOwnProperty(key)) {
+        console.log(`${key}: ${product[key]}`);
+    }
+}
+
+// 9. Looping through an object's keys and converting them to uppercase
+// Logs: NAME: Alice, AGE: 30, OCCUPATION: Developer
+for (const key in person) {
+    const upperKey = key.toUpperCase();
+    console.log(`${upperKey}: ${person[key]}`);
+}
+
+// 10. Looping through an array of objects
+// Logs: Name: Alice, Occupation: Developer; Name: Bob, Occupation: Designer
+const users = [
+    { name: "Alice", occupation: "Developer" },
+    { name: "Bob", occupation: "Designer" }
+];
+for (const user of users) {
+    console.log(`Name: ${user.name}, Occupation: ${user.occupation}`);
+}
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-forinloop', event)">for...in loop</td>
+          </tr>
+          <tr id="detail-tag-forinloop" class="expandable-row-content">
+            <td>
+              <h3>for...in loop</h3>
+              <p>The `for...in` loop in JavaScript is a control structure used to iterate over the enumerable properties of an object. When you use a `for...in` loop, it cycles through each key or property name within the object, allowing you to access and manipulate the associated values. This loop is particularly useful when dealing with objects where you want to perform operations on each property without needing to know the specific keys in advance. However, it's important to note that the `for...in` loop also iterates over properties that are inherited through the object's prototype chain, which can sometimes lead to unintended results if you are only interested in the object's own properties. To avoid this, developers often use the `hasOwnProperty()` method within the loop to ensure that only the object's own properties are processed. While the `for...in` loop is designed for objects, it is generally not recommended for use with arrays because it does not guarantee the order of iteration and may include inherited properties, which can lead to unexpected behavior.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Basic example: Looping through an object's properties
+// Logs: name: Alice, age: 30, occupation: Developer
+const person = { name: "Alice", age: 30, occupation: "Developer" };
+for (const key in person) {
+    console.log(`${key}: ${person[key]}`);
+}
+
+// 2. Looping through an object's properties with hasOwnProperty()
+// Logs: name: Alice, age: 30, occupation: Developer (only own properties)
+for (const key in person) {
+    if (person.hasOwnProperty(key)) {
+        console.log(`${key}: ${person[key]}`);
+    }
+}
+
+// 3. Looping through an object's properties and calculating total of numeric values
+// Logs: Total score: 150
+const scores = { math: 50, science: 40, english: 60 };
+let total = 0;
+for (const subject in scores) {
+    total += scores[subject];
+}
+console.log(`Total score: ${total}`);
+
+// 4. Looping through an object with inherited properties
+// Logs: name: Laptop, price: 1200, category: Electronics (logs inherited properties too)
+function Product(name, price) {
+    this.name = name;
+    this.price = price;
+}
+Product.prototype.category = "Electronics";
+const product = new Product("Laptop", 1200);
+for (const key in product) {
+    console.log(`${key}: ${product[key]}`);
+}
+
+// 5. Looping through an object and converting keys to uppercase
+// Logs: NAME: Alice, AGE: 30, OCCUPATION: Developer
+for (const key in person) {
+    const upperKey = key.toUpperCase();
+    console.log(`${upperKey}: ${person[key]}`);
+}
+
+// 6. Looping through an object and counting the number of properties
+// Logs: Number of properties: 3
+let propertyCount = 0;
+for (const key in person) {
+    propertyCount++;
+}
+console.log(`Number of properties: ${propertyCount}`);
+
+// 7. Looping through a nested object
+// Logs: street: 123 Main St, city: Anytown, zip: 12345
+const user = {
+    name: "John",
+    address: {
+        street: "123 Main St",
+        city: "Anytown",
+        zip: "12345"
+    }
+};
+for (const key in user.address) {
+    console.log(`${key}: ${user.address[key]}`);
+}
+
+// 8. Looping through an object to collect keys in an array
+// Logs: ["name", "age", "occupation"]
+let keysArray = [];
+for (const key in person) {
+    keysArray.push(key);
+}
+console.log(keysArray);
+
+// 9. Looping through an object and logging only properties with specific conditions
+// Logs: math: 50, english: 60 (logs only scores 50 and above)
+for (const subject in scores) {
+    if (scores[subject] >= 50) {
+        console.log(`${subject}: ${scores[subject]}`);
+    }
+}
+
+// 10. Looping through an object's properties and values to create a formatted string
+// Logs: Alice is 30 years old and works as a Developer.
+let description = "";
+for (const key in person) {
+    if (key === "name") {
+        description += `${person[key]} is `;
+    } else if (key === "age") {
+        description += `${person[key]} years old and `;
+    } else if (key === "occupation") {
+        description += `works as a ${person[key]}.`;
+    }
+}
+console.log(description);
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-differences', event)">differences</td>
+          </tr>
+          <tr id="detail-tag-differences" class="expandable-row-content">
+            <td>
+              <h3>differences</h3>
+              <p>In JavaScript, `for`, `for...of`, `for...in`, `while`, and `do...while` loops are all used to perform repetitive tasks, but they differ in syntax and use cases. The `for` loop is the most traditional and flexible, allowing you to define an initializer, a condition, and an increment/decrement expression, making it ideal for iterating over arrays or performing tasks a specific number of times. The `for...of` loop is designed specifically for iterating over iterable objects like arrays, strings, and sets, providing a simple way to access the values directly without needing to manage an index, making it perfect for array iteration when you don't need to modify the loop's behavior based on the index. The `for...in` loop, on the other hand, is used to iterate over the enumerable properties of an object, allowing you to access each key in turn, but it's not ideal for arrays because it can include inherited properties and doesn't guarantee the order of iteration. The `while` loop runs as long as a specified condition is true, making it useful when the number of iterations isn't known beforehand and depends on dynamic factors. Finally, the `do...while` loop is similar to the `while` loop but guarantees that the loop body will execute at least once, even if the condition is false from the start, which is useful when the loop's action needs to be performed at least once regardless of the condition. Choosing the right loop depends on the specific task: use `for` for counting, `for...of` for iterating over values, `for...in` for object properties, `while` when the condition must be checked before each iteration, and `do...while` when the loop must run at least once.</p>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td id="objects" class="tableletters">Objects</td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-objectsoverview', event)">overview</td>
+          </tr>
+          <tr id="detail-tag-objectsoverview" class="expandable-row-content">
+            <td>
+              <h3>overview</h3>
+              <p>In JavaScr</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Declare and initialize a variable to store age
+let age = 25;
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-objectsoverview', event)">overview</td>
+          </tr>
+          <tr id="detail-tag-objectsoverview" class="expandable-row-content">
+            <td>
+              <h3>overview</h3>
+              <p>In JavaScr</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Declare and initialize a variable to store age
+let age = 25;
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-objectsoverview', event)">overview</td>
+          </tr>
+          <tr id="detail-tag-objectsoverview" class="expandable-row-content">
+            <td>
+              <h3>overview</h3>
+              <p>In JavaScr</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Declare and initialize a variable to store age
+let age = 25;
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-objectsoverview', event)">overview</td>
+          </tr>
+          <tr id="detail-tag-objectsoverview" class="expandable-row-content">
+            <td>
+              <h3>overview</h3>
+              <p>In JavaScr</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Declare and initialize a variable to store age
+let age = 25;
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-objectsoverview', event)">overview</td>
+          </tr>
+          <tr id="detail-tag-objectsoverview" class="expandable-row-content">
+            <td>
+              <h3>overview</h3>
+              <p>In JavaScr</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Declare and initialize a variable to store age
+let age = 25;
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-objectsoverview', event)">overview</td>
+          </tr>
+          <tr id="detail-tag-objectsoverview" class="expandable-row-content">
+            <td>
+              <h3>overview</h3>
+              <p>In JavaScr</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Declare and initialize a variable to store age
+let age = 25;
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
             <td id="comments" class="tableletters">Comments</td>
           </tr>
           <tr>
@@ -6124,3 +7356,6 @@ let book = {
     <script src="https://unpkg.com/smoothscroll-anchor-polyfill"></script>
   </body>
 </html>
+
+
+
