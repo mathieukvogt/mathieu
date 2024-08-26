@@ -7620,49 +7620,479 @@ console.log(house);
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-objectsoverview', event)">overview</td>
+            <td class="clickable" onclick="toggleDetail('detail-tag-nestedobjects', event)">nested objects</td>
           </tr>
-          <tr id="detail-tag-objectsoverview" class="expandable-row-content">
+          <tr id="detail-tag-nestedobjects" class="expandable-row-content">
             <td>
-              <h3>overview</h3>
-              <p>In JavaScr</p>
+              <h3>nested objects</h3>
+              <p>Nested objects in JavaScript refer to objects that are contained within other objects, allowing for a hierarchical structure of data. This nesting can represent more complex relationships between data, such as an object representing a person containing another object that represents the person's address. To access properties within nested objects, you can use a combination of dot notation and bracket notation. Starting from the outermost object, you chain property names to drill down to the desired level. For example, if you have an object `person` with a nested object `address` that contains a property `city`, you would access the city with `person.address.city`. If any of the property names contain spaces or special characters, or if the property name is dynamic, you can use bracket notation like `person["address"]["city"]`. It's important to ensure that each level of the object exists before trying to access deeper properties to avoid errors. Nested objects are a powerful way to model real-world data structures in JavaScript, allowing for organized and manageable code when dealing with complex data.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// Declare and initialize a variable to store age
-let age = 25;
+// Example 1: Basic nested object
+let person = { 
+  name: "John", 
+  address: { 
+    street: "123 Main St", 
+    city: "New York" 
+  } 
+};
+console.log(person.address.city);
+// Logs: "New York"
+
+// Example 2: Nested object with multiple levels
+let company = { 
+  name: "Tech Corp", 
+  departments: { 
+    hr: { 
+      manager: "Alice" 
+    }, 
+    it: { 
+      manager: "Bob" 
+    } 
+  } 
+};
+console.log(company.departments.it.manager);
+// Logs: "Bob"
+
+// Example 3: Accessing a nested array inside an object
+let user = { 
+  name: "Sarah", 
+  hobbies: { 
+    outdoor: ["Hiking", "Cycling"], 
+    indoor: ["Reading", "Gaming"] 
+  } 
+};
+console.log(user.hobbies.outdoor[0]);
+// Logs: "Hiking"
+
+// Example 4: Nested object with methods
+let car = { 
+  brand: "Toyota", 
+  model: "Camry", 
+  features: { 
+    sunroof: true, 
+    startEngine: function() { 
+      return "Engine started"; 
+    } 
+  } 
+};
+console.log(car.features.startEngine());
+// Logs: "Engine started"
+
+// Example 5: Nested object with dynamic property access
+let laptop = { 
+  brand: "Dell", 
+  specs: { 
+    cpu: "i7", 
+    ram: "16GB" 
+  } 
+};
+let spec = "cpu";
+console.log(laptop.specs[spec]);
+// Logs: "i7"
+
+// Example 6: Nested object with an array of objects
+let library = { 
+  name: "City Library", 
+  books: [ 
+    { 
+      title: "1984", 
+      author: "George Orwell" 
+    }, 
+    { 
+      title: "To Kill a Mockingbird", 
+      author: "Harper Lee" 
+    } 
+  ] 
+};
+console.log(library.books[1].author);
+// Logs: "Harper Lee"
+
+// Example 7: Accessing a deeply nested property
+let organization = { 
+  name: "Global Corp", 
+  locations: { 
+    usa: { 
+      ny: { 
+        address: "123 Broadway", 
+        employees: 200 
+      } 
+    }, 
+    uk: { 
+      london: { 
+        address: "456 King's Rd", 
+        employees: 150 
+      } 
+    } 
+  } 
+};
+console.log(organization.locations.uk.london.address);
+// Logs: "456 King's Rd"
+
+// Example 8: Updating a nested object property
+let student = { 
+  name: "Jane", 
+  courses: { 
+    math: { 
+      grade: "A" 
+    }, 
+    science: { 
+      grade: "B" 
+    } 
+  } 
+};
+student.courses.science.grade = "A+";
+console.log(student.courses.science.grade);
+// Logs: "A+"
+
+// Example 9: Checking if a nested property exists
+let movie = { 
+  title: "Inception", 
+  details: { 
+    director: "Christopher Nolan", 
+    ratings: { 
+      imdb: 8.8 
+    } 
+  } 
+};
+console.log("imdb" in movie.details.ratings);
+// Logs: true
+
+// Example 10: Adding a new property to a nested object
+let house = { 
+  rooms: 4, 
+  amenities: { 
+    garage: true 
+  } 
+};
+house.amenities.pool = false;
+console.log(house.amenities.pool);
+// Logs: false
             </code></pre>
               <br />
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-objectsoverview', event)">overview</td>
+            <td class="clickable" onclick="toggleDetail('detail-tag-passby', event)">pass by reference</td>
           </tr>
-          <tr id="detail-tag-objectsoverview" class="expandable-row-content">
+          <tr id="detail-tag-passby" class="expandable-row-content">
             <td>
-              <h3>overview</h3>
-              <p>In JavaScr</p>
+              <h3>pass by reference</h3>
+              <p>In JavaScript, when objects are passed as arguments to functions or assigned to other variables, they are passed by reference. This means that the reference or memory address of the object is passed, not the actual object itself. As a result, if you modify the object within the function or through the new variable, those changes will affect the original object as well. This is because both the original object and the new reference point to the same location in memory. For example, if you have an object `person` and pass it to a function that alters one of its properties, the change will be reflected in the `person` object outside of the function as well. This behavior is essential to understand when working with objects in JavaScript, as it can lead to unintended side effects if the object is modified in different parts of the code. Understanding pass by reference helps in managing and controlling how objects are shared and modified throughout a program.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// Declare and initialize a variable to store age
-let age = 25;
+// Example 1: Passing an object to a function and modifying it
+let person = { 
+  name: "John", 
+  age: 30 
+};
+
+function updateAge(obj) { 
+  obj.age = 31; 
+}
+
+updateAge(person);
+console.log(person);
+// Logs: { name: "John", age: 31 }
+
+// Example 2: Assigning an object to a new variable and modifying it
+let car = { 
+  brand: "Toyota", 
+  model: "Camry" 
+};
+
+let newCar = car;
+newCar.model = "Corolla";
+console.log(car);
+console.log(newCar);
+// Logs: { brand: "Toyota", model: "Corolla" }
+// Logs: { brand: "Toyota", model: "Corolla" }
+
+// Example 3: Adding a property through a reference variable
+let user = { 
+  name: "Alice", 
+  loggedIn: true 
+};
+
+let anotherUser = user;
+anotherUser.role = "admin";
+console.log(user);
+console.log(anotherUser);
+// Logs: { name: "Alice", loggedIn: true, role: "admin" }
+// Logs: { name: "Alice", loggedIn: true, role: "admin" }
+
+// Example 4: Deleting a property through a reference variable
+let book = { 
+  title: "1984", 
+  author: "George Orwell" 
+};
+
+let refBook = book;
+delete refBook.author;
+console.log(book);
+console.log(refBook);
+// Logs: { title: "1984" }
+// Logs: { title: "1984" }
+
+// Example 5: Modifying a nested object property via reference
+let employee = { 
+  name: "Bob", 
+  details: { 
+    position: "Manager", 
+    department: "Sales" 
+  } 
+};
+
+let employeeRef = employee;
+employeeRef.details.position = "Director";
+console.log(employee.details.position);
+console.log(employeeRef.details.position);
+// Logs: "Director"
+// Logs: "Director"
+
+// Example 6: Assigning a method to a reference variable and modifying the object
+let laptop = { 
+  brand: "Dell", 
+  specs: { 
+    ram: "8GB", 
+    storage: "256GB" 
+  } 
+};
+
+let refLaptop = laptop;
+refLaptop.specs.storage = "512GB";
+console.log(laptop.specs.storage);
+console.log(refLaptop.specs.storage);
+// Logs: "512GB"
+// Logs: "512GB"
+
+// Example 7: Adding a nested object property through a reference
+let movie = { 
+  title: "Inception", 
+  director: "Christopher Nolan" 
+};
+
+let refMovie = movie;
+refMovie.details = { releaseYear: 2010 };
+console.log(movie.details.releaseYear);
+console.log(refMovie.details.releaseYear);
+// Logs: 2010
+// Logs: 2010
+
+// Example 8: Passing an object with a method to a function and modifying it
+let calculator = { 
+  value: 10, 
+  add: function(num) { 
+    this.value += num; 
+  } 
+};
+
+function modifyCalculator(calc) { 
+  calc.add(5); 
+}
+
+modifyCalculator(calculator);
+console.log(calculator.value);
+// Logs: 15
+
+// Example 9: Changing the object through a function that modifies nested properties
+let student = { 
+  name: "Jane", 
+  grades: { 
+    math: "B", 
+    science: "A" 
+  } 
+};
+
+function updateGrades(stud) { 
+  stud.grades.math = "A+"; 
+}
+
+updateGrades(student);
+console.log(student.grades.math);
+// Logs: "A+"
+
+// Example 10: Copying a reference and modifying both references
+let house = { 
+  rooms: 3, 
+  hasGarage: true 
+};
+
+let houseRef = house;
+houseRef.rooms = 4;
+house.hasGarage = false;
+console.log(house);
+console.log(houseRef);
+// Logs: { rooms: 4, hasGarage: false }
+// Logs: { rooms: 4, hasGarage: false }
             </code></pre>
               <br />
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-objectsoverview', event)">overview</td>
+            <td class="clickable" onclick="toggleDetail('detail-tag-loopobj', event)">looping through objects</td>
           </tr>
-          <tr id="detail-tag-objectsoverview" class="expandable-row-content">
+          <tr id="detail-tag-loopobj" class="expandable-row-content">
             <td>
-              <h3>overview</h3>
-              <p>In JavaScr</p>
+              <h3>looping through objects</h3>
+              <p>Looping through objects in JavaScript is commonly done using the `for...in` loop, which allows you to iterate over the enumerable properties of an object. The `for...in` loop goes through each key in the object, enabling you to access both the key and its corresponding value within the loop. This approach is useful when you need to perform operations on each property of an object, such as logging values or applying changes to them. However, `for...in` does not guarantee the order of iteration, as the properties are iterated in the order they were added, which may not always be sequential. In addition to `for...in`, methods like `Object.keys()`, `Object.values()`, and `Object.entries()` can be used in combination with looping constructs like `for` or `forEach` to iterate through the keys, values, or key-value pairs of an object, respectively. These methods are often preferred for better control and compatibility with modern JavaScript features, allowing for more flexible and readable code when working with objects.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// Declare and initialize a variable to store age
-let age = 25;
+// Example 1: Looping through an object with for...in
+let person = { 
+  name: "John", 
+  age: 30, 
+  city: "New York" 
+};
+
+for (let key in person) { 
+  console.log(key + ": " + person[key]); 
+}
+// Logs: 
+// name: John
+// age: 30
+// city: New York
+
+// Example 2: Looping through an object and accessing keys
+let car = { 
+  brand: "Toyota", 
+  model: "Camry", 
+  year: 2020 
+};
+
+for (let key in car) { 
+  console.log("Key: " + key); 
+}
+// Logs:
+// Key: brand
+// Key: model
+// Key: year
+
+// Example 3: Looping through an object and accessing values
+let laptop = { 
+  brand: "Dell", 
+  ram: "16GB", 
+  storage: "512GB" 
+};
+
+for (let key in laptop) { 
+  console.log("Value: " + laptop[key]); 
+}
+// Logs:
+// Value: Dell
+// Value: 16GB
+// Value: 512GB
+
+// Example 4: Using Object.keys() to loop through an object's keys
+let book = { 
+  title: "1984", 
+  author: "George Orwell", 
+  year: 1949 
+};
+
+Object.keys(book).forEach(function(key) { 
+  console.log(key + ": " + book[key]); 
+});
+// Logs:
+// title: 1984
+// author: George Orwell
+// year: 1949
+
+// Example 5: Using Object.values() to loop through an object's values
+let user = { 
+  name: "Alice", 
+  age: 25, 
+  country: "USA" 
+};
+
+Object.values(user).forEach(function(value) { 
+  console.log("Value: " + value); 
+});
+// Logs:
+// Value: Alice
+// Value: 25
+// Value: USA
+
+// Example 6: Using Object.entries() to loop through an object's key-value pairs
+let smartphone = { 
+  brand: "Apple", 
+  model: "iPhone 12", 
+  price: 999 
+};
+
+Object.entries(smartphone).forEach(function([key, value]) { 
+  console.log(key + ": " + value); 
+});
+// Logs:
+// brand: Apple
+// model: iPhone 12
+// price: 999
+
+// Example 7: Looping through a nested object with for...in
+let student = { 
+  name: "Jane", 
+  grades: { 
+    math: "A", 
+    science: "B" 
+  } 
+};
+
+for (let key in student.grades) { 
+  console.log(key + ": " + student.grades[key]); 
+}
+// Logs:
+// math: A
+// science: B
+
+// Example 8: Using for...of with Object.keys() to loop through keys
+let house = { 
+  rooms: 3, 
+  bathrooms: 2, 
+  hasGarage: true 
+};
+
+for (let key of Object.keys(house)) { 
+  console.log(key + ": " + house[key]); 
+}
+// Logs:
+// rooms: 3
+// bathrooms: 2
+// hasGarage: true
+
+// Example 9: Using for...of with Object.values() to loop through values
+let movie = { 
+  title: "Inception", 
+  director: "Christopher Nolan", 
+  releaseYear: 2010 
+};
+
+for (let value of Object.values(movie)) { 
+  console.log("Value: " + value); 
+}
+// Logs:
+// Value: Inception
+// Value: Christopher Nolan
+// Value: 2010
+
+// Example 10: Looping through an object and modifying properties
+let employee = { 
+  name: "Bob", 
+  position: "Manager", 
+  salary: 50000 
+};
+
+for (let key in employee) { 
+  if (key === "salary") { 
+    employee[key] += 5000; 
+  }
+}
+
+console.log(employee);
+// Logs:
+// { name: "Bob", position: "Manager", salary: 55000 }
             </code></pre>
               <br />
             </td>
