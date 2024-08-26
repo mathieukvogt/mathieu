@@ -6502,7 +6502,7 @@ for (const grade of grades) {
           </tr>
           <tr id="detail-tag-breakcontinue" class="expandable-row-content">
             <td>
-              <h3>break & continue keyword/h3>
+              <h3>break & continue keyword</h3>
               <p>The `break` and `continue` keywords in JavaScript are powerful tools used to control the flow of loops. The `break` keyword is used to immediately exit a loop, terminating the loop's execution entirely and moving the control to the code that follows the loop. This is particularly useful in situations where a specific condition is met, and further iterations of the loop are unnecessary or could lead to undesirable outcomes. The `continue` keyword, on the other hand, is used to skip the current iteration of the loop and jump directly to the next iteration, effectively ignoring any code that follows it within the loop's current cycle. This is useful when certain conditions require bypassing part of the loop's body without exiting the loop altogether. Both `break` and `continue` can be used in various types of loops in JavaScript, including `for`, `while`, and `do...while` loops. They provide fine-grained control over loop execution, allowing developers to manage loop behavior based on specific conditions or logic within the loop.</p>
               <h4><u>Specifications</u></h4>
               <pre>
@@ -7059,6 +7059,613 @@ console.log(description);
           </tr>
           <tr>
             <td id="objects" class="tableletters">Objects</td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-objectsoverview', event)">overview</td>
+          </tr>
+          <tr id="detail-tag-objectsoverview" class="expandable-row-content">
+            <td>
+              <h3>overview</h3>
+              <p>In JavaScript, an object is a complex data structure that allows you to store collections of data and more complex entities. Objects are used to represent real-world entities by encapsulating related data and behavior. Each object is a collection of properties, where a property is an association between a key (or name) and a value. The value can be a primitive data type, another object, or a function, which in this context is known as a method. The basic syntax for creating an object involves using curly braces `{}` to define an object literal. Inside the curly braces, properties are defined as key-value pairs separated by colons, with each pair separated by commas. For example, `let person = { name: "John", age: 30, greet: function() { console.log("Hello!"); } };` defines an object named `person` with properties `name`, `age`, and a method `greet`. You can access or modify the properties using dot notation (e.g., `person.name`) or bracket notation (e.g., `person["age"]`). Objects in JavaScript are dynamic, meaning you can add, modify, or delete properties after the object is created. This flexibility makes objects a foundational component for organizing and managing data in JavaScript.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Example 1: Basic object with a string property
+let car = { 
+  brand: "Toyota", 
+  model: "Camry" 
+};
+console.log(car);
+// Logs: { brand: "Toyota", model: "Camry" }
+
+// Example 2: Object with a number property
+let smartphone = { 
+  brand: "Apple", 
+  price: 999 
+};
+console.log(smartphone);
+// Logs: { brand: "Apple", price: 999 }
+
+// Example 3: Object with a boolean property
+let user = { 
+  name: "Alice", 
+  isLoggedIn: true 
+};
+console.log(user);
+// Logs: { name: "Alice", isLoggedIn: true }
+
+// Example 4: Object with a method
+let dog = { 
+  name: "Buddy", 
+  bark: function() { 
+    console.log("Woof!"); 
+  } 
+};
+dog.bark();
+// Logs: "Woof!" (when the method is called)
+
+// Example 5: Nested object
+let student = { 
+  name: "John", 
+  address: { 
+    street: "123 Main St", 
+    city: "New York" 
+  } 
+};
+console.log(student);
+// Logs: { name: "John", address: { street: "123 Main St", city: "New York" } }
+
+// Example 6: Object with an array property
+let book = { 
+  title: "The Great Gatsby", 
+  genres: ["Classic", "Fiction"] 
+};
+console.log(book);
+// Logs: { title: "The Great Gatsby", genres: ["Classic", "Fiction"] }
+
+// Example 7: Adding a property to an existing object
+let laptop = { 
+  brand: "Dell" 
+};
+laptop.model = "XPS 13";
+console.log(laptop);
+// Logs: { brand: "Dell", model: "XPS 13" }
+
+// Example 8: Deleting a property from an object
+let movie = { 
+  title: "Inception", 
+  director: "Christopher Nolan" 
+};
+delete movie.director;
+console.log(movie);
+// Logs: { title: "Inception" } (after `director` property is deleted)
+
+// Example 9: Checking if a property exists in an object
+let house = { 
+  bedrooms: 3, 
+  bathrooms: 2 
+};
+console.log("bathrooms" in house);
+// Logs: true (since `bathrooms` exists in the `house` object)
+
+// Example 10: Using a function to create objects (constructor function)
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+let person1 = new Person("Sarah", 28);
+console.log(person1);
+// Logs: { name: "Sarah", age: 28 }
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-accessingproperties', event)">accessing properties</td>
+          </tr>
+          <tr id="detail-tag-accessingproperties" class="expandable-row-content">
+            <td>
+              <h3>accessing properties</h3>
+              <p>In JavaScript, accessing properties in objects can be done using two main methods: dot notation and bracket notation. Dot notation is the most common and straightforward way to access an object's properties. You simply write the object's name, followed by a dot, and then the property name, like this: `objectName.propertyName`. For example, if you have an object `person` with a property `name`, you can access it with `person.name`. Bracket notation, on the other hand, is more flexible and is often used when the property name is stored in a variable or when the property name contains spaces or special characters. It involves writing the object's name, followed by the property name inside square brackets, like this: `objectName["propertyName"]`. For example, you could access the `name` property with `person["name"]`. Bracket notation is particularly useful when dealing with dynamic property names, allowing you to pass in a variable or expression that evaluates to the property name. Both methods are essential for working with objects in JavaScript, providing different options depending on the needs of the code.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Example 1: Accessing a property using dot notation
+let car = { 
+  brand: "Toyota", 
+  model: "Camry" 
+};
+let carBrand = car.brand;
+console.log(carBrand);
+// Logs: "Toyota"
+
+// Example 2: Accessing a property using bracket notation
+let smartphone = { 
+  brand: "Apple", 
+  price: 999 
+};
+let phoneBrand = smartphone["brand"];
+console.log(phoneBrand);
+// Logs: "Apple"
+
+// Example 3: Accessing a property with a variable key using bracket notation
+let user = { 
+  name: "Alice", 
+  isLoggedIn: true 
+};
+let propertyKey = "name";
+let userName = user[propertyKey];
+console.log(userName);
+// Logs: "Alice"
+
+// Example 4: Accessing a nested object property using dot notation
+let student = { 
+  name: "John", 
+  address: { 
+    street: "123 Main St", 
+    city: "New York" 
+  } 
+};
+let studentCity = student.address.city;
+console.log(studentCity);
+// Logs: "New York"
+
+// Example 5: Accessing a nested object property using bracket notation
+let company = { 
+  name: "Tech Corp", 
+  employees: { 
+    count: 500, 
+    locations: ["New York", "San Francisco"] 
+  } 
+};
+let employeeCount = company["employees"]["count"];
+console.log(employeeCount);
+// Logs: 500
+
+// Example 6: Accessing an array within an object using dot notation
+let book = { 
+  title: "The Great Gatsby", 
+  genres: ["Classic", "Fiction"] 
+};
+let firstGenre = book.genres[0];
+console.log(firstGenre);
+// Logs: "Classic"
+
+// Example 7: Accessing an array within an object using bracket notation
+let movie = { 
+  title: "Inception", 
+  cast: ["Leonardo DiCaprio", "Joseph Gordon-Levitt"] 
+};
+let leadActor = movie["cast"][0];
+console.log(leadActor);
+// Logs: "Leonardo DiCaprio"
+
+// Example 8: Checking if a property exists using "in" keyword
+let laptop = { 
+  brand: "Dell", 
+  model: "XPS 13" 
+};
+let hasModel = "model" in laptop;
+console.log(hasModel);
+// Logs: true
+
+// Example 9: Accessing a method within an object using dot notation
+let dog = { 
+  name: "Buddy", 
+  bark: function() { 
+    return "Woof!"; 
+  } 
+};
+let dogBark = dog.bark();
+console.log(dogBark);
+// Logs: "Woof!"
+
+// Example 10: Accessing a non-existent property
+let house = { 
+  bedrooms: 3, 
+  bathrooms: 2 
+};
+let garage = house.garage;
+console.log(garage);
+// Logs: undefined
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-updatingproperties', event)">updating properties</td>
+          </tr>
+          <tr id="detail-tag-updatingproperties" class="expandable-row-content">
+            <td>
+              <h3>updating properties</h3>
+              <p>In JavaScript, updating or mutating properties in objects is a straightforward process, regardless of whether the object was declared using `let` or `const`. To update a property, you simply access the property using either dot notation or bracket notation and assign it a new value. For example, if you have an object `person` with a property `age`, you can update it with `person.age = 30`. If the object was declared with `let`, you can freely update its properties and even reassign the entire object to a new one. However, if the object was declared with `const`, while you cannot reassign the object itself (i.e., you can't make it reference a completely new object), you can still freely mutate its properties. This means you can change existing properties, add new ones, or delete them, even though the reference to the object remains constant. This behavior is possible because `const` only ensures that the reference to the object is immutable, not the contents of the object itself. Therefore, mutating an object's properties is common and works the same way regardless of whether `let` or `const` was used in the declaration.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Example 1: Updating a property in an object declared with let
+let car = { 
+  brand: "Toyota", 
+  model: "Camry" 
+};
+car.model = "Corolla";
+console.log(car);
+// Logs: { brand: "Toyota", model: "Corolla" }
+
+// Example 2: Updating a property in an object declared with const
+const smartphone = { 
+  brand: "Apple", 
+  price: 999 
+};
+smartphone.price = 1099;
+console.log(smartphone);
+// Logs: { brand: "Apple", price: 1099 }
+
+// Example 3: Adding a new property to an object declared with let
+let user = { 
+  name: "Alice", 
+  isLoggedIn: true 
+};
+user.age = 25;
+console.log(user);
+// Logs: { name: "Alice", isLoggedIn: true, age: 25 }
+
+// Example 4: Adding a new property to an object declared with const
+const student = { 
+  name: "John", 
+  grade: "A" 
+};
+student.age = 18;
+console.log(student);
+// Logs: { name: "John", grade: "A", age: 18 }
+
+// Example 5: Updating a nested property in an object declared with let
+let book = { 
+  title: "The Great Gatsby", 
+  details: { 
+    author: "F. Scott Fitzgerald", 
+    year: 1925 
+  } 
+};
+book.details.year = 2024;
+console.log(book);
+// Logs: { title: "The Great Gatsby", details: { author: "F. Scott Fitzgerald", year: 2024 } }
+
+// Example 6: Updating a nested property in an object declared with const
+const laptop = { 
+  brand: "Dell", 
+  specs: { 
+    ram: "8GB", 
+    storage: "256GB" 
+  } 
+};
+laptop.specs.ram = "16GB";
+console.log(laptop);
+// Logs: { brand: "Dell", specs: { ram: "16GB", storage: "256GB" } }
+
+// Example 7: Removing a property from an object declared with let (setting it to undefined)
+let movie = { 
+  title: "Inception", 
+  director: "Christopher Nolan" 
+};
+movie.director = undefined;
+console.log(movie);
+// Logs: { title: "Inception", director: undefined }
+
+// Example 8: Removing a property from an object declared with const (setting it to null)
+const house = { 
+  bedrooms: 3, 
+  bathrooms: 2 
+};
+house.bathrooms = null;
+console.log(house);
+// Logs: { bedrooms: 3, bathrooms: null }
+
+// Example 9: Changing a property type in an object declared with let
+let person = { 
+  name: "Sarah", 
+  age: 30 
+};
+person.age = "Thirty";
+console.log(person);
+// Logs: { name: "Sarah", age: "Thirty" }
+
+// Example 10: Changing a property type in an object declared with const
+const animal = { 
+  species: "Dog", 
+  weight: 50 
+};
+animal.weight = "Fifty pounds";
+console.log(animal);
+// Logs: { species: "Dog", weight: "Fifty pounds" }
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-deletingproperties', event)">deleting properties</td>
+          </tr>
+          <tr id="detail-tag-deletingproperties" class="expandable-row-content">
+            <td>
+              <h3>deleting properties</h3>
+              <p>In JavaScript, deleting properties from objects can be done using the `delete` operator. When you want to remove a specific property from an object, you can use `delete` followed by the object and the property name. For example, `delete person.age` would remove the `age` property from the `person` object. Once a property is deleted, it is no longer accessible and will return `undefined` if you try to reference it. The `delete` operator only affects the specific property and does not affect other properties of the object. It's important to note that `delete` only removes the property from the object itself and not from the object's prototype chain, meaning if the property is inherited from a prototype, it will still be accessible through the prototype. Additionally, `delete` works on objects declared with both `let` and `const`, as it doesn't affect the reference to the object but merely removes the specific property from the object's structure. This operation is useful when you need to dynamically manage the properties of an object, particularly when cleaning up or altering the object's data.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Example 1: Deleting a property from an object declared with let
+let car = { 
+  brand: "Toyota", 
+  model: "Camry" 
+};
+delete car.model;
+console.log(car);
+// Logs: { brand: "Toyota" }
+
+// Example 2: Deleting a property from an object declared with const
+const smartphone = { 
+  brand: "Apple", 
+  price: 999 
+};
+delete smartphone.price;
+console.log(smartphone);
+// Logs: { brand: "Apple" }
+
+// Example 3: Deleting a nested property from an object
+let user = { 
+  name: "Alice", 
+  profile: { 
+    age: 25, 
+    location: "New York" 
+  } 
+};
+delete user.profile.age;
+console.log(user);
+// Logs: { name: "Alice", profile: { location: "New York" } }
+
+// Example 4: Deleting a method from an object
+const dog = { 
+  name: "Buddy", 
+  bark: function() { 
+    return "Woof!"; 
+  } 
+};
+delete dog.bark;
+console.log(dog);
+// Logs: { name: "Buddy" }
+
+// Example 5: Deleting a property and checking its existence
+let book = { 
+  title: "1984", 
+  author: "George Orwell" 
+};
+delete book.author;
+console.log("author" in book);
+// Logs: false
+
+// Example 6: Deleting a property with bracket notation
+const movie = { 
+  title: "The Matrix", 
+  director: "Wachowski" 
+};
+delete movie["director"];
+console.log(movie);
+// Logs: { title: "The Matrix" }
+
+// Example 7: Deleting a dynamically accessed property
+let person = { 
+  name: "John", 
+  age: 30 
+};
+let prop = "age";
+delete person[prop];
+console.log(person);
+// Logs: { name: "John" }
+
+// Example 8: Deleting a property that doesn't exist
+const house = { 
+  bedrooms: 3, 
+  bathrooms: 2 
+};
+delete house.garage;
+console.log(house);
+// Logs: { bedrooms: 3, bathrooms: 2 }
+
+// Example 9: Deleting a property and adding it back later
+let laptop = { 
+  brand: "Dell", 
+  model: "XPS 13" 
+};
+delete laptop.model;
+laptop.model = "XPS 15";
+console.log(laptop);
+// Logs: { brand: "Dell", model: "XPS 15" }
+
+// Example 10: Deleting all properties from an object
+let settings = { 
+  theme: "dark", 
+  notifications: true 
+};
+delete settings.theme;
+delete settings.notifications;
+console.log(settings);
+// Logs: {}
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-objectmethod', event)">methods</td>
+          </tr>
+          <tr id="detail-tag-objectmethod" class="expandable-row-content">
+            <td>
+              <h3>methods</h3>
+              <p>In JavaScript, methods are functions that are defined within an object and are used to perform actions related to that object. These methods allow objects to encapsulate behavior along with data, making it easier to manage and manipulate the object's state. A method is defined by creating a property within the object where the value is a function. For example, in an object representing a car, you might have a method called `startEngine` that logs a message or changes the state of the car. Methods can access and modify the properties of the object they belong to using the `this` keyword, which refers to the object itself. This ability to combine data and behavior in a single entity makes methods a powerful feature of objects, enabling more organized and modular code. Methods are a fundamental aspect of object-oriented programming in JavaScript, providing a way to define and reuse functionality that is directly tied to specific data structures.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Example 1: Basic method in an object
+let car = { 
+  brand: "Toyota", 
+  model: "Camry", 
+  startEngine: function() { 
+    return "Engine started"; 
+  } 
+};
+console.log(car.startEngine());
+// Logs: "Engine started"
+
+// Example 2: Method that accesses object properties using 'this'
+let smartphone = { 
+  brand: "Apple", 
+  model: "iPhone 12", 
+  getFullName: function() { 
+    return this.brand + " " + this.model; 
+  } 
+};
+console.log(smartphone.getFullName());
+// Logs: "Apple iPhone 12"
+
+// Example 3: Method that updates object properties
+let user = { 
+  name: "Alice", 
+  age: 25, 
+  incrementAge: function() { 
+    this.age += 1; 
+  } 
+};
+user.incrementAge();
+console.log(user.age);
+// Logs: 26
+
+// Example 4: Method that takes parameters
+let calculator = { 
+  add: function(a, b) { 
+    return a + b; 
+  } 
+};
+console.log(calculator.add(5, 3));
+// Logs: 8
+
+// Example 5: Method that uses a loop
+let numbers = { 
+  values: [1, 2, 3, 4], 
+  sum: function() { 
+    let total = 0; 
+    for(let i = 0; i < this.values.length; i++) { 
+      total += this.values[i]; 
+    }
+    return total;
+  } 
+};
+console.log(numbers.sum());
+// Logs: 10
+
+// Example 6: Method that returns another method
+let greeter = { 
+  greet: function(name) { 
+    return function() { 
+      return "Hello, " + name; 
+    }; 
+  } 
+};
+let greetJohn = greeter.greet("John");
+console.log(greetJohn());
+// Logs: "Hello, John"
+
+// Example 7: Method that modifies an array property
+let playlist = { 
+  songs: ["Song 1", "Song 2"], 
+  addSong: function(song) { 
+    this.songs.push(song); 
+  } 
+};
+playlist.addSong("Song 3");
+console.log(playlist.songs);
+// Logs: ["Song 1", "Song 2", "Song 3"]
+
+// Example 8: Method that checks for a condition
+let person = { 
+  name: "Bob", 
+  age: 20, 
+  canVote: function() { 
+    return this.age >= 18; 
+  } 
+};
+console.log(person.canVote());
+// Logs: true
+
+// Example 9: Method that returns a formatted string
+let book = { 
+  title: "1984", 
+  author: "George Orwell", 
+  getDetails: function() { 
+    return `${this.title} by ${this.author}`; 
+  } 
+};
+console.log(book.getDetails());
+// Logs: "1984 by George Orwell"
+
+// Example 10: Method that deletes a property from the object
+let house = { 
+  rooms: 4, 
+  hasGarage: true, 
+  removeGarage: function() { 
+    delete this.hasGarage; 
+  } 
+};
+house.removeGarage();
+console.log(house);
+// Logs: { rooms: 4 }
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-objectsoverview', event)">overview</td>
+          </tr>
+          <tr id="detail-tag-objectsoverview" class="expandable-row-content">
+            <td>
+              <h3>overview</h3>
+              <p>In JavaScr</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Declare and initialize a variable to store age
+let age = 25;
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-objectsoverview', event)">overview</td>
+          </tr>
+          <tr id="detail-tag-objectsoverview" class="expandable-row-content">
+            <td>
+              <h3>overview</h3>
+              <p>In JavaScr</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Declare and initialize a variable to store age
+let age = 25;
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-objectsoverview', event)">overview</td>
+          </tr>
+          <tr id="detail-tag-objectsoverview" class="expandable-row-content">
+            <td>
+              <h3>overview</h3>
+              <p>In JavaScr</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Declare and initialize a variable to store age
+let age = 25;
+            </code></pre>
+              <br />
+            </td>
           </tr>
           <tr>
             <td class="clickable" onclick="toggleDetail('detail-tag-objectsoverview', event)">overview</td>
