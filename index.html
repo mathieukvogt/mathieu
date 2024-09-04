@@ -9298,7 +9298,6 @@ console.log(value2); // Logs: 'Value 2'
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-```javascript
 // 1. Get the HTML element by its ID
 let element = document.getElementById("myElement");
 
@@ -9351,10 +9350,10 @@ let element = document.querySelector(".example");
 // 2. Select the element with the ID "main-header"
 let header = document.querySelector("#main-header");
 
-// 3. Select the first <p> element in the document
+// 3. Select the first p element in the document
 let firstParagraph = document.querySelector("p");
 
-// 4. Select the first <li> element inside an unordered list
+// 4. Select the first li element inside an unordered list
 let firstListItem = document.querySelector("ul li");
 
 // 5. Select an input element of type text
@@ -9363,16 +9362,16 @@ let textInput = document.querySelector('input[type="text"]');
 // 6. Select the first element with both "btn" and "primary" classes
 let button = document.querySelector(".btn.primary");
 
-// 7. Select the first anchor (<a>) element inside a navigation bar
+// 7. Select the first anchor (a) element inside a navigation bar
 let navLink = document.querySelector(".navbar a");
 
 // 8. Select the first child element inside a container with the class "content"
 let firstChild = document.querySelector(".content > *");
 
-// 9. Select the first <div> element with the data attribute "data-role"
+// 9. Select the first div element with the data attribute "data-role"
 let dataDiv = document.querySelector("div[data-role]");
 
-// 10. Select the first <span> element inside an element with the class "wrapper"
+// 10. Select the first span element inside an element with the class "wrapper"
 let spanElement = document.querySelector(".wrapper span");
             </code></pre>
               <br />
@@ -9432,7 +9431,6 @@ document.getElementById("content").innerHTML = "<p>Updated content!</p>";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-          ```javascript
 // 1. Select all elements with the class "item" and change their background color
 let items = document.getElementsByClassName("item");
 for (let i = 0; i < items.length; i++) {
@@ -9575,11 +9573,10 @@ for (let i = 0; i < spans.length; i++) {
           <tr id="detail-tag-inner" class="expandable-row-content">
             <td>
               <h3>.innerHTML</h3>
-              <p>The `.innerHTML` property in JavaScript is used to get or set the HTML content inside an element. When accessed, `.innerHTML` returns the HTML code as a string, including all child elements and text within the specified element. For example, `document.getElementById("content").innerHTML` would retrieve the complete HTML inside the element with the ID "content." When setting `.innerHTML`, you can update the entire content of an element by assigning new HTML code as a string, such as `document.getElementById("content").innerHTML = "<p>New content here</p>";`. This will replace the existing content with the specified HTML structure. However, it's important to note that when using `.innerHTML` to set content, any existing child elements within the target element are completely replaced, and it can introduce security risks, such as cross-site scripting (XSS), if untrusted content is injected. Despite these considerations, `.innerHTML` is a commonly used and efficient way to dynamically update or retrieve the HTML structure of elements in a web page.</p>
+              <p>The `.innerHTML` property in JavaScript is used to get or set the HTML content inside an element. When accessed, `.innerHTML` returns the HTML code as a string, including all child elements and text within the specified element. For example, `document.getElementById("content").innerHTML` would retrieve the complete HTML inside the element with the ID "content." When setting `.innerHTML`, you can update the entire content of an element by assigning new HTML code as a string, such as `document.getElementById("content").innerHTML = "New content here";`. This will replace the existing content with the specified HTML structure. However, it's important to note that when using `.innerHTML` to set content, any existing child elements within the target element are completely replaced, and it can introduce security risks, such as cross-site scripting (XSS), if untrusted content is injected. Despite these considerations, `.innerHTML` is a commonly used and efficient way to dynamically update or retrieve the HTML structure of elements in a web page.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-          ```javascript
 // 1. Change the inner HTML of a div with the ID "content"
 document.getElementById("content").innerHTML = "<p>This is new content inside the div.</p>";
 
@@ -9996,7 +9993,7 @@ for (let i = 0; i < gallery.children.length; i++) {
           <tr id="detail-tag-parent" class="expandable-row-content">
             <td>
               <h3>.parentNode</h3>
-              <p>The `.parentNode` property in JavaScript is used to access the parent node of a specific DOM element. It returns the direct parent of the node on which it is called, allowing developers to navigate up the DOM tree. For example, if an element is nested within a `<div>`, calling `element.parentNode` will return that `<div>` as the parent. This property can be particularly useful when you need to manipulate or interact with an element’s parent, such as removing the element from the DOM, adding siblings, or changing styles. It's important to note that `.parentNode` returns any kind of node, including element nodes, document nodes, and even text nodes, depending on the structure. If the node has no parent (such as the root document element), `.parentNode` returns `null`. This property is essential for traversing the DOM and understanding the hierarchical relationships between elements, making it easier to modify and manage the document dynamically.</p>
+              <p>The `.parentNode` property in JavaScript is used to access the parent node of a specific DOM element. It returns the direct parent of the node on which it is called, allowing developers to navigate up the DOM tree. For example, if an element is nested within a `div`, calling `element.parentNode` will return that `div` as the parent. This property can be particularly useful when you need to manipulate or interact with an element’s parent, such as removing the element from the DOM, adding siblings, or changing styles. It's important to note that `.parentNode` returns any kind of node, including element nodes, document nodes, and even text nodes, depending on the structure. If the node has no parent (such as the root document element), `.parentNode` returns `null`. This property is essential for traversing the DOM and understanding the hierarchical relationships between elements, making it easier to modify and manage the document dynamically.</p>
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
