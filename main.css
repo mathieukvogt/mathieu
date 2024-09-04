@@ -69,12 +69,16 @@ td {
 
 #upButton {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 35px;
+  right: 35px;
   font-size: 14px;
   border-radius: 2px;
   cursor: pointer;
-  color: rgb(0, 0, 0);
+  font-size: 14;
+  border: none;
+  padding: 5px;
+  mix-blend-mode: difference;
+  background-color: rgb(51, 255, 224);
 }
 
 @media screen and (max-width: 600px) {
