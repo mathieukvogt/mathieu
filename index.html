@@ -56,6 +56,7 @@
         <a href="#objects">Objects</a>
         <a href="#comments">Comments</a>
         <a href="#data-types">Data Types</a>
+        <a href="#dom">Document-Object-Model</a>
       </div>
       <hr />
       <br />
@@ -2048,7 +2049,7 @@ console.log(reverseString("hello")); // Logs: "olleh"
               <br />
             </td>
           </tr>
-          tr>
+          <tr>
             <td class="clickable" onclick="toggleDetail('detail-tag-higher', event)">
               higher-order functions
             </td>
@@ -2134,7 +2135,141 @@ const intervalId = setInterval(() => {
               <br />
             </td>
           </tr>
-          
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-callback', event)">callback functions</td>
+          </tr>
+          <tr id="detail-tag-callback" class="expandable-row-content">
+            <td>
+              <h3>callback functions</h3>
+              <p>A callback function is a function that is passed as an argument to another function and is executed after the completion of that function. Callbacks are commonly used in asynchronous programming, where operations like network requests, file reading, or timers need to be handled without blocking the execution of the rest of the code. By passing a function as a callback, you allow the main function to perform its task and then execute the callback function once the task is done. This pattern helps in managing tasks that take an uncertain amount of time to complete, such as retrieving data from a server, where the callback is triggered only when the data is ready. Callbacks are a fundamental concept in JavaScript and are widely used in event handling, asynchronous operations, and handling user interactions, enabling developers to write more efficient and non-blocking code.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Example 1: Simple callback that logs a message
+function greet(callback) {
+    console.log("Hello!");
+    callback();
+}
+
+function sayGoodbye() {
+    console.log("Goodbye!");
+}
+
+greet(sayGoodbye);
+// Logs: "Hello!" then "Goodbye!"
+
+// Example 2: Callback that adds two numbers
+function add(a, b, callback) {
+    const result = a + b;
+    callback(result);
+}
+
+function logResult(result) {
+    console.log("Result:", result);
+}
+
+add(3, 4, logResult);
+// Logs: "Result: 7"
+
+// Example 3: Using a callback to filter an array
+function filterArray(arr, callback) {
+    const filteredArr = arr.filter(callback);
+    console.log("Filtered Array:", filteredArr);
+}
+
+function isOdd(num) {
+    return num % 2 !== 0;
+}
+
+filterArray([1, 2, 3, 4, 5], isOdd);
+// Logs: "Filtered Array: [1, 3, 5]"
+
+// Example 4: Callback with setTimeout to simulate a delay
+function delayedLog(message, callback) {
+    setTimeout(() => {
+        console.log(message);
+        callback();
+    }, 1000);
+}
+
+delayedLog("This message is delayed by 1 second", () => {
+    console.log("This is the callback after the delay");
+});
+// Logs: "This message is delayed by 1 second" after 1 second, then "This is the callback after the delay"
+
+// Example 5: Callback with an event listener
+function onButtonClick(callback) {
+    // Simulating a button click event
+    console.log("Button clicked!");
+    callback();
+}
+
+function handleClick() {
+    console.log("Button was handled!");
+}
+
+onButtonClick(handleClick);
+// Logs: "Button clicked!" then "Button was handled!"
+
+// Example 6: Callback that checks a condition
+function checkCondition(value, callback) {
+    if (value > 10) {
+        callback("Value is greater than 10");
+    } else {
+        callback("Value is 10 or less");
+    }
+}
+
+function logCondition(message) {
+    console.log(message);
+}
+
+checkCondition(15, logCondition);
+// Logs: "Value is greater than 10"
+
+// Example 7: Callback with array iteration (forEach)
+const numbers = [1, 2, 3];
+numbers.forEach(function(num) {
+    console.log("Number:", num);
+});
+// Logs: "Number: 1", "Number: 2", "Number: 3" (each on a new line)
+
+// Example 8: Using callbacks with mathematical operations
+function multiply(a, b, callback) {
+    const result = a * b;
+    callback(result);
+}
+
+multiply(5, 6, logResult);
+// Logs: "Result: 30"
+
+// Example 9: Callback in asynchronous function (setTimeout)
+function fetchData(callback) {
+    setTimeout(() => {
+        const data = "Fetched Data";
+        callback(data);
+    }, 2000);
+}
+
+fetchData(function(data) {
+    console.log(data);
+});
+// Logs: "Fetched Data" after 2 seconds
+
+// Example 10: Callback with user-defined function
+function customOperation(value, callback) {
+    const modifiedValue = value * 2;
+    callback(modifiedValue);
+}
+
+customOperation(10, function(result) {
+    console.log("Modified Value:", result);
+});
+// Logs: "Modified Value: 20"
+            </code></pre>
+              <br />
+            </td>
+          </tr>
           <tr>
             <td id="scope" class="tableletters">Scope</td>
           </tr>
@@ -9133,6 +9268,801 @@ console.log(value2); // Logs: 'Value 2'
             </td>
           </tr>
           <tr>
+            <td id="dom" class="tableletters">Document-Object-Model</td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-dom', event)">document-object-model</td>
+          </tr>
+          <tr id="detail-tag-dom" class="expandable-row-content">
+            <td>
+              <h3>document-object-model</h3>
+              <p>The Document Object Model (DOM) is a programming interface that represents the structure of a web document as a tree of objects. Each part of the document, such as elements, attributes, and text, is an individual node in this tree, allowing scripts to dynamically access and manipulate the document's content, structure, and styling. The DOM is language-agnostic but is primarily used with JavaScript in web development. It enables developers to modify web pages on the fly, such as updating content, changing styles, adding or removing elements, and responding to user interactions without needing to reload the entire page. The DOM provides methods and properties to interact with various elements, facilitating dynamic and interactive web experiences.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-tree', event)">dom tree structure</td>
+          </tr>
+          <tr id="detail-tag-tree" class="expandable-row-content">
+            <td>
+              <h3>dom tree structure</h3>
+              <p>The Document Object Model (DOM) is a representation of an HTML document as a tree-like structure, where each element, attribute, and piece of text in the HTML corresponds to a node in the tree. In this structure, the root node represents the entire document (usually the `html` element), and branches extend from this root to include child nodes, which represent nested HTML elements like `head`, `body`, `div`, and so on. Each of these elements is a node, and within them, further nodes can exist, representing attributes (like `class` or `id`), text, or even comments. The relationships between nodes are hierarchical, meaning some nodes are parents (with child nodes), while others are children of these parent nodes. This tree structure allows developers to navigate and manipulate the document programmatically, as the entire HTML document is essentially modeled as an interconnected set of nodes, where every component of the HTML can be accessed and altered through scripting languages like JavaScript.</p>
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-dockey', event)">document keyword</td>
+          </tr>
+          <tr id="detail-tag-dockey" class="expandable-row-content">
+            <td>
+              <h3>document keyword</h3>
+              <p>In the context of the DOM and JavaScript, the `document` keyword refers to the global object that represents the entire HTML or XML document loaded in the browser. It acts as an entry point for interacting with the content of the web page through the DOM. Using JavaScript, developers can access the `document` object to query and manipulate elements, retrieve or modify attributes, and handle events such as user clicks or input. For instance, methods like `document.getElementById()` or `document.querySelector()` allow developers to select specific elements within the DOM, while properties like `document.title` can be used to change the title of the webpage. Essentially, the `document` keyword gives JavaScript the ability to access and modify the structure and content of the page dynamically, making it an essential part of creating interactive and responsive web applications.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+```javascript
+// 1. Get the HTML element by its ID
+let element = document.getElementById("myElement");
+
+// 2. Change the text content of an element
+document.getElementById("myElement").textContent = "Hello, World!";
+
+// 3. Select an element using a CSS selector
+let element = document.querySelector(".myClass");
+
+// 4. Change the background color of the body
+document.body.style.backgroundColor = "lightblue";
+
+// 5. Get all elements with a specific class name
+let elements = document.getElementsByClassName("myClass");
+
+// 6. Create a new paragraph element
+let newParagraph = document.createElement("p");
+
+// 7. Append a new child element to the body
+document.body.appendChild(newParagraph);
+
+// 8. Change the page title
+document.title = "New Page Title";
+
+// 9. Remove an element from the document
+let elementToRemove = document.getElementById("removeMe");
+elementToRemove.remove();
+
+// 10. Add an event listener to a button
+document.getElementById("myButton").addEventListener("click", function() {
+  alert("Button clicked!");
+});
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-querysel', event)">.querySelector()</td>
+          </tr>
+          <tr id="detail-tag-querysel" class="expandable-row-content">
+            <td>
+              <h3>.querySelector()</h3>
+              <p>The `.querySelector()` method is a powerful function in JavaScript used to select and return the first element within the document that matches a specified CSS selector. It allows developers to target elements in the DOM based on their tag name, class, ID, or any other valid CSS selector pattern. For example, using `document.querySelector("#myId")` selects the element with the ID "myId", while `document.querySelector(".myClass")` selects the first element with the class "myClass." This method is particularly useful because it simplifies the process of selecting elements by allowing developers to use familiar CSS-style selectors, making it both flexible and intuitive. If no matching element is found, `.querySelector()` returns `null`. Unlike older methods like `getElementById()` or `getElementsByClassName()`, it provides more versatility, allowing for more complex and precise element selection in a single line of code.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Select the first element with the class "example"
+let element = document.querySelector(".example");
+
+// 2. Select the element with the ID "main-header"
+let header = document.querySelector("#main-header");
+
+// 3. Select the first <p> element in the document
+let firstParagraph = document.querySelector("p");
+
+// 4. Select the first <li> element inside an unordered list
+let firstListItem = document.querySelector("ul li");
+
+// 5. Select an input element of type text
+let textInput = document.querySelector('input[type="text"]');
+
+// 6. Select the first element with both "btn" and "primary" classes
+let button = document.querySelector(".btn.primary");
+
+// 7. Select the first anchor (<a>) element inside a navigation bar
+let navLink = document.querySelector(".navbar a");
+
+// 8. Select the first child element inside a container with the class "content"
+let firstChild = document.querySelector(".content > *");
+
+// 9. Select the first <div> element with the data attribute "data-role"
+let dataDiv = document.querySelector("div[data-role]");
+
+// 10. Select the first <span> element inside an element with the class "wrapper"
+let spanElement = document.querySelector(".wrapper span");
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-getele', event)">.getElementById()</td>
+          </tr>
+          <tr id="detail-tag-getele" class="expandable-row-content">
+            <td>
+              <h3>.getElementById()</h3>
+              <p>The `.getElementById()` method is a fundamental JavaScript function used to select and return a single element from the DOM based on its unique ID attribute. Since IDs in HTML must be unique within a document, this method is a fast and efficient way to retrieve a specific element without ambiguity. For example, calling `document.getElementById("header")` will return the element with the ID of "header" if it exists in the document. Once the element is selected, developers can manipulate its content, style, or attributes using other DOM properties and methods. If no element with the given ID is found, the method returns `null`. Unlike other methods such as `.querySelector()`, which can target elements using more complex CSS selectors, `.getElementById()` is limited to selecting elements by ID only, making it straightforward and commonly used for basic DOM manipulation tasks.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Select the element with the ID "header"
+let header = document.getElementById("header");
+
+// 2. Change the text content of an element with the ID "title"
+document.getElementById("title").textContent = "New Title";
+
+// 3. Change the background color of an element with the ID "main-section"
+document.getElementById("main-section").style.backgroundColor = "lightgray";
+
+// 4. Hide an element with the ID "sidebar"
+document.getElementById("sidebar").style.display = "none";
+
+// 5. Set the value of an input field with the ID "username"
+document.getElementById("username").value = "JohnDoe";
+
+// 6. Add a new CSS class to an element with the ID "footer"
+document.getElementById("footer").classList.add("highlight");
+
+// 7. Change the source of an image with the ID "logo"
+document.getElementById("logo").src = "new-logo.png";
+
+// 8. Set an attribute for an element with the ID "link"
+document.getElementById("link").setAttribute("href", "https://example.com");
+
+// 9. Remove an element with the ID "ad-banner" from the document
+let adBanner = document.getElementById("ad-banner");
+adBanner.remove();
+
+// 10. Change the inner HTML of an element with the ID "content"
+document.getElementById("content").innerHTML = "<p>Updated content!</p>";
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-byclass', event)">.getElementsByClassName()</td>
+          </tr>
+          <tr id="detail-tag-byclass" class="expandable-row-content">
+            <td>
+              <h3>.getElementsByClassName()</h3>
+              <p>The `.getElementsByClassName()` method is a JavaScript function used to select and return a live HTMLCollection of all elements in the document that have a specified class name. Unlike methods like `.getElementById()`, which returns a single element, `.getElementsByClassName()` returns a collection of elements, which means multiple elements can be selected if they share the same class. For example, `document.getElementsByClassName("item")` will retrieve all elements that have the class "item." Since it returns a live collection, the list automatically updates if elements with the matching class are added or removed from the document. However, this collection is not an array, so while it can be iterated over using loops, array methods like `forEach` won't work without conversion. If no elements match the class name, the method returns an empty collection. This method is useful when you need to manipulate or access multiple elements that share the same styling or functional grouping in the DOM.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+          ```javascript
+// 1. Select all elements with the class "item" and change their background color
+let items = document.getElementsByClassName("item");
+for (let i = 0; i < items.length; i++) {
+  items[i].style.backgroundColor = "lightblue";
+}
+
+// 2. Get all elements with the class "button" and disable them
+let buttons = document.getElementsByClassName("button");
+for (let i = 0; i < buttons.length; i++) {
+  buttons[i].disabled = true;
+}
+
+// 3. Select all elements with the class "menu-item" and hide them
+let menuItems = document.getElementsByClassName("menu-item");
+for (let i = 0; i < menuItems.length; i++) {
+  menuItems[i].style.display = "none";
+}
+
+// 4. Change the text content of all elements with the class "title"
+let titles = document.getElementsByClassName("title");
+for (let i = 0; i < titles.length; i++) {
+  titles[i].textContent = "New Title";
+}
+
+// 5. Add a CSS class to all elements with the class "active"
+let activeElements = document.getElementsByClassName("active");
+for (let i = 0; i < activeElements.length; i++) {
+  activeElements[i].classList.add("highlight");
+}
+
+// 6. Set the border of all elements with the class "box" to red
+let boxes = document.getElementsByClassName("box");
+for (let i = 0; i < boxes.length; i++) {
+  boxes[i].style.border = "2px solid red";
+}
+
+// 7. Change the font size of all elements with the class "text" to 18px
+let texts = document.getElementsByClassName("text");
+for (let i = 0; i < texts.length; i++) {
+  texts[i].style.fontSize = "18px";
+}
+
+// 8. Add a background color to all elements with the class "highlighted"
+let highlightedItems = document.getElementsByClassName("highlighted");
+for (let i = 0; i < highlightedItems.length; i++) {
+  highlightedItems[i].style.backgroundColor = "yellow";
+}
+
+// 9. Get all elements with the class "input-field" and clear their values
+let inputFields = document.getElementsByClassName("input-field");
+for (let i = 0; i < inputFields.length; i++) {
+  inputFields[i].value = "";
+}
+
+// 10. Append text to all elements with the class "note"
+let notes = document.getElementsByClassName("note");
+for (let i = 0; i < notes.length; i++) {
+  notes[i].textContent += " - Updated";
+}
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-bytag', event)">.getElementsByTagName()</td>
+          </tr>
+          <tr id="detail-tag-bytag" class="expandable-row-content">
+            <td>
+              <h3>.getElementsByTagName()</h3>
+              <p>The `.getElementsByTagName()` method in JavaScript is used to select and return a live HTMLCollection of all elements with a specific tag name in the document. For example, calling `document.getElementsByTagName("p")` will return all `<p>` elements (paragraphs) in the DOM. This method works similarly to `.getElementsByClassName()`, but instead of selecting elements based on class, it targets them by their HTML tag name, such as `<div>`, `<span>`, `<img>`, and so on. The result is a live collection, meaning it dynamically updates if elements of that tag are added or removed from the document. Like the HTMLCollection from `.getElementsByClassName()`, it isn't an array, so array methods won't work directly without converting it, though it can be looped through using basic loops like `for`. If no elements with the specified tag are found, it returns an empty collection. This method is useful for applying changes to groups of similar elements or when you want to interact with specific types of HTML tags in bulk.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Select all p elements and change their text color to blue
+let paragraphs = document.getElementsByTagName("p");
+for (let i = 0; i < paragraphs.length; i++) {
+  paragraphs[i].style.color = "blue";
+}
+
+// 2. Get all h1 elements and change their font size
+let headers = document.getElementsByTagName("h1");
+for (let i = 0; i < headers.length; i++) {
+  headers[i].style.fontSize = "36px";
+}
+
+// 3. Select all a elements and change their href attribute
+let links = document.getElementsByTagName("a");
+for (let i = 0; i < links.length; i++) {
+  links[i].href = "https://newlink.com";
+}
+
+// 4. Get all div elements and add a new CSS class
+let divs = document.getElementsByTagName("div");
+for (let i = 0; i < divs.length; i++) {
+  divs[i].classList.add("new-class");
+}
+
+// 5. Change the border color of all table elements
+let tables = document.getElementsByTagName("table");
+for (let i = 0; i < tables.length; i++) {
+  tables[i].style.borderColor = "green";
+}
+
+// 6. Get all button elements and disable them
+let buttons = document.getElementsByTagName("button");
+for (let i = 0; i < buttons.length; i++) {
+  buttons[i].disabled = true;
+}
+
+// 7. Select all li elements and change their background color
+let listItems = document.getElementsByTagName("li");
+for (let i = 0; i < listItems.length; i++) {
+  listItems[i].style.backgroundColor = "lightgray";
+}
+
+// 8. Get all img elements and set a new source
+let images = document.getElementsByTagName("img");
+for (let i = 0; i < images.length; i++) {
+  images[i].src = "new-image.jpg";
+}
+
+// 9. Change the text alignment of all th elements in a table
+let tableHeaders = document.getElementsByTagName("th");
+for (let i = 0; i < tableHeaders.length; i++) {
+  tableHeaders[i].style.textAlign = "center";
+}
+
+// 10. Get all span elements and add a tooltip by setting the title attribute
+let spans = document.getElementsByTagName("span");
+for (let i = 0; i < spans.length; i++) {
+  spans[i].title = "This is a tooltip";
+}
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-inner', event)">.innerHTML</td>
+          </tr>
+          <tr id="detail-tag-inner" class="expandable-row-content">
+            <td>
+              <h3>.innerHTML</h3>
+              <p>The `.innerHTML` property in JavaScript is used to get or set the HTML content inside an element. When accessed, `.innerHTML` returns the HTML code as a string, including all child elements and text within the specified element. For example, `document.getElementById("content").innerHTML` would retrieve the complete HTML inside the element with the ID "content." When setting `.innerHTML`, you can update the entire content of an element by assigning new HTML code as a string, such as `document.getElementById("content").innerHTML = "<p>New content here</p>";`. This will replace the existing content with the specified HTML structure. However, it's important to note that when using `.innerHTML` to set content, any existing child elements within the target element are completely replaced, and it can introduce security risks, such as cross-site scripting (XSS), if untrusted content is injected. Despite these considerations, `.innerHTML` is a commonly used and efficient way to dynamically update or retrieve the HTML structure of elements in a web page.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+          ```javascript
+// 1. Change the inner HTML of a div with the ID "content"
+document.getElementById("content").innerHTML = "<p>This is new content inside the div.</p>";
+
+// 2. Replace the content of an element with the ID "header" with an h1 tag
+document.getElementById("header").innerHTML = "<h1>Welcome to My Website</h1>";
+
+// 3. Add an unordered list inside an element with the ID "listContainer"
+document.getElementById("listContainer").innerHTML = "<ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul>";
+
+// 4. Change the content of a paragraph with the ID "description"
+document.getElementById("description").innerHTML = "This is an updated description.";
+
+// 5. Insert a table inside an element with the ID "tableDiv"
+document.getElementById("tableDiv").innerHTML = "<table><tr><th>Name</th><th>Age</th></tr><tr><td>John</td><td>30</td></tr></table>";
+
+// 6. Update the HTML content of a div with the ID "promo" to display an image
+document.getElementById("promo").innerHTML = "<img src='promo.jpg' alt='Promotional Image'>";
+
+// 7. Replace the text inside a span with the ID "status" with a success message
+document.getElementById("status").innerHTML = "<span style='color: green;'>Success! Your changes have been saved.</span>";
+
+// 8. Add a new link inside a div with the ID "footer"
+document.getElementById("footer").innerHTML = "<a href='https://example.com'>Visit Example</a>";
+
+// 9. Clear all content inside an element with the ID "formContainer"
+document.getElementById("formContainer").innerHTML = "";
+
+// 10. Insert a bold text message inside a paragraph with the ID "note"
+document.getElementById("note").innerHTML = "<strong>Important:</strong> Please read the instructions carefully.";
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-dotstyle', event)">.style</td>
+          </tr>
+          <tr id="detail-tag-dotstyle" class="expandable-row-content">
+            <td>
+              <h3>.style</h3>
+              <p>The `.style` property in JavaScript is used to directly access and manipulate the inline CSS styles of a specific HTML element. It allows developers to modify the appearance of an element dynamically by setting individual CSS properties using JavaScript. For example, `document.getElementById("box").style.backgroundColor = "blue";` would change the background color of the element with the ID "box" to blue. The `.style` property only affects the inline styles of an element, meaning it wont change or override styles applied via external stylesheets or the `style` tag in the document. Each CSS property in JavaScript follows camelCase notation, so properties like `background-color` become `backgroundColor`, and `font-size` becomes `fontSize`. While `.style` provides a simple way to manipulate styles on the fly, its limited to inline styles, meaning more complex styling changes, or those affecting multiple elements, are usually better handled through external CSS or by adding/removing CSS classes.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Change the background color of an element with the ID "header"
+document.getElementById("header").style.backgroundColor = "lightblue";
+
+// 2. Set the text color of a paragraph with the ID "description"
+document.getElementById("description").style.color = "green";
+
+// 3. Change the font size of an element with the ID "title"
+document.getElementById("title").style.fontSize = "24px";
+
+// 4. Set the display of an element with the ID "sidebar" to none (hide it)
+document.getElementById("sidebar").style.display = "none";
+
+// 5. Add a border to a div with the ID "box"
+document.getElementById("box").style.border = "2px solid black";
+
+// 6. Change the width of an image with the ID "logo"
+document.getElementById("logo").style.width = "150px";
+
+// 7. Set the margin of an element with the ID "container"
+document.getElementById("container").style.margin = "20px";
+
+// 8. Change the text alignment of an element with the ID "footer" to center
+document.getElementById("footer").style.textAlign = "center";
+
+// 9. Set the height of a div with the ID "main" to 500px
+document.getElementById("main").style.height = "500px";
+
+// 10. Add padding to an element with the ID "content"
+document.getElementById("content").style.padding = "15px";
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-createele', event)">.createElement()</td>
+          </tr>
+          <tr id="detail-tag-createele" class="expandable-row-content">
+            <td>
+              <h3>.createElement()</h3>
+              <p>The `.createElement()` method in JavaScript is used to create a new HTML element dynamically within the document. When called, it generates a new element of the type specified as its argument, such as a `div`, `p`, or `button`. For example, `document.createElement("p")` creates a new `p` (paragraph) element but does not automatically add it to the DOM. To make the newly created element appear on the page, it needs to be inserted into the DOM using methods like `.appendChild()` or `.insertBefore()`. Once created, the new element can be further modified by setting attributes, adding classes, or manipulating its content using properties like `.setAttribute()`, `.classList`, or `.innerHTML`. This method is essential for dynamically adding content to web pages, enabling developers to build interactive elements, form inputs, and other components on the fly without needing to reload the page. It's a core part of DOM manipulation that facilitates creating flexible, interactive web experiences.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Create a new paragraph element and add it to the body
+let paragraph = document.createElement("p");
+paragraph.textContent = "This is a new paragraph.";
+document.body.appendChild(paragraph);
+
+// 2. Create a new div element and add it to an element with the ID "container"
+let newDiv = document.createElement("div");
+newDiv.textContent = "This is a new div inside the container.";
+document.getElementById("container").appendChild(newDiv);
+
+// 3. Create a new list item element and add it to an unordered list with the ID "myList"
+let listItem = document.createElement("li");
+listItem.textContent = "New list item";
+document.getElementById("myList").appendChild(listItem);
+
+// 4. Create a new button element and add it to a form with the ID "myForm"
+let button = document.createElement("button");
+button.textContent = "Submit";
+document.getElementById("myForm").appendChild(button);
+
+// 5. Create a new image element and set its src attribute before adding it to a div with the ID "imageContainer"
+let img = document.createElement("img");
+img.src = "image.jpg";
+img.alt = "A new image";
+document.getElementById("imageContainer").appendChild(img);
+
+// 6. Create a new anchor element and add a link to an element with the ID "linkSection"
+let link = document.createElement("a");
+link.href = "https://example.com";
+link.textContent = "Go to Example";
+document.getElementById("linkSection").appendChild(link);
+
+// 7. Create a new heading element (h2) and add it to the body
+let heading = document.createElement("h2");
+heading.textContent = "This is a new heading";
+document.body.appendChild(heading);
+
+// 8. Create a new span element and insert it inside a paragraph with the ID "textPara"
+let span = document.createElement("span");
+span.textContent = "This is a span inside the paragraph.";
+document.getElementById("textPara").appendChild(span);
+
+// 9. Create a new input element and add it to a form with the ID "signupForm"
+let input = document.createElement("input");
+input.type = "text";
+input.placeholder = "Enter your name";
+document.getElementById("signupForm").appendChild(input);
+
+// 10. Create a new table element, add a row and cells, and append it to a div with the ID "tableContainer"
+let table = document.createElement("table");
+let row = document.createElement("tr");
+let cell1 = document.createElement("td");
+cell1.textContent = "Row 1, Cell 1";
+let cell2 = document.createElement("td");
+cell2.textContent = "Row 1, Cell 2";
+row.appendChild(cell1);
+row.appendChild(cell2);
+table.appendChild(row);
+document.getElementById("tableContainer").appendChild(table);
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-append', event)">.appendChild()</td>
+          </tr>
+          <tr id="detail-tag-append" class="expandable-row-content">
+            <td>
+              <h3>.appendChild()</h3>
+              <p>The `.appendChild()` method in JavaScript is used to add a new node as the last child of a specified parent node in the DOM. This method allows developers to insert elements, which could be either existing elements from the document or new elements created with methods like `.createElement()`, into a parent container. For example, if you have an element `newElement` and want to add it to a container with the ID "content", you would use `document.getElementById("content").appendChild(newElement)`. The added node becomes the last child of the parent node, meaning it will be placed at the end of any existing content inside that parent. It’s a powerful tool for dynamically building or modifying the structure of a webpage, making it useful for tasks such as adding items to lists, appending new content sections, or inserting elements in response to user interactions. One key aspect of `.appendChild()` is that if the node being appended already exists in the DOM, it is removed from its previous position and placed at the new location, ensuring it can only exist in one place at a time.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Create a new paragraph and append it to the body
+let paragraph = document.createElement("p");
+paragraph.textContent = "This is a new paragraph.";
+document.body.appendChild(paragraph);
+
+// 2. Create a new div and append it to an element with the ID "container"
+let div = document.createElement("div");
+div.textContent = "This is a new div.";
+document.getElementById("container").appendChild(div);
+
+// 3. Create a new list item and append it to an unordered list with the ID "myList"
+let listItem = document.createElement("li");
+listItem.textContent = "New list item";
+document.getElementById("myList").appendChild(listItem);
+
+// 4. Create a new button and append it to a form with the ID "myForm"
+let button = document.createElement("button");
+button.textContent = "Click Me";
+document.getElementById("myForm").appendChild(button);
+
+// 5. Create an image element and append it to a div with the ID "imageContainer"
+let image = document.createElement("img");
+image.src = "image.jpg";
+image.alt = "Sample Image";
+document.getElementById("imageContainer").appendChild(image);
+
+// 6. Create a new heading (h2) and append it to the body
+let heading = document.createElement("h2");
+heading.textContent = "This is a new heading.";
+document.body.appendChild(heading);
+
+// 7. Create a new anchor element and append it to a div with the ID "linkSection"
+let link = document.createElement("a");
+link.href = "https://example.com";
+link.textContent = "Visit Example";
+document.getElementById("linkSection").appendChild(link);
+
+// 8. Create a new table row and append it to a table with the ID "myTable"
+let tableRow = document.createElement("tr");
+let tableData = document.createElement("td");
+tableData.textContent = "New cell data";
+tableRow.appendChild(tableData);
+document.getElementById("myTable").appendChild(tableRow);
+
+// 9. Create a new span element and append it to a paragraph with the ID "textPara"
+let span = document.createElement("span");
+span.textContent = "This is a new span.";
+document.getElementById("textPara").appendChild(span);
+
+// 10. Create a new option element and append it to a select element with the ID "dropdown"
+let option = document.createElement("option");
+option.textContent = "New Option";
+option.value = "newOption";
+document.getElementById("dropdown").appendChild(option);
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-removechild', event)">.removeChild()</td>
+          </tr>
+          <tr id="detail-tag-removechild" class="expandable-row-content">
+            <td>
+              <h3>.removeChild()</h3>
+              <p>The `.removeChild()` method in JavaScript is used to remove a specific child node from its parent in the DOM. This method is called on the parent element and takes the child element you want to remove as an argument. For instance, if you have an element `childElement` inside a parent with the ID "container", you would use `document.getElementById("container").removeChild(childElement)` to remove it. The method returns the removed node, which can be useful if you need to store or manipulate it further. It's important to note that the node is completely removed from the DOM, meaning it no longer exists visually or interactively on the webpage unless added back later. The `.removeChild()` method is commonly used when you need to dynamically modify a page by deleting elements, such as when removing items from a list, cleaning up after user interactions, or resetting parts of a form. If the specified child node doesn't exist within the parent, an error is thrown, so it's often useful to check the existence of the node before attempting removal.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Remove a paragraph from an element with the ID "content"
+let content = document.getElementById("content");
+let paragraphToRemove = document.getElementById("para1");
+content.removeChild(paragraphToRemove);
+
+// 2. Remove a list item from an unordered list with the ID "myList"
+let list = document.getElementById("myList");
+let listItemToRemove = document.getElementById("item2");
+list.removeChild(listItemToRemove);
+
+// 3. Remove an image from a div with the ID "imageContainer"
+let imageContainer = document.getElementById("imageContainer");
+let imageToRemove = document.getElementById("img1");
+imageContainer.removeChild(imageToRemove);
+
+// 4. Remove a button from a form with the ID "myForm"
+let form = document.getElementById("myForm");
+let buttonToRemove = document.getElementById("submitBtn");
+form.removeChild(buttonToRemove);
+
+// 5. Remove a div from an element with the ID "container"
+let container = document.getElementById("container");
+let divToRemove = document.getElementById("childDiv");
+container.removeChild(divToRemove);
+
+// 6. Remove a row from a table with the ID "myTable"
+let table = document.getElementById("myTable");
+let rowToRemove = document.getElementById("row1");
+table.removeChild(rowToRemove);
+
+// 7. Remove a heading from the body
+let headingToRemove = document.getElementById("mainHeading");
+document.body.removeChild(headingToRemove);
+
+// 8. Remove an option from a select element with the ID "dropdown"
+let dropdown = document.getElementById("dropdown");
+let optionToRemove = document.getElementById("option1");
+dropdown.removeChild(optionToRemove);
+
+// 9. Remove a span from a paragraph with the ID "textPara"
+let textPara = document.getElementById("textPara");
+let spanToRemove = document.getElementById("span1");
+textPara.removeChild(spanToRemove);
+
+// 10. Remove a link from a div with the ID "linkSection"
+let linkSection = document.getElementById("linkSection");
+let linkToRemove = document.getElementById("link1");
+linkSection.removeChild(linkToRemove);
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-onclick', event)">.onclick</td>
+          </tr>
+          <tr id="detail-tag-onclick" class="expandable-row-content">
+            <td>
+              <h3>.onclick</h3>
+              <p>The `.onclick` property in JavaScript is used to assign a function or event handler that will be triggered when the user clicks on a specific HTML element. This property makes it easy to define what should happen in response to a click event, such as changing content, submitting a form, or performing an action like showing or hiding elements. For example, `document.getElementById("button").onclick = function() { alert("Button clicked!"); }` will display an alert message when the button with the ID "button" is clicked. The function assigned to `.onclick` can be defined inline, or it can reference an external function, allowing for flexible event handling. By using `.onclick`, developers can make their webpages interactive and responsive to user actions without the need for full page reloads. This property is part of event-driven programming in JavaScript, enabling dynamic behavior based on user interaction. It is a simpler alternative to methods like `.addEventListener()`, although the latter is more versatile for handling multiple event types or multiple event handlers.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Add an onclick event to a button with the ID "myButton" that shows an alert
+document.getElementById("myButton").onclick = function() {
+  alert("Button clicked!");
+};
+
+// 2. Add an onclick event to a div with the ID "container" that changes its background color
+document.getElementById("container").onclick = function() {
+  this.style.backgroundColor = "lightblue";
+};
+
+// 3. Add an onclick event to an image with the ID "myImage" that changes its source
+document.getElementById("myImage").onclick = function() {
+  this.src = "new-image.jpg";
+};
+
+// 4. Add an onclick event to a paragraph with the ID "text" that hides the paragraph
+document.getElementById("text").onclick = function() {
+  this.style.display = "none";
+};
+
+// 5. Add an onclick event to a link with the ID "myLink" that prevents the default action
+document.getElementById("myLink").onclick = function(event) {
+  event.preventDefault();
+  alert("Link clicked, but navigation prevented.");
+};
+
+// 6. Add an onclick event to a heading with the ID "header" that changes the text content
+document.getElementById("header").onclick = function() {
+  this.textContent = "Header clicked!";
+};
+
+// 7. Add an onclick event to a list item with the ID "listItem1" that changes its font size
+document.getElementById("listItem1").onclick = function() {
+  this.style.fontSize = "24px";
+};
+
+// 8. Add an onclick event to a form button with the ID "submitBtn" that alerts before submission
+document.getElementById("submitBtn").onclick = function() {
+  alert("Form is about to be submitted.");
+};
+
+// 9. Add an onclick event to a div with the ID "box" that toggles its visibility
+document.getElementById("box").onclick = function() {
+  if (this.style.display === "none") {
+    this.style.display = "block";
+  } else {
+    this.style.display = "none";
+  }
+};
+
+// 10. Add an onclick event to a span with the ID "clickMe" that changes its color to red
+document.getElementById("clickMe").onclick = function() {
+  this.style.color = "red";
+};
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-children', event)">.children</td>
+          </tr>
+          <tr id="detail-tag-children" class="expandable-row-content">
+            <td>
+              <h3>.children</h3>
+              <p>The `.children` property in JavaScript is used to access all the child elements of a specified parent element in the DOM. It returns an HTMLCollection, which is a live, ordered collection of only the element nodes (excluding text nodes, comments, and other non-element nodes) that are direct children of the parent element. For example, if you have a `div` with several nested elements inside, calling `document.getElementById("parent").children` will give you a collection of all those child elements. This collection is live, meaning it automatically updates if the structure of the DOM changes, such as when new children are added or removed. Each element in the collection can be accessed using an index, similar to an array, but the HTMLCollection itself is not a true array, so it doesn't have methods like `forEach` unless converted. The `.children` property is useful for situations where you need to iterate over or manipulate all the direct child elements of a parent node, allowing for dynamic control of the DOM structure.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Access the first child of a div with the ID "container" and change its text content
+let container = document.getElementById("container");
+container.children[0].textContent = "First child text updated.";
+
+// 2. Change the background color of the second child of a list with the ID "myList"
+let list = document.getElementById("myList");
+list.children[1].style.backgroundColor = "lightblue";
+
+// 3. Access all children of a div with the ID "content" and set their text color to red
+let content = document.getElementById("content");
+for (let i = 0; i < content.children.length; i++) {
+  content.children[i].style.color = "red";
+}
+
+// 4. Add a new CSS class to the third child of a table row with the ID "tableRow"
+let tableRow = document.getElementById("tableRow");
+tableRow.children[2].classList.add("highlight");
+
+// 5. Change the font size of the first child of a div with the ID "headerSection"
+let headerSection = document.getElementById("headerSection");
+headerSection.children[0].style.fontSize = "20px";
+
+// 6. Hide the last child of an element with the ID "menu"
+let menu = document.getElementById("menu");
+menu.children[menu.children.length - 1].style.display = "none";
+
+// 7. Access the children of a form with the ID "myForm" and disable all input fields
+let form = document.getElementById("myForm");
+for (let i = 0; i < form.children.length; i++) {
+  if (form.children[i].tagName === "INPUT") {
+    form.children[i].disabled = true;
+  }
+}
+
+// 8. Set the border of the second child of a div with the ID "box" to solid black
+let box = document.getElementById("box");
+box.children[1].style.border = "2px solid black";
+
+// 9. Change the text content of the first child of an element with the ID "footer"
+let footer = document.getElementById("footer");
+footer.children[0].textContent = "Footer content updated.";
+
+// 10. Change the width of all image children of a div with the ID "gallery"
+let gallery = document.getElementById("gallery");
+for (let i = 0; i < gallery.children.length; i++) {
+  if (gallery.children[i].tagName === "IMG") {
+    gallery.children[i].style.width = "150px";
+  }
+}
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-parent', event)">.parentNode</td>
+          </tr>
+          <tr id="detail-tag-parent" class="expandable-row-content">
+            <td>
+              <h3>.parentNode</h3>
+              <p>The `.parentNode` property in JavaScript is used to access the parent node of a specific DOM element. It returns the direct parent of the node on which it is called, allowing developers to navigate up the DOM tree. For example, if an element is nested within a `<div>`, calling `element.parentNode` will return that `<div>` as the parent. This property can be particularly useful when you need to manipulate or interact with an element’s parent, such as removing the element from the DOM, adding siblings, or changing styles. It's important to note that `.parentNode` returns any kind of node, including element nodes, document nodes, and even text nodes, depending on the structure. If the node has no parent (such as the root document element), `.parentNode` returns `null`. This property is essential for traversing the DOM and understanding the hierarchical relationships between elements, making it easier to modify and manage the document dynamically.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Access the parent node of an element with the ID "child" and change its background color
+let child = document.getElementById("child");
+child.parentNode.style.backgroundColor = "lightgray";
+
+// 2. Remove the parent node of an element with the ID "listItem1"
+let listItem1 = document.getElementById("listItem1");
+listItem1.parentNode.removeChild(listItem1);
+
+// 3. Add a new CSS class to the parent node of a button with the ID "submitBtn"
+let submitBtn = document.getElementById("submitBtn");
+submitBtn.parentNode.classList.add("form-container");
+
+// 4. Access the parent node of a paragraph with the ID "text" and change its font size
+let text = document.getElementById("text");
+text.parentNode.style.fontSize = "18px";
+
+// 5. Hide the parent node of an image with the ID "myImage"
+let myImage = document.getElementById("myImage");
+myImage.parentNode.style.display = "none";
+
+// 6. Change the border of the parent node of an input field with the ID "username"
+let username = document.getElementById("username");
+username.parentNode.style.border = "1px solid red";
+
+// 7. Access the parent node of a div with the ID "box" and change its padding
+let box = document.getElementById("box");
+box.parentNode.style.padding = "20px";
+
+// 8. Add text to the parent node of a span with the ID "highlightSpan"
+let highlightSpan = document.getElementById("highlightSpan");
+highlightSpan.parentNode.textContent += " - Parent updated";
+
+// 9. Change the text color of the parent node of an element with the ID "link"
+let link = document.getElementById("link");
+link.parentNode.style.color = "blue";
+
+// 10. Append a new child element to the parent node of a list item with the ID "item2"
+let item2 = document.getElementById("item2");
+let newElement = document.createElement("div");
+newElement.textContent = "New child element";
+item2.parentNode.appendChild(newElement);
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-test', event)">test</td>
+          </tr>
+          <tr id="detail-tag-test" class="expandable-row-content">
+            <td>
+              <h3>test</h3>
+              <p>The test</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Access the parent node of an element with the ID "child" and change its background color
+let child = document.getElementById("child");
+child.parentNode.style.backgroundColor = "lightgray";
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
             <td id="comments" class="tableletters">Comments</td>
           </tr>
           <tr>
@@ -9294,15 +10224,11 @@ let book = {
   title: "JavaScript: The Good Parts",
   author: "Douglas Crockford"
 };
-          
-
 </code></pre>
               <br />
             </td>
-          </tr>
-          
+          </tr>        
         </tbody>
-
         <tfoot></tfoot>
       </table>
       <br /> 
@@ -9332,6 +10258,3 @@ let book = {
     <script src="https://unpkg.com/smoothscroll-anchor-polyfill"></script>
   </body>
 </html>
-
-
-
