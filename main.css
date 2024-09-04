@@ -76,9 +76,10 @@ td {
   cursor: pointer;
   font-size: 14;
   border: none;
-  padding: 5px;
+  padding: 10px;
   mix-blend-mode: difference;
   background-color: rgb(51, 255, 224);
+  color: black;
 }
 
 @media screen and (max-width: 600px) {
