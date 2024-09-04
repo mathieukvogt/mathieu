@@ -82,6 +82,15 @@ td {
   color: black;
 }
 
+#upButton a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#upButton a:hover {
+  text-decoration: none;
+}
+
 @media screen and (max-width: 600px) {
   body {
     padding-left: 1vw;
