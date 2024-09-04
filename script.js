@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.getElementById("upButton").onclick = function () {
-  document.getElementById("variables").scrollIntoView({
+  window.scrollTo({
+    top: 0,
     behavior: "smooth",
   });
 };
