@@ -15,10 +15,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
-
-document.getElementById("upButton").onclick = function () {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-};
