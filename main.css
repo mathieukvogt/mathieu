@@ -67,6 +67,17 @@ td {
   content: " \25B2"; /* Up-pointing triangle, indicating collapsible */
 }
 
+#upButton {
+  position: fixed;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 600px) {
   body {
     padding-left: 1vw;
