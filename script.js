@@ -1,9 +1,12 @@
 import smoothscroll from "smoothscroll-polyfill";
 
-// kick off the polyfill!
+// Kick off the polyfill for smooth scroll
 smoothscroll.polyfill();
 
 document.addEventListener("DOMContentLoaded", function () {
+  // Ensure the DOM is fully loaded before adding event listeners
+
+  // Smooth scroll for links with class "alphsort"
   document.querySelectorAll(".alphsort a").forEach((link) => {
     link.addEventListener("click", function (event) {
       event.preventDefault();
@@ -14,10 +17,16 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-});
 
-document
-  .getElementById("darkModeButton")
-  .addEventListener("click", function () {
-    document.body.classList.toggle("dark-mode");
-  });
+  // Toggle dark mode when dark mode button is clicked
+  const darkModeButton = document.getElementById("darkModeButton");
+  if (darkModeButton) {
+    darkModeButton.addEventListener("click", function () {
+      document.body.classList.toggle("dark-mode");
+    });
+  } else {
+    console.error(
+      'Dark mode button not found. Ensure the button exists with id="darkModeButton".'
+    );
+  }
+});
