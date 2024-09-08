@@ -1,3 +1,17 @@
+:root {
+  --background-color-one: #000000;
+  --color-one: #ffffff;
+  --background-color-two: #33ffe0;
+  --color-two: #0056b3;
+}
+
+body.dark-mode {
+  --background-color-one: #131313;
+  --color-one: #f4f4f4;
+  --background-color-two: #33ffe0;
+  --color-two: #3d9bff;
+}
+
 html {
   overflow-y: auto;
   overflow-x: auto;
@@ -41,19 +55,19 @@ table,
 th,
 td {
   border-collapse: collapse;
-  border: 1px solid black;
+  border: 1px solid var(--background-color-one);
   padding: 5px;
 }
 .tableletters {
-  background-color: rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
+  background-color: var(--background-color-one);
+  color: var(--color-one);
 }
 .expandable-row-content {
   display: none;
 }
 .clickable {
   cursor: pointer;
-  color: #0056b3;
+  color: var(--color-two);
   text-decoration: underline;
 }
 .clickable:hover {
@@ -70,16 +84,31 @@ td {
 #upButton {
   position: fixed;
   bottom: 35px;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 35px;
   font-size: 14px;
   border-radius: 2px;
   cursor: pointer;
+  font-size: 14;
   border: none;
   padding: 10px;
   mix-blend-mode: difference;
-  background-color: rgb(51, 255, 224);
-  color: black;
+  background-color: var(--background-color-two);
+  color: var(--background-color-one);
+}
+
+#darkModeButton {
+  position: fixed;
+  bottom: 85px;
+  right: 35px;
+  font-size: 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 14;
+  border: none;
+  padding: 10px;
+  mix-blend-mode: difference;
+  background-color: var(--background-color-two);
+  color: var(--background-color-one);
 }
 
 #upButton a {
