@@ -1,10 +1,5 @@
-import smoothscroll from "smoothscroll-polyfill";
-
-// kick off the polyfill!
-smoothscroll.polyfill();
-
 document.addEventListener("DOMContentLoaded", function () {
-  // Existing smooth scroll functionality
+  // Smooth scroll functionality
   document.querySelectorAll(".alphsort a").forEach((link) => {
     link.addEventListener("click", function (event) {
       event.preventDefault();
