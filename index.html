@@ -58,6 +58,7 @@
         <a href="#data-types">Data Types</a>
         <a href="#dom">Document-Object-Model</a>
         <a href="#domevents">Events</a>
+        <a href="#htmlforms">HTML-Forms</a>
       </div>
       <hr />
       <br />
@@ -10044,23 +10045,6 @@ item2.parentNode.appendChild(newElement);
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-test', event)">test</td>
-          </tr>
-          <tr id="detail-tag-test" class="expandable-row-content">
-            <td>
-              <h3>test</h3>
-              <p>The test</p>
-              <h4><u>Specifications</u></h4>
-              <pre>
-           <code class="language-js">
-// 1. Access the parent node of an element with the ID "child" and change its background color
-let child = document.getElementById("child");
-child.parentNode.style.backgroundColor = "lightgray";
-            </code></pre>
-              <br />
-            </td>
-          </tr>
-          <tr>
             <td id="domevents" class="tableletters">Dom-Events</td>
           </tr>
           <tr>
@@ -10073,9 +10057,66 @@ child.parentNode.style.backgroundColor = "lightgray";
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// Example 1: Redeclaration in the same block
-let x = 10;
-// let x = 20; // SyntaxError: Identifier 'x' has already been declared
+// 1. Click event - triggers when an element is clicked
+document.getElementById("example1").addEventListener("click", function() {
+  console.log("Element clicked!");
+});
+// Logs: "Element clicked!"
+
+// 2. Double click event - triggers when an element is double clicked
+document.getElementById("example2").addEventListener("dblclick", function() {
+  console.log("Element double-clicked!");
+});
+// Logs: "Element double-clicked!"
+
+// 3. Mouseover event - triggers when the mouse pointer enters an element
+document.getElementById("example3").addEventListener("mouseover", function() {
+  console.log("Mouse over the element!");
+});
+// Logs: "Mouse over the element!"
+
+// 4. Keydown event - triggers when a key is pressed down
+document.addEventListener("keydown", function(event) {
+  console.log("Key pressed:", event.key);
+});
+// Logs: "Key pressed: [key value]"
+
+// 5. Keyup event - triggers when a key is released
+document.addEventListener("keyup", function(event) {
+  console.log("Key released:", event.key);
+});
+// Logs: "Key released: [key value]"
+
+// 6. Change event - triggers when the value of an input element is changed
+document.getElementById("example4").addEventListener("change", function() {
+  console.log("Input value changed!");
+});
+// Logs: "Input value changed!"
+
+// 7. Submit event - triggers when a form is submitted
+document.getElementById("exampleForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevents actual form submission
+  console.log("Form submitted!");
+});
+// Logs: "Form submitted!"
+
+// 8. Focus event - triggers when an input field gains focus
+document.getElementById("example5").addEventListener("focus", function() {
+  console.log("Input focused!");
+});
+// Logs: "Input focused!"
+
+// 9. Blur event - triggers when an input field loses focus
+document.getElementById("example5").addEventListener("blur", function() {
+  console.log("Input lost focus!");
+});
+// Logs: "Input lost focus!"
+
+// 10. Scroll event - triggers when the page or an element is scrolled
+window.addEventListener("scroll", function() {
+  console.log("Page scrolled!");
+});
+// Logs: "Page scrolled!"
             </code></pre>
               <br />
             </td>
@@ -10090,9 +10131,69 @@ let x = 10;
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// Example 1: Redeclaration in the same block
-let x = 10;
-// let x = 20; // SyntaxError: Identifier 'x' has already been declared
+// 1. Using addEventListener for a click event
+document.getElementById("example1").addEventListener("click", function() {
+  console.log("Button clicked!");
+});
+// Logs: "Button clicked!"
+
+// 2. Using addEventListener for a double click event
+document.getElementById("example2").addEventListener("dblclick", function() {
+  console.log("Element double-clicked!");
+});
+// Logs: "Element double-clicked!"
+
+// 3. Using addEventListener for a mouseover event
+document.getElementById("example3").addEventListener("mouseover", function() {
+  console.log("Mouse over element!");
+});
+// Logs: "Mouse over element!"
+
+// 4. Using addEventListener for a keydown event
+document.addEventListener("keydown", function(event) {
+  console.log("Key pressed:", event.key);
+});
+// Logs: "Key pressed: [key value]"
+
+// 5. Using addEventListener for a keyup event
+document.addEventListener("keyup", function(event) {
+  console.log("Key released:", event.key);
+});
+// Logs: "Key released: [key value]"
+
+// 6. Using inline HTML event handler registration
+function onButtonClick() {
+  console.log("Button clicked through inline registration!");
+}
+document.getElementById("example4").onclick = onButtonClick;
+// Logs: "Button clicked through inline registration!"
+
+// 7. Assigning an event handler using the 'onchange' property
+document.getElementById("example5").onchange = function() {
+  console.log("Input value changed through property registration!");
+};
+// Logs: "Input value changed through property registration!"
+
+// 8. Adding an event handler for focus using addEventListener
+document.getElementById("example6").addEventListener("focus", function() {
+  console.log("Input field focused!");
+});
+// Logs: "Input field focused!"
+
+// 9. Using addEventListener for form submit
+document.getElementById("exampleForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevents form submission
+  console.log("Form submitted via event listener!");
+});
+// Logs: "Form submitted via event listener!"
+
+// 10. Removing an event listener using removeEventListener
+function handleClick() {
+  console.log("Button clicked before removal!");
+}
+document.getElementById("example7").addEventListener("click", handleClick);
+document.getElementById("example7").removeEventListener("click", handleClick);
+// Logs nothing after removal of the event handler
             </code></pre>
               <br />
             </td>
@@ -10107,19 +10208,412 @@ let x = 10;
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
-// Example 1: Redeclaration in the same block
-let x = 10;
-// let x = 20; // SyntaxError: Identifier 'x' has already been declared
+// 1. Removing a click event listener
+function handleClick() {
+  console.log("Clicked!");
+}
+const btn1 = document.getElementById("example1");
+btn1.addEventListener("click", handleClick);
+btn1.removeEventListener("click", handleClick);
+// Logs nothing after removal of the event handler
+
+// 2. Removing a double-click event listener
+function handleDoubleClick() {
+  console.log("Double-clicked!");
+}
+const btn2 = document.getElementById("example2");
+btn2.addEventListener("dblclick", handleDoubleClick);
+btn2.removeEventListener("dblclick", handleDoubleClick);
+// Logs nothing after removal of the event handler
+
+// 3. Removing a keydown event listener
+function handleKeyDown(event) {
+  console.log("Key pressed:", event.key);
+}
+document.addEventListener("keydown", handleKeyDown);
+document.removeEventListener("keydown", handleKeyDown);
+// Logs nothing after removal of the event handler
+
+// 4. Removing a mouseover event listener
+function handleMouseOver() {
+  console.log("Mouse over!");
+}
+const div1 = document.getElementById("example3");
+div1.addEventListener("mouseover", handleMouseOver);
+div1.removeEventListener("mouseover", handleMouseOver);
+// Logs nothing after removal of the event handler
+
+// 5. Removing a keyup event listener
+function handleKeyUp(event) {
+  console.log("Key released:", event.key);
+}
+document.addEventListener("keyup", handleKeyUp);
+document.removeEventListener("keyup", handleKeyUp);
+// Logs nothing after removal of the event handler
+
+// 6. Removing a change event listener on an input
+function handleChange() {
+  console.log("Input value changed!");
+}
+const input1 = document.getElementById("example4");
+input1.addEventListener("change", handleChange);
+input1.removeEventListener("change", handleChange);
+// Logs nothing after removal of the event handler
+
+// 7. Removing a focus event listener
+function handleFocus() {
+  console.log("Input focused!");
+}
+const input2 = document.getElementById("example5");
+input2.addEventListener("focus", handleFocus);
+input2.removeEventListener("focus", handleFocus);
+// Logs nothing after removal of the event handler
+
+// 8. Removing a submit event listener
+function handleSubmit(event) {
+  event.preventDefault();
+  console.log("Form submitted!");
+}
+const form1 = document.getElementById("exampleForm");
+form1.addEventListener("submit", handleSubmit);
+form1.removeEventListener("submit", handleSubmit);
+// Logs nothing after removal of the event handler
+
+// 9. Removing a scroll event listener
+function handleScroll() {
+  console.log("Page scrolled!");
+}
+window.addEventListener("scroll", handleScroll);
+window.removeEventListener("scroll", handleScroll);
+// Logs nothing after removal of the event handler
+
+// 10. Removing a mousedown event listener
+function handleMouseDown() {
+  console.log("Mouse button pressed!");
+}
+const div2 = document.getElementById("example6");
+div2.addEventListener("mousedown", handleMouseDown);
+div2.removeEventListener("mousedown", handleMouseDown);
+// Logs nothing after removal of the event handler
             </code></pre>
               <br />
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-domevents', event)">dom-events</td>
+            <td class="clickable" onclick="toggleDetail('detail-tag-eop', event)">event object properties</td>
           </tr>
-          <tr id="detail-tag-domevents" class="expandable-row-content">
+          <tr id="detail-tag-eop" class="expandable-row-content">
             <td>
-              <h3>dom-events</h3>
+              <h3>event object properties</h3>
+              <p>JavaScript stores events as Event objects, which contain related data and functionality through various properties and methods. When an event occurs, the Event object can be passed to the event handler function as an argument, providing access to important details about the event. For example, in the function `eventHandlerFunction(event)`, the `event` object can be used to access information like the time the event occurred. In the code `console.log(event.timeStamp)`, the `.timeStamp` property logs the number of milliseconds that have passed since the document was loaded and the event was triggered. Other common properties include `.target`, which refers to the element that triggered the event, and `.type`, which provides the name of the event, such as "click" or "keypress." These properties give developers the ability to manage and respond to events more effectively by providing essential information about what happened, when, and where on the page it occurred.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. The 'type' property - logs the type of event
+document.getElementById("example1").addEventListener("click", function(event) {
+  console.log("Event type:", event.type);
+});
+// Logs: "Event type: click"
+
+// 2. The 'target' property - logs the element that triggered the event
+document.getElementById("example2").addEventListener("click", function(event) {
+  console.log("Event target:", event.target);
+});
+// Logs: The element that was clicked
+
+// 3. The 'currentTarget' property - logs the element to which the event handler is attached
+document.getElementById("example3").addEventListener("click", function(event) {
+  console.log("Event current target:", event.currentTarget);
+});
+// Logs: The element to which the event listener is attached
+
+// 4. The 'clientX' and 'clientY' properties - logs the mouse coordinates relative to the viewport
+document.getElementById("example4").addEventListener("click", function(event) {
+  console.log("Mouse X:", event.clientX, "Mouse Y:", event.clientY);
+});
+// Logs: "Mouse X: [X coordinate] Mouse Y: [Y coordinate]"
+
+// 5. The 'preventDefault' method - prevents default behavior (e.g., link navigation)
+document.getElementById("example5").addEventListener("click", function(event) {
+  event.preventDefault();
+  console.log("Default action prevented!");
+});
+// Logs: "Default action prevented!" and prevents the default behavior (like navigating a link)
+
+// 6. The 'key' property - logs the value of the key pressed
+document.addEventListener("keydown", function(event) {
+  console.log("Key pressed:", event.key);
+});
+// Logs: "Key pressed: [key value]"
+
+// 7. The 'code' property - logs the physical key code of the key pressed
+document.addEventListener("keydown", function(event) {
+  console.log("Key code:", event.code);
+});
+// Logs: "Key code: [key code]"
+
+// 8. The 'shiftKey' property - logs whether the Shift key was pressed during the event
+document.addEventListener("keydown", function(event) {
+  console.log("Shift key pressed?", event.shiftKey);
+});
+// Logs: "Shift key pressed? true" or "false" depending on whether Shift was held
+
+// 9. The 'timeStamp' property - logs the time (in milliseconds) the event occurred since the page loaded
+document.getElementById("example6").addEventListener("click", function(event) {
+  console.log("Event time stamp:", event.timeStamp);
+});
+// Logs: "Event time stamp: [number of milliseconds since page load]"
+
+// 10. The 'bubbles' property - logs whether the event bubbles up through the DOM
+document.getElementById("example7").addEventListener("click", function(event) {
+  console.log("Event bubbles?", event.bubbles);
+});
+// Logs: "Event bubbles? true" or "false" depending on whether the event bubbles
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-eventtypes', event)">event types</td>
+          </tr>
+          <tr id="detail-tag-eventtypes" class="expandable-row-content">
+            <td>
+              <h3>event types</h3>
+              <p>Event types in JavaScript refer to the different kinds of interactions or occurrences that can trigger an event on a webpage. These events are categorized based on the type of user or system interaction. For example, mouse events like "click," "dblclick," and "mouseover" are triggered by actions involving the mouse, such as clicking or hovering over elements. Keyboard events, such as "keydown," "keyup," and "keypress," occur when a user presses keys on the keyboard. There are also form-related events like "submit" and "change," which happen when a user submits a form or modifies the value of an input field. Additionally, there are window events, like "load" and "resize," which are triggered by actions related to the browser window or document, such as when a page fully loads or when the window is resized. By listening for and responding to these event types, JavaScript enables dynamic interaction, allowing webpages to respond to user behavior and system changes in real time.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Click event - triggered when an element is clicked
+document.getElementById("example1").addEventListener("click", function() {
+  console.log("Click event triggered");
+});
+// Logs: "Click event triggered"
+
+// 2. Double-click event - triggered when an element is double-clicked
+document.getElementById("example2").addEventListener("dblclick", function() {
+  console.log("Double-click event triggered");
+});
+// Logs: "Double-click event triggered"
+
+// 3. Mouseover event - triggered when the mouse pointer enters an element
+document.getElementById("example3").addEventListener("mouseover", function() {
+  console.log("Mouseover event triggered");
+});
+// Logs: "Mouseover event triggered"
+
+// 4. Mouseout event - triggered when the mouse pointer leaves an element
+document.getElementById("example4").addEventListener("mouseout", function() {
+  console.log("Mouseout event triggered");
+});
+// Logs: "Mouseout event triggered"
+
+// 5. Keydown event - triggered when a key is pressed
+document.addEventListener("keydown", function(event) {
+  console.log("Keydown event triggered. Key pressed:", event.key);
+});
+// Logs: "Keydown event triggered. Key pressed: [key pressed]"
+
+// 6. Keyup event - triggered when a key is released
+document.addEventListener("keyup", function(event) {
+  console.log("Keyup event triggered. Key released:", event.key);
+});
+// Logs: "Keyup event triggered. Key released: [key released]"
+
+// 7. Submit event - triggered when a form is submitted
+document.getElementById("exampleForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevents form submission
+  console.log("Submit event triggered");
+});
+// Logs: "Submit event triggered"
+
+// 8. Focus event - triggered when an element gains focus (e.g., an input field)
+document.getElementById("example5").addEventListener("focus", function() {
+  console.log("Focus event triggered");
+});
+// Logs: "Focus event triggered"
+
+// 9. Blur event - triggered when an element loses focus (e.g., an input field)
+document.getElementById("example5").addEventListener("blur", function() {
+  console.log("Blur event triggered");
+});
+// Logs: "Blur event triggered"
+
+// 10. Scroll event - triggered when the user scrolls the page
+window.addEventListener("scroll", function() {
+  console.log("Scroll event triggered");
+});
+// Logs: "Scroll event triggered"
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-mouseevents', event)">mouse events</td>
+          </tr>
+          <tr id="detail-tag-mouseevents" class="expandable-row-content">
+            <td>
+              <h3>mouse events</h3>
+              <p>Mouse events in JavaScript are a set of events that are triggered by user interactions with a mouse or similar pointing device. These events capture various actions, such as clicking, moving the mouse, or pressing and releasing mouse buttons, allowing developers to create interactive web pages. Common mouse events include "click," which fires when a user clicks on an element; "dblclick," which occurs when the user double-clicks; and "mouseover" and "mouseout," which are triggered when the mouse pointer enters or leaves an element, respectively. There are also events like "mousedown" and "mouseup," which happen when the mouse button is pressed or released. JavaScript provides access to the event object during these interactions, allowing developers to access useful information such as the position of the cursor, which button was clicked, and the target element that triggered the event. By handling mouse events, developers can create dynamic user interfaces that respond to user actions, such as changing styles, triggering animations, or navigating to different parts of a webpage.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Click event - triggered when an element is clicked
+document.getElementById("example1").addEventListener("click", function() {
+  console.log("Click event triggered");
+});
+// Logs: "Click event triggered"
+
+// 2. Double-click event - triggered when an element is double-clicked
+document.getElementById("example2").addEventListener("dblclick", function() {
+  console.log("Double-click event triggered");
+});
+// Logs: "Double-click event triggered"
+
+// 3. Mouseover event - triggered when the mouse pointer enters an element
+document.getElementById("example3").addEventListener("mouseover", function() {
+  console.log("Mouseover event triggered");
+});
+// Logs: "Mouseover event triggered"
+
+// 4. Mouseout event - triggered when the mouse pointer leaves an element
+document.getElementById("example4").addEventListener("mouseout", function() {
+  console.log("Mouseout event triggered");
+});
+// Logs: "Mouseout event triggered"
+
+// 5. Mousedown event - triggered when a mouse button is pressed down on an element
+document.getElementById("example5").addEventListener("mousedown", function() {
+  console.log("Mousedown event triggered");
+});
+// Logs: "Mousedown event triggered"
+
+// 6. Mouseup event - triggered when a mouse button is released on an element
+document.getElementById("example6").addEventListener("mouseup", function() {
+  console.log("Mouseup event triggered");
+});
+// Logs: "Mouseup event triggered"
+
+// 7. Mousemove event - triggered when the mouse moves within an element
+document.getElementById("example7").addEventListener("mousemove", function() {
+  console.log("Mousemove event triggered");
+});
+// Logs: "Mousemove event triggered"
+
+// 8. Contextmenu event - triggered when the right mouse button is clicked (opens context menu)
+document.getElementById("example8").addEventListener("contextmenu", function(event) {
+  event.preventDefault(); // Prevents the default context menu from opening
+  console.log("Contextmenu event triggered");
+});
+// Logs: "Contextmenu event triggered" (and prevents the default right-click menu)
+
+// 9. Mouseenter event - triggered when the mouse enters an element, does not bubble
+document.getElementById("example9").addEventListener("mouseenter", function() {
+  console.log("Mouseenter event triggered");
+});
+// Logs: "Mouseenter event triggered"
+
+// 10. Mouseleave event - triggered when the mouse leaves an element, does not bubble
+document.getElementById("example10").addEventListener("mouseleave", function() {
+  console.log("Mouseleave event triggered");
+});
+// Logs: "Mouseleave event triggered"
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-keyboard', event)">keyboard events</td>
+          </tr>
+          <tr id="detail-tag-keyboard" class="expandable-row-content">
+            <td>
+              <h3>keyboard events</h3>
+              <p>Keyboard events in JavaScript refer to the interactions that occur when a user presses keys on the keyboard. These events are important for capturing and responding to user input, allowing developers to create features such as form validation, keyboard shortcuts, or interactive games. There are three main types of keyboard events: "keydown," which is triggered when a key is pressed; "keyup," which fires when the key is released; and the less commonly used "keypress," which captures the character of the key pressed but is now considered somewhat outdated. When a keyboard event occurs, an event object is generated, which provides useful information such as the key that was pressed, through properties like `key` and `code`. The `key` property represents the actual value of the key, such as "a" or "Enter," while `code` gives the physical key's location on the keyboard. Keyboard events are essential in building responsive web applications where user input needs to be handled efficiently, such as for form submissions, navigation, or executing commands based on specific key combinations.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// 1. Keydown event - triggered when a key is pressed down
+document.addEventListener("keydown", function(event) {
+  console.log("Keydown event triggered. Key pressed:", event.key);
+});
+// Logs: "Keydown event triggered. Key pressed: [key pressed]"
+
+// 2. Keyup event - triggered when a key is released
+document.addEventListener("keyup", function(event) {
+  console.log("Keyup event triggered. Key released:", event.key);
+});
+// Logs: "Keyup event triggered. Key released: [key released]"
+
+// 3. Keypress event (deprecated) - triggered when a key is pressed (deprecated but still works for some older use cases)
+document.addEventListener("keypress", function(event) {
+  console.log("Keypress event triggered. Key:", event.key);
+});
+// Logs: "Keypress event triggered. Key: [key pressed]"
+
+// 4. key property - logs the value of the key pressed (e.g., 'a', 'Enter')
+document.addEventListener("keydown", function(event) {
+  console.log("Key pressed:", event.key);
+});
+// Logs: "Key pressed: [key value]"
+
+// 5. code property - logs the physical key code (e.g., 'KeyA', 'Space')
+document.addEventListener("keydown", function(event) {
+  console.log("Key code:", event.code);
+});
+// Logs: "Key code: [key code]"
+
+// 6. shiftKey property - checks if the Shift key was pressed during the key event
+document.addEventListener("keydown", function(event) {
+  if (event.shiftKey) {
+    console.log("Shift key was pressed along with", event.key);
+  }
+});
+// Logs: "Shift key was pressed along with [key value]" (only when Shift is held)
+
+// 7. ctrlKey property - checks if the Control key was pressed during the key event
+document.addEventListener("keydown", function(event) {
+  if (event.ctrlKey) {
+    console.log("Control key was pressed along with", event.key);
+  }
+});
+// Logs: "Control key was pressed along with [key value]" (only when Control is held)
+
+// 8. altKey property - checks if the Alt key was pressed during the key event
+document.addEventListener("keydown", function(event) {
+  if (event.altKey) {
+    console.log("Alt key was pressed along with", event.key);
+  }
+});
+// Logs: "Alt key was pressed along with [key value]" (only when Alt is held)
+
+// 9. metaKey property - checks if the Meta key (Command key on Mac, Windows key on Windows) was pressed during the key event
+document.addEventListener("keydown", function(event) {
+  if (event.metaKey) {
+    console.log("Meta key was pressed along with", event.key);
+  }
+});
+// Logs: "Meta key was pressed along with [key value]" (only when Meta/Command/Windows key is held)
+
+// 10. preventDefault method - prevents the default action associated with a key (e.g., preventing form submission with Enter key)
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    console.log("Default action (form submission) prevented");
+  }
+});
+// Logs: "Default action (form submission) prevented" (when Enter is pressed)
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td id="htmlforms" class="tableletters">HTML Forms</td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-htmlforms', event)">html forms</td>
+          </tr>
+          <tr id="detail-tag-htmlforms" class="expandable-row-content">
+            <td>
+              <h3>html forms</h3>
               <p>DOM (Document Object Model) events in JavaScript refer to the actions or occurrences that happen in the web browser, which the browser can respond to. These events are usually triggered by user interactions such as clicking a button, typing in a text field, or moving the mouse. JavaScript can listen for these events and execute specific functions, called event handlers, in response. Common DOM events include "click," "mouseover," "keydown," and "submit." By adding event listeners to HTML elements, developers can make their web pages more interactive, allowing the page to respond dynamically to user input or system-generated actions, like page loading. JavaScript's event model provides a powerful way to control the flow of interaction between the user and the web application.</p>
               <h4><u>Specifications</u></h4>
               <pre>
@@ -10132,11 +10626,11 @@ let x = 10;
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-domevents', event)">dom-events</td>
+            <td class="clickable" onclick="toggleDetail('detail-tag-htmlforms', event)">html forms</td>
           </tr>
-          <tr id="detail-tag-domevents" class="expandable-row-content">
+          <tr id="detail-tag-htmlforms" class="expandable-row-content">
             <td>
-              <h3>dom-events</h3>
+              <h3>html forms</h3>
               <p>DOM (Document Object Model) events in JavaScript refer to the actions or occurrences that happen in the web browser, which the browser can respond to. These events are usually triggered by user interactions such as clicking a button, typing in a text field, or moving the mouse. JavaScript can listen for these events and execute specific functions, called event handlers, in response. Common DOM events include "click," "mouseover," "keydown," and "submit." By adding event listeners to HTML elements, developers can make their web pages more interactive, allowing the page to respond dynamically to user input or system-generated actions, like page loading. JavaScript's event model provides a powerful way to control the flow of interaction between the user and the web application.</p>
               <h4><u>Specifications</u></h4>
               <pre>
@@ -10149,11 +10643,11 @@ let x = 10;
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-domevents', event)">dom-events</td>
+            <td class="clickable" onclick="toggleDetail('detail-tag-htmlforms', event)">html forms</td>
           </tr>
-          <tr id="detail-tag-domevents" class="expandable-row-content">
+          <tr id="detail-tag-htmlforms" class="expandable-row-content">
             <td>
-              <h3>dom-events</h3>
+              <h3>html forms</h3>
               <p>DOM (Document Object Model) events in JavaScript refer to the actions or occurrences that happen in the web browser, which the browser can respond to. These events are usually triggered by user interactions such as clicking a button, typing in a text field, or moving the mouse. JavaScript can listen for these events and execute specific functions, called event handlers, in response. Common DOM events include "click," "mouseover," "keydown," and "submit." By adding event listeners to HTML elements, developers can make their web pages more interactive, allowing the page to respond dynamically to user input or system-generated actions, like page loading. JavaScript's event model provides a powerful way to control the flow of interaction between the user and the web application.</p>
               <h4><u>Specifications</u></h4>
               <pre>
@@ -10166,11 +10660,11 @@ let x = 10;
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-domevents', event)">dom-events</td>
+            <td class="clickable" onclick="toggleDetail('detail-tag-htmlforms', event)">html forms</td>
           </tr>
-          <tr id="detail-tag-domevents" class="expandable-row-content">
+          <tr id="detail-tag-htmlforms" class="expandable-row-content">
             <td>
-              <h3>dom-events</h3>
+              <h3>html forms</h3>
               <p>DOM (Document Object Model) events in JavaScript refer to the actions or occurrences that happen in the web browser, which the browser can respond to. These events are usually triggered by user interactions such as clicking a button, typing in a text field, or moving the mouse. JavaScript can listen for these events and execute specific functions, called event handlers, in response. Common DOM events include "click," "mouseover," "keydown," and "submit." By adding event listeners to HTML elements, developers can make their web pages more interactive, allowing the page to respond dynamically to user input or system-generated actions, like page loading. JavaScript's event model provides a powerful way to control the flow of interaction between the user and the web application.</p>
               <h4><u>Specifications</u></h4>
               <pre>
@@ -10183,11 +10677,11 @@ let x = 10;
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-domevents', event)">dom-events</td>
+            <td class="clickable" onclick="toggleDetail('detail-tag-htmlforms', event)">html forms</td>
           </tr>
-          <tr id="detail-tag-domevents" class="expandable-row-content">
+          <tr id="detail-tag-htmlforms" class="expandable-row-content">
             <td>
-              <h3>dom-events</h3>
+              <h3>html forms</h3>
               <p>DOM (Document Object Model) events in JavaScript refer to the actions or occurrences that happen in the web browser, which the browser can respond to. These events are usually triggered by user interactions such as clicking a button, typing in a text field, or moving the mouse. JavaScript can listen for these events and execute specific functions, called event handlers, in response. Common DOM events include "click," "mouseover," "keydown," and "submit." By adding event listeners to HTML elements, developers can make their web pages more interactive, allowing the page to respond dynamically to user input or system-generated actions, like page loading. JavaScript's event model provides a powerful way to control the flow of interaction between the user and the web application.</p>
               <h4><u>Specifications</u></h4>
               <pre>
@@ -10200,11 +10694,28 @@ let x = 10;
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-domevents', event)">dom-events</td>
+            <td class="clickable" onclick="toggleDetail('detail-tag-htmlforms', event)">html forms</td>
           </tr>
-          <tr id="detail-tag-domevents" class="expandable-row-content">
+          <tr id="detail-tag-htmlforms" class="expandable-row-content">
             <td>
-              <h3>dom-events</h3>
+              <h3>html forms</h3>
+              <p>DOM (Document Object Model) events in JavaScript refer to the actions or occurrences that happen in the web browser, which the browser can respond to. These events are usually triggered by user interactions such as clicking a button, typing in a text field, or moving the mouse. JavaScript can listen for these events and execute specific functions, called event handlers, in response. Common DOM events include "click," "mouseover," "keydown," and "submit." By adding event listeners to HTML elements, developers can make their web pages more interactive, allowing the page to respond dynamically to user input or system-generated actions, like page loading. JavaScript's event model provides a powerful way to control the flow of interaction between the user and the web application.</p>
+              <h4><u>Specifications</u></h4>
+              <pre>
+           <code class="language-js">
+// Example 1: Redeclaration in the same block
+let x = 10;
+// let x = 20; // SyntaxError: Identifier 'x' has already been declared
+            </code></pre>
+              <br />
+            </td>
+          </tr>
+          <tr>
+            <td class="clickable" onclick="toggleDetail('detail-tag-htmlforms', event)">html forms</td>
+          </tr>
+          <tr id="detail-tag-htmlforms" class="expandable-row-content">
+            <td>
+              <h3>html forms</h3>
               <p>DOM (Document Object Model) events in JavaScript refer to the actions or occurrences that happen in the web browser, which the browser can respond to. These events are usually triggered by user interactions such as clicking a button, typing in a text field, or moving the mouse. JavaScript can listen for these events and execute specific functions, called event handlers, in response. Common DOM events include "click," "mouseover," "keydown," and "submit." By adding event listeners to HTML elements, developers can make their web pages more interactive, allowing the page to respond dynamically to user input or system-generated actions, like page loading. JavaScript's event model provides a powerful way to control the flow of interaction between the user and the web application.</p>
               <h4><u>Specifications</u></h4>
               <pre>
@@ -10389,7 +10900,6 @@ let book = {
     </main>  
     <button id="upButton"><a href="#top">UP</a></button>
     <footer>
-      <small> No Rights Reserved. </small>
     </footer>
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
@@ -10413,26 +10923,3 @@ let book = {
     <script src="https://unpkg.com/smoothscroll-anchor-polyfill"></script>
   </body>
 </html>
-
-
-
-<tr>
-  <td id="domevents" class="tableletters">dom-events</td>
-</tr>
-<tr>
-  <td class="clickable" onclick="toggleDetail('detail-tag-domevents', event)">dom-events</td>
-</tr>
-<tr id="detail-tag-domevents" class="expandable-row-content">
-  <td>
-    <h3>dom-events</h3>
-    <p>DOM (Document Object Model) events in JavaScript refer to the actions or occurrences that happen in the web browser, which the browser can respond to. These events are usually triggered by user interactions such as clicking a button, typing in a text field, or moving the mouse. JavaScript can listen for these events and execute specific functions, called event handlers, in response. Common DOM events include "click," "mouseover," "keydown," and "submit." By adding event listeners to HTML elements, developers can make their web pages more interactive, allowing the page to respond dynamically to user input or system-generated actions, like page loading. JavaScript's event model provides a powerful way to control the flow of interaction between the user and the web application.</p>
-    <h4><u>Specifications</u></h4>
-    <pre>
- <code class="language-js">
-// Example 1: Redeclaration in the same block
-let x = 10;
-// let x = 20; // SyntaxError: Identifier 'x' has already been declared
-  </code></pre>
-    <br />
-  </td>
-</tr>
