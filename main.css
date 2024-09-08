@@ -70,11 +70,11 @@ td {
 #upButton {
   position: fixed;
   bottom: 35px;
-  right: 35px;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 14px;
   border-radius: 2px;
   cursor: pointer;
-  font-size: 14;
   border: none;
   padding: 10px;
   mix-blend-mode: difference;
