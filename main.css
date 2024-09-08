@@ -9,17 +9,25 @@
 
 body.dark-mode {
   --background-color-one: #ededed;
-  --color-one: #000000;
-  --background-color-two: #7388ff;
-  --color-two: #adbfff;
+  --color-one: #0f0f0f;
+  --background-color-two: #424242;
+  --color-two: #c7d4ff;
   --color-three: #2d2d2d;
   --color-four: #ededed;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
 }
 
 html {
   overflow-y: auto;
   overflow-x: auto;
   scroll-behavior: smooth;
+  background-color: var(--color-one);
 }
 
 body {
@@ -31,13 +39,16 @@ body {
 h1 {
   font-size: 40px;
   text-align: left;
-  padding-top: 10px;
+  padding-top: 40px;
+  padding-bottom: 20px;
   overflow: hidden;
   color: var(--background-color-one);
 }
 
 h2 {
   font-size: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   text-align: left;
   overflow: hidden;
   color: var(--background-color-one);
@@ -46,6 +57,8 @@ h2 {
 h3,
 h4 {
   color: var(--background-color-one);
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 a {
@@ -143,8 +156,8 @@ td {
 
 @media screen and (max-width: 600px) {
   body {
-    padding-left: 1vw;
-    padding-right: 1vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
   }
 
   h1 {
