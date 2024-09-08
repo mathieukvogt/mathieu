@@ -1,7 +1,7 @@
 :root {
   --background-color-one: #000000;
   --color-one: #ffffff;
-  --background-color-two: #ffffff;
+  --background-color-two: #d3d3d3;
   --color-two: #0024b6;
   --color-three: #000000;
   --color-four: #ffffff;
@@ -128,6 +128,12 @@ td {
   mix-blend-mode: difference;
   background-color: var(--background-color-two);
   color: var(--background-color-one);
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center; /* Horizontally center the text */
+  align-items: center; /* Vertically center the text */
+  text-align: center;
 }
 
 #darkModeButton {
@@ -143,6 +149,12 @@ td {
   mix-blend-mode: difference;
   background-color: var(--background-color-two);
   color: var(--background-color-one);
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center; /* Horizontally center the text */
+  align-items: center; /* Vertically center the text */
+  text-align: center;
 }
 
 #upButton a {
