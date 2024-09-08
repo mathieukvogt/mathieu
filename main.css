@@ -6,8 +6,8 @@
 }
 
 body.dark-mode {
-  --background-color-one: #131313;
-  --color-one: #f4f4f4;
+  --background-color-one: #f4f4f4;
+  --color-one: #131313;
   --background-color-two: #33ffe0;
   --color-two: #3d9bff;
 }
