@@ -32,8 +32,9 @@
 
   <body>
     <header>
-      <h1 id="top">JAVASCRIPT SYNTAX NOTES</h1>
-      <p>Content last updated on 09/09/2024 by <em>Mathieu</em></p>
+      <div class="fixed-box">
+        <a href="#top"><b>Javascript</b></a>
+      </div>
     </header>
     <main>
       <section id="elements">
@@ -64,6 +65,7 @@
       <br>
       <hr />
       <br />
+      <p>Content last updated on 09/09/2024 by <em>Mathieu</em></p>
       <br />
       <table>
         <tbody>
@@ -10815,32 +10817,26 @@ for (let i = 0; i < numbers.length; i++) {
               <br />
             </td>
           </tr>
-
-
+          <tr>
             <td id="data-types" class="tableletters">Data Types</td>
           </tr>
           <tr>
-            <td
-              class="clickable"
-              onclick="toggleDetail('detail-tag-data-types', event)"
-            >Data Types
-            </td>
+            <td class="clickable" onclick="toggleDetail('detail-tag-data-types', event)">Data Types</td>
           </tr>
           <tr id="detail-tag-data-types" class="expandable-row-content">
             <td>
               <h3>7 primitive data types & objects</h3>
               <p>JavaScript has a variety of data types that can be categorized into primitive types and objects. Primitive types are immutable and compared by value, while objects are mutable and compared by reference.</p>
               <ol>
-                <li>String: Represents text and is enclosed in quotes.</li>
-                <li>Number: Represents both integers and floating-point numbers.</li>
-                <li>Boolean: Represents true or false values.</li>
-                <li>Boolean: Represents true or false values.</li>
-                <li>Null: Represents the intentional absence of any object value.</li>
-                <li>Symbol: Represents a unique identifier created using the Symbol function.</li>
-                <li>BigInt: Represents integers larger than the maximum safe integer limit for Number.</li>
-                <li>Object: A complex data type that allows you to store collections of data in key-value pairs.</li>
+                 <li>String: Represents text and is enclosed in quotes.</li>
+                 <li>Number: Represents both integers and floating-point numbers.</li>
+                 <li>Boolean: Represents true or false values.</li>
+                 <li>Boolean: Represents true or false values.</li>
+                 <li>Null: Represents the intentional absence of any object value.</li>
+                 <li>Symbol: Represents a unique identifier created using the Symbol function.</li>
+                 <li>BigInt: Represents integers larger than the maximum safe integer limit for Number.</li>
+                 <li>Object: A complex data type that allows you to store collections of data in key-value pairs.</li>
               </ol>
-
               <h4><u>Specifications</u></h4>
               <pre>
            <code class="language-js">
@@ -10892,7 +10888,7 @@ let book = {
   title: "JavaScript: The Good Parts",
   author: "Douglas Crockford"
 };
-</code></pre>
+              </code></pre>
               <br />
             </td>
           </tr>        

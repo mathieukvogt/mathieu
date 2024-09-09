@@ -11,7 +11,7 @@ body.dark-mode {
   --background-color-one: #ededed;
   --color-one: #0f0f0f;
   --background-color-two: #424242;
-  --color-two: #c7d4ff;
+  --color-two: #b8c5e0;
   --color-three: #2d2d2d;
   --color-four: #ededed;
 }
@@ -36,18 +36,28 @@ body {
   background-color: var(--color-one);
 }
 
-h1 {
-  font-size: 40px;
-  text-align: left;
-  padding-top: 40px;
-  padding-bottom: 20px;
-  overflow: hidden;
-  color: var(--background-color-one);
+.fixed-box {
+  position: fixed;
+  top: 20px; /* 5px from the top */
+  left: 25vw; /* 5px from the left */
+  right: 25vw; /* 5px from the right */
+  height: 40px; /* Fixed height */
+  border: 1px solid var(--background-color-one); /* Black border of 0.5px */
+  background-color: transparent; /* No fill */
+  display: flex;
+  justify-content: center; /* Horizontally center the text */
+  align-items: center; /* Vertically center the text */
+  z-index: 1000; /* Ensure it stays on top */
+}
+
+.fixed-box a {
+  text-decoration: none; /* Remove underline */
+  color: var(--background-color-one); /* Text color */
 }
 
 h2 {
   font-size: 20px;
-  padding-top: 20px;
+  padding-top: 90px;
   padding-bottom: 20px;
   text-align: left;
   overflow: hidden;
@@ -184,12 +194,22 @@ td {
     padding-right: 3vw;
   }
 
-  h1 {
-    font-size: 22px;
-    text-align: left;
-    padding-top: 30px;
-    overflow: hidden;
-    color: var(--background-color-one);
+  .fixed-box {
+    top: 15px; /* 5px from the top */
+    left: 3vw; /* 5px from the left */
+    right: 3vw; /* 5px from the right */
+    height: 30px; /* Fixed height */
+    border: 1px solid var(--background-color-one); /* Black border of 0.5px */
+    /* Ensure it stays on top */
+  }
+
+  .fixed-box a {
+    text-decoration: none; /* Remove underline */
+    color: var(--background-color-one); /* Text color */
+  }
+
+  h2 {
+    padding-top: 70px;
   }
   .ascii-art-desktop {
     display: none;
