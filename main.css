@@ -198,7 +198,7 @@ td {
     top: 15px; /* 5px from the top */
     left: 3vw; /* 5px from the left */
     right: 3vw; /* 5px from the right */
-    height: 30px; /* Fixed height */
+    height: 40px; /* Fixed height */
     border: 1px solid var(--background-color-one); /* Black border of 0.5px */
     /* Ensure it stays on top */
   }
@@ -209,7 +209,7 @@ td {
   }
 
   h2 {
-    padding-top: 70px;
+    padding-top: 75px;
   }
   .ascii-art-desktop {
     display: none;
