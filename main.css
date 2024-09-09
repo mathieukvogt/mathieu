@@ -72,7 +72,7 @@ h4 {
 }
 
 a {
-  color: var(--color-two);
+  color: var(--background-color-one);
 }
 
 hr {
@@ -111,8 +111,8 @@ td {
 }
 .clickable {
   cursor: pointer;
-  color: var(--color-two);
-  text-decoration: underline;
+  color: var(--background-color-one);
+  t
 }
 .clickable:hover {
   text-decoration: none;
