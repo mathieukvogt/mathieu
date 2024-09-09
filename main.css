@@ -13,7 +13,7 @@ body.dark-mode {
   --color-one: #000000;
   --background-color-two: #424242;
   --color-two: #ffffff;
-  --color-three: #202020;
+  --color-three: #393939;
   --color-four: #ffffff;
   --color-five: #cbcbcb;
 }
@@ -91,7 +91,7 @@ a {
 }
 
 hr {
-  border: 0.5px solid var(--background-color-one);
+  border: 1px solid var(--background-color-one);
 }
 
 .hljs {
@@ -114,7 +114,7 @@ table,
 th,
 td {
   border-collapse: collapse;
-  border: 1px solid var(--color-three);
+  border: 1px solid var(--background-color-one);
   padding: 5px;
 }
 .tableletters {
@@ -181,7 +181,7 @@ td {
 
 
   h2 {
-    padding-top: 75px;
+    padding-top: 80px;
   }
   .ascii-art-desktop {
     display: none;
