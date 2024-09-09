@@ -1,19 +1,21 @@
 :root {
   --background-color-one: #000000;
   --color-one: #ffffff;
-  --background-color-two: #d3d3d3;
-  --color-two: #0024b6;
+  --background-color-two: #000000;
+  --color-two: #000000;
   --color-three: #000000;
   --color-four: #ffffff;
+  --color-five: #707070;
 }
 
 body.dark-mode {
-  --background-color-one: #ededed;
-  --color-one: #0f0f0f;
+  --background-color-one: #ffffff;
+  --color-one: #000000;
   --background-color-two: #424242;
-  --color-two: #b8c5e0;
-  --color-three: #2d2d2d;
-  --color-four: #ededed;
+  --color-two: #ffffff;
+  --color-three: #202020;
+  --color-four: #ffffff;
+  --color-five: #cbcbcb;
 }
 
 * {
@@ -38,26 +40,38 @@ body {
 
 .fixed-box {
   position: fixed;
-  top: 20px; /* 5px from the top */
-  left: 25vw; /* 5px from the left */
-  right: 25vw; /* 5px from the right */
-  height: 40px; /* Fixed height */
-  border: 1px solid var(--background-color-one); /* Black border of 0.5px */
-  background-color: transparent; /* No fill */
+  border: 1px solid var(--background-color-one);
+  top: 20px;
+  left: 25vw;
+  right: 25vw;
   display: flex;
-  justify-content: center; /* Horizontally center the text */
-  align-items: center; /* Vertically center the text */
-  z-index: 1000; /* Ensure it stays on top */
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  padding-left: 5px;
+  padding-right: 5px;
+  height: 40px;
 }
 
-.fixed-box a {
-  text-decoration: none; /* Remove underline */
-  color: var(--background-color-one); /* Text color */
+.fixed-box button {
+  height: 25px;
+  width: 25px;
+  background-color: transparent;
+  border: 1px solid var(--background-color-one);
+}
+
+.fixed-box a.center-text {
+  text-decoration: none;
+  font-family: monospace;
+}
+
+#darkModeButton {
+  color: var(--background-color-one);
 }
 
 h2 {
   font-size: 20px;
-  padding-top: 90px;
+  padding-top: 80px;
   padding-bottom: 20px;
   text-align: left;
   overflow: hidden;
@@ -73,6 +87,7 @@ h4 {
 
 a {
   color: var(--background-color-one);
+  text-decoration: none;
 }
 
 hr {
@@ -125,57 +140,6 @@ td {
   content: " \25B2"; /* Up-pointing triangle, indicating collapsible */
 }
 
-#upButton {
-  position: fixed;
-  bottom: 35px;
-  right: 35px;
-  font-size: 14px;
-  border-radius: 2px;
-  cursor: pointer;
-  font-size: 14;
-  border: none;
-  padding: 10px;
-  mix-blend-mode: difference;
-  background-color: var(--background-color-two);
-  color: var(--background-color-one);
-  height: 40px;
-  width: 40px;
-  display: flex;
-  justify-content: center; /* Horizontally center the text */
-  align-items: center; /* Vertically center the text */
-  text-align: center;
-}
-
-#darkModeButton {
-  position: fixed;
-  bottom: 85px;
-  right: 35px;
-  font-size: 14px;
-  border-radius: 2px;
-  cursor: pointer;
-  font-size: 14;
-  border: none;
-  padding: 10px;
-  mix-blend-mode: difference;
-  background-color: var(--background-color-two);
-  color: var(--background-color-one);
-  height: 40px;
-  width: 40px;
-  display: flex;
-  justify-content: center; /* Horizontally center the text */
-  align-items: center; /* Vertically center the text */
-  text-align: center;
-}
-
-#upButton a {
-  text-decoration: none;
-  color: inherit;
-}
-
-#upButton a:hover {
-  text-decoration: none;
-}
-
 .ascii-art {
   display: flex;
   justify-content: center;
@@ -195,18 +159,26 @@ td {
   }
 
   .fixed-box {
-    top: 15px; /* 5px from the top */
-    left: 3vw; /* 5px from the left */
-    right: 3vw; /* 5px from the right */
-    height: 40px; /* Fixed height */
-    border: 1px solid var(--background-color-one); /* Black border of 0.5px */
-    /* Ensure it stays on top */
+    top: 20px;
+    left: 3vw;
+    right: 3vw;
+    padding-left: 5px;
+    padding-right: 5px;
+    height: 40px;
+  }
+  
+  .fixed-box button {
+    height: 25px;
+    width: 25px;
+    background-color: transparent;
+    border: 1px solid var(--background-color-one);
+  
+  }
+  
+  .fixed-box a.center-text {
+    text-decoration: none;
   }
 
-  .fixed-box a {
-    text-decoration: none; /* Remove underline */
-    color: var(--background-color-one); /* Text color */
-  }
 
   h2 {
     padding-top: 75px;
