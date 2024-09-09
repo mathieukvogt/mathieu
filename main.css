@@ -166,6 +166,12 @@ td {
   text-decoration: none;
 }
 
+.ascii-art {
+  text-align: center; /* This centers the ASCII art horizontally */
+  margin-top: 20px; /* Optional: adds some space above the ASCII art */
+  color: var(--background-color-one);
+}
+
 @media screen and (max-width: 600px) {
   body {
     padding-left: 3vw;
