@@ -167,9 +167,15 @@ td {
 }
 
 .ascii-art {
-  text-align: center; /* This centers the ASCII art horizontally */
-  margin-top: 20px; /* Optional: adds some space above the ASCII art */
-  color: var(--background-color-one);
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Optional: Add space above the ASCII art */
+  color: var(--background-color-one); /* Use the defined color variable */
+}
+
+/* Hide mobile art by default */
+.ascii-art-mobile {
+  display: none;
 }
 
 @media screen and (max-width: 600px) {
@@ -184,5 +190,12 @@ td {
     padding-top: 30px;
     overflow: hidden;
     color: var(--background-color-one);
+  }
+  .ascii-art-desktop {
+    display: none;
+  }
+
+  .ascii-art-mobile {
+    display: block;
   }
 }
