@@ -1,14 +1,4 @@
 :root {
-  --background-color-one: #000000;
-  --color-one: #ffffff;
-  --background-color-two: #000000;
-  --color-two: #000000;
-  --color-three: #000000;
-  --color-four: #ffffff;
-  --color-five: #707070;
-}
-
-body.dark-mode {
   --background-color-one: #f7f7f7;
   --color-one: #000000;
   --background-color-two: #323232;
@@ -16,6 +6,17 @@ body.dark-mode {
   --color-three: #2f2f2f;
   --color-four: #f7f7f7;
   --color-five: #cbcbcb;
+}
+
+body.dark-mode {
+  --background-color-one: #000000;
+  --color-one: #ffffff;
+  --background-color-two: #000000;
+  --color-two: #000000;
+  --color-three: #000000;
+  --color-four: #ffffff;
+  --color-five: #707070;
+  
 }
 
 * {
@@ -41,7 +42,7 @@ body {
 
 .fixed-box {
   position: fixed;
-  border: 1px solid #ffffff;
+  border: 1px solid #ffff;
   top: 20px;
   left: 25vw;
   right: 25vw;
