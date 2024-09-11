@@ -74,8 +74,8 @@ header, main {
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 6px;
+  padding-right: 6px;
   height: 35px;
   mix-blend-mode: difference;
 }
@@ -149,7 +149,7 @@ th,
 td {
   border-collapse: collapse;
   border: 1px solid var(--background-color-one);
-  padding: 8px;
+  padding: 6px;
 }
 .tableletters {
   background-color: var(--color-three);
@@ -199,6 +199,10 @@ td {
     padding-left: 8px;
     padding-right: 8px;
     height: 40px;
+  }
+
+  table, th, td {
+    padding: 8px;
   }
   
   .fixed-box button {
