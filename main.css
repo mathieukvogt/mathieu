@@ -76,7 +76,7 @@ header, main {
   z-index: 1000;
   padding-left: 8px;
   padding-right: 8px;
-  height: 40px;
+  height: 35px;
   mix-blend-mode: difference;
 }
 
