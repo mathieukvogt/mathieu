@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVVBLPJCW8"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -31,14 +30,21 @@
     />
     <link rel="icon" href="logo.png" type="image/png">
     <base href="https://mathieu.so/" />
-    <style>
-      p {
-        text-align: justify;
-      }
-    </style>
   </head>
 
   <body>
+    <div class="overlay">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
     <header>
         <div class="fixed-box">
           <button id="upButton"><a href="#top">UP</a></button>
@@ -75,7 +81,7 @@
       <br>
       <hr />
       <br />
-      <p>Content last updated on 10/09/2024 by <em>Mathieu</em></p>
+      <p>Content last updated on 12/09/2024 by <em>Mathieu</em></p>
       <br />
       <table>
         <tbody>
@@ -154,7 +160,7 @@ console.log(typeof x); // undefined (x is not accessible here)
 }
 
 // Example 7: let in a loop block
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i &lt; 3; i++) {
   console.log(i); // 0, 1, 2
 }
 // console.log(i); // ReferenceError: i is not defined (i is not accessible here)
@@ -306,7 +312,7 @@ if (age >= 18) {
 }
 
 let temperature = 25;
-if (temperature < 0) {
+if (temperature &lt; 0) {
   console.log("It is freezing outside.");
 }
 
@@ -525,15 +531,15 @@ if (batteryLevel > 80) {
 
 // Example 6: Air quality index (AQI) categorization
 let aqi = 120;
-if (aqi <= 50) {
+if (aqi &lt;= 50) {
     console.log("Air quality: Good");
-} else if (aqi <= 100) {
+} else if (aqi &lt;= 100) {
     console.log("Air quality: Moderate");
-} else if (aqi <= 150) {
+} else if (aqi &lt;= 150) {
     console.log("Air quality: Unhealthy for sensitive groups");
-} else if (aqi <= 200) {
+} else if (aqi &lt;= 200) {
     console.log("Air quality: Unhealthy");
-} else if (aqi <= 300) {
+} else if (aqi &lt;= 300) {
     console.log("Air quality: Very Unhealthy");
 } else {
     console.log("Air quality: Hazardous");
@@ -639,7 +645,7 @@ if (num1 > num2) {
 // Example 10: Check if a number is less than another number
 let num3 = 5;
 let num4 = 10;
-if (num3 < num4) {
+if (num3 &lt; num4) {
     console.log("num3 is less than num4"); // Logs: "num3 is less than num4"
 } else {
     console.log("num3 is not less than num4");
@@ -657,7 +663,7 @@ if (num5 >= num6) {
 // Example 12: Check if a number is less than or equal to another number
 let num7 = 5;
 let num8 = 8;
-if (num7 <= num8) {
+if (num7 &lt;= num8) {
     console.log("num7 is less than or equal to num8"); // Logs: "num7 is less than or equal to num8"
 } else {
     console.log("num7 is greater than num8");
@@ -673,7 +679,7 @@ if (value > 0) {
 
 // Example 14: Check if a value is less than zero
 let value3 = -5;
-if (value3 < 0) {
+if (value3 &lt; 0) {
     console.log("The value is less than zero"); // Logs: "The value is less than zero"
 } else {
     console.log("The value is not less than zero");
@@ -707,7 +713,7 @@ if (personAge > 18) {
 // Example 18: Check if a price is within a budget
 let price = 50;
 let budget = 100;
-if (price <= budget) {
+if (price &lt;= budget) {
     console.log("The price is within the budget"); // Logs: "The price is within the budget"
 } else {
     console.log("The price is not within the budget");
@@ -716,7 +722,7 @@ if (price <= budget) {
 // Example 19: Check if a value is less than a threshold
 let threshold = 10;
 let testValue = 8;
-if (testValue < threshold) {
+if (testValue &lt; threshold) {
     console.log("The value is less than the threshold"); // Logs: "The value is less than the threshold"
 } else {
     console.log("The value is not less than the threshold");
@@ -750,7 +756,7 @@ if (password.length >= 8) {
 // Example 1: Check if both conditions are true
 let temperature = 25;
 let humidity = 50;
-if (temperature > 20 && humidity < 60) {
+if (temperature > 20 && humidity &lt; 60) {
     console.log("The weather is pleasant"); // Logs: "The weather is pleasant"
 } else {
     console.log("The weather is not pleasant");
@@ -767,7 +773,7 @@ if (personAge >= 65 && isMember) {
 
 // Example 3: Check if a number is within a range
 let age = 25;
-if (age >= 18 && age <= 30) {
+if (age >= 18 && age &lt;= 30) {
     console.log("The age is within the range"); // Logs: "The age is within the range"
 } else {
     console.log("The age is outside the range");
@@ -868,7 +874,7 @@ if (formField !== "") {
            <code class="language-js">
 // Example 1: Check if a number is positive, negative, or zero
 let number = 5;
-let numberCheck = (number > 0) ? "Positive" : (number < 0) ? "Negative" : "Zero";
+let numberCheck = (number > 0) ? "Positive" : (number &lt; 0) ? "Negative" : "Zero";
 console.log(numberCheck); // Logs: "Positive"
 
 // Example 2: Determine if a user is an adult or a minor based on age
@@ -1515,7 +1521,7 @@ console.log(max(10, 15)); // Logs: 15
 
 // Example 6: Function to print a message multiple times
 function repeatMessage(message, times) {
-    for (let i = 0; i < times; i++) {
+    for (let i = 0; i &lt; times; i++) {
         console.log(message);
     }
 }
@@ -1811,7 +1817,7 @@ greet(); // Logs: "Hello, world!"
 
 // Example 2: Named function expression assigned to a variable
 const factorial = function fact(n) {
-    if (n <= 1) return 1;
+    if (n &lt;= 1) return 1;
     return n * fact(n - 1);
 };
 console.log(factorial(5)); // Logs: 120
@@ -2039,8 +2045,8 @@ fetchData('https://api.example.com/data').then(data => console.log(data));
 
 // Example 8: Thorough Testing - Function to calculate factorial
 function factorial(n) {
-    if (n < 0) return undefined;
-    if (n <= 1) return 1;
+    if (n &lt; 0) return undefined;
+    if (n &lt;= 1) return 1;
     return n * factorial(n - 1);
 }
 console.log(factorial(5)); // Logs: 120
@@ -2310,7 +2316,7 @@ if (true) {
 // console.log(message); // Uncaught ReferenceError: message is not defined
 
 // Example 2: Block in a for loop
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i &lt; 3; i++) {
     let message = `Iteration ${i}`;
     console.log(message); // Logs: "Iteration 0", "Iteration 1", "Iteration 2"
 }
@@ -2318,7 +2324,7 @@ for (let i = 0; i < 3; i++) {
 
 // Example 3: Block in a while loop
 let count = 0;
-while (count < 3) {
+while (count &lt; 3) {
     let message = `Count is ${count}`;
     console.log(message); // Logs: "Count is 0", "Count is 1", "Count is 2"
     count++;
@@ -2450,7 +2456,7 @@ if (true) {
 // console.log(message); // Uncaught ReferenceError: message is not defined
 
 // Example 2: Block scope with const in a for loop
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i &lt; 3; i++) {
     const message = `Iteration ${i}`;
     console.log(message); // Logs: "Iteration 0", "Iteration 1", "Iteration 2"
 }
@@ -2458,7 +2464,7 @@ for (let i = 0; i < 3; i++) {
 
 // Example 3: Block scope with let in a while loop
 let count = 0;
-while (count < 3) {
+while (count &lt; 3) {
     let message = `Count is ${count}`;
     console.log(message); // Logs: "Count is 0", "Count is 1", "Count is 2"
     count++;
@@ -2586,7 +2592,7 @@ setName();
 console.log(name); // Logs: "Bob"
 
 // Example 5: Using var in loops causing scope pollution
-for (var i = 0; i < 5; i++) {
+for (var i = 0; i &lt; 5; i++) {
     // i is declared globally due to var
     console.log(i); // Logs: 0, 1, 2, 3, 4
 }
@@ -2777,7 +2783,7 @@ console.log(colors); // Output: ['red', 'yellow', 'blue', 'purple']
 console.log(colors[10]); // Output: undefined
 
 // Example 7: Iterating over an array using index
-for (let i = 0; i < colors.length; i++) {
+for (let i = 0; i &lt; colors.length; i++) {
   console.log(colors[i]); // Output: 'red', 'yellow', 'blue', 'purple'
 }
 
@@ -2842,12 +2848,12 @@ console.log(numbers); // Output: [100, 20, 300, 40, 500, 60, 70]
 console.log(numbers[numbers.length - 2]); // Output: 60
 
 // Example 10: Accessing elements in a loop (read-only)
-for (let i = 0; i < numbers.length; i++) {
+for (let i = 0; i &lt; numbers.length; i++) {
   console.log(numbers[i]); // Output: 100, 20, 300, 40, 500, 60, 70
 }
 
 // Example 11: Updating all elements in a loop
-for (let i = 0; i < numbers.length; i++) {
+for (let i = 0; i &lt; numbers.length; i++) {
   numbers[i] *= 2; // Doubling each element
 }
 console.log(numbers); // Output: [200, 40, 600, 80, 1000, 120, 140]
@@ -2946,7 +2952,7 @@ console.log(fruits.length); // Output: 3
 
 // Example 2: Using length to iterate over an array
 let colors = ['red', 'green', 'blue', 'yellow'];
-for (let i = 0; i < colors.length; i++) {
+for (let i = 0; i &lt; colors.length; i++) {
   console.log(colors[i]); // Output: 'red', 'green', 'blue', 'yellow'
 }
 
@@ -2958,7 +2964,7 @@ console.log(animals); // Output: ['dog', 'cat']
 // Example 4: Extending an array by setting a larger length
 let numbers = [1, 2, 3];
 numbers.length = 5; // Extend with undefined elements
-console.log(numbers); // Output: [1, 2, 3, <2 empty items>]
+console.log(numbers);
 
 // Example 5: Adding an element at the end using length
 let cities = ['New York', 'Los Angeles'];
@@ -3046,7 +3052,7 @@ console.log(numbers); // Output: [1, 2, 3]
 // Example 6: Modifying a global array inside a function
 let scores = [10, 20, 30];
 function updateScores() {
-    for (let i = 0; i < scores.length; i++) {
+    for (let i = 0; i &lt; scores.length; i++) {
         scores[i] += 10;
     }
     console.log(scores); // Output: [20, 30, 40]
@@ -3103,8 +3109,8 @@ matrix[2][1] = 10;
 console.log(matrix); // Output: [[1, 2, 3], [4, 5, 6], [7, 10, 9]]
 
 // Example 4: Iterating over a nested array with nested loops
-for (let i = 0; i < matrix.length; i++) {
-    for (let j = 0; j < matrix[i].length; j++) {
+for (let i = 0; i &lt; matrix.length; i++) {
+    for (let j = 0; j &lt; matrix[i].length; j++) {
         console.log(matrix[i][j]); // Output: 1, 2, 3, 4, 5, 6, 7, 10, 9
     }
 }
@@ -3399,7 +3405,7 @@ let userBob = users.find(user => user.name === "Bob"); // returns {name: "Bob", 
 
 // 5. Find the first number less than 10 in a descending sorted array
 let descendingNumbers = [50, 40, 30, 20, 10, 5];
-let firstLessThanTen = descendingNumbers.find(num => num < 10); // returns 5
+let firstLessThanTen = descendingNumbers.find(num => num &lt; 10); // returns 5
 
 // 6. Find the first string that includes a specific substring
 let phrases = ["The quick brown fox", "jumps over", "the lazy dog"];
@@ -3407,7 +3413,7 @@ let phraseWithFox = phrases.find(phrase => phrase.includes("fox")); // returns "
 
 // 7. Find the first negative number in an array
 let mixedValues = [10, -20, 30, -40];
-let firstNegative = mixedValues.find(num => num < 0); // returns -20
+let firstNegative = mixedValues.find(num => num &lt; 0); // returns -20
 
 // 8. Find the first element in an array that is an instance of a specific class
 class Car {
@@ -3466,7 +3472,7 @@ let indexBob = users.findIndex(user => user.name === "Bob"); // returns 1
 
 // 5. Find the index of the first number less than 10 in a descending sorted array
 let descendingNumbers = [50, 40, 30, 20, 10, 5];
-let indexFirstLessThanTen = descendingNumbers.findIndex(num => num < 10); // returns 5
+let indexFirstLessThanTen = descendingNumbers.findIndex(num => num &lt; 10); // returns 5
 
 // 6. Find the index of the first string that includes a specific substring
 let phrases = ["The quick brown fox", "jumps over", "the lazy dog"];
@@ -3474,7 +3480,7 @@ let indexPhraseWithFox = phrases.findIndex(phrase => phrase.includes("fox")); //
 
 // 7. Find the index of the first negative number in an array
 let mixedValues = [10, -20, 30, -40];
-let indexFirstNegative = mixedValues.findIndex(num => num < 0); // returns 1
+let indexFirstNegative = mixedValues.findIndex(num => num &lt; 0); // returns 1
 
 // 8. Find the index of the first element that is an instance of a specific class
 class Car {
@@ -3534,7 +3540,7 @@ let lastUserBob = users.findLast(user => user.name === "Bob"); // returns {name:
 
 // 5. Find the last number less than 10 in an array
 let mixedNumbers2 = [50, 5, 40, 10, 3];
-let lastLessThanTen = mixedNumbers2.findLast(num => num < 10); // returns 3
+let lastLessThanTen = mixedNumbers2.findLast(num => num &lt; 10); // returns 3
 
 // 6. Find the last string that includes a specific substring
 let phrases = ["The quick brown fox", "jumps over", "the lazy dog", "over the moon"];
@@ -3542,7 +3548,7 @@ let lastPhraseWithOver = phrases.findLast(phrase => phrase.includes("over")); //
 
 // 7. Find the last negative number in an array
 let mixedValues = [10, -20, 30, -40, 50];
-let lastNegative = mixedValues.findLast(num => num < 0); // returns -40
+let lastNegative = mixedValues.findLast(num => num &lt; 0); // returns -40
 
 // 8. Find the last element in an array that is an instance of a specific class
 class Animal {
@@ -3602,7 +3608,7 @@ let lastIndexUserBob = users.findLastIndex(user => user.name === "Bob"); // retu
 
 // 5. Find the last index of a number less than 10 in an array
 let mixedNumbers2 = [50, 5, 40, 10, 3];
-let lastIndexLessThanTen = mixedNumbers2.findLastIndex(num => num < 10); // returns 4
+let lastIndexLessThanTen = mixedNumbers2.findLastIndex(num => num &lt; 10); // returns 4
 
 // 6. Find the last index of a string that includes a specific substring
 let phrases = ["The quick brown fox", "jumps over", "the lazy dog", "over the moon"];
@@ -3610,7 +3616,7 @@ let lastIndexPhraseWithOver = phrases.findLastIndex(phrase => phrase.includes("o
 
 // 7. Find the last index of a negative number in an array
 let mixedValues = [10, -20, 30, -40, 50];
-let lastIndexNegative = mixedValues.findLastIndex(num => num < 0); // returns 3
+let lastIndexNegative = mixedValues.findLastIndex(num => num &lt; 0); // returns 3
 
 // 8. Find the last index of an element in an array that is an instance of a specific class
 class Animal {
@@ -4281,7 +4287,7 @@ console.log(onlyAnimals);
 
 // 9. Filter numbers in an array that are prime
 let primes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].filter(num => {
-    for (let i = 2; i < num; i++) {
+    for (let i = 2; i &lt; num; i++) {
         if (num % i === 0) return false;
     }
     return num > 1;
@@ -4807,7 +4813,7 @@ console.log(allAdults);
 
 // 7. Check if all elements in an array are less than 100
 let numbers2 = [50, 60, 70, 80];
-let allLessThanHundred = numbers2.every(num => num < 100);
+let allLessThanHundred = numbers2.every(num => num &lt; 100);
 console.log(allLessThanHundred); 
 // Output: true
 
@@ -4862,7 +4868,7 @@ console.log(someOdd);
 
 // 4. Check if some elements in an array are negative
 let values = [1, -2, 3, -4, 5];
-let someNegative = values.some(num => num < 0);
+let someNegative = values.some(num => num &lt; 0);
 console.log(someNegative); 
 // Output: true
 
@@ -4878,7 +4884,7 @@ let users = [
     {name: "Bob", age: 17},
     {name: "Charlie", age: 35}
 ];
-let someMinors = users.some(user => user.age < 18);
+let someMinors = users.some(user => user.age &lt; 18);
 console.log(someMinors); 
 // Output: true
 
@@ -5047,9 +5053,8 @@ console.log(reverseProduct);
 
 // 7. Build an HTML string in reverse order
 let elements = ["div", "span", "a"];
-let htmlString = elements.reduceRight((acc, el) => `<${el}>${acc}</${el}>`, "content");
+let htmlString = elements.reduceRight((acc, el) => `&lt;${el}>${acc}&lt;/${el}>`, "content");
 console.log(htmlString); 
-// Output: "<div><span><a>content</a></span></div>"
 
 // 8. Combine objects from right to left
 let objectsArray = [{ a: 1 }, { b: 2 }, { c: 3 }];
@@ -5199,7 +5204,7 @@ console.log(emptyArray);
 
 // 4. Use push in a loop to add elements dynamically
 let letters = [];
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i &lt; 5; i++) {
     letters.push(String.fromCharCode(97 + i)); // adds "a", "b", "c", "d", "e"
 }
 console.log(letters); 
@@ -5236,7 +5241,7 @@ console.log(newLength);
 
 // 9. Push elements conditionally based on a check
 let values = [10, 20, 30];
-if (values[values.length - 1] < 50) {
+if (values[values.length - 1] &lt; 50) {
     values.push(40);
 }
 console.log(values); 
@@ -5331,7 +5336,7 @@ console.log(firstElement);
 // 9. Remove and use elements conditionally
 let values = [5, 10, 15];
 let removedValue;
-if (values[0] < 10) {
+if (values[0] &lt; 10) {
     removedValue = values.shift();
 }
 console.log(values); 
@@ -6189,14 +6194,14 @@ console.log(mixedArray);
            <code class="language-js">
 // 1. Basic for loop counting up
 // Logs: 0 1 2 3 4
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i &lt; 5; i++) {
     console.log(i);
 }
 
 // 2. For loop iterating through an array
 // Logs: Apple Banana Orange
 const fruits = ["Apple", "Banana", "Orange"];
-for (let i = 0; i < fruits.length; i++) {
+for (let i = 0; i &lt; fruits.length; i++) {
     console.log(fruits[i]);
 }
 
@@ -6208,7 +6213,7 @@ for (let i = 4; i >= 0; i--) {
 
 // 4. For loop with a step of 2
 // Logs: 0 2 4 6 8
-for (let i = 0; i < 10; i += 2) {
+for (let i = 0; i &lt; 10; i += 2) {
     console.log(i);
 }
 
@@ -6227,22 +6232,22 @@ for (let key in person) {
 
 // 7. For loop with nested loops (multiplication table)
 // Logs: Multiplication table from 1 to 3
-for (let i = 1; i <= 3; i++) {
-    for (let j = 1; j <= 3; j++) {
+for (let i = 1; i &lt;= 3; i++) {
+    for (let j = 1; j &lt;= 3; j++) {
         console.log(`${i} * ${j} = ${i * j}`);
     }
 }
 
 // 8. For loop with continue statement
 // Logs: 0 1 3 4 (skips 2)
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i &lt; 5; i++) {
     if (i === 2) continue;
     console.log(i);
 }
 
 // 9. For loop with break statement
 // Logs: 0 1 2 (stops at 2)
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i &lt; 5; i++) {
     if (i === 3) break;
     console.log(i);
 }
@@ -6264,7 +6269,7 @@ for (let index in vehicles) {
 // Logs: 6
 const numbers = [1, 2, 3];
 let sum = 0;
-for (let i = 0; i < numbers.length; i++) {
+for (let i = 0; i &lt; numbers.length; i++) {
     sum += numbers[i];
 }
 console.log(sum);
@@ -6272,7 +6277,7 @@ console.log(sum);
 // 13. For loop over a string
 // Logs: H e l l o
 const greeting = "Hello";
-for (let i = 0; i < greeting.length; i++) {
+for (let i = 0; i &lt; greeting.length; i++) {
     console.log(greeting[i]);
 }
 
@@ -6282,9 +6287,9 @@ for (let i = 0; i < greeting.length; i++) {
 //       ***
 //       ****
 //       *****
-for (let i = 1; i <= 5; i++) {
+for (let i = 1; i &lt;= 5; i++) {
     let pattern = '';
-    for (let j = 0; j < i; j++) {
+    for (let j = 0; j &lt; i; j++) {
         pattern += '*';
     }
     console.log(pattern);
@@ -6293,7 +6298,7 @@ for (let i = 1; i <= 5; i++) {
 // 15. For loop filtering even numbers from an array
 // Logs: 2 4
 const numbersArray = [1, 2, 3, 4, 5];
-for (let i = 0; i < numbersArray.length; i++) {
+for (let i = 0; i &lt; numbersArray.length; i++) {
     if (numbersArray[i] % 2 === 0) {
         console.log(numbersArray[i]);
     }
@@ -6314,8 +6319,8 @@ for (let i = 0; i < numbersArray.length; i++) {
            <code class="language-js">
 // 1. Basic nested for loop (multiplication table)
 // Logs: Multiplication table from 1 to 3
-for (let i = 1; i <= 3; i++) {
-    for (let j = 1; j <= 3; j++) {
+for (let i = 1; i &lt;= 3; i++) {
+    for (let j = 1; j &lt;= 3; j++) {
         console.log(`${i} * ${j} = ${i * j}`);
     }
 }
@@ -6327,8 +6332,8 @@ const grid = [
     [4, 5, 6],
     [7, 8, 9]
 ];
-for (let i = 0; i < grid.length; i++) {
-    for (let j = 0; j < grid[i].length; j++) {
+for (let i = 0; i &lt; grid.length; i++) {
+    for (let j = 0; j &lt; grid[i].length; j++) {
         console.log(grid[i][j]);
     }
 }
@@ -6338,8 +6343,8 @@ for (let i = 0; i < grid.length; i++) {
 const userA_followers = ['John', 'Alice', 'Bob', 'Eve'];
 const userB_followers = ['Bob', 'Eve', 'Charlie'];
 let mutualFollowers = [];
-for (let i = 0; i < userA_followers.length; i++) {
-    for (let j = 0; j < userB_followers.length; j++) {
+for (let i = 0; i &lt; userA_followers.length; i++) {
+    for (let j = 0; j &lt; userB_followers.length; j++) {
         if (userA_followers[i] === userB_followers[j]) {
             mutualFollowers.push(userA_followers[i]);
         }
@@ -6352,8 +6357,8 @@ console.log('Mutual Followers:', mutualFollowers);
 const array1 = [1, 2, 3, 4];
 const array2 = [2, 4, 6, 8];
 let intersection = [];
-for (let i = 0; i < array1.length; i++) {
-    for (let j = 0; j < array2.length; j++) {
+for (let i = 0; i &lt; array1.length; i++) {
+    for (let j = 0; j &lt; array2.length; j++) {
         if (array1[i] === array2[j]) {
             intersection.push(array1[i]);
         }
@@ -6364,9 +6369,9 @@ console.log('Intersection:', intersection);
 // 5. Creating a follow suggestion list (users not followed by User A)
 // Logs: List of users not followed by User A from User B's followers
 let followSuggestions = [];
-for (let i = 0; i < userB_followers.length; i++) {
+for (let i = 0; i &lt; userB_followers.length; i++) {
     let isFollowed = false;
-    for (let j = 0; j < userA_followers.length; j++) {
+    for (let j = 0; j &lt; userA_followers.length; j++) {
         if (userB_followers[i] === userA_followers[j]) {
             isFollowed = true;
             break;
@@ -6382,8 +6387,8 @@ console.log('Follow Suggestions:', followSuggestions);
 // Logs: Number of duplicate elements [3]
 const arr = [1, 2, 3, 2, 4, 1, 1];
 let duplicates = [];
-for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
+for (let i = 0; i &lt; arr.length; i++) {
+    for (let j = i + 1; j &lt; arr.length; j++) {
         if (arr[i] === arr[j] && !duplicates.includes(arr[i])) {
             duplicates.push(arr[i]);
         }
@@ -6395,8 +6400,8 @@ console.log('Duplicates:', duplicates);
 // Logs: Whether the grid contains the value (true or false)
 const valueToFind = 5;
 let found = false;
-for (let i = 0; i < grid.length; i++) {
-    for (let j = 0; j < grid[i].length; j++) {
+for (let i = 0; i &lt; grid.length; i++) {
+    for (let j = 0; j &lt; grid[i].length; j++) {
         if (grid[i][j] === valueToFind) {
             found = true;
             break;
@@ -6411,8 +6416,8 @@ console.log(`Value ${valueToFind} found:`, found);
 const productA_features = ['WiFi', 'Bluetooth', 'GPS'];
 const productB_features = ['Bluetooth', '4G', 'GPS'];
 let commonFeatures = [];
-for (let i = 0; i < productA_features.length; i++) {
-    for (let j = 0; j < productB_features.length; j++) {
+for (let i = 0; i &lt; productA_features.length; i++) {
+    for (let j = 0; j &lt; productB_features.length; j++) {
         if (productA_features[i] === productB_features[j]) {
             commonFeatures.push(productA_features[i]);
         }
@@ -6423,8 +6428,8 @@ console.log('Common Features:', commonFeatures);
 // 9. Checking for symmetrical matrices (common in games or grids)
 // Logs: Whether the matrix is symmetrical
 let isSymmetric = true;
-for (let i = 0; i < grid.length; i++) {
-    for (let j = 0; j < grid[i].length; j++) {
+for (let i = 0; i &lt; grid.length; i++) {
+    for (let j = 0; j &lt; grid[i].length; j++) {
         if (grid[i][j] !== grid[j][i]) {
             isSymmetric = false;
             break;
@@ -6439,8 +6444,8 @@ console.log('Is grid symmetric:', isSymmetric);
 const post1_tags = ['JavaScript', 'Web', 'Programming'];
 const post2_tags = ['Programming', 'Tutorial', 'JavaScript'];
 let commonTags = [];
-for (let i = 0; i < post1_tags.length; i++) {
-    for (let j = 0; j < post2_tags.length; j++) {
+for (let i = 0; i &lt; post1_tags.length; i++) {
+    for (let j = 0; j &lt; post2_tags.length; j++) {
         if (post1_tags[i] === post2_tags[j]) {
             commonTags.push(post1_tags[i]);
         }
@@ -6464,7 +6469,7 @@ console.log('Common Tags:', commonTags);
 // 1. Looping through an array of usernames to greet each user
 // Logs: Hello, Alice! Hello, Bob! Hello, Charlie!
 const usernames = ['Alice', 'Bob', 'Charlie'];
-for (let i = 0; i < usernames.length; i++) {
+for (let i = 0; i &lt; usernames.length; i++) {
     console.log(`Hello, ${usernames[i]}!`);
 }
 
@@ -6472,23 +6477,16 @@ for (let i = 0; i < usernames.length; i++) {
 // Logs: Total cost is: $60
 const prices = [10, 20, 30];
 let totalCost = 0;
-for (let i = 0; i < prices.length; i++) {
+for (let i = 0; i &lt; prices.length; i++) {
     totalCost += prices[i];
 }
 console.log(`Total cost is: $${totalCost}`);
-
-// 3. Looping through a list of posts to generate HTML snippets
-// Logs: <div>Post 1</div> <div>Post 2</div> <div>Post 3</div>
-const posts = ['Post 1', 'Post 2', 'Post 3'];
-for (let i = 0; i < posts.length; i++) {
-    console.log(`<div>${posts[i]}</div>`);
-}
 
 // 4. Looping through an array of likes to count how many likes are above 100
 // Logs: 2 posts have more than 100 likes
 const likes = [50, 150, 200, 80];
 let count = 0;
-for (let i = 0; i < likes.length; i++) {
+for (let i = 0; i &lt; likes.length; i++) {
     if (likes[i] > 100) {
         count++;
     }
@@ -6499,7 +6497,7 @@ console.log(`${count} posts have more than 100 likes`);
 // Logs: The longest comment is: "This is the longest comment!"
 const comments = ['Nice post!', 'Great!', 'This is the longest comment!', 'Good job!'];
 let longestComment = comments[0];
-for (let i = 1; i < comments.length; i++) {
+for (let i = 1; i &lt; comments.length; i++) {
     if (comments[i].length > longestComment.length) {
         longestComment = comments[i];
     }
@@ -6509,7 +6507,7 @@ console.log(`The longest comment is: "${longestComment}"`);
 // 6. Looping through a list of email addresses to check for invalid emails
 // Logs: Invalid email found: "invalidemail.com"
 const emails = ['user@example.com', 'admin@website.org', 'invalidemail.com'];
-for (let i = 0; i < emails.length; i++) {
+for (let i = 0; i &lt; emails.length; i++) {
     if (!emails[i].includes('@')) {
         console.log(`Invalid email found: "${emails[i]}"`);
     }
@@ -6518,7 +6516,7 @@ for (let i = 0; i < emails.length; i++) {
 // 7. Looping through a list of tasks to mark all as completed
 // Logs: Task 1: completed, Task 2: completed, Task 3: completed
 const tasks = ['Task 1', 'Task 2', 'Task 3'];
-for (let i = 0; i < tasks.length; i++) {
+for (let i = 0; i &lt; tasks.length; i++) {
     console.log(`${tasks[i]}: completed`);
 }
 
@@ -6531,7 +6529,7 @@ console.log(`You have ${followers.length} followers`);
 // Logs: First unread message is: "You have a new friend request"
 const messages = ['Read: Welcome!', 'Unread: You have a new friend request', 'Unread: Don’t miss out on our sale!'];
 let unreadMessage = null;
-for (let i = 0; i < messages.length; i++) {
+for (let i = 0; i &lt; messages.length; i++) {
     if (messages[i].startsWith('Unread')) {
         unreadMessage = messages[i];
         break;
@@ -6543,7 +6541,7 @@ console.log(`First unread message is: "${unreadMessage}"`);
 // Logs: The average rating is: 4.2
 const ratings = [5, 4, 3, 5, 4];
 let sumRatings = 0;
-for (let i = 0; i < ratings.length; i++) {
+for (let i = 0; i &lt; ratings.length; i++) {
     sumRatings += ratings[i];
 }
 const averageRating = sumRatings / ratings.length;
@@ -6639,7 +6637,7 @@ for (let i = smallArr.length - 1; i >= 0; i--) {
 // Logs: true (since the word "madam" is a palindrome)
 const word = "madam";
 let isPalindrome = true;
-for (let i = 0; i < word.length / 2; i++) {
+for (let i = 0; i &lt; word.length / 2; i++) {
     if (word[i] !== word[word.length - 1 - i]) {
         isPalindrome = false;
         break;
@@ -6748,7 +6746,7 @@ for (const grade of grades) {
            <code class="language-js">
 // 1. Using break to exit a loop when a number is found
 // Logs: 1 2 3
-for (let i = 1; i <= 5; i++) {
+for (let i = 1; i &lt;= 5; i++) {
     if (i === 4) {
         break;
     }
@@ -6757,7 +6755,7 @@ for (let i = 1; i <= 5; i++) {
 
 // 2. Using continue to skip even numbers
 // Logs: 1 3 5
-for (let i = 1; i <= 5; i++) {
+for (let i = 1; i &lt;= 5; i++) {
     if (i % 2 === 0) {
         continue;
     }
@@ -6767,7 +6765,7 @@ for (let i = 1; i <= 5; i++) {
 // 3. Using break in a while loop to stop when a condition is met
 // Logs: 0 1 2
 let count = 0;
-while (count < 5) {
+while (count &lt; 5) {
     if (count === 3) {
         break;
     }
@@ -6778,7 +6776,7 @@ while (count < 5) {
 // 4. Using continue in a while loop to skip a specific iteration
 // Logs: 0 1 3 4
 count = 0;
-while (count < 5) {
+while (count &lt; 5) {
     count++;
     if (count === 2) {
         continue;
@@ -6789,7 +6787,7 @@ while (count < 5) {
 // 5. Using break in a for loop to exit when a specific string is found
 // Logs: Alice Bob
 const names = ['Alice', 'Bob', 'Charlie', 'Dave'];
-for (let i = 0; i < names.length; i++) {
+for (let i = 0; i &lt; names.length; i++) {
     if (names[i] === 'Charlie') {
         break;
     }
@@ -6798,7 +6796,7 @@ for (let i = 0; i < names.length; i++) {
 
 // 6. Using continue in a for loop to skip a specific string
 // Logs: Alice Bob Dave
-for (let i = 0; i < names.length; i++) {
+for (let i = 0; i &lt; names.length; i++) {
     if (names[i] === 'Charlie') {
         continue;
     }
@@ -6819,7 +6817,7 @@ for (const num of numbers) {
 // Logs: 1 5 9
 const moreNumbers = [1, -3, 5, 0, 9];
 for (const num of moreNumbers) {
-    if (num <= 0) {
+    if (num &lt;= 0) {
         continue;
     }
     console.log(num);
@@ -6827,8 +6825,8 @@ for (const num of moreNumbers) {
 
 // 9. Using break to exit nested loops when a condition is met
 // Logs: 1 1, 1 2, 1 3
-outerLoop: for (let i = 1; i <= 3; i++) {
-    for (let j = 1; j <= 3; j++) {
+outerLoop: for (let i = 1; i &lt;= 3; i++) {
+    for (let j = 1; j &lt;= 3; j++) {
         if (j === 4) {
             break outerLoop;
         }
@@ -6838,8 +6836,8 @@ outerLoop: for (let i = 1; i <= 3; i++) {
 
 // 10. Using continue to skip a specific iteration in a nested loop
 // Logs: 1 1, 1 2, 2 1, 2 2
-for (let i = 1; i <= 2; i++) {
-    for (let j = 1; j <= 2; j++) {
+for (let i = 1; i &lt;= 2; i++) {
+    for (let j = 1; j &lt;= 2; j++) {
         if (i === 2 && j === 3) {
             continue;
         }
@@ -6883,7 +6881,7 @@ console.log("Valid number entered!");
 // 3. Loop until a random number greater than 0.8 is generated
 // Logs random numbers until one greater than 0.8 is found
 let num;
-while (num <= 0.8) {
+while (num &lt;= 0.8) {
     num = Math.random();
     console.log(num);
 }
@@ -6893,7 +6891,7 @@ console.log("Number greater than 0.8 found!");
 // 4. Accumulating sum until it exceeds 100
 // Logs: the sum at each step until it exceeds 100
 let sum = 0;
-while (sum <= 100) {
+while (sum &lt;= 100) {
     sum += Math.floor(Math.random() * 20);
     console.log(`Current sum: ${sum}`);
 }
@@ -6990,7 +6988,7 @@ let num = 1;
 do {
     console.log(num);
     num++;
-} while (num <= 5);
+} while (num &lt;= 5);
 
 // 3. Basic example: Executing a loop once even if the condition is false
 // Logs: "This runs at least once!"
@@ -7005,7 +7003,7 @@ let number = 2;
 do {
     console.log(number);
     number += 2;
-} while (number <= 6);
+} while (number &lt;= 6);
 
 // 5. Basic example: Looping through an array until it's empty
 // Logs: Removed: 3 Removed: 2 Removed: 1
@@ -7021,7 +7019,7 @@ do {
     const randomNumber = Math.floor(Math.random() * 10) + 1;
     sum += randomNumber;
     console.log(`Sum: ${sum}`);
-} while (sum <= 20);
+} while (sum &lt;= 20);
 // Logs: "Threshold of 20 exceeded!"
 
 // 7. Intermediate example: Prompting user until a valid age is entered
@@ -7029,10 +7027,10 @@ do {
 let age;
 do {
     age = prompt("Enter your age (1-120):");
-    if (isNaN(age) || age < 1 || age > 120) {
+    if (isNaN(age) || age &lt; 1 || age > 120) {
         console.log("Please enter a valid age.");
     }
-} while (isNaN(age) || age < 1 || age > 120);
+} while (isNaN(age) || age &lt; 1 || age > 120);
 // Logs: "Valid age entered!"
 
 // 8. Intermediate example: Emptying a string by removing characters one by one
@@ -7789,7 +7787,7 @@ let numbers = {
   values: [1, 2, 3, 4], 
   sum: function() { 
     let total = 0; 
-    for(let i = 0; i < this.values.length; i++) { 
+    for(let i = 0; i &lt; this.values.length; i++) { 
       total += this.values[i]; 
     }
     return total;
@@ -8591,7 +8589,7 @@ console.log(rectangle.area); // Logs: 50
 const temperature = {
   celsius: 25,
   get fahrenheit() {
-    if (this.celsius < -273.15) {
+    if (this.celsius &lt; -273.15) {
       return 'Invalid temperature below absolute zero';
     }
     return this.celsius * 9/5 + 32;
@@ -8711,7 +8709,7 @@ console.log(temperature.celsius); // Logs: 25
 const person2 = {
   _age: 0,
   set age(value) {
-    if (value < 0) {
+    if (value &lt; 0) {
       console.log('Age cannot be negative');
     } else {
       this._age = value;
@@ -8742,7 +8740,7 @@ console.log(user.username); // Logs: 'alice'
 const bankAccount = {
   _balance: 0,
   set balance(amount) {
-    if (amount < 0) {
+    if (amount &lt; 0) {
       console.log('Balance cannot be negative');
     } else {
       this._balance = amount;
@@ -8973,7 +8971,7 @@ function createBankAccount(owner, initialBalance) {
       }
     },
     withdraw(amount) {
-      if (amount > 0 && amount <= balance) {
+      if (amount > 0 && amount &lt;= balance) {
         balance -= amount;
       }
     },
@@ -9450,61 +9448,61 @@ document.getElementById("content").innerHTML = "<p>Updated content!</p>";
            <code class="language-js">
 // 1. Select all elements with the class "item" and change their background color
 let items = document.getElementsByClassName("item");
-for (let i = 0; i < items.length; i++) {
+for (let i = 0; i &lt; items.length; i++) {
   items[i].style.backgroundColor = "lightblue";
 }
 
 // 2. Get all elements with the class "button" and disable them
 let buttons = document.getElementsByClassName("button");
-for (let i = 0; i < buttons.length; i++) {
+for (let i = 0; i &lt; buttons.length; i++) {
   buttons[i].disabled = true;
 }
 
 // 3. Select all elements with the class "menu-item" and hide them
 let menuItems = document.getElementsByClassName("menu-item");
-for (let i = 0; i < menuItems.length; i++) {
+for (let i = 0; i &lt; menuItems.length; i++) {
   menuItems[i].style.display = "none";
 }
 
 // 4. Change the text content of all elements with the class "title"
 let titles = document.getElementsByClassName("title");
-for (let i = 0; i < titles.length; i++) {
+for (let i = 0; i &lt; titles.length; i++) {
   titles[i].textContent = "New Title";
 }
 
 // 5. Add a CSS class to all elements with the class "active"
 let activeElements = document.getElementsByClassName("active");
-for (let i = 0; i < activeElements.length; i++) {
+for (let i = 0; i &lt; activeElements.length; i++) {
   activeElements[i].classList.add("highlight");
 }
 
 // 6. Set the border of all elements with the class "box" to red
 let boxes = document.getElementsByClassName("box");
-for (let i = 0; i < boxes.length; i++) {
+for (let i = 0; i &lt; boxes.length; i++) {
   boxes[i].style.border = "2px solid red";
 }
 
 // 7. Change the font size of all elements with the class "text" to 18px
 let texts = document.getElementsByClassName("text");
-for (let i = 0; i < texts.length; i++) {
+for (let i = 0; i &lt; texts.length; i++) {
   texts[i].style.fontSize = "18px";
 }
 
 // 8. Add a background color to all elements with the class "highlighted"
 let highlightedItems = document.getElementsByClassName("highlighted");
-for (let i = 0; i < highlightedItems.length; i++) {
+for (let i = 0; i &lt; highlightedItems.length; i++) {
   highlightedItems[i].style.backgroundColor = "yellow";
 }
 
 // 9. Get all elements with the class "input-field" and clear their values
 let inputFields = document.getElementsByClassName("input-field");
-for (let i = 0; i < inputFields.length; i++) {
+for (let i = 0; i &lt; inputFields.length; i++) {
   inputFields[i].value = "";
 }
 
 // 10. Append text to all elements with the class "note"
 let notes = document.getElementsByClassName("note");
-for (let i = 0; i < notes.length; i++) {
+for (let i = 0; i &lt; notes.length; i++) {
   notes[i].textContent += " - Updated";
 }
             </code></pre>
@@ -9523,61 +9521,61 @@ for (let i = 0; i < notes.length; i++) {
            <code class="language-js">
 // 1. Select all p elements and change their text color to blue
 let paragraphs = document.getElementsByTagName("p");
-for (let i = 0; i < paragraphs.length; i++) {
+for (let i = 0; i &lt; paragraphs.length; i++) {
   paragraphs[i].style.color = "blue";
 }
 
 // 2. Get all h1 elements and change their font size
 let headers = document.getElementsByTagName("h1");
-for (let i = 0; i < headers.length; i++) {
+for (let i = 0; i &lt; headers.length; i++) {
   headers[i].style.fontSize = "36px";
 }
 
 // 3. Select all a elements and change their href attribute
 let links = document.getElementsByTagName("a");
-for (let i = 0; i < links.length; i++) {
+for (let i = 0; i &lt; links.length; i++) {
   links[i].href = "https://newlink.com";
 }
 
 // 4. Get all div elements and add a new CSS class
 let divs = document.getElementsByTagName("div");
-for (let i = 0; i < divs.length; i++) {
+for (let i = 0; i &lt; divs.length; i++) {
   divs[i].classList.add("new-class");
 }
 
 // 5. Change the border color of all table elements
 let tables = document.getElementsByTagName("table");
-for (let i = 0; i < tables.length; i++) {
+for (let i = 0; i &lt; tables.length; i++) {
   tables[i].style.borderColor = "green";
 }
 
 // 6. Get all button elements and disable them
 let buttons = document.getElementsByTagName("button");
-for (let i = 0; i < buttons.length; i++) {
+for (let i = 0; i &lt; buttons.length; i++) {
   buttons[i].disabled = true;
 }
 
 // 7. Select all li elements and change their background color
 let listItems = document.getElementsByTagName("li");
-for (let i = 0; i < listItems.length; i++) {
+for (let i = 0; i &lt; listItems.length; i++) {
   listItems[i].style.backgroundColor = "lightgray";
 }
 
 // 8. Get all img elements and set a new source
 let images = document.getElementsByTagName("img");
-for (let i = 0; i < images.length; i++) {
+for (let i = 0; i &lt; images.length; i++) {
   images[i].src = "new-image.jpg";
 }
 
 // 9. Change the text alignment of all th elements in a table
 let tableHeaders = document.getElementsByTagName("th");
-for (let i = 0; i < tableHeaders.length; i++) {
+for (let i = 0; i &lt; tableHeaders.length; i++) {
   tableHeaders[i].style.textAlign = "center";
 }
 
 // 10. Get all span elements and add a tooltip by setting the title attribute
 let spans = document.getElementsByTagName("span");
-for (let i = 0; i < spans.length; i++) {
+for (let i = 0; i &lt; spans.length; i++) {
   spans[i].title = "This is a tooltip";
 }
             </code></pre>
@@ -9961,7 +9959,7 @@ list.children[1].style.backgroundColor = "lightblue";
 
 // 3. Access all children of a div with the ID "content" and set their text color to red
 let content = document.getElementById("content");
-for (let i = 0; i < content.children.length; i++) {
+for (let i = 0; i &lt; content.children.length; i++) {
   content.children[i].style.color = "red";
 }
 
@@ -9979,7 +9977,7 @@ menu.children[menu.children.length - 1].style.display = "none";
 
 // 7. Access the children of a form with the ID "myForm" and disable all input fields
 let form = document.getElementById("myForm");
-for (let i = 0; i < form.children.length; i++) {
+for (let i = 0; i &lt; form.children.length; i++) {
   if (form.children[i].tagName === "INPUT") {
     form.children[i].disabled = true;
   }
@@ -10771,7 +10769,7 @@ if (score >= 80) {
 }    
 
 // Loop through numbers from 1 to 5
-for (let i = 1; i <= 5; i++) {
+for (let i = 1; i &lt;= 5; i++) {
   console.log(i); // Output the current number
 }
  
@@ -10820,7 +10818,7 @@ function greetUser(name) {
   Print each number to the console.
 */
 let numbers = [1, 2, 3, 4, 5];
-for (let i = 0; i < numbers.length; i++) {
+for (let i = 0; i numbers.length; i++) {
   console.log(numbers[i]); // Print the current number
 }
            </code></pre>
@@ -10837,6 +10835,7 @@ for (let i = 0; i < numbers.length; i++) {
             <td>
               <h3>7 primitive data types & objects</h3>
               <p>JavaScript has a variety of data types that can be categorized into primitive types and objects. Primitive types are immutable and compared by value, while objects are mutable and compared by reference.</p>
+              <br>
               <ol>
                  <li>String: Represents text and is enclosed in quotes.</li>
                  <li>Number: Represents both integers and floating-point numbers.</li>
@@ -10911,7 +10910,7 @@ let book = {
       <div class="ascii-art-desktop">
         <pre class="ascii-art">
 ,---,---,---,---,---,---,---,---,---,---,---,---,---,-------,
-| ~ | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 | [ | ] | <-    |
+| ~ | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 | [ | ] |  -    |
 |---'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-----|
 | ->| | " | , | . | P | Y | F | G | C | R | L | / | = |  \  |
 |-----',--',--',--',--',--',--',--',--',--',--',--',--'-----|
@@ -10935,7 +10934,7 @@ let book = {
   || Hello || | == |
   || World || |----|
   |'-.....-'| |::::|
-  `"")---(""` |___.|
+  `"" --- ""` |___.|
  /:::::::::::\" _  "
 /:::=======:::\`\`\
 `"""""""""""""`  '-'
@@ -10944,6 +10943,7 @@ let book = {
         </pre>
     </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script>
       hljs.highlightAll();

@@ -27,3 +27,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+gsap.to(".bar", 1.5, {
+  delay: 0,
+  height: 0,
+  stagger: {
+    amount: 0.5,
+  },
+  ease: "power4.inOut",
+  onComplete: function () {
+    document.querySelector(".overlay").style.display = "none";
+  },
+});
