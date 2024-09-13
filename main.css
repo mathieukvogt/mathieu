@@ -92,6 +92,7 @@ header, main {
   text-decoration: none;
   font-family: monospace;
   color: #ffffff;
+  font-size: 14px;
 }
 
 #darkModeButton {
