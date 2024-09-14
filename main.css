@@ -3,10 +3,11 @@
   --color-one: #070707;
   --background-color-two: #323232;
   --color-two: #f7f7f7;
-  --color-three: #252525;
+  --color-three: #222222;
   --color-four: #f7f7f7;
   --color-five: #cbcbcb;
   --color-six: #1d1d1d;
+  --color-seven: #d5d5d5;
 }
 
 body.dark-mode {
@@ -18,6 +19,7 @@ body.dark-mode {
   --color-four: #070707;
   --color-five: #707070;
   --color-six: #e1e1e1;
+  --color-seven: #171717;
 }
 
 * {
@@ -129,29 +131,34 @@ header, main {
   touch-action: manipulation;
 }
 
+#upButton a {
+  color: var(--background-color-one);
+  text-decoration: none; /* This removes the underline */
+}
+
 h2 {
   font-size: 20px;
   padding-top: 80px;
   padding-bottom: 20px;
   text-align: left;
   overflow: hidden;
-  color: var(--background-color-one);
+  color: var(--color-seven);
 }
 
 h3,
 h4 {
-  color: var(--background-color-one);
+  color: var(--color-seven);
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
 a {
-  color: var(--background-color-one);
+  color: var(--color-seven);
   text-decoration: none;
 }
 
 hr {
-  border: 0.75px solid var(--background-color-one);
+  border: 0.75px solid var(--color-seven);
 }
 
 .hljs {
@@ -163,7 +170,7 @@ hr {
 p, ol {
   text-align: justify;
   font-size: 16px;
-  color: var(--background-color-one);
+  color: var(--color-seven);
 }
 
 ol, li {
@@ -184,14 +191,14 @@ td {
 }
 .tableletters {
   background-color: var(--color-three);
-  color: var(--color-four);
+  color: var(--color-seven);
 }
 .expandable-row-content {
   display: none;
 }
 .clickable {
   cursor: pointer;
-  color: var(--background-color-one);
+  color: var(--color-seven);
   t
 }
 .clickable:hover {
@@ -209,7 +216,7 @@ td {
   display: flex;
   justify-content: center;
   margin-top: 20px; /* Optional: Add space above the ASCII art */
-  color: var(--background-color-one); /* Use the defined color variable */
+  color: var(--color-seven); /* Use the defined color variable */
 }
 
 /* Hide mobile art by default */
