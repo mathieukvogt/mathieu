@@ -51,10 +51,10 @@ body.dark-mode {
 pre code.hljs {
   display: block;
   overflow-x: auto;
-  padding: 1em;
+  padding: 0;
 }
 code.hljs {
-  padding: 3px 5px;
+  padding: 0;
 }
 /*!
   Theme: GitHub Dark
