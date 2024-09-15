@@ -96,8 +96,22 @@ header, main {
 .grid-item {
   border-left: 1px dashed var(--color-six);
   border-right: 1px dashed var(--color-six);
-  min-height: 100dvh;
+  height: 100vh;
+  transform-origin: top center;
+  transform: scaleY(0);
+  animation: borderFlow 4s forwards;
+  animation-delay: 0.7s;
 }
+
+@keyframes borderFlow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
 
 .fixed-box {
   position: fixed;
@@ -183,7 +197,7 @@ h2 {
   margin: 0 10px;
   height: 35px;
   padding: 8px 15px;
-  background-color: transparent;
+  background-color: var(--color-one);
   color: var(--color-seven);
   border: solid 1px var(--color-seven);
   border-radius: 2px;
