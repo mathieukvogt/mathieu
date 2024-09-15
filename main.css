@@ -31,7 +31,7 @@ body.dark-mode {
 
 html {
   overflow-y: auto;
-  overflow-x: auto;
+  overflow-x: hidden;
   scroll-behavior: smooth;
   background-color: var(--color-one);
   font-family: monospace, 'Times New Roman', Times, serif;
@@ -41,6 +41,7 @@ body {
   background-color: var(--color-one);
   touch-action: manipulation;
   opacity: 0.95;
+  overscroll-behavior: contain;
 }
 
 header, main {
@@ -154,44 +155,43 @@ h2 {
 
 .scroller {
   display: flex;
-  flex-wrap: nowrap;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  overscroll-behavior: contain;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
 }
 
 .scroller-content {
   display: flex;
-  animation: scroll 30s linear infinite;
 }
 
 .scroller-content button {
   flex: 0 0 auto;
   margin: 0 10px;
-  padding: 7.5px 15px;
+  height: 35px;
+  padding: 8px 15px;
   background-color: transparent;
   color: var(--color-seven);
   border: solid 1px var(--color-seven);
-  border-radius: 5px;
+  border-radius: 2px;
   cursor: pointer;
+  font-family: monospace, 'Times New Roman', Times, serif;
+  font-size: 12.5px;
 }
+
+.scroller-content button:first-child {
+  margin-left: 0;
+}
+
 
 .scroller-content button a {
   color: inherit;
   text-decoration: none;
 }
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%); /* Adjust based on content width */
-  }
-}
-
-/* Optional: Pause on hover */
-.scroller-content:hover {
-  animation-play-state: paused;
-}
-
 
 h3,
 h4 {
