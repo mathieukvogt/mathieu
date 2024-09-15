@@ -97,10 +97,10 @@ header, main {
   border-left: 1px dashed var(--color-six);
   border-right: 1px dashed var(--color-six);
   height: 100vh;
-  transform-origin: top center;
+  transform-origin: bottom center;
   transform: scaleY(0);
-  animation: borderFlow 4s forwards;
-  animation-delay: 0.7s;
+  animation: borderFlow 3s forwards;
+  animation-delay: 0.5s;
 }
 
 @keyframes borderFlow {
