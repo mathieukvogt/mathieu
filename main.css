@@ -222,7 +222,7 @@ h2 {
 }
 
 .tooltip::after {
-  content: "Hey there!\A I write code that confuses both humans and computers.";
+  content: "Hey there!\A I write code that occasionally agrees to compile.";
   position: absolute;
   top: 180%;
   left: 25%;
@@ -232,8 +232,8 @@ h2 {
   padding: 10px;
   border-radius: 2px;
   white-space: pre-wrap;
-  width: 200px;
-  max-width: 225px;
+  width: 150px;
+  max-width: 250px;
   text-align: left;
   opacity: 70%;
   visibility: hidden;
