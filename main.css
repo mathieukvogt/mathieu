@@ -6,8 +6,9 @@
   --color-three: #222222;
   --color-four: #f7f7f7;
   --color-five: #cbcbcb;
-  --color-six: #1d1d1d;
+  --color-six: #232323;
   --color-seven: #d5d5d5;
+  --color-eight: #f2f2f2;
 }
 
 body.dark-mode {
@@ -18,8 +19,9 @@ body.dark-mode {
   --color-three: #d6d6d6;
   --color-four: #070707;
   --color-five: #707070;
-  --color-six: #e1e1e1;
+  --color-six: #dddddd;
   --color-seven: #171717;
+  --color-eight: #f2f2f2;
 }
 
 * {
@@ -99,7 +101,7 @@ header, main {
 
 .fixed-box {
   position: fixed;
-  border: 1px solid #ffff;
+  border: 1px solid var(--color-eight);
   top: 20px;
   left: 25vw;
   right: 25vw;
@@ -116,25 +118,32 @@ header, main {
 .fixed-box button {
   height: 25px;
   width: 25px;
-  background-color: var(--color-one);
-  border: 1px solid var(--background-color-one);
+  background-color: transparent;
+  border: 1px solid var(--color-eight);
   touch-action: manipulation;
 }
 
 .fixed-box a.center-text {
   text-decoration: none;
-  color: #ffffff;
+  color: var(--color-eight);
   font-size: 14px;
 }
 
 #darkModeButton {
-  color: var(--background-color-one);
+  color: var(--color-eight);
+  background-color: transparent;
   touch-action: manipulation;
   font-size: 13px;
+  border: solid 1px var(--color-eight);
+}
+
+#upButton {
+  background-color: transparent;
+  border: solid 1px var(--color-eight);
 }
 
 #upButton a {
-  color: var(--background-color-one);
+  color: var(--color-eight);
   text-decoration: none;
   font-size: 13px;
 }
@@ -193,11 +202,63 @@ h2 {
   text-decoration: none;
 }
 
-h3,
-h4 {
+.tooltip {
+  position: relative;
+  cursor: pointer;
+}
+
+.tooltip::after {
+  content: "Hey there!\A I write code that confuses both humans and computers.";
+  position: absolute;
+  top: 180%;
+  left: 25%;
+  transform: translateX(-75%);
+  background-color: var(--background-color-one);
+  color: var(--color-six);
+  padding: 10px;
+  border-radius: 2px;
+  white-space: pre-wrap;
+  width: 225px;
+  max-width: 225px;
+  text-align: left;
+  opacity: 70%;
+  visibility: hidden;
+  transition: opacity 0.3s;
+  z-index: 1;
+  line-height: 1.5;
+}
+
+.tooltip::before {
+  content: "";
+  position: absolute;
+  top: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--background-color-one) transparent transparent transparent;
+  opacity: 70%;
+  visibility: hidden;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover::after,
+.tooltip:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+h3 {
   color: var(--color-seven);
   padding-top: 20px;
   padding-bottom: 20px;
+  font-size: 14px;
+}
+
+h4 {
+  color: var(--color-seven);
+  padding-top: 20px;
+  padding-bottom: 0;
   font-size: 14px;
 }
 
@@ -315,7 +376,6 @@ td {
   .fixed-box a.center-text {
     text-decoration: none;
   }
-
 
   h2 {
     padding-top: 80px;
