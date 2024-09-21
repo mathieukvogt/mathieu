@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
       gsap.to(menuBars, {
         duration: 0.5,
         y: "0%",
-        stagger: 0, // Delay each bar by 0.1s
+        stagger: 0.05, // Delay each bar by 0.1s
         ease: "power4.out",
       });
     } else {
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
         duration: 0.5,
         y: "-100%",
         stagger: {
-          each: 0,
+          each: 0.05,
           from: "end", // Reverse the stagger
         },
         ease: "power4.in",

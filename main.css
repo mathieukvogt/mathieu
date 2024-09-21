@@ -89,7 +89,7 @@ header, main {
 /* Menu Bar Styles */
 .menu-bar {
   flex: 1; /* Each bar takes equal width */
-  background-color: var(--background-color-one); /* Adjust the color as needed */
+  background-color: var(--color-one); /* Adjust the color as needed */
   height: 100%;
   transform: translateY(-100%); /* Start off-screen above the viewport */
 }
