@@ -72,6 +72,29 @@ header, main {
   padding: 0;
 }
 
+/* Menu Overlay Styles */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10; /* Lower than the burger button */
+  display: flex;
+  flex-direction: row; /* Arrange menu bars horizontally */
+  overflow: hidden;
+  pointer-events: none; /* Allow clicks through the overlay */
+}
+
+/* Menu Bar Styles */
+.menu-bar {
+  flex: 1; /* Each bar takes equal width */
+  background-color: var(--background-color-one); /* Adjust the color as needed */
+  height: 100%;
+  transform: translateY(-100%); /* Start off-screen above the viewport */
+}
+
+
 .container {
   margin: 0 auto;
   width: 83%;
@@ -180,8 +203,8 @@ header, main {
   background-color: var(--color-eight); /* You can choose any color */
 }
 
-/* Change the flex direction on button press */
-button:active .square-container {
+/* When the button has the rotate class, change the flex direction */
+.burger.rotate .square-container {
   flex-direction: column;
 }
 

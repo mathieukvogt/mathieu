@@ -50,4 +50,41 @@ document.addEventListener("DOMContentLoaded", function () {
       document.querySelector(".overlay").style.display = "none";
     },
   });
+  // Select the burger button and menu bars
+  const burgerButton = document.querySelector(".burger");
+  const menuBars = document.querySelectorAll(".menu-bar");
+
+  let menuOpen = false; // Track the state of the menu
+
+  // Toggle menu on burger button click
+  burgerButton.addEventListener("click", () => {
+    if (!menuOpen) {
+      menuOpen = true;
+      // Animate menu bars dropping down
+      gsap.to(menuBars, {
+        duration: 0.5,
+        y: "0%",
+        stagger: 0, // Delay each bar by 0.1s
+        ease: "power4.out",
+      });
+    } else {
+      menuOpen = false;
+      // Animate menu bars moving up
+      gsap.to(menuBars, {
+        duration: 0.5,
+        y: "-100%",
+        stagger: {
+          each: 0,
+          from: "end", // Reverse the stagger
+        },
+        ease: "power4.in",
+      });
+    }
+  });
+});
+
+const burgerButton = document.querySelector(".burger");
+
+burgerButton.addEventListener("click", () => {
+  burgerButton.classList.toggle("rotate");
 });
