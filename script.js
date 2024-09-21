@@ -97,3 +97,10 @@ const burgerButton = document.querySelector(".burger");
 burgerButton.addEventListener("click", () => {
   burgerButton.classList.toggle("rotate");
 });
+
+const menuButton = document.querySelector(".burger");
+const body = document.querySelector("body");
+
+menuButton.addEventListener("click", () => {
+  body.classList.toggle("no-scroll");
+});

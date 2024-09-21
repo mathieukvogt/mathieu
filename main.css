@@ -46,6 +46,11 @@ body {
   overscroll-behavior: contain;
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
+
 header, main {
   padding-left: 25vw;
   padding-right: 25vw;
@@ -89,9 +94,12 @@ header, main {
 /* Menu Bar Styles */
 .menu-bar {
   flex: 1; /* Each bar takes equal width */
-  background-color: var(--color-one); /* Adjust the color as needed */
+  background-color: linear-gradient(250deg, #f2f2f2, #070707); /* Adjust the color as needed */
   height: 100%;
   transform: translateY(-100%); /* Start off-screen above the viewport */
+  backdrop-filter: blur(70px);
+  -webkit-backdrop-filter: blur(70px);
+  transition: backdrop-filter 0.2s ease, background 0.2s ease;
 }
 
 
