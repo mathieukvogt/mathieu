@@ -12,30 +12,39 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const darkModeButton = document.getElementById("darkModeButton");
+  const leftHalf = darkModeButton.querySelector(".half.left");
+  const rightHalf = darkModeButton.querySelector(".half.right");
 
-  // Check localStorage for the preferred mode
-  const currentMode = localStorage.getItem("mode");
-
-  // If a mode is found, apply it
-  if (currentMode === "dark") {
-    document.documentElement.classList.add("dark-mode");
-    document.body.classList.add("dark-mode");
-    darkModeButton.textContent = "LM"; // Light Mode
-  } else {
-    darkModeButton.textContent = "DM"; // Dark Mode
+  // Function to apply the mode by setting background colors
+  function applyMode(mode) {
+    if (mode === "dark") {
+      document.documentElement.classList.add("dark-mode");
+      document.body.classList.add("dark-mode");
+      leftHalf.style.backgroundColor = "var(--color-eight)"; // Dark background
+      rightHalf.style.backgroundColor = "transparent"; // Light background
+    } else {
+      document.documentElement.classList.remove("dark-mode");
+      document.body.classList.remove("dark-mode");
+      leftHalf.style.backgroundColor = "transparent"; // Light background
+      rightHalf.style.backgroundColor = "var(--color-eight)"; // Dark background
+    }
   }
 
-  // Toggle dark mode and store the preference
-  darkModeButton.addEventListener("click", function () {
-    document.documentElement.classList.toggle("dark-mode");
-    document.body.classList.toggle("dark-mode");
+  // Initialize mode from localStorage or default to light
+  const currentMode = localStorage.getItem("mode") || "light";
+  applyMode(currentMode);
 
-    if (document.body.classList.contains("dark-mode")) {
-      darkModeButton.textContent = "LM"; // Light Mode
-      localStorage.setItem("mode", "dark"); // Save the preference to localStorage
+  // Toggle mode and update background colors on button click
+  darkModeButton.addEventListener("click", function () {
+    const isDarkMode = document.body.classList.toggle("dark-mode");
+    document.documentElement.classList.toggle("dark-mode");
+
+    if (isDarkMode) {
+      applyMode("dark");
+      localStorage.setItem("mode", "dark");
     } else {
-      darkModeButton.textContent = "DM"; // Dark Mode
-      localStorage.setItem("mode", "light"); // Save the preference to localStorage
+      applyMode("light");
+      localStorage.setItem("mode", "light");
     }
   });
 

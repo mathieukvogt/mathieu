@@ -170,8 +170,46 @@ header, main {
   color: var(--color-eight);
   background-color: transparent;
   touch-action: manipulation;
-  font-size: 13px;
   border: solid 1px var(--color-eight);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.half {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  border: 1px solid #f2f2f2;
+  transition: background-color 0.2s ease;
+}
+
+.left {
+  left: 0;
+  background-color: transparent;
+  border-right: none;
+  border-left-width: 1px;
+  border-left-color: #f2f2f2;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+}
+
+.right {
+  right: 0;
+  background-color: #f2f2f2;
+  border-left: none;
+  border-right-width: 1px;
+  border-right-color: #f2f2f2;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
 }
 
 .center-text b {
