@@ -151,17 +151,6 @@ header, main {
   border: solid 1px var(--color-eight);
 }
 
-#upButton {
-  background-color: transparent;
-  border: solid 1px var(--color-eight);
-}
-
-#upButton a {
-  color: var(--color-eight);
-  text-decoration: none;
-  font-size: 13px;
-}
-
 .center-text b {
   display: inline-block;
   transition: letter-spacing 0.3s ease;
@@ -170,6 +159,31 @@ header, main {
 .center-text b:hover{
   letter-spacing: 3px;
 }
+
+.menu-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.square-container {
+  display: flex;
+  gap: 5px; /* Space between the squares */
+  transition: flex-direction 0.3s ease; /* Smooth transition */
+}
+
+.square-one,
+.square-two {
+  width: 4px;
+  height: 4px;
+  background-color: var(--color-eight); /* You can choose any color */
+}
+
+/* Change the flex direction on button press */
+button:active .square-container {
+  flex-direction: column;
+}
+
 
 h2 {
   font-size: 16px;
