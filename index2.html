@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main2.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <tr>
+      <td id="variables" class="tableletters">Variables</td>
+    </tr>
+  </body>
+  <script src="script2.js"></script>
+  <!-- Include GSAP and ScrollTrigger via CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  <script>
+    (function () {
+      // Function to scramble a string
+      function scrambleText(text) {
+        var result = "";
+        var characters =
+          "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        for (var i = 0; i < text.length; i++) {
+          if (text[i] === " ") {
+            result += " ";
+          } else {
+            result += characters.charAt(
+              Math.floor(Math.random() * characters.length)
+            );
+          }
+        }
+        return result;
+      }
+
+      var elements = document.querySelectorAll(".tableletters");
+
+      elements.forEach(function (elem) {
+        var originalText = elem.textContent;
+
+        // Set up ScrollTrigger
+        ScrollTrigger.create({
+          trigger: elem,
+          start: "top 80%", // Adjust as needed
+          onEnter: function () {
+            var scrambleDuration = 1000; // duration of the scrambling in ms
+            var intervalTime = 50; // how often to update the scrambled text
+
+            var scrambleInterval = setInterval(function () {
+              elem.textContent = scrambleText(originalText);
+            }, intervalTime);
+
+            setTimeout(function () {
+              clearInterval(scrambleInterval);
+              elem.textContent = originalText;
+            }, scrambleDuration);
+          },
+          once: true,
+        });
+      });
+    })();
+  </script>
+</html>
