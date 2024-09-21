@@ -50,11 +50,4 @@ document.addEventListener("DOMContentLoaded", function () {
       document.querySelector(".overlay").style.display = "none";
     },
   });
-  // Animate the grid-items
-  gsap.to(".grid-item", {
-    transform: "scaleY(1)",
-    duration: 1,
-    stagger: 0.1,
-    ease: "power4.inOut",
-  });
 });

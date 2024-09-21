@@ -160,7 +160,7 @@ header, main {
   letter-spacing: 3px;
 }
 
-.menu-button {
+.burger {
   display: flex;
   justify-content: center;
   align-items: center;
