@@ -10647,13 +10647,142 @@ document.addEventListener("keydown", function(event) {
           <tr id="detail-tag-htmlforms" class="expandable-row-content">
             <td>
               <h3>html forms</h3>
-              <p>DOM (Document Object Model) events in JavaScript refer to the actions or occurrences that happen in the web browser, which the browser can respond to. These events are usually triggered by user interactions such as clicking a button, typing in a text field, or moving the mouse. JavaScript can listen for these events and execute specific functions, called event handlers, in response. Common DOM events include "click," "mouseover," "keydown," and "submit." By adding event listeners to HTML elements, developers can make their web pages more interactive, allowing the page to respond dynamically to user input or system-generated actions, like page loading. JavaScript's event model provides a powerful way to control the flow of interaction between the user and the web application.</p>
+              <p>HTML Forms are essential components of web pages that allow users to input and submit data to a server for processing. They are created using the `&lt;form&gt;` tag, which can contain various types of input elements such as text fields, checkboxes, radio buttons, dropdown menus, and buttons. Each input element is typically associated with a `&lt;label&gt;` to describe its purpose, enhancing accessibility and usability. The `&lt;form&gt;` tag includes attributes like `action`, which specifies the URL where the form data should be sent, and `method`, which determines the HTTP method (such as GET or POST) used to transmit the data. When a user fills out the form and submits it, the browser sends the collected information to the specified server endpoint, where it can be processed, stored, or used to trigger other actions. HTML Forms are fundamental for tasks like user registration, search queries, feedback collection, and online transactions, enabling interactive and dynamic user experiences on websites.</p>
               <h4><u>Specifications</u></h4>
               <pre>
-           <code class="language-js">
-// Example 1: Redeclaration in the same block
-let x = 10;
-// let x = 20; // SyntaxError: Identifier 'x' has already been declared
+           <code class="language-html">
+&lt;!-- 1. Login Form --&gt;
+&lt;form action="/login" method="POST"&gt;
+  &lt;label for="username"&gt;Username:&lt;/label&gt;
+  &lt;input type="text" id="username" name="username" required&gt;
+  
+  &lt;label for="password"&gt;Password:&lt;/label&gt;
+  &lt;input type="password" id="password" name="password" required&gt;
+  
+  &lt;button type="submit"&gt;Login&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 2. Registration Form --&gt;
+&lt;form action="/register" method="POST"&gt;
+  &lt;label for="fullname"&gt;Full Name:&lt;/label&gt;
+  &lt;input type="text" id="fullname" name="fullname" required&gt;
+  
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" required&gt;
+  
+  &lt;label for="password"&gt;Password:&lt;/label&gt;
+  &lt;input type="password" id="password" name="password" required&gt;
+  
+  &lt;button type="submit"&gt;Register&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 3. Contact Form --&gt;
+&lt;form action="/contact" method="POST"&gt;
+  &lt;label for="name"&gt;Name:&lt;/label&gt;
+  &lt;input type="text" id="name" name="name" required&gt;
+  
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" required&gt;
+  
+  &lt;label for="message"&gt;Message:&lt;/label&gt;
+  &lt;textarea id="message" name="message" rows="5" required&gt;&lt;/textarea&gt;
+  
+  &lt;button type="submit"&gt;Send&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 4. Search Form --&gt;
+&lt;form action="/search" method="GET"&gt;
+  &lt;label for="query"&gt;Search:&lt;/label&gt;
+  &lt;input type="text" id="query" name="q" placeholder="Enter search term"&gt;
+  
+  &lt;button type="submit"&gt;Search&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 5. Feedback Form --&gt;
+&lt;form action="/feedback" method="POST"&gt;
+  &lt;label for="email"&gt;Your Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email"&gt;
+  
+  &lt;label for="rating"&gt;Rating:&lt;/label&gt;
+  &lt;select id="rating" name="rating"&gt;
+    &lt;option value="5"&gt;Excellent&lt;/option&gt;
+    &lt;option value="4"&gt;Good&lt;/option&gt;
+    &lt;option value="3"&gt;Average&lt;/option&gt;
+    &lt;option value="2"&gt;Poor&lt;/option&gt;
+    &lt;option value="1"&gt;Very Poor&lt;/option&gt;
+  &lt;/select&gt;
+  
+  &lt;label for="comments"&gt;Comments:&lt;/label&gt;
+  &lt;textarea id="comments" name="comments" rows="4"&gt;&lt;/textarea&gt;
+  
+  &lt;button type="submit"&gt;Submit Feedback&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 6. Subscription Form --&gt;
+&lt;form action="/subscribe" method="POST"&gt;
+  &lt;label for="email"&gt;Subscribe to our newsletter:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" placeholder="Your email address" required&gt;
+  
+  &lt;button type="submit"&gt;Subscribe&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 7. Order Form --&gt;
+&lt;form action="/order" method="POST"&gt;
+  &lt;label for="product"&gt;Product:&lt;/label&gt;
+  &lt;select id="product" name="product"&gt;
+    &lt;option value="book"&gt;Book&lt;/option&gt;
+    &lt;option value="pen"&gt;Pen&lt;/option&gt;
+    &lt;option value="notebook"&gt;Notebook&lt;/option&gt;
+  &lt;/select&gt;
+  
+  &lt;label for="quantity"&gt;Quantity:&lt;/label&gt;
+  &lt;input type="number" id="quantity" name="quantity" min="1" value="1" required&gt;
+  
+  &lt;label for="address"&gt;Shipping Address:&lt;/label&gt;
+  &lt;textarea id="address" name="address" rows="3" required&gt;&lt;/textarea&gt;
+  
+  &lt;button type="submit"&gt;Place Order&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 8. File Upload Form --&gt;
+&lt;form action="/upload" method="POST" enctype="multipart/form-data"&gt;
+  &lt;label for="file"&gt;Choose a file to upload:&lt;/label&gt;
+  &lt;input type="file" id="file" name="file" required&gt;
+  
+  &lt;button type="submit"&gt;Upload&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 9. Survey Form --&gt;
+&lt;form action="/survey" method="POST"&gt;
+  &lt;p&gt;How did you hear about us?&lt;/p&gt;
+  &lt;label&gt;&lt;input type="radio" name="source" value="social_media" required&gt; Social Media&lt;/label&gt;
+  &lt;label&gt;&lt;input type="radio" name="source" value="friend"&gt; Friend&lt;/label&gt;
+  &lt;label&gt;&lt;input type="radio" name="source" value="advertisement"&gt; Advertisement&lt;/label&gt;
+  
+  &lt;p&gt;Which features do you use? (Select all that apply)&lt;/p&gt;
+  &lt;label&gt;&lt;input type="checkbox" name="features" value="feature1"&gt; Feature 1&lt;/label&gt;
+  &lt;label&gt;&lt;input type="checkbox" name="features" value="feature2"&gt; Feature 2&lt;/label&gt;
+  &lt;label&gt;&lt;input type="checkbox" name="features" value="feature3"&gt; Feature 3&lt;/label&gt;
+  
+  &lt;button type="submit"&gt;Submit Survey&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 10. Appointment Booking Form --&gt;
+&lt;form action="/book-appointment" method="POST"&gt;
+  &lt;label for="name"&gt;Name:&lt;/label&gt;
+  &lt;input type="text" id="name" name="name" required&gt;
+  
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" required&gt;
+  
+  &lt;label for="date"&gt;Preferred Date:&lt;/label&gt;
+  &lt;input type="date" id="date" name="date" required&gt;
+  
+  &lt;label for="time"&gt;Preferred Time:&lt;/label&gt;
+  &lt;input type="time" id="time" name="time" required&gt;
+  
+  &lt;button type="submit"&gt;Book Appointment&lt;/button&gt;
+&lt;/form&gt;
             </code></pre>
               <br />
             </td>
