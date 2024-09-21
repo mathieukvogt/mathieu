@@ -10788,35 +10788,173 @@ document.addEventListener("keydown", function(event) {
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-htmlforms', event)">html forms</td>
+            <td class="clickable" onclick="toggleDetail('detail-tag-formval', event)">form validation</td>
           </tr>
-          <tr id="detail-tag-htmlforms" class="expandable-row-content">
+          <tr id="detail-tag-formval" class="expandable-row-content">
             <td>
-              <h3>html forms</h3>
-              <p>DOM (Document Object Model) events in JavaScript refer to the actions or occurrences that happen in the web browser, which the browser can respond to. These events are usually triggered by user interactions such as clicking a button, typing in a text field, or moving the mouse. JavaScript can listen for these events and execute specific functions, called event handlers, in response. Common DOM events include "click," "mouseover," "keydown," and "submit." By adding event listeners to HTML elements, developers can make their web pages more interactive, allowing the page to respond dynamically to user input or system-generated actions, like page loading. JavaScript's event model provides a powerful way to control the flow of interaction between the user and the web application.</p>
+              <h3>form validation</h3>
+              <p>HTML Form validation is a crucial process that ensures the data submitted by users meets the required criteria before it is sent to the server for processing. This validation can be performed both on the client side and the server side to enhance the security and reliability of web applications. On the client side, HTML provides built-in validation attributes such as `required`, which ensures that a field is not left empty, `type`, which specifies the kind of input expected (e.g., `email`, `number`), and `pattern`, which allows developers to define a regular expression that the input must match. For example, using `&lt;input type="email" required&gt;` ensures that the user enters a valid email address and does not leave the field blank. Additionally, attributes like `min`, `max`, and `maxlength` can restrict the range and length of input values. Beyond these HTML attributes, developers can implement custom validation using JavaScript to handle more complex validation scenarios, provide real-time feedback, and enhance the user experience. Proper form validation not only helps in maintaining data integrity but also prevents malicious inputs, thereby safeguarding both the users and the application from potential security threats.</p>
               <h4><u>Specifications</u></h4>
               <pre>
-           <code class="language-js">
-// Example 1: Redeclaration in the same block
-let x = 10;
-// let x = 20; // SyntaxError: Identifier 'x' has already been declared
+           <code class="language-html">
+&lt;!-- 1. Required Field Validation --&gt;
+&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="username"&gt;Username:&lt;/label&gt;
+  &lt;input type="text" id="username" name="username" required&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 2. Email Format Validation --&gt;
+&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" required&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 3. Number Range Validation --&gt;
+&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="age"&gt;Age (18-99):&lt;/label&gt;
+  &lt;input type="number" id="age" name="age" min="18" max="99" required&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 4. Pattern (Regex) Validation --&gt;
+&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="zipcode"&gt;Zip Code:&lt;/label&gt;
+  &lt;input type="text" id="zipcode" name="zipcode" pattern="^\d{5}(-\d{4})?$" required&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 5. Minimum and Maximum Length Validation --&gt;
+&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="password"&gt;Password (6-12 characters):&lt;/label&gt;
+  &lt;input type="password" id="password" name="password" minlength="6" maxlength="12" required&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 6. Select Dropdown with Required Validation --&gt;
+&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="country"&gt;Country:&lt;/label&gt;
+  &lt;select id="country" name="country" required&gt;
+    &lt;option value="" disabled selected&gt;Select your country&lt;/option&gt;
+    &lt;option value="us"&gt;United States&lt;/option&gt;
+    &lt;option value="ca"&gt;Canada&lt;/option&gt;
+    &lt;option value="uk"&gt;United Kingdom&lt;/option&gt;
+  &lt;/select&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 7. Radio Buttons with Required Validation --&gt;
+&lt;form action="/submit" method="POST"&gt;
+  &lt;p&gt;Gender:&lt;/p&gt;
+  &lt;label&gt;&lt;input type="radio" name="gender" value="male" required&gt; Male&lt;/label&gt;
+  &lt;label&gt;&lt;input type="radio" name="gender" value="female"&gt; Female&lt;/label&gt;
+  &lt;label&gt;&lt;input type="radio" name="gender" value="other"&gt; Other&lt;/label&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 8. Checkbox with Required Validation --&gt;
+&lt;form action="/submit" method="POST"&gt;
+  &lt;label&gt;&lt;input type="checkbox" name="terms" required&gt; I agree to the Terms and Conditions&lt;/label&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 9. Date Input with Min and Max Validation --&gt;
+&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="birthday"&gt;Birthday:&lt;/label&gt;
+  &lt;input type="date" id="birthday" name="birthday" min="1900-01-01" max="2023-12-31" required&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 10. URL Validation --&gt;
+&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="website"&gt;Website:&lt;/label&gt;
+  &lt;input type="url" id="website" name="website" placeholder="https://example.com" required&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
             </code></pre>
               <br />
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-htmlforms', event)">html forms</td>
+            <td class="clickable" onclick="toggleDetail('detail-tag-regex', event)">regex</td>
           </tr>
-          <tr id="detail-tag-htmlforms" class="expandable-row-content">
+          <tr id="detail-tag-regex" class="expandable-row-content">
             <td>
-              <h3>html forms</h3>
-              <p>DOM (Document Object Model) events in JavaScript refer to the actions or occurrences that happen in the web browser, which the browser can respond to. These events are usually triggered by user interactions such as clicking a button, typing in a text field, or moving the mouse. JavaScript can listen for these events and execute specific functions, called event handlers, in response. Common DOM events include "click," "mouseover," "keydown," and "submit." By adding event listeners to HTML elements, developers can make their web pages more interactive, allowing the page to respond dynamically to user input or system-generated actions, like page loading. JavaScript's event model provides a powerful way to control the flow of interaction between the user and the web application.</p>
+              <h3>regex</h3>
+              <p>Regular expressions, commonly known as regex, play a significant role in enhancing HTML forms by providing advanced validation capabilities. Within HTML forms, regex can be utilized through the `pattern` attribute on input elements to define specific rules that user input must match before the form can be successfully submitted. For instance, a regex pattern can ensure that an email address adheres to a standard format or that a password includes a mix of letters, numbers, and special characters. By leveraging regex in this manner, developers can enforce strict input criteria directly on the client side, reducing the likelihood of invalid or malicious data being submitted. This not only improves the overall user experience by providing immediate feedback but also enhances the security and integrity of the data collected through the forms. Additionally, while HTML's built-in validation attributes handle many common scenarios, regex offers the flexibility to implement more complex and customized validation rules, making it an invaluable tool for creating robust and reliable web forms.</p>
               <h4><u>Specifications</u></h4>
               <pre>
-           <code class="language-js">
-// Example 1: Redeclaration in the same block
-let x = 10;
-// let x = 20; // SyntaxError: Identifier 'x' has already been declared
+           <code class="language-html">
+&lt;!-- 1. Email Validation --&gt;
+&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" required&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 2. Password Validation (Minimum 8 characters, at least one letter and one number) --&gt;
+&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="password"&gt;Password:&lt;/label&gt;
+  &lt;input type="password" id="password" name="password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" required&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 3. Username Validation (Alphanumeric, 5-15 characters) --&gt;
+&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="username"&gt;Username:&lt;/label&gt;
+  &lt;input type="text" id="username" name="username" pattern="^[a-zA-Z0-9]{5,15}$" required&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 4. Phone Number Validation (Format: 123-456-7890) --&gt;
+&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="phone"&gt;Phone Number:&lt;/label&gt;
+  &lt;input type="tel" id="phone" name="phone" pattern="^\d{3}-\d{3}-\d{4}$" placeholder="123-456-7890" required&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 5. ZIP Code Validation (5 digits or 5+4 format) --&gt;
+&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="zipcode"&gt;ZIP Code:&lt;/label&gt;
+  &lt;input type="text" id="zipcode" name="zipcode" pattern="^\d{5}(-\d{4})?$" placeholder="12345 or 12345-6789" required&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 6. URL Validation --&gt;
+&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="website"&gt;Website:&lt;/label&gt;
+  &lt;input type="url" id="website" name="website" pattern="^(https?:\/\/)?([\w\-])+\.{1}([a-zA-Z]{2,63})([\/\w\-]*)*\/?$" placeholder="https://example.com" required&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 7. Credit Card Number Validation (Visa, MasterCard, etc.) --&gt;
+&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="ccnum"&gt;Credit Card Number:&lt;/label&gt;
+  &lt;input type="text" id="ccnum" name="ccnum" pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14})$" placeholder="Visa or MasterCard" required&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 8. Date Validation (YYYY-MM-DD) --&gt;
+&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="date"&gt;Date:&lt;/label&gt;
+  &lt;input type="date" id="date" name="date" pattern="^\d{4}-\d{2}-\d{2}$" required&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 9. Time Validation (HH:MM, 24-hour format) --&gt;
+&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="time"&gt;Time:&lt;/label&gt;
+  &lt;input type="time" id="time" name="time" pattern="^(?:[01]\d|2[0-3]):[0-5]\d$" required&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- 10. Custom Alphanumeric Validation (Letters, numbers, underscores, 3-10 characters) --&gt;
+&lt;form action="/submit" method="POST"&gt;
+  &lt;label for="custom"&gt;Custom Field:&lt;/label&gt;
+  &lt;input type="text" id="custom" name="custom" pattern="^[a-zA-Z0-9_]{3,10}$" required&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
             </code></pre>
               <br />
             </td>
