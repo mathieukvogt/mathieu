@@ -164,6 +164,7 @@ header, main {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: transparent;
 }
 
 .square-container {
@@ -405,9 +406,6 @@ td {
   .fixed-box button {
     height: 25px;
     width: 25px;
-    background-color: var(--color-one);
-    border: 1px solid var(--background-color-one);
-  
   }
   
   .fixed-box a.center-text {
