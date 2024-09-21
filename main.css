@@ -9,6 +9,7 @@
   --color-six: #232323;
   --color-seven: #d5d5d5;
   --color-eight: #f2f2f2;
+  --color-nine: #070707;
 }
 
 body.dark-mode {
@@ -22,6 +23,7 @@ body.dark-mode {
   --color-six: #dddddd;
   --color-seven: #171717;
   --color-eight: #f2f2f2;
+  --color-nine: #eaeaea;
 }
 
 * {
@@ -93,7 +95,7 @@ header, main {
 /* Menu Bar Styles */
 .menu-bar {
   flex: 1; /* Each bar takes equal width */
-  background-color: var(--color-eight); /* Adjust the color as needed */
+  background-color: var(--color-nine); /* Adjust the color as needed */
   height: 100%;
   transform: translateY(-100%); /* Start off-screen above the viewport */
 }
