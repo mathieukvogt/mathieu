@@ -162,6 +162,15 @@ header, main {
   font-size: 13px;
 }
 
+.center-text b {
+  display: inline-block;
+  transition: letter-spacing 0.3s ease;
+}
+
+.center-text b:hover{
+  letter-spacing: 3px;
+}
+
 h2 {
   font-size: 16px;
   padding-top: 80px;
