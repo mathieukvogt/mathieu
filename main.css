@@ -311,6 +311,15 @@ h2 {
   text-decoration: none;
 }
 
+.scroller {
+  scrollbar-width: none; /* For Firefox */
+}
+
+.scroller::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+
 .tooltip {
   position: relative;
   cursor: pointer;

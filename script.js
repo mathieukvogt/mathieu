@@ -11,6 +11,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // Add horizontal scrolling with mouse wheel for desktop devices
+  if (window.matchMedia("(pointer: fine)").matches) {
+    const scroller = document.querySelector(".scroller");
+
+    scroller.addEventListener("wheel", function (e) {
+      // Prevent the default vertical scroll behavior
+      e.preventDefault();
+
+      // Scroll horizontally by the amount of vertical scrolling
+      scroller.scrollLeft += e.deltaY;
+    });
+  }
+
   const darkModeButton = document.getElementById("darkModeButton");
   const leftHalf = darkModeButton.querySelector(".half.left");
   const rightHalf = darkModeButton.querySelector(".half.right");
@@ -59,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.querySelector(".overlay").style.display = "none";
     },
   });
+
   // Select the burger button and menu bars
   const burgerButton = document.querySelector(".burger");
   const menuBars = document.querySelectorAll(".menu-bar");
@@ -74,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
       gsap.to(menuBars, {
         duration: 0.5,
         y: "0%",
-        stagger: 0.05, // Delay each bar by 0.1s
+        stagger: 0.05, // Delay each bar by 0.05s
         ease: "power4.out",
       });
       gsap.to(menuOverlay, {
@@ -99,10 +113,9 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
-});
 
-const burgerButton = document.querySelector(".burger");
-
-burgerButton.addEventListener("click", () => {
-  burgerButton.classList.toggle("rotate");
+  // Rotate the burger button on click
+  burgerButton.addEventListener("click", () => {
+    burgerButton.classList.toggle("rotate");
+  });
 });
