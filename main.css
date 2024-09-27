@@ -127,8 +127,8 @@ header, main {
 }
 
 .grid-item {
-  border-left: 1px dashed var(--color-six);
-  border-right: 1px dashed var(--color-six);
+  border-left: 0.5px dashed var(--color-six);
+  border-right: 0.5px dashed var(--color-six);
   height: 100vh;
   transform-origin: bottom center;
   transform: scaleY(0);
