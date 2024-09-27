@@ -377,8 +377,76 @@ a {
   font-size: 12.5px;
 }
 
-hr {
-  border: 0.75px solid var(--color-seven);
+.custom-hr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.symbol {
+  position: relative;
+  height: 10px; /* Adjust height as needed */
+}
+
+/* Set specific widths for symbols */
+.symbol.plus {
+  width: 10px; /* Full plus symbol */
+}
+
+.symbol.half-plus {
+  width: 5px; /* Half-plus symbols */
+}
+
+/* Vertical lines */
+.symbol::before {
+  content: '';
+  position: absolute;
+  width: 1px; /* Thickness of the vertical line */
+  height: 100%;
+  background-color: var(--background-color-one); /* Adjust color as needed */
+}
+
+/* Position vertical lines */
+.symbol.plus::before {
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.symbol.half-plus.l::before {
+  left: 0;
+  top: 0;
+}
+
+.symbol.half-plus.r::before {
+  right: 0;
+  top: 0;
+}
+
+/* Horizontal lines */
+.symbol::after {
+  content: '';
+  position: absolute;
+  height: 1px; /* Thickness of the horizontal line */
+  background-color: var(--background-color-one); /* Adjust color as needed */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Position horizontal lines */
+.symbol.plus::after {
+  width: 100%;
+  left: 0;
+}
+
+.symbol.half-plus.l::after {
+  width: calc(100% - 1px); /* Subtract vertical line width */
+  left: 1px; /* Start after vertical line */
+}
+
+.symbol.half-plus.r::after {
+  width: calc(100% - 1px); /* Subtract vertical line width */
+  left: 0; /* Start from left edge */
 }
 
 .hljs {
