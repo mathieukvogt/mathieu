@@ -394,16 +394,16 @@ a {
 
 .symbol {
   position: relative;
-  height: 10px; /* Adjust height as needed */
+  height: 8px; /* Adjust height as needed */
 }
 
 /* Set specific widths for symbols */
 .symbol.plus {
-  width: 10px; /* Full plus symbol */
+  width: 8px; /* Full plus symbol */
 }
 
 .symbol.half-plus {
-  width: 5px; /* Half-plus symbols */
+  width: 4px; /* Half-plus symbols */
 }
 
 /* Vertical lines */
@@ -514,13 +514,14 @@ td {
 .ascii-art {
   display: flex;
   justify-content: center;
-  margin-top: 20px; /* Optional: Add space above the ASCII art */
+  margin-top: 30px;
+  margin-bottom: 30px;
   color: var(--color-seven); /* Use the defined color variable */
 }
 
-/* Hide mobile art by default */
-.ascii-art-mobile {
-  display: none;
+.endspace {
+  margin-left: 25vw;
+  margin-right: 25vw;
 }
 
 @media screen and (max-width: 600px) {
@@ -567,11 +568,13 @@ td {
   h2 {
     padding-top: 80px;
   }
-  .ascii-art-desktop {
-    display: none;
-  }
 
   .ascii-art-mobile {
     display: block;
+  }
+
+  .endspace {
+    margin-left: 3vw;
+    margin-right: 3vw;
   }
 }
