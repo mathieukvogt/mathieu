@@ -11,6 +11,8 @@
   --color-eight: #f2f2f2;
   --color-nine: #070707;
   --color-ten: rgba(0, 0, 0, 0.5);
+  --color-eleven: rgba(7, 7, 7, 0.98);
+  overscroll-behavior: contain;
 }
 
 body.dark-mode {
@@ -26,6 +28,7 @@ body.dark-mode {
   --color-eight: #f2f2f2;
   --color-nine: #eaeaea;
   --color-ten: rgba(0, 0, 0, 0.7);
+  --color-eleven: rgba(240, 240, 240, 0.98);
 }
 
 * {
@@ -41,6 +44,7 @@ html {
   scroll-behavior: smooth;
   background-color: var(--color-one);
   font-family: monospace, 'Times New Roman', Times, serif;
+  overscroll-behavior: contain;
 }
 
 body {
@@ -48,6 +52,10 @@ body {
   touch-action: manipulation;
   opacity: 0.99;
   overscroll-behavior: contain;
+  min-height: 100vh;
+  margin: 0;
+  overscroll-behavior: contain;
+  min-height: 100%;
 }
 
 body.no-scroll {
@@ -104,7 +112,6 @@ header, main {
   transform: translateY(-100%); /* Start off-screen above the viewport */
 }
 
-
 .container {
   margin: 0 auto;
   width: 83%;
@@ -127,8 +134,8 @@ header, main {
 }
 
 .grid-item {
-  border-left: 1px dashed var(--color-six);
-  border-right: 1px dashed var(--color-six);
+  border-left: 1px dotted var(--color-six);
+  border-right: 1px dotted var(--color-six);
   height: 100vh;
   transform-origin: bottom center;
   transform: scaleY(0);
