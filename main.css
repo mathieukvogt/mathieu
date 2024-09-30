@@ -112,6 +112,7 @@ header, main {
   transform: translateY(-100%); /* Start off-screen above the viewport */
 }
 
+
 .container {
   margin: 0 auto;
   width: 83%;
