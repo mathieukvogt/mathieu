@@ -497,11 +497,10 @@ td {
 }
 
 .tableletters {
-  color: var(--color-seven);
-  background-color: var(--color-one);
+  color: var(--color-one);
+  background-color: var(--background-color-one);
   border-top: 1px solid var(--background-color-one);
-  padding-left: 0%;
-  font-weight: 900;
+  font-weight: bold;
 }
 .expandable-row-content {
   display: none;
