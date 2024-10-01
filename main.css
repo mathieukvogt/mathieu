@@ -513,9 +513,16 @@ td {
   justify-content: space-between;
   border-top: 1px solid var(--background-color-one);
 }
+
+.clickable:last-child {
+  border-bottom: 1px solid var(--background-color-one);
+}
+
 .clickable:hover {
   text-decoration: none;
+  color: var(--color-twelve);
 }
+
 .clickable::after {
   content: "[+]"; /* Plus sign, indicating expandable */
   font-size: 0.8em;
@@ -524,6 +531,10 @@ td {
 
 .expanded::after {
   content: "[-]"; /* Minus sign, indicating collapsible */
+  color: var(--color-twelve);
+}
+
+.clickable.expanded {
   color: var(--color-twelve);
 }
 
