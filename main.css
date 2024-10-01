@@ -30,7 +30,7 @@ body.dark-mode {
   --color-nine: #eaeaea;
   --color-ten: rgba(0, 0, 0, 0.7);
   --color-eleven: rgba(240, 240, 240, 0.98);
-  --color-twelve: #2b00ff;
+  --color-twelve: #0400ff;
 }
 
 * {
@@ -512,10 +512,6 @@ td {
   align-items: center;
   justify-content: space-between;
   border-top: 1px solid var(--background-color-one);
-}
-
-.clickable:last-child {
-  border-bottom: 1px solid var(--background-color-one);
 }
 
 .clickable:hover {
