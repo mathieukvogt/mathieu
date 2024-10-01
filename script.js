@@ -77,6 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const burgerButton = document.querySelector(".burger");
   const menuBars = document.querySelectorAll(".menu-bar");
   const menuOverlay = document.querySelector(".menu-overlay");
+  const menuLines = document.querySelectorAll(".menu-line");
 
   let menuOpen = false; // Track the state of the menu
 
@@ -86,30 +87,40 @@ document.addEventListener("DOMContentLoaded", function () {
       menuOpen = true;
       // Animate menu bars dropping down
       gsap.to(menuBars, {
-        duration: 0.5,
-        y: "0%",
-        stagger: 0.05, // Delay each bar by 0.05s
+        duration: 0.6,
+        x: "0%",
         ease: "power4.out",
       });
       gsap.to(menuOverlay, {
         duration: 0.2,
         backgroundColor: "var(--color-ten)",
       });
+      gsap.to(menuLines, {
+        duration: 0.6,
+        delay: 0.1,
+        x: "0%",
+        stagger: 0.2,
+        ease: "power4.out",
+      });
     } else {
       menuOpen = false;
       // Animate menu bars moving up
       gsap.to(menuBars, {
-        duration: 0.5,
-        y: "-100%",
-        stagger: {
-          each: 0.05,
-          from: "end", // Reverse the stagger
-        },
+        duration: 0.7,
+        x: "100%",
         ease: "power4.in",
       });
       gsap.to(menuOverlay, {
         duration: 0.2,
+        delay: 0.6,
         backgroundColor: "transparent",
+      });
+      gsap.to(menuLines, {
+        duration: 0.6,
+        delay: 0.1,
+        x: "130%",
+        stagger: 0.2,
+        ease: "power4.out",
       });
     }
   });
