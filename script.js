@@ -73,11 +73,15 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 
+  gsap.registerPlugin(TextPlugin);
+
   // Select the burger button and menu bars
   const burgerButton = document.querySelector(".burger");
   const menuBars = document.querySelectorAll(".menu-bar");
   const menuOverlay = document.querySelector(".menu-overlay");
   const menuLines = document.querySelectorAll(".menu-line");
+  const menuTitleTwos = document.querySelectorAll(".menu-title.two");
+  const menuTitleOne = document.querySelectorAll(".menu-title.one");
 
   let menuOpen = false; // Track the state of the menu
 
@@ -101,6 +105,48 @@ document.addEventListener("DOMContentLoaded", function () {
         x: "0%",
         stagger: 0.2,
         ease: "power4.out",
+      });
+      menuTitleTwos.forEach((element, index) => {
+        gsap.fromTo(
+          element,
+          {
+            text: {
+              value: "",
+              scramble: {
+                chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+                speed: 0.5,
+                rightToLeft: true,
+              },
+            },
+          },
+          {
+            duration: 0.6,
+            delay: index * 0.3 + 0.2,
+            text: { value: element.textContent },
+            ease: "none",
+          }
+        );
+      });
+      menuTitleOne.forEach((element, index) => {
+        gsap.fromTo(
+          element,
+          {
+            text: {
+              value: "",
+              scramble: {
+                chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+                speed: 0.5,
+                rightToLeft: true,
+              },
+            },
+          },
+          {
+            duration: 0.6,
+            delay: index * 0.2 + 0.2,
+            text: { value: element.textContent },
+            ease: "none",
+          }
+        );
       });
     } else {
       menuOpen = false;

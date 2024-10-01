@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>GSAP Scramble Test</title>
+  </head>
+  <body>
+    <div id="test-element">[01]</div>
+
+    <!-- Include GSAP and TextPlugin from local files -->
+    <script src="gsap.min.js"></script>
+    <script src="TextPlugin.min.js"></script>
+
+    <script>
+      gsap.registerPlugin(TextPlugin);
+
+      gsap.fromTo(
+        "#test-element",
+        {
+          text: {
+            value: "",
+            scramble: {
+              chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+              speed: 0.5,
+            },
+          },
+        },
+        {
+          duration: 2,
+          text: { value: "[01]" },
+          ease: "none",
+        }
+      );
+    </script>
+  </body>
+</html>
