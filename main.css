@@ -12,6 +12,7 @@
   --color-nine: #070707;
   --color-ten: rgba(0, 0, 0, 0.5);
   --color-eleven: rgba(7, 7, 7, 0.98);
+  --color-twelve: #4effd6;
   overscroll-behavior: contain;
 }
 
@@ -29,6 +30,7 @@ body.dark-mode {
   --color-nine: #eaeaea;
   --color-ten: rgba(0, 0, 0, 0.7);
   --color-eleven: rgba(240, 240, 240, 0.98);
+  --color-twelve: #2b00ff;
 }
 
 * {
@@ -43,7 +45,7 @@ html {
   overflow-x: hidden;
   scroll-behavior: smooth;
   background-color: var(--color-one);
-  font-family: monospace, 'Times New Roman', Times, serif;
+  font-family: monospace, "Times New Roman", Times, serif;
   overscroll-behavior: contain;
 }
 
@@ -62,7 +64,8 @@ body.no-scroll {
   overflow: hidden;
 }
 
-header, main {
+header,
+main {
   padding-left: 25vw;
   padding-right: 25vw;
 }
@@ -77,14 +80,14 @@ header, main {
   display: flex;
   justify-content: space-between;
   margin: 0;
-  padding: 0; 
+  padding: 0;
 }
 
 .bar {
-  width: 10vw; 
+  width: 10vw;
   height: 105vh;
   background: var(--background-color-one);
-  margin: 0; 
+  margin: 0;
   padding: 0;
 }
 
@@ -111,7 +114,6 @@ header, main {
   height: 75%;
   transform: translateY(-100%); /* Start off-screen above the viewport */
 }
-
 
 .container {
   margin: 0 auto;
@@ -152,7 +154,6 @@ header, main {
     transform: scaleY(1);
   }
 }
-
 
 .fixed-box {
   position: fixed;
@@ -235,7 +236,7 @@ header, main {
   transition: letter-spacing 0.3s ease;
 }
 
-.center-text b:hover{
+.center-text b:hover {
   letter-spacing: 3px;
 }
 
@@ -263,7 +264,6 @@ header, main {
 .burger.rotate .square-container {
   flex-direction: column;
 }
-
 
 h2 {
   font-size: 16px;
@@ -305,14 +305,13 @@ h2 {
   border: solid 1px var(--color-seven);
   border-radius: 2px;
   cursor: pointer;
-  font-family: monospace, 'Times New Roman', Times, serif;
+  font-family: monospace, "Times New Roman", Times, serif;
   font-size: 12.5px;
 }
 
 .scroller-content button:first-child {
   margin-left: 0;
 }
-
 
 .scroller-content button a {
   color: inherit;
@@ -326,7 +325,6 @@ h2 {
 .scroller::-webkit-scrollbar {
   display: none; /* For Chrome, Safari, and Opera */
 }
-
 
 .tooltip {
   position: relative;
@@ -416,7 +414,7 @@ a {
 
 /* Vertical lines */
 .symbol::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 1px; /* Thickness of the vertical line */
   height: 100%;
@@ -442,7 +440,7 @@ a {
 
 /* Horizontal lines */
 .symbol::after {
-  content: '';
+  content: "";
   position: absolute;
   height: 1px; /* Thickness of the horizontal line */
   background-color: var(--background-color-one); /* Adjust color as needed */
@@ -473,13 +471,15 @@ a {
   line-height: 1.5;
 }
 
-p, ol {
+p,
+ol {
   color: var(--color-seven);
   font-size: 12.5px;
   line-height: 1.5;
 }
 
-ol, li {
+ol,
+li {
   margin: 8px;
 }
 
@@ -492,13 +492,16 @@ table,
 th,
 td {
   border-collapse: collapse;
-  border: 1px solid var(--background-color-one);
   padding: 6px;
   font-size: 12.5px;
 }
+
 .tableletters {
-  background-color: var(--color-three);
   color: var(--color-seven);
+  background-color: var(--color-one);
+  border-top: 1px solid var(--background-color-one);
+  padding-left: 0%;
+  font-weight: 900;
 }
 .expandable-row-content {
   display: none;
@@ -506,17 +509,23 @@ td {
 .clickable {
   cursor: pointer;
   color: var(--color-seven);
-  t
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--background-color-one);
 }
 .clickable:hover {
   text-decoration: none;
 }
 .clickable::after {
-  content: " \25BC"; /* Down-pointing triangle, indicating expandable */
+  content: "[+]"; /* Plus sign, indicating expandable */
   font-size: 0.8em;
+  color: var(--color-twelve);
 }
+
 .expanded::after {
-  content: " \25B2"; /* Up-pointing triangle, indicating collapsible */
+  content: "[-]"; /* Minus sign, indicating collapsible */
+  color: var(--color-twelve);
 }
 
 .ascii-art {
@@ -533,7 +542,8 @@ td {
 }
 
 @media screen and (max-width: 600px) {
-  header, main {
+  header,
+  main {
     padding-left: 3vw;
     padding-right: 3vw;
   }
@@ -550,25 +560,27 @@ td {
   .container {
     width: 94%;
   }
-  
+
   .grid-container {
     grid-template-columns: repeat(10, 1fr);
     width: 94%;
   }
 
-  table, th, td {
+  table,
+  th,
+  td {
     padding: 8px;
   }
 
   .menu-bar {
     height: 100%;
   }
-  
+
   .fixed-box button {
     height: 25px;
     width: 25px;
   }
-  
+
   .fixed-box a.center-text {
     text-decoration: none;
   }
