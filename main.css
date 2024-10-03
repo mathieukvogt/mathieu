@@ -54,8 +54,6 @@ html {
 body {
   background-color: var(--color-one);
   touch-action: manipulation;
-  overscroll-behavior: contain;
-  min-height: 100vh;
   margin: 0;
   overscroll-behavior: contain;
   min-height: 100%;
@@ -230,13 +228,9 @@ main {
   border-bottom-right-radius: 100px;
 }
 
-.center-text b {
+.center-text {
   display: inline-block;
-  transition: letter-spacing 0.3s ease;
-}
-
-.center-text b:hover {
-  letter-spacing: 3px;
+  cursor: pointer;
 }
 
 .burger {
@@ -266,63 +260,11 @@ main {
 
 h2 {
   font-size: 16px;
-  padding-top: 80px;
-  padding-bottom: 20px;
+  padding-top: 85px;
+  padding-bottom: 25px;
   text-align: left;
   overflow: hidden;
   color: var(--color-seven);
-}
-
-.alphsort {
-  overflow: hidden;
-  width: 100%;
-}
-
-.scroller {
-  display: flex;
-  overflow-x: scroll;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  overscroll-behavior: contain;
-}
-
-.scroller::-webkit-scrollbar {
-  display: none;
-}
-
-.scroller-content {
-  display: flex;
-}
-
-.scroller-content button {
-  flex: 0 0 auto;
-  margin: 0 10px;
-  height: 35px;
-  padding: 8px 15px;
-  background-color: var(--color-one);
-  color: var(--color-seven);
-  border: solid 1px var(--color-seven);
-  border-radius: 2px;
-  cursor: pointer;
-  font-family: monospace, "Times New Roman", Times, serif;
-  font-size: 12.5px;
-}
-
-.scroller-content button:first-child {
-  margin-left: 0;
-}
-
-.scroller-content button a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.scroller {
-  scrollbar-width: none; /* For Firefox */
-}
-
-.scroller::-webkit-scrollbar {
-  display: none; /* For Chrome, Safari, and Opera */
 }
 
 .tooltip {
@@ -373,7 +315,7 @@ h2 {
 
 h3 {
   color: var(--color-seven);
-  padding-top: 20px;
+  padding-top: 7.5px;
   padding-bottom: 20px;
   font-size: 14px;
 }
@@ -463,6 +405,60 @@ a {
   left: 0; /* Start from left edge */
 }
 
+.alphsort {
+  background-color: var(--color-one);
+  padding-left: 0;
+}
+
+.scroller {
+  overflow-x: auto;
+  background-color: var(--color-one);
+}
+
+.scroller::-webkit-scrollbar {
+  height: 2px;
+}
+
+.scroller::-webkit-scrollbar-thumb {
+  background-color: var(--background-color-one);
+  border-radius: 4px;
+}
+
+.scroller-content {
+  display: flex;
+}
+
+.scroller-content li {
+  list-style: none;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.scroller-content li:first-child {
+  list-style: none;
+  margin-left: 0;
+}
+
+.scroller-content a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  padding: 0 10px;
+  border: 1px solid var(--background-color-one);
+  background-color: var(--color-one);
+  color: var(--background-color-one);
+  text-decoration: none;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: background-color 0.1s;
+}
+
+.scroller-content a:hover {
+  background-color: var(--background-color-one);
+  color: var(--color-one);
+}
+
 .hljs {
   border-radius: 2px;
   font-family: JetBrains Mono, monospace;
@@ -493,6 +489,7 @@ td {
   border-collapse: collapse;
   padding: 6px;
   font-size: 12.5px;
+  height: 35px;
 }
 
 .tableletters {
@@ -617,7 +614,8 @@ td {
   }
 
   h2 {
-    padding-top: 80px;
+    padding-top: 85px;
+    padding-bottom: 25px;
   }
 
   .ascii-art-mobile {

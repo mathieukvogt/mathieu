@@ -88,31 +88,30 @@
         <div class="symbol half-plus r"></div>
       </div>      
       <br>
-      <div class="alphsort">
+      <nav class="alphsort">
         <div class="scroller">
-          <div class="scroller-content">
-            <!-- Original Buttons -->
-            <button><a href="#variables">Variables</a></button>
-            <button><a href="#conditionals">Conditionals</a></button>
-            <button><a href="#ao">Arithmetic Operators</a></button>
-            <button><a href="#functions">Functions</a></button>
-            <button><a href="#scope">Scope</a></button>
-            <button><a href="#arrays">Arrays</a></button>
-            <button><a href="#array-access">Array Inspection</a></button>
-            <button><a href="#array-transformation">Array Transformation</a></button>
-            <button><a href="#array-iteration">Array Iteration</a></button>
-            <button><a href="#array-mutation">Array Mutation</a></button>
-            <button><a href="#array-utility">Array Utility</a></button>
-            <button><a href="#loops">Loops</a></button>
-            <button><a href="#objects">Objects</a></button>
-            <button><a href="#comments">Comments</a></button>
-            <button><a href="#data-types">Data Types</a></button>
-            <button><a href="#dom">Document-Object-Model</a></button>
-            <button><a href="#domevents">Events</a></button>
-            <button><a href="#htmlforms">HTML-Forms</a></button>
-          </div>
+          <ul class="scroller-content">
+            <li><a href="#variables">Variables</a></li>
+            <li><a href="#conditionals">Conditionals</a></li>
+            <li><a href="#ao">Arithmetic Operators</a></li>
+            <li><a href="#functions">Functions</a></li>
+            <li><a href="#scope">Scope</a></li>
+            <li><a href="#arrays">Arrays</a></li>
+            <li><a href="#array-access">Array Inspection</a></li>
+            <li><a href="#array-transformation">Array Transformation</a></li>
+            <li><a href="#array-iteration">Array Iteration</a></li>
+            <li><a href="#array-mutation">Array Mutation</a></li>
+            <li><a href="#array-utility">Array Utility</a></li>
+            <li><a href="#loops">Loops</a></li>
+            <li><a href="#objects">Objects</a></li>
+            <li><a href="#comments">Comments</a></li>
+            <li><a href="#data-types">Data Types</a></li>
+            <li><a href="#dom">Document Object Model</a></li>
+            <li><a href="#domevents">Events</a></li>
+            <li><a href="#htmlforms">HTML Forms</a></li>
+          </ul>
         </div>
-      </div>
+      </nav>
       
       <br>
       <div class="custom-hr">
@@ -129,7 +128,7 @@
             <td id="variables" class="tableletters">Variables</td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-let', event)">
+            <td class="clickable" data-detail-id="detail-tag-let">
               let
             </td>
           </tr>
@@ -233,7 +232,7 @@ console.log(score); // 15
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-const', event)">
+            <td class="clickable" data-detail-id="detail-tag-const">
               const
             </td>
           </tr>
@@ -335,7 +334,7 @@ switch (h) {
             <td id="conditionals" class="tableletters">Conditionals</td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-if', event)">
+            <td class="clickable" data-detail-id="detail-tag-if">
               if statement
             </td>
           </tr>
@@ -400,7 +399,7 @@ if (!hasAccess) {
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-else', event)">
+            <td class="clickable" data-detail-id="detail-tag-else">
               else statement
             </td>
           </tr>
@@ -496,7 +495,7 @@ if (value > threshold) {
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-elseif', event)">
+            <td class="clickable" data-detail-id="detail-tag-elseif">
               else if statement
             </td>
           </tr>
@@ -589,7 +588,7 @@ if (aqi &lt;= 50) {
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-comparison', event)">
+            <td class="clickable" data-detail-id="detail-tag-comparison">
               comparison operators
             </td>
           </tr>
@@ -780,7 +779,7 @@ if (password.length >= 8) {
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-logical', event)">
+            <td class="clickable" data-detail-id="detail-tag-logical">
               logical operators
             </td>
           </tr>
@@ -901,7 +900,7 @@ if (formField !== "") {
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-ternary', event)">
+            <td class="clickable" data-detail-id="detail-tag-ternary">
               ternary operator
             </td>
           </tr>
@@ -942,7 +941,7 @@ console.log(max); // Logs: 20
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-switch', event)">
+            <td class="clickable" data-detail-id="detail-tag-switch">
               switch statement
             </td>
           </tr>
@@ -1079,7 +1078,7 @@ console.log(season); // Logs: "Summer"
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-truthy', event)">
+            <td class="clickable" data-detail-id="detail-tag-truthy">
               truthy and falsy values
             </td>
           </tr>
@@ -1142,7 +1141,7 @@ if (value6) {
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-bp', event)">
+            <td class="clickable" data-detail-id="detail-tag-bp">
               best practices
             </td>
           </tr>
@@ -1158,7 +1157,7 @@ if (value6) {
           <tr>
             <td
               class="clickable"
-              onclick="toggleDetail('detail-tag-add', event)"
+              data-detail-id="detail-tag-add"
             >
             addition (+)
             </td>
@@ -1203,7 +1202,7 @@ let resultUndefined = "Value is " + undefined;  // "Value is undefined"
           <tr>
             <td
               class="clickable"
-              onclick="toggleDetail('detail-tag-sub', event)"
+              data-detail-id="detail-tag-sub"
             >
             subtraction (-)
             </td>
@@ -1241,7 +1240,7 @@ let result5 = 10 - undefined;  // NaN (undefined cannot be converted to a number
           <tr>
             <td
               class="clickable"
-              onclick="toggleDetail('detail-tag-multi', event)"
+              data-detail-id="detail-tag-multi"
             >
             multiplication (*)
             </td>
@@ -1279,7 +1278,7 @@ let result6 = 5 * undefined; // NaN (undefined cannot be converted to a number)
           <tr>
             <td
               class="clickable"
-              onclick="toggleDetail('detail-tag-div', event)"
+              data-detail-id="detail-tag-div"
             >
             division (/)
             </td>
@@ -1322,7 +1321,7 @@ let negativeZeroDiv = -5 / 0;  // -Infinity (dividing by zero yields -Infinity)
           <tr>
             <td
               class="clickable"
-              onclick="toggleDetail('detail-tag-rem', event)"
+              data-detail-id="detail-tag-rem"
             >
             remainder (%)
             </td>
@@ -1364,7 +1363,7 @@ let negZeroDiv = -5 % 2;      // -1 (negative dividend with positive divisor)
           <tr>
             <td
               class="clickable"
-              onclick="toggleDetail('detail-tag-expo', event)"
+              data-detail-id="detail-tag-expo"
             >
             exponentiation (**)
             </td>
@@ -1406,7 +1405,7 @@ let negativeExponent = 2 ** -3; // 0.125 (2 raised to the power of -3 is 1/8)
           <tr>
             <td
               class="clickable"
-              onclick="toggleDetail('detail-tag-inc', event)"
+              data-detail-id="detail-tag-inc"
             >
             increment (++)
             </td>
@@ -1455,7 +1454,7 @@ array[1]++;           // 3 (postfix increment on the second element of the array
           <tr>
             <td
               class="clickable"
-              onclick="toggleDetail('detail-tag-dec', event)"
+              data-detail-id="detail-tag-dec"
             >
             decrement (--)
             </td>
@@ -1506,7 +1505,7 @@ array[1]--;           // 3 (postfix decrement on the second element of the array
             <td id="functions" class="tableletters">Functions</td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-overview', event)">
+            <td class="clickable" data-detail-id="detail-tag-overview">
               overview
             </td>
           </tr>
@@ -1518,7 +1517,7 @@ array[1]--;           // 3 (postfix decrement on the second element of the array
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-fd', event)">
+            <td class="clickable" data-detail-id="detail-tag-fd">
               function declaration
             </td>
           </tr>
@@ -1600,7 +1599,7 @@ console.log(isPalindrome("racecar")); // Logs: true
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-call', event)">
+            <td class="clickable" data-detail-id="detail-tag-call">
               calling a function
             </td>
           </tr>
@@ -1646,7 +1645,7 @@ console.log(reverseString("hello")); // Logs: "olleh"
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-para', event)">
+            <td class="clickable" data-detail-id="detail-tag-para">
               parameters and arguments
             </td>
           </tr>
@@ -1691,7 +1690,7 @@ console.log(concatenate("Hello", "world")); // Logs: "Hello world"
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-default', event)">
+            <td class="clickable" data-detail-id="detail-tag-default">
               default parameters
             </td>
           </tr>
@@ -1742,7 +1741,7 @@ console.log(formatDate(new Date('2022-01-01'))); // Logs: "Sat Jan 01 2022"
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-return', event)">
+            <td class="clickable" data-detail-id="detail-tag-return">
               return keyword
             </td>
           </tr>
@@ -1787,7 +1786,7 @@ console.log(isEven(10)); // Logs: true
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-helper', event)">
+            <td class="clickable" data-detail-id="detail-tag-helper">
               helper functions
             </td>
           </tr>
@@ -1838,7 +1837,7 @@ console.log(removeDuplicates(arrayWithDuplicates)); // Logs: [1, 2, 3, 4, 5]
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-fexpressions', event)">
+            <td class="clickable" data-detail-id="detail-tag-fexpressions">
               function expressions
             </td>
           </tr>
@@ -1921,7 +1920,7 @@ console.log(upperCaseStrings); // Logs: ["HELLO", "WORLD"]
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-arrow', event)">
+            <td class="clickable" data-detail-id="detail-tag-arrow">
               arrow functions
             </td>
           </tr>
@@ -1981,7 +1980,7 @@ setTimeout(() => {
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-concise', event)">
+            <td class="clickable" data-detail-id="detail-tag-concise">
               concise body arrow functions
             </td>
           </tr>
@@ -2025,7 +2024,7 @@ console.log(filterOdds([1, 2, 3, 4, 5])); // Logs: [2, 4]
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-bpf', event)">
+            <td class="clickable" data-detail-id="detail-tag-bpf">
               best practices
             </td>
           </tr>
@@ -2113,7 +2112,7 @@ console.log(reverseString("hello")); // Logs: "olleh"
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-higher', event)">
+            <td class="clickable" data-detail-id="detail-tag-higher">
               higher-order functions
             </td>
           </tr>
@@ -2199,7 +2198,7 @@ const intervalId = setInterval(() => {
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-callback', event)">callback functions</td>
+            <td class="clickable" data-detail-id="detail-tag-callback">callback functions</td>
           </tr>
           <tr id="detail-tag-callback" class="expandable-row-content">
             <td>
@@ -2337,7 +2336,7 @@ customOperation(10, function(result) {
             <td id="scope" class="tableletters">Scope</td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-blocks', event)">
+            <td class="clickable" data-detail-id="detail-tag-blocks">
               blocks
             </td>
           </tr>
@@ -2405,7 +2404,7 @@ switch (fruit) {
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-global', event)">
+            <td class="clickable" data-detail-id="detail-tag-global">
               global scope and global variables
             </td>
           </tr>
@@ -2477,7 +2476,7 @@ console.log(name); // Logs: "Bob"
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-block', event)">
+            <td class="clickable" data-detail-id="detail-tag-block">
               block scope and local variables
             </td>
           </tr>
@@ -2569,7 +2568,7 @@ try {
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-scopep', event)">
+            <td class="clickable" data-detail-id="detail-tag-scopep">
               scope pollution
             </td>
           </tr>
@@ -2643,7 +2642,7 @@ console.log(i); // Logs: 5, i is accessible outside the loop
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-bpscope', event)">
+            <td class="clickable" data-detail-id="detail-tag-bpscope">
               best practices
             </td>
           </tr>
@@ -2658,7 +2657,7 @@ console.log(i); // Logs: 5, i is accessible outside the loop
             <td id="arrays" class="tableletters">Arrays</td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-arrayover', event)">
+            <td class="clickable" data-detail-id="detail-tag-arrayover">
               syntax & purpose
             </td>
           </tr>
@@ -2699,7 +2698,7 @@ console.log(fruits); // Output: ['kiwi', 'apple', 'blueberry', 'cherry']
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-literal', event)">
+            <td class="clickable" data-detail-id="detail-tag-literal">
               literal notation
             </td>
           </tr>
@@ -2742,7 +2741,7 @@ console.log(sparseArray);
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-constructor', event)">
+            <td class="clickable" data-detail-id="detail-tag-constructor">
               constructor notation
             </td>
           </tr>
@@ -2789,7 +2788,7 @@ console.log(arrayOf); // Output: [10, 20, 30]
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-indexing', event)">
+            <td class="clickable" data-detail-id="detail-tag-indexing">
               zero-based indexing
             </td>
           </tr>
@@ -2843,7 +2842,7 @@ console.log(removedElement); // Output: ['yellow']
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-access', event)">
+            <td class="clickable" data-detail-id="detail-tag-access">
               accessing & updating elements
             </td>
           </tr>
@@ -2906,7 +2905,7 @@ console.log(numbers); // Output: [1, 2, 3, 4, 5]
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-arrayvar', event)">
+            <td class="clickable" data-detail-id="detail-tag-arrayvar">
               let & const for arrays
             </td>
           </tr>
@@ -2975,7 +2974,7 @@ try {
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-length', event)">
+            <td class="clickable" data-detail-id="detail-tag-length">
               .length property
             </td>
           </tr>
@@ -3030,7 +3029,7 @@ console.log(cars[lastIndex]); // Output: 'BMW'
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-ainf', event)">
+            <td class="clickable" data-detail-id="detail-tag-ainf">
               scope of arrays in functions
             </td>
           </tr>
@@ -3121,7 +3120,7 @@ console.log(returnedArray); // Output: ['a', 'b', 'c']
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-nested', event)">
+            <td class="clickable" data-detail-id="detail-tag-nested">
               nested arrays
             </td>
           </tr>
@@ -3204,7 +3203,7 @@ console.log(matrix); // Output: [[1, 2], [4, 5, 6], [7, 10, 9], [10, 11, 12]]
             <td id="array-access" class="tableletters">Array Access/Inspection Methods</td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-at', event)" >.at() method</td>
+            <td class="clickable" data-detail-id="detail-tag-at" >.at() method</td>
           </tr>
           <tr id="detail-tag-at" class="expandable-row-content">
             <td>
@@ -3253,7 +3252,7 @@ console.log(Array.prototype.at.call(arrayLike, 0)); // Output: "a"
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-indexof', event)" >.indexOf() method</td>
+            <td class="clickable" data-detail-id="detail-tag-indexof" >.indexOf() method</td>
           </tr>
           <tr id="detail-tag-indexof" class="expandable-row-content">
             <td>
@@ -3306,7 +3305,7 @@ let indexDog = animals.indexOf("dog"); // returns 0
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-lastindexof', event)" >.lastIndexOf() method</td>
+            <td class="clickable" data-detail-id="detail-tag-lastindexof" >.lastIndexOf() method</td>
           </tr>
           <tr id="detail-tag-lastindexof" class="expandable-row-content">
             <td>
@@ -3359,7 +3358,7 @@ let lastIndexIn = longText.lastIndexOf("in"); // returns 36
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-includes', event)" >.includes() method</td>
+            <td class="clickable" data-detail-id="detail-tag-includes" >.includes() method</td>
           </tr>
           <tr id="detail-tag-includes" class="expandable-row-content">
             <td>
@@ -3414,7 +3413,7 @@ let includesObj1 = objArray.includes(obj1); // returns true
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-find', event)" >.find() method</td>
+            <td class="clickable" data-detail-id="detail-tag-find" >.find() method</td>
           </tr>
           <tr id="detail-tag-find" class="expandable-row-content">
             <td>
@@ -3481,7 +3480,7 @@ let nameStartingWithC = names.find(name => name.startsWith("C")); // returns "Ch
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-findindex', event)" >.findIndex() method</td>
+            <td class="clickable" data-detail-id="detail-tag-findindex" >.findIndex() method</td>
           </tr>
           <tr id="detail-tag-findindex" class="expandable-row-content">
             <td>
@@ -3548,7 +3547,7 @@ let indexNameStartingWithC = names.findIndex(name => name.startsWith("C")); // r
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-findlast', event)" >.findLast() method</td>
+            <td class="clickable" data-detail-id="detail-tag-findlast" >.findLast() method</td>
           </tr>
           <tr id="detail-tag-findlast" class="expandable-row-content">
             <td>
@@ -3616,7 +3615,7 @@ let lastNameStartingWithC = names.findLast(name => name.startsWith("C")); // ret
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-findlastindex', event)" >.findLastIndex() method</td>
+            <td class="clickable" data-detail-id="detail-tag-findlastindex" >.findLastIndex() method</td>
           </tr>
           <tr id="detail-tag-findlastindex" class="expandable-row-content">
             <td>
@@ -3684,7 +3683,7 @@ let lastIndexNameStartingWithC = names.findLastIndex(name => name.startsWith("C"
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-entries', event)" >.entries() method</td>
+            <td class="clickable" data-detail-id="detail-tag-entries" >.entries() method</td>
           </tr>
           <tr id="detail-tag-entries" class="expandable-row-content">
             <td>
@@ -3799,7 +3798,7 @@ console.log(modifiedScores);
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-keys', event)" >.keys() method</td>
+            <td class="clickable" data-detail-id="detail-tag-keys" >.keys() method</td>
           </tr>
           <tr id="detail-tag-keys" class="expandable-row-content">
             <td>
@@ -3914,7 +3913,7 @@ for (let key of keysEmpty) {
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-values', event)" >.values() method</td>
+            <td class="clickable" data-detail-id="detail-tag-values" >.values() method</td>
           </tr>
           <tr id="detail-tag-values" class="expandable-row-content">
             <td>
@@ -4032,7 +4031,7 @@ for (let value of valuesEmpty) {
             <td id="array-transformation" class="tableletters">Array Transformation Methods</td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-concat', event)" >.concat() method</td>
+            <td class="clickable" data-detail-id="detail-tag-concat" >.concat() method</td>
           </tr>
           <tr id="detail-tag-concat" class="expandable-row-content">
             <td>
@@ -4113,7 +4112,7 @@ console.log(concatenatedObjects);
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-copywithin', event)" >.copyWithin() method</td>
+            <td class="clickable" data-detail-id="detail-tag-copywithin" >.copyWithin() method</td>
           </tr>
           <tr id="detail-tag-copywithin" class="expandable-row-content">
             <td>
@@ -4186,7 +4185,7 @@ console.log(array10);
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-fill', event)" >.fill() method</td>
+            <td class="clickable" data-detail-id="detail-tag-fill" >.fill() method</td>
           </tr>
           <tr id="detail-tag-fill" class="expandable-row-content">
             <td>
@@ -4259,7 +4258,7 @@ console.log(array10);
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-filter', event)" >.filter() method</td>
+            <td class="clickable" data-detail-id="detail-tag-filter" >.filter() method</td>
           </tr>
           <tr id="detail-tag-filter" class="expandable-row-content">
             <td>
@@ -4345,7 +4344,7 @@ console.log(lengthTwo);
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-map', event)" >.map() method</td>
+            <td class="clickable" data-detail-id="detail-tag-map" >.map() method</td>
           </tr>
           <tr id="detail-tag-map" class="expandable-row-content">
             <td>
@@ -4422,7 +4421,7 @@ console.log(htmlListItems);
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-flat', event)" >.flat() method</td>
+            <td class="clickable" data-detail-id="detail-tag-flat" >.flat() method</td>
           </tr>
           <tr id="detail-tag-flat" class="expandable-row-content">
             <td>
@@ -4495,7 +4494,7 @@ console.log(flatArray10);
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-flatmap', event)" >.flatMap() method</td>
+            <td class="clickable" data-detail-id="detail-tag-flatmap" >.flatMap() method</td>
           </tr>
           <tr id="detail-tag-flatmap" class="expandable-row-content">
             <td>
@@ -4569,7 +4568,7 @@ console.log(expandedRanges);
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-slice', event)" >.slice() method</td>
+            <td class="clickable" data-detail-id="detail-tag-slice" >.slice() method</td>
           </tr>
           <tr id="detail-tag-slice" class="expandable-row-content">
             <td>
@@ -4647,7 +4646,7 @@ console.log(reversedSlice);
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-splice', event)" >.splice() method</td>
+            <td class="clickable" data-detail-id="detail-tag-splice" >.splice() method</td>
           </tr>
           <tr id="detail-tag-splice" class="expandable-row-content">
             <td>
@@ -4725,7 +4724,7 @@ console.log(months);
             <td id="array-iteration" class="tableletters">Array Iteration Methods</td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-foreach', event)" >.forEach() method</td>
+            <td class="clickable" data-detail-id="detail-tag-foreach" >.forEach() method</td>
           </tr>
           <tr id="detail-tag-foreach" class="expandable-row-content">
             <td>
@@ -4802,7 +4801,7 @@ animals.forEach(animal => console.log(`I love my ${animal}!`));
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-every', event)" >.every() method</td>
+            <td class="clickable" data-detail-id="detail-tag-every" >.every() method</td>
           </tr>
           <tr id="detail-tag-every" class="expandable-row-content">
             <td>
@@ -4879,7 +4878,7 @@ console.log(allLengthGreaterThanTwo);
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-some', event)" >.some() method</td>
+            <td class="clickable" data-detail-id="detail-tag-some" >.some() method</td>
           </tr>
           <tr id="detail-tag-some" class="expandable-row-content">
             <td>
@@ -4956,7 +4955,7 @@ console.log(someArrays);
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-reduce', event)" >.reduce() method</td>
+            <td class="clickable" data-detail-id="detail-tag-reduce" >.reduce() method</td>
           </tr>
           <tr id="detail-tag-reduce" class="expandable-row-content">
             <td>
@@ -5046,7 +5045,7 @@ console.log(factorial);
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-reduceright', event)" >.reduceRight() method</td>
+            <td class="clickable" data-detail-id="detail-tag-reduceright" >.reduceRight() method</td>
           </tr>
           <tr id="detail-tag-reduceright" class="expandable-row-content">
             <td>
@@ -5124,7 +5123,7 @@ console.log(decoded);
             <td id="array-mutation" class="tableletters">Array Mutation Methods</td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-pop', event)" >.pop() method</td>
+            <td class="clickable" data-detail-id="detail-tag-pop" >.pop() method</td>
           </tr>
           <tr id="detail-tag-pop" class="expandable-row-content">
             <td>
@@ -5215,7 +5214,7 @@ console.log(emptyArray);
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-push', event)" >.push() method</td>
+            <td class="clickable" data-detail-id="detail-tag-push" >.push() method</td>
           </tr>
           <tr id="detail-tag-push" class="expandable-row-content">
             <td>
@@ -5297,7 +5296,7 @@ console.log(obj.numbers);
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-shift', event)" >.shift() method</td>
+            <td class="clickable" data-detail-id="detail-tag-shift" >.shift() method</td>
           </tr>
           <tr id="detail-tag-shift" class="expandable-row-content">
             <td>
@@ -5396,7 +5395,7 @@ console.log(emptyArray);
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-unshift', event)" >.unshift() method</td>
+            <td class="clickable" data-detail-id="detail-tag-unshift" >.unshift() method</td>
           </tr>
           <tr id="detail-tag-unshift" class="expandable-row-content">
             <td>
@@ -5474,7 +5473,7 @@ console.log(obj.numbers);
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-reverse', event)" >.reverse() method</td>
+            <td class="clickable" data-detail-id="detail-tag-reverse" >.reverse() method</td>
           </tr>
           <tr id="detail-tag-reverse" class="expandable-row-content">
             <td>
@@ -5553,7 +5552,7 @@ console.log(reversedUppercase);
             </td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-sort', event)" >.sort() method</td>
+            <td class="clickable" data-detail-id="detail-tag-sort" >.sort() method</td>
           </tr>
           <tr id="detail-tag-sort" class="expandable-row-content">
             <td>
@@ -5634,7 +5633,7 @@ console.log(arrayOfArrays);
             <td id="array-utility" class="tableletters">Array Utility Methods</td>
           </tr>
           <tr>
-            <td class="clickable" onclick="toggleDetail('detail-tag-join', event)" >.join() method</td>
+            <td class="clickable" data-detail-id="detail-tag-join" >.join() method</td>
           </tr>
           <tr id="detail-tag-join" class="expandable-row-content">
             <td>
@@ -11251,19 +11250,6 @@ let book = {
     <script>
       hljs.highlightAll();
     </script>
-    <script>
-      function toggleDetail(detailId, event) {
-    var detailRow = document.getElementById(detailId);
-    var isExpanded = detailRow.style.display === "table-row";
-    detailRow.style.display = isExpanded ? "none" : "table-row";
-
-    if (isExpanded) {
-      event.target.classList.remove("expanded");
-    } else {
-      event.target.classList.add("expanded");
-    }
-  }
-    </script> 
     <script src="https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js"></script>
     <script src="https://unpkg.com/smoothscroll-anchor-polyfill"></script>
     <script src="script.js"></script>

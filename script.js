@@ -11,19 +11,28 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Add horizontal scrolling with mouse wheel for desktop devices
-  if (window.matchMedia("(pointer: fine)").matches) {
-    const scroller = document.querySelector(".scroller");
+  // Toggle detail functionality
+  function toggleDetail(detailId, event) {
+    var detailRow = document.getElementById(detailId);
+    var isExpanded = detailRow.style.display === "table-row";
+    detailRow.style.display = isExpanded ? "none" : "table-row";
 
-    scroller.addEventListener("wheel", function (e) {
-      // Prevent the default vertical scroll behavior
-      e.preventDefault();
-
-      // Scroll horizontally by the amount of vertical scrolling
-      scroller.scrollLeft += e.deltaY;
-    });
+    if (isExpanded) {
+      event.target.classList.remove("expanded");
+    } else {
+      event.target.classList.add("expanded");
+    }
   }
 
+  // Add click event listeners to all clickable elements
+  document.querySelectorAll(".clickable").forEach((element) => {
+    element.addEventListener("click", function (event) {
+      const detailId = element.getAttribute("data-detail-id"); // Get the target id from data attribute
+      toggleDetail(detailId, event); // Pass the id to the toggle function
+    });
+  });
+
+  // Dark mode functionality
   const darkModeButton = document.getElementById("darkModeButton");
   const leftHalf = darkModeButton.querySelector(".half.left");
   const rightHalf = darkModeButton.querySelector(".half.right");
@@ -61,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Initial GSAP animation for ".bar" elements
   gsap.to(".bar", 1.3, {
     delay: 0,
     height: 0,
@@ -73,7 +83,8 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 
-  gsap.registerPlugin(TextPlugin);
+  // Register GSAP Plugins
+  gsap.registerPlugin(TextPlugin); // Only TextPlugin is needed
 
   // Select the burger button and menu bars
   const burgerButton = document.querySelector(".burger");
@@ -112,17 +123,16 @@ document.addEventListener("DOMContentLoaded", function () {
           {
             text: {
               value: "",
-              scramble: {
-                chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-                speed: 0.5,
-                rightToLeft: true,
-              },
             },
           },
           {
             duration: 0.6,
             delay: index * 0.3 + 0.2,
-            text: { value: element.textContent },
+            text: {
+              value: element.textContent,
+              scramble: 5,
+              chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+            },
             ease: "none",
           }
         );
@@ -133,17 +143,16 @@ document.addEventListener("DOMContentLoaded", function () {
           {
             text: {
               value: "",
-              scramble: {
-                chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-                speed: 0.5,
-                rightToLeft: true,
-              },
             },
           },
           {
             duration: 0.6,
             delay: index * 0.2 + 0.2,
-            text: { value: element.textContent },
+            text: {
+              value: element.textContent,
+              scramble: 5,
+              chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+            },
             ease: "none",
           }
         );
@@ -175,4 +184,55 @@ document.addEventListener("DOMContentLoaded", function () {
   burgerButton.addEventListener("click", () => {
     burgerButton.classList.toggle("rotate");
   });
+
+  // **Simplified Scramble Text on Hover Implementation**
+
+  // Select the target <b> element containing "MATHIEU"
+  const mathieuElement = document.querySelector(".center-text b");
+
+  // Original text
+  const originalText = mathieuElement.textContent;
+
+  // Function to scramble to random text
+  function scrambleText() {
+    gsap.to(mathieuElement, {
+      duration: 0.6,
+      text: {
+        value: generateRandomText(originalText.length),
+        scramble: 5, // Adjust the scramble amount as needed
+        chars: "$#?&!%≠¿§¥ß¡€£389206XYKZENHAJ",
+      },
+      ease: "none",
+      onComplete: unscrambleText, // After scrambling, unscramble
+    });
+  }
+
+  // Function to unscramble back to original text
+  function unscrambleText() {
+    gsap.to(mathieuElement, {
+      duration: 0.6,
+      text: {
+        value: originalText,
+        scramble: 5,
+        chars: "$#?&!%≠¿§¥ß¡€£389206XYKZENHAJ",
+      },
+      ease: "none",
+    });
+  }
+
+  // Utility function to generate random text of a given length
+  function generateRandomText(length) {
+    const chars = "$#?&!%≠¿§¥ß¡€£389206XYKZENHAJ";
+    let result = "";
+    for (let i = 0; i < length; i++) {
+      result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+  }
+
+  // Add event listener for mouseenter to trigger scramble
+  const linkElement = document.querySelector(".center-text");
+  linkElement.addEventListener("mouseenter", scrambleText);
+
+  // **End of Scramble Text Implementation**
 });
