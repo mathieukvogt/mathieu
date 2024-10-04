@@ -284,11 +284,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Loop
     const loop = () => {
-      paintNoise();
+      paintNoise(frame);
 
       loopTimeout = window.setTimeout(() => {
         window.requestAnimationFrame(loop);
-      }, 1000 / 50);
+      }, 1000 / 25);
     };
 
     // Setup
@@ -301,7 +301,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       noiseData = []; // Clear previous noise data
 
-      for (let i = 0; i < 25; i++) {
+      for (let i = 0; i < 10; i++) {
         createNoise();
       }
 
