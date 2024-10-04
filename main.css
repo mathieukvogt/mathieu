@@ -32,7 +32,7 @@ body.dark-mode {
   --color-nine: #eaeaea;
   --color-ten: rgba(255, 255, 255, 0.85);
   --color-eleven: rgba(240, 240, 240, 0.98);
-  --color-twelve: #007072;
+  --color-twelve: #5200eb;
   --color-thirteen: #ffffff;
   --color-fourteen: #e3e3e3;
 }
@@ -48,17 +48,17 @@ html {
   overflow-y: auto;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  background-color: var(--color-one);
   font-family: monospace, "Times New Roman", Times, serif;
   overscroll-behavior: contain;
 }
 
 body {
-  background-color: var(--color-one);
   touch-action: manipulation;
   margin: 0;
+  background-color: var(--color-thirteen);
   overscroll-behavior: contain;
   min-height: 100%;
+  overflow: hidden;
 }
 
 body.no-scroll {
@@ -69,6 +69,23 @@ header,
 main {
   padding-left: 25vw;
   padding-right: 25vw;
+}
+
+.main-content {
+  position: relative;
+}
+
+.noise {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+  opacity: 0.03;
 }
 
 .overlay {
@@ -408,13 +425,13 @@ a {
 }
 
 .alphsort {
-  background-color: var(--color-one);
+  background-color: transparent;
   padding-left: 0;
 }
 
 .scroller {
   overflow-x: auto;
-  background-color: var(--color-one);
+  background-color: transparent;
 }
 
 .scroller::-webkit-scrollbar {
@@ -448,7 +465,7 @@ a {
   height: 35px;
   padding: 0 10px;
   border: 1px solid var(--background-color-one);
-  background-color: var(--color-one);
+  background-color: transparent;
   color: var(--background-color-one);
   text-decoration: none;
   border-radius: 2px;
@@ -464,14 +481,14 @@ a {
 .hljs {
   border-radius: 2px;
   font-family: JetBrains Mono, monospace;
-  font-size: 12.5px;
+  font-size: 13px;
   line-height: 1.5;
 }
 
 p,
 ol {
   color: var(--color-seven);
-  font-size: 12.5px;
+  font-size: 13px;
   line-height: 1.5;
 }
 
@@ -496,9 +513,10 @@ td {
 
 .tableletters {
   color: var(--background-color-one);
-  background-color: var(--color-fourteen);
+  background-color: transparent;
   border-top: 1px solid var(--background-color-one);
   font-weight: bold;
+  text-transform: uppercase;
 }
 .expandable-row-content {
   display: none;
@@ -518,7 +536,7 @@ td {
 
 .clickable::after {
   content: "[+]"; /* Plus sign, indicating expandable */
-  font-size: 0.8em;
+  font-size: 12px;
   color: var(--color-twelve);
 }
 
@@ -618,6 +636,10 @@ td {
   h2 {
     padding-top: 85px;
     padding-bottom: 25px;
+  }
+
+  .hljs {
+    font-size: 12.5px;
   }
 
   .ascii-art-mobile {

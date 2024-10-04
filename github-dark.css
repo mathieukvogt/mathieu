@@ -68,7 +68,7 @@ code.hljs {
 */
 .hljs {
   color: var(--color-seven);
-  background: var(--color-one);
+  background: transparent;
 }
 .hljs-doctag,
 .hljs-keyword,

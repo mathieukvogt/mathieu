@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // ------------------------------
+  // Existing Functionalities
+  // ------------------------------
+
   // Smooth scroll functionality
   document.querySelectorAll(".alphsort a").forEach((link) => {
     link.addEventListener("click", function (event) {
@@ -235,4 +239,115 @@ document.addEventListener("DOMContentLoaded", function () {
   linkElement.addEventListener("mouseenter", scrambleText);
 
   // **End of Scramble Text Implementation**
+
+  // ------------------------------
+  // Integrated Noise Background
+  // ------------------------------
+
+  const noise = () => {
+    let canvas, ctx;
+
+    let wWidth, wHeight;
+
+    let noiseData = [];
+    let frame = 0;
+
+    let loopTimeout;
+
+    // Create Noise
+    const createNoise = () => {
+      const idata = ctx.createImageData(wWidth, wHeight);
+      const buffer32 = new Uint32Array(idata.data.buffer);
+      const len = buffer32.length;
+
+      for (let i = 0; i < len; i++) {
+        if (Math.random() < 0.5) {
+          buffer32[i] = 0xff000000;
+        } else {
+          buffer32[i] = 0xffffffff; // Optional: Set to white for contrast
+        }
+      }
+
+      noiseData.push(idata);
+    };
+
+    // Play Noise
+    const paintNoise = () => {
+      if (frame === 9) {
+        frame = 0;
+      } else {
+        frame++;
+      }
+
+      ctx.putImageData(noiseData[frame], 0, 0);
+    };
+
+    // Loop
+    const loop = () => {
+      paintNoise();
+
+      loopTimeout = window.setTimeout(() => {
+        window.requestAnimationFrame(loop);
+      }, 1000 / 50);
+    };
+
+    // Setup
+    const setup = () => {
+      wWidth = window.innerWidth;
+      wHeight = window.innerHeight;
+
+      canvas.width = wWidth;
+      canvas.height = wHeight;
+
+      noiseData = []; // Clear previous noise data
+
+      for (let i = 0; i < 25; i++) {
+        createNoise();
+      }
+
+      loop();
+    };
+
+    // Reset
+    let resizeThrottle;
+    const reset = () => {
+      window.addEventListener(
+        "resize",
+        () => {
+          window.clearTimeout(resizeThrottle);
+
+          resizeThrottle = window.setTimeout(() => {
+            window.clearTimeout(loopTimeout);
+            setup();
+          }, 200);
+        },
+        false
+      );
+    };
+
+    // Init
+    const init = () => {
+      canvas = document.getElementById("noise");
+      if (!canvas) {
+        console.error(
+          'Canvas with id "noise" not found. Please add a <canvas id="noise"></canvas> to your HTML.'
+        );
+        return;
+      }
+      ctx = canvas.getContext("2d");
+
+      setup();
+      reset();
+    };
+
+    // Start the noise effect
+    init();
+  };
+
+  // Initialize the noise background
+  noise();
+
+  // ------------------------------
+  // End of Integrated Noise Background
+  // ------------------------------
 });
