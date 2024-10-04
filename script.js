@@ -200,10 +200,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to scramble to random text
   function scrambleText() {
     gsap.to(mathieuElement, {
-      duration: 0.6,
+      duration: 2.0,
       text: {
         value: generateRandomText(originalText.length),
-        scramble: 5, // Adjust the scramble amount as needed
+        scramble: 10, // Adjust the scramble amount as needed
         chars: "$#?&!%≠¿§¥ß¡€£389206XYKZENHAJ",
       },
       ease: "none",
@@ -214,10 +214,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to unscramble back to original text
   function unscrambleText() {
     gsap.to(mathieuElement, {
-      duration: 0.6,
+      duration: 2.0,
       text: {
         value: originalText,
-        scramble: 5,
+        scramble: 10,
         chars: "$#?&!%≠¿§¥ß¡€£389206XYKZENHAJ",
       },
       ease: "none",
