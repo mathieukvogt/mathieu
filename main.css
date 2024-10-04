@@ -14,6 +14,7 @@
   --color-eleven: rgba(7, 7, 7, 0.98);
   --color-twelve: #4effd6;
   --color-thirteen: #000000;
+  --color-fourteen: #1c1c1c;
   overscroll-behavior: contain;
 }
 
@@ -31,8 +32,9 @@ body.dark-mode {
   --color-nine: #eaeaea;
   --color-ten: rgba(255, 255, 255, 0.85);
   --color-eleven: rgba(240, 240, 240, 0.98);
-  --color-twelve: #0400ff;
+  --color-twelve: #007072;
   --color-thirteen: #ffffff;
+  --color-fourteen: #e3e3e3;
 }
 
 * {
@@ -493,8 +495,8 @@ td {
 }
 
 .tableletters {
-  color: var(--color-one);
-  background-color: var(--background-color-one);
+  color: var(--background-color-one);
+  background-color: var(--color-fourteen);
   border-top: 1px solid var(--background-color-one);
   font-weight: bold;
 }
