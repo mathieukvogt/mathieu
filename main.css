@@ -59,6 +59,7 @@ body {
   overscroll-behavior: contain;
   min-height: 100%;
   overflow: hidden;
+  z-index: -2;
 }
 
 body.no-scroll {
@@ -86,7 +87,6 @@ main {
 
   pointer-events: none;
   opacity: 0.03;
-  background-color: var(--background-color-one);
 }
 
 .overlay {
