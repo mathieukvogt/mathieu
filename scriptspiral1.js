@@ -417,207 +417,96 @@ document.addEventListener("DOMContentLoaded", function () {
   // ------------------------------
 
   // ------------------------------
-  // ASCII Cube Animation
+  // Spiral Animation
   // ------------------------------
 
   // Get the canvas and context
-  const cubeCanvas = document.getElementById("cubeCanvas");
-  if (cubeCanvas) {
-    const cubeCtx = cubeCanvas.getContext("2d");
+  const spiralCanvas = document.getElementById("spiralCanvas");
+  if (spiralCanvas) {
+    const spiralCtx = spiralCanvas.getContext("2d");
 
-    // Resize the canvas to match the size of the container and adjust for device pixel ratio
-    function resizeCubeCanvas() {
-      const pixelRatio = window.devicePixelRatio || 1;
-      cubeCanvas.width = cubeCanvas.clientWidth * pixelRatio;
-      cubeCanvas.height = cubeCanvas.clientHeight * pixelRatio;
-      cubeCtx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0); // Reset the transform
+    // Resize the canvas to match the size of the container
+    function resizeSpiralCanvas() {
+      spiralCanvas.width = spiralCanvas.clientWidth;
+      spiralCanvas.height = spiralCanvas.clientHeight;
     }
 
-    window.addEventListener("resize", resizeCubeCanvas);
-    resizeCubeCanvas(); // Initial resize
-
-    // Variables for the cube animation
-    const density = " -=+xyzd#";
-
-    const l = 0.6;
-    const box = {
-      vertices: [
-        vec3(l, l, l),
-        vec3(-l, l, l),
-        vec3(-l, -l, l),
-        vec3(l, -l, l),
-        vec3(l, l, -l),
-        vec3(-l, l, -l),
-        vec3(-l, -l, -l),
-        vec3(l, -l, -l),
-      ],
-      edges: [
-        [0, 1],
-        [1, 2],
-        [2, 3],
-        [3, 0],
-        [4, 5],
-        [5, 6],
-        [6, 7],
-        [7, 4],
-        [0, 4],
-        [1, 5],
-        [2, 6],
-        [3, 7],
-      ],
-    };
-
-    const boxProj = [];
+    window.addEventListener("resize", resizeSpiralCanvas);
+    resizeSpiralCanvas(); // Initial resize
 
     function animate(time) {
-      const t = time * 0.006;
-      const width = cubeCanvas.clientWidth; // Use clientWidth for consistent scaling
-      const height = cubeCanvas.clientHeight;
+      const t = time * 0.0002;
+      const width = spiralCanvas.width;
+      const height = spiralCanvas.height;
       const m = Math.min(width, height);
       const aspect = width / height;
 
-      const rot = {
-        x: t * 0.11,
-        y: t * 0.13,
-        z: -t * 0.15,
-      };
-
-      // Adjust d to zoom out the cube slightly
-      const d = 3.0; // Adjusted from 2 to 1.8
-      const zOffs = map(Math.sin(t * 0.12), -1, 1, -2.5, -6);
-
-      for (let i = 0; i < box.vertices.length; i++) {
-        const v = v3_copy(box.vertices[i]);
-        let vt = v3_rotX(v, rot.x);
-        vt = v3_rotY(vt, rot.y);
-        vt = v3_rotZ(vt, rot.z);
-        boxProj[i] = v2_mulN({ x: vt.x, y: vt.y }, d / (vt.z - zOffs));
-      }
-
       // Clear the canvas
-      cubeCtx.clearRect(0, 0, cubeCanvas.width, cubeCanvas.height);
+      spiralCtx.clearRect(0, 0, width, height);
 
-      // Set font for ASCII characters
-      cubeCtx.font = "12px monospace"; // Increased font size for sharpness
-      cubeCtx.textAlign = "left";
-      cubeCtx.textBaseline = "top";
+      // Draw the spiral
+      spiralCtx.save();
+      spiralCtx.translate(width / 2, height / 2);
 
-      const charWidth = 8; // Adjusted character width
-      const charHeight = 14; // Adjusted character height
+      const density = "#Wabc:+-. ";
+      const colors = ["deeppink", "black", "red", "blue", "orange", "yellow"];
 
-      const cols = Math.floor(width / charWidth);
-      const rows = Math.floor(height / charHeight);
+      for (let i = 0; i < 5000; i++) {
+        let st = {
+          x: 2.0 * (Math.random() - 0.5) * aspect,
+          y: 2.0 * (Math.random() - 0.5),
+        };
 
-      for (let x = 0; x < cols; x++) {
-        for (let y = 0; y < rows; y++) {
-          const coord = { x: x, y: y };
-          const st = {
-            x: ((2.0 * (coord.x - cols / 2 + 0.5)) / m) * aspect,
-            y: (2.0 * (coord.y - rows / 2 + 0.5)) / m,
+        for (let j = 0; j < 3; j++) {
+          const o = j * 3;
+          const v = {
+            x: Math.sin(t * 3 + o),
+            y: Math.cos(t * 2 + o),
           };
 
-          let d = 1e10;
-          const n = box.edges.length;
-          const thickness = 0.01;
-          const expMul = -50;
-          for (let i = 0; i < n; i++) {
-            const a = boxProj[box.edges[i][0]];
-            const b = boxProj[box.edges[i][1]];
-            d = Math.min(d, sdSegment(st, a, b, thickness));
-          }
+          st.x += v.x;
+          st.y += v.y;
 
-          const idx = Math.floor(
-            Math.exp(expMul * Math.abs(d)) * density.length
-          );
-
-          if (idx === 0) {
-            // Do not draw anything for background
-            continue;
-          } else {
-            const char = density[idx];
-            cubeCtx.fillStyle = "royalblue";
-            cubeCtx.fillText(char, x * charWidth, y * charHeight);
-          }
+          const ang = -t + Math.hypot(st.x - 0.5, st.y - 0.5);
+          const cosAng = Math.cos(ang);
+          const sinAng = Math.sin(ang);
+          const x = st.x * cosAng - st.y * sinAng;
+          const y = st.x * sinAng + st.y * cosAng;
+          st.x = x;
+          st.y = y;
         }
+
+        st.x *= 0.6;
+        st.y *= 0.6;
+
+        const s = Math.cos(t) * 2.0;
+        let c = Math.sin(st.x * 3.0 + s) + Math.sin(st.y * 21);
+        c = map(Math.sin(c * 0.5), -1, 1, 0, 1);
+
+        const colorIndex = Math.floor(c * (colors.length - 1));
+        spiralCtx.fillStyle = colors[colorIndex];
+
+        spiralCtx.fillRect((st.x * m) / 2, (st.y * m) / 2, 1, 1);
       }
+
+      spiralCtx.restore();
 
       requestAnimationFrame(animate);
     }
 
     requestAnimationFrame(animate);
 
-    // Utility functions
-    function vec3(x, y, z) {
-      return { x: x, y: y, z: z };
-    }
-
-    function v3_copy(v) {
-      return { x: v.x, y: v.y, z: v.z };
-    }
-
-    function v3_rotX(v, angle) {
-      const sinAngle = Math.sin(angle);
-      const cosAngle = Math.cos(angle);
-      return {
-        x: v.x,
-        y: v.y * cosAngle - v.z * sinAngle,
-        z: v.y * sinAngle + v.z * cosAngle,
-      };
-    }
-
-    function v3_rotY(v, angle) {
-      const sinAngle = Math.sin(angle);
-      const cosAngle = Math.cos(angle);
-      return {
-        x: v.x * cosAngle + v.z * sinAngle,
-        y: v.y,
-        z: -v.x * sinAngle + v.z * cosAngle,
-      };
-    }
-
-    function v3_rotZ(v, angle) {
-      const sinAngle = Math.sin(angle);
-      const cosAngle = Math.cos(angle);
-      return {
-        x: v.x * cosAngle - v.y * sinAngle,
-        y: v.x * sinAngle + v.y * cosAngle,
-        z: v.z,
-      };
-    }
-
-    function v2_mulN(v, n) {
-      return { x: v.x * n, y: v.y * n };
-    }
-
+    // Utility function
     function map(value, inMin, inMax, outMin, outMax) {
       return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
     }
-
-    function sdSegment(p, a, b, thickness) {
-      const pa = { x: p.x - a.x, y: p.y - a.y };
-      const ba = { x: b.x - a.x, y: b.y - a.y };
-      const h = Math.max(0, Math.min(1, dot(pa, ba) / dot(ba, ba)));
-      const d = {
-        x: pa.x - ba.x * h,
-        y: pa.y - ba.y * h,
-      };
-      return length(d) - thickness;
-    }
-
-    function dot(a, b) {
-      return a.x * b.x + a.y * b.y;
-    }
-
-    function length(v) {
-      return Math.sqrt(v.x * v.x + v.y * v.y);
-    }
   } else {
     console.error(
-      'Canvas with id "cubeCanvas" not found. Please add a <canvas id="cubeCanvas"></canvas> inside your .left-image div.'
+      'Canvas with id "spiralCanvas" not found. Please add a <canvas id="spiralCanvas"></canvas> inside your .left-image div.'
     );
   }
 
   // ------------------------------
-  // End of ASCII Cube Animation
+  // End of Spiral Animation
   // ------------------------------
 });
