@@ -620,4 +620,24 @@ document.addEventListener("DOMContentLoaded", function () {
   // ------------------------------
   // End of ASCII Cube Animation
   // ------------------------------
+
+  // ------------------------------
+  // Mouse Circle Follow Effect
+  // ------------------------------
+
+  document.addEventListener("mousemove", function (e) {
+    var circle = document.getElementById("mouse-circle");
+    if (circle) {
+      var offsetX = 20; // Adjust the horizontal offset as needed
+      var offsetY = 20; // Adjust the vertical offset as needed
+
+      // Update the position of the circle
+      circle.style.left = e.pageX + offsetX + "px";
+      circle.style.top = e.pageY + offsetY + "px";
+    }
+  });
+
+  // ------------------------------
+  // End of Mouse Circle Follow Effect
+  // ------------------------------
 });
