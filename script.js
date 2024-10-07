@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Register GSAP Plugins
-  gsap.registerPlugin(TextPlugin); // Only TextPlugin is needed
+  gsap.registerPlugin(TextPlugin);
 
   // Select the burger button and menu bars
   const burgerButton = document.querySelector(".burger");
@@ -349,5 +349,188 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ------------------------------
   // End of Integrated Noise Background
+  // ------------------------------
+
+  // ------------------------------
+  // New Functionality: Update Left Title and Number on Scroll with Scramble Text Animation
+  // ------------------------------
+
+  // Select the elements to update
+  const leftJavascriptDiv = document.querySelector(".left-javascript");
+  const leftNumberDiv = document.querySelector(".left-number");
+
+  // Select all table headings with the class 'tableletters'
+  const tableHeadings = document.querySelectorAll(".tableletters");
+
+  // Variables to keep track of the current heading
+  let lastHeadingId = null;
+
+  // Function to update the left title and number with scramble text effect
+  const updateLeftTitle = () => {
+    let currentHeading = null;
+
+    // Loop through each heading to find the one currently in view
+    tableHeadings.forEach((heading) => {
+      const rect = heading.getBoundingClientRect();
+      if (rect.top <= 76) {
+        currentHeading = heading;
+      }
+    });
+
+    // Update the content if a new heading is found
+    if (currentHeading && currentHeading.id !== lastHeadingId) {
+      lastHeadingId = currentHeading.id;
+
+      // Update the left-javascript div with scramble text effect
+      gsap.to(leftJavascriptDiv, {
+        duration: 0.8,
+        text: {
+          value: currentHeading.textContent.toUpperCase(),
+          scramble: 5, // Adjust the scramble amount as needed
+          chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+        },
+        ease: "none",
+      });
+
+      // Update the left-number div with scramble text effect
+      const headingNumber = currentHeading.getAttribute("data-number");
+      gsap.to(leftNumberDiv, {
+        duration: 0.8,
+        text: {
+          value: "[" + headingNumber + "]",
+          scramble: 5, // Adjust the scramble amount as needed
+          chars: "0123456789",
+        },
+        ease: "none",
+      });
+    }
+  };
+
+  // Add an event listener for the scroll event
+  window.addEventListener("scroll", updateLeftTitle);
+
+  // Initial call to set the correct title and number on page load
+  updateLeftTitle();
+
+  // ------------------------------
+  // End of New Functionality
+  // ------------------------------
+
+  // ------------------------------
+  // Moiré Pattern Animation
+  // ------------------------------
+
+  // Get the canvas and context
+  const moireCanvas = document.getElementById("moireCanvas");
+  if (moireCanvas) {
+    const moireCtx = moireCanvas.getContext("2d");
+
+    // Resize the canvas to match the size of the container
+    function resizeMoireCanvas() {
+      moireCanvas.width = moireCanvas.clientWidth;
+      moireCanvas.height = moireCanvas.clientHeight;
+    }
+
+    window.addEventListener("resize", resizeMoireCanvas);
+    resizeMoireCanvas(); // Initial resize
+
+    // Variables for the animation
+    let mode = 0;
+    let lastTime = 0;
+
+    // Event listener to toggle modes on click or tap
+    moireCanvas.addEventListener("click", () => {
+      mode = (mode + 1) % 3;
+    });
+
+    // Main animation loop
+    function animate(time) {
+      const deltaTime = time - lastTime;
+      lastTime = time;
+
+      const t = time * 0.0001;
+      const width = moireCanvas.width;
+      const height = moireCanvas.height;
+      const m = Math.min(width, height);
+
+      moireCtx.clearRect(0, 0, width, height);
+
+      const density = " ..._-:=+abcXW@#ÑÑÑ";
+
+      const aspect = width / height;
+
+      for (let x = 0; x < width; x += 4) {
+        for (let y = 0; y < height; y += 8) {
+          // Normalized coordinates
+          const st = {
+            x: (2 * (x - width / 2)) / m,
+            y: (2 * (y - height / 2)) / m,
+          };
+
+          st.x *= aspect;
+
+          const centerA = mulN(vec2(Math.cos(t * 3), Math.sin(t * 7)), 0.5);
+          const centerB = mulN(vec2(Math.cos(t * 5), Math.sin(t * 4)), 0.5);
+
+          // Compute A and B based on the mode
+          const A =
+            mode % 2 === 0
+              ? Math.atan2(centerA.y - st.y, centerA.x - st.x)
+              : dist(st, centerA);
+          const B =
+            mode === 0
+              ? Math.atan2(centerB.y - st.y, centerB.x - st.x)
+              : dist(st, centerB);
+
+          const aMod = map(Math.cos(t * 2.12), -1, 1, 6, 60);
+          const bMod = map(Math.cos(t * 3.33), -1, 1, 6, 60);
+
+          const a = Math.cos(A * aMod);
+          const b = Math.cos(B * bMod);
+
+          const i = (a * b + 1) / 2; // Multiply
+          const idx = Math.floor(i * density.length);
+
+          const char = density[idx];
+
+          // Draw the character
+          moireCtx.fillStyle = "#4effd6";
+          moireCtx.font = "8px monospace";
+          moireCtx.fillText(char, x, y);
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    // Start the animation
+    requestAnimationFrame(animate);
+
+    // Utility functions
+    function vec2(x, y) {
+      return { x: x, y: y };
+    }
+
+    function dist(a, b) {
+      const dx = a.x - b.x;
+      const dy = a.y - b.y;
+      return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    function mulN(v, n) {
+      return { x: v.x * n, y: v.y * n };
+    }
+
+    function map(value, inMin, inMax, outMin, outMax) {
+      return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
+    }
+  } else {
+    console.error(
+      'Canvas with id "moireCanvas" not found. Please add a <canvas id="moireCanvas"></canvas> inside your .left-image div.'
+    );
+  }
+
+  // ------------------------------
+  // End of Moiré Pattern Animation
   // ------------------------------
 });

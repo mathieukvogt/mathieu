@@ -116,9 +116,8 @@
         <div class="symbol plus"></div>
         <div class="symbol half-plus r"></div>
       </div>  
-      <br />
-      <p class="update">Content last updated on 04/10/2024 by <span class="tooltip"><u>Mathieu</u></span></p>
-      <br />
+      <br class="brone" />
+      <br class="brtwo"/>
 
       <div class="main-container">
         <div class="left-section">
@@ -126,81 +125,85 @@
             <div class="left-number">[01]</div>
             <div class="left-javascript">VARIABLES</div>
           </div>
-          <div class="left-image"></div>
+          <div class="left-image">
+            <canvas id="moireCanvas"></canvas>
+          </div>
+          <p class="update">Content last updated on 07/10/2024 by <span class="tooltip"><u>Mathieu</u></span></p>
+          <br>
           <div class="left-index">
             <div class="navigation-title">Index [141]</div>
             <div class="indexscroller">
               <div class="navigation-container">
                 <div class="navigationnumber">[01]</div>
-                <div><a href="#variables">Variables</a></div>
+                <div><a href="#variables" class="titleindex">Variables</a></div>
               </div>
               <div class="navigation-container">
                 <div class="navigationnumber">[02]</div>
-                <div><a href="#conditionals">Conditionals</a></div>
+                <div><a href="#conditionals" class="titleindex">Conditionals</a></div>
               </div>
               <div class="navigation-container">
                 <div class="navigationnumber">[02]</div>
-                <div><a href="#ao">Arithmetic Operators</a></div>
+                <div><a href="#ao" class="titleindex">Arithmetic Operators</a></div>
               </div>
               <div class="navigation-container">
                 <div class="navigationnumber">[04]</div>
-                <div><a href="#functions">Functions</a></div>
+                <div><a href="#functions" class="titleindex">Functions</a></div>
               </div>
               <div class="navigation-container">
                 <div class="navigationnumber">[05]</div>
-                <div><a href="#scope">Scope</a></div>
+                <div><a href="#scope" class="titleindex">Scope</a></div>
               </div>
               <div class="navigation-container">
                 <div class="navigationnumber">[06]</div>
-                <div><a href="#arrays">Arrays</a></div>
+                <div><a href="#arrays" class="titleindex">Arrays</a></div>
               </div>
               <div class="navigation-container">
                 <div class="navigationnumber">[07]</div>
-                <div><a href="#array-access">Array Inspection</a></div>
+                <div><a href="#array-access" class="titleindex">Array Inspection</a></div>
               </div>
               <div class="navigation-container">
                 <div class="navigationnumber">[08]</div>
-                <div><a href="#array-transformation">Array Transformation</a></div>
+                <div><a href="#array-transformation" class="titleindex">Array Transformation</a></div>
               </div>
               <div class="navigation-container">
                 <div class="navigationnumber">[09]</div>
-                <div><a href="#array-iteration">Array Iteration</a></div>
+                <div><a href="#array-iteration" class="titleindex">Array Iteration</a></div>
               </div>
               <div class="navigation-container">
                 <div class="navigationnumber">[10]</div>
-                <div><a href="#array-mutation">Array Mutation</a></div>
+                <div><a href="#array-mutation" class="titleindex">Array Mutation</a></div>
               </div>
               <div class="navigation-container">
                 <div class="navigationnumber">[11]</div>
-                <div><a href="#array-utility">Array Utility</a></div>
+                <div><a href="#array-utility" class="titleindex">Array Utility</a></div>
               </div>
               <div class="navigation-container">
                 <div class="navigationnumber">[12]</div>
-                <div><a href="#loops">Loops</a></div>
+                <div><a href="#loops" class="titleindex">Loops</a></div>
               </div>
               <div class="navigation-container">
                 <div class="navigationnumber">[13]</div>
-                <div><a href="#objects">Objects</a></div>
+                <div><a href="#objects" class="titleindex">Objects</a></div>
               </div>
               <div class="navigation-container">
                 <div class="navigationnumber">[14]</div>
-                <div><a href="#dom">Document Object Model</a></div>
+                <div><a href="#dom" class="titleindex">Document Object Model</a></div>
               </div>
               <div class="navigation-container">
                 <div class="navigationnumber">[15]</div>
-                <div><a href="#domevents">Events</a></div>
+                <div><a href="#domevents" class="titleindex">Events</a></div>
               </div>
               <div class="navigation-container">
                 <div class="navigationnumber">[16]</div>
-                <div><a href="#htmlforms">HTML Forms</a></div>
+                <div><a href="#htmlforms" class="titleindex">HTML Forms</a></div>
               </div>
               <div class="navigation-container">
                 <div class="navigationnumber">[17]</div>
-                <div><a href="#data-types">Data Types</a></div>
+                <div><a href="#comments" class="titleindex">Comments</a></div>
               </div>
               <div class="navigation-container">
                 <div class="navigationnumber">[18]</div>
-                <div><a href="#comments">Comments</a></div>
+                <div><a href="#data-types" class="titleindex">Data Types</a></div>
               </div>
             </div>
           </div>
@@ -208,7 +211,7 @@
         <table class="right-section">
           <tbody>
             <tr>
-              <td id="variables" class="tableletters">Variables</td>
+              <td id="variables" class="tableletters" data-number="01">Variables</td>
             </tr>
             <tr>
               <td class="clickable" data-detail-id="detail-tag-let">
@@ -414,7 +417,7 @@
               </td>
             </tr>
             <tr>
-              <td id="conditionals" class="tableletters">Conditionals</td>
+              <td id="conditionals" class="tableletters" data-number="02">Conditionals</td>
             </tr>
             <tr>
               <td class="clickable" data-detail-id="detail-tag-if">
@@ -1235,7 +1238,7 @@
                 <br />
               </td>
             </tr>
-            <td id="ao" class="tableletters">Arithmetic Operators</td>
+            <td id="ao" class="tableletters" data-number="03">Arithmetic Operators</td>
             </tr>
             <tr>
               <td
@@ -1585,7 +1588,7 @@
               </td>
             </tr>
             <tr>
-              <td id="functions" class="tableletters">Functions</td>
+              <td id="functions" class="tableletters" data-number="04">Functions</td>
             </tr>
             <tr>
               <td class="clickable" data-detail-id="detail-tag-overview">
@@ -2416,7 +2419,7 @@
               </td>
             </tr>
             <tr>
-              <td id="scope" class="tableletters">Scope</td>
+              <td id="scope" class="tableletters" data-number="05">Scope</td>
             </tr>
             <tr>
               <td class="clickable" data-detail-id="detail-tag-blocks">
@@ -2737,7 +2740,7 @@
               </td>
             </tr>
             <tr>
-              <td id="arrays" class="tableletters">Arrays</td>
+              <td id="arrays" class="tableletters" data-number="06">Arrays</td>
             </tr>
             <tr>
               <td class="clickable" data-detail-id="detail-tag-arrayover">
@@ -3283,7 +3286,7 @@
               </td>
             </tr>
             <tr>
-              <td id="array-access" class="tableletters">Array Access/Inspection Methods</td>
+              <td id="array-access" class="tableletters" data-number="07">Array Access Methods</td>
             </tr>
             <tr>
               <td class="clickable" data-detail-id="detail-tag-at" >.at() method</td>
@@ -4111,7 +4114,7 @@
               </td>
             </tr>
             <tr>
-              <td id="array-transformation" class="tableletters">Array Transformation Methods</td>
+              <td id="array-transformation" class="tableletters" data-number="08">Array Transformation Methods</td>
             </tr>
             <tr>
               <td class="clickable" data-detail-id="detail-tag-concat" >.concat() method</td>
@@ -4804,7 +4807,7 @@
               </td>
             </tr>
             <tr>
-              <td id="array-iteration" class="tableletters">Array Iteration Methods</td>
+              <td id="array-iteration" class="tableletters" data-number="09">Array Iteration Methods</td>
             </tr>
             <tr>
               <td class="clickable" data-detail-id="detail-tag-foreach" >.forEach() method</td>
@@ -5203,7 +5206,7 @@
               </td>
             </tr>
             <tr>
-              <td id="array-mutation" class="tableletters">Array Mutation Methods</td>
+              <td id="array-mutation" class="tableletters" data-number="10">Array Mutation Methods</td>
             </tr>
             <tr>
               <td class="clickable" data-detail-id="detail-tag-pop" >.pop() method</td>
@@ -5713,7 +5716,7 @@
               </td>
             </tr>
             <tr>
-              <td id="array-utility" class="tableletters">Array Utility Methods</td>
+              <td id="array-utility" class="tableletters" data-number="11">Array Utility Methods</td>
             </tr>
             <tr>
               <td class="clickable" data-detail-id="detail-tag-join" >.join() method</td>
@@ -6293,7 +6296,7 @@
               </td>
             </tr>
             <tr>
-              <td id="loops" class="tableletters">Loops</td>
+              <td id="loops" class="tableletters" data-number="12">Loops</td>
             </tr>
             <tr>
               <td class="clickable" onclick="toggleDetail('detail-tag-loopsoverview', event)">overview</td>
@@ -7417,7 +7420,7 @@
               </td>
             </tr>
             <tr>
-              <td id="objects" class="tableletters">Objects</td>
+              <td id="objects" class="tableletters" data-number="13">Objects</td>
             </tr>
             <tr>
               <td class="clickable" onclick="toggleDetail('detail-tag-objectsoverview', event)">overview</td>
@@ -9405,7 +9408,7 @@
               </td>
             </tr>
             <tr>
-              <td id="dom" class="tableletters">Document-Object-Model</td>
+              <td id="dom" class="tableletters" data-number="14">Document-Object-Model</td>
             </tr>
             <tr>
               <td class="clickable" onclick="toggleDetail('detail-tag-dom', event)">document-object-model</td>
@@ -10180,7 +10183,7 @@
               </td>
             </tr>
             <tr>
-              <td id="domevents" class="tableletters">Dom-Events</td>
+              <td id="domevents" class="tableletters" data-number="15">Dom-Events</td>
             </tr>
             <tr>
               <td class="clickable" onclick="toggleDetail('detail-tag-domevents', event)">dom-events</td>
@@ -10741,7 +10744,7 @@
               </td>
             </tr>
             <tr>
-              <td id="htmlforms" class="tableletters">HTML Forms</td>
+              <td id="htmlforms" class="tableletters" data-number="16">HTML Forms</td>
             </tr>
             <tr>
               <td class="clickable" onclick="toggleDetail('detail-tag-htmlforms', event)">html forms</td>
@@ -11130,7 +11133,7 @@
               </td>
             </tr>
             <tr>
-              <td id="comments" class="tableletters">Comments</td>
+              <td id="comments" class="tableletters" data-number="17">Comments</td>
             </tr>
             <tr>
               <td class="clickable" onclick="toggleDetail('detail-tag-slc', event)">
@@ -11215,7 +11218,7 @@
               </td>
             </tr>
             <tr>
-              <td id="data-types" class="tableletters">Data Types</td>
+              <td id="data-types" class="tableletters" data-number="18">Data Types</td>
             </tr>
             <tr>
               <td class="clickable" onclick="toggleDetail('detail-tag-data-types', event)">Data Types</td>
@@ -11300,12 +11303,16 @@
         <div class="symbol plus"></div>
         <div class="symbol half-plus r"></div>
       </div> 
-    </main>  
-    <footer>
-    
-    <!-- ASCII Art for mobile screens -->
-    <div class="ascii-art-mobile">
+      <div class="ascii-art-mobile">
         <pre class="ascii-art">
+
+
+
+
+        
+
+
+
               .----.
   .---------. | == |
   |.-"""""-.| |----|
@@ -11326,25 +11333,34 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </pre>
     </div>
-  </footer>
+    <div class="mobile-ascii"></div>
+      <pre class="mobile-ascii-art">
+
+
+
+
+
+            .----.
+.---------. | == |
+|.-"""""-.| |----|
+|| Hello || | == |
+|| World || |----|
+|'-.....-'| |::::|
+`"")---(""` |___.|
+/:::::::::::\" _  "
+/:::=======:::\`\`\
+`"""""""""""""`  '-'
+
+
+
+
+
+
+      </pre>
+  </div>
+    </main>  
   <div class="endspace">
   <div class="custom-hr">
     <div class="symbol half-plus l"></div>
