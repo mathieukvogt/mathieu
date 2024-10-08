@@ -67,12 +67,6 @@ body.dark-mode {
     z-index: -2;
   }
 
-  .anton-regular {
-    font-family: "Anton", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-
   body.no-scroll {
     overflow: hidden;
   }
@@ -637,7 +631,7 @@ body.dark-mode {
   .clickable::after {
     content: "[+]"; /* Plus sign, indicating expandable */
     font-size: 12px;
-    color: var(--background-color-one);
+    color: var(--color-twelve);
   }
 
   .expanded::after {
@@ -1169,7 +1163,7 @@ body.dark-mode {
     background-color: transparent;
     color: var(--background-color-one);
     text-decoration: none;
-
+    border-radius: 2px;
     white-space: nowrap;
     transition: background-color 0.1s;
   }
