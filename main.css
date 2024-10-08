@@ -8,7 +8,7 @@
   --color-five: #cbcbcb;
   --color-six: #232323;
   --color-seven: #d5d5d5;
-  --color-eight: #f2f2f2;
+  --color-eight: #ffffff;
   --color-nine: #070707;
   --color-ten: rgba(0, 0, 0, 0.85);
   --color-eleven: rgba(7, 7, 7, 0.98);
@@ -197,7 +197,6 @@ body.dark-mode {
     padding: 0;
   }
 
-  /* Menu Overlay Styles */
   .menu-overlay {
     position: fixed;
     top: 0;
@@ -208,7 +207,8 @@ body.dark-mode {
     overflow: hidden;
     pointer-events: none; /* Disable interaction when menu is closed */
     background-color: transparent;
-    transition: background-color 0.5s;
+    backdrop-filter: blur(0px);
+    transition: background-color 0.5s, backdrop-filter 0.5s;
   }
 
   /* Menu Bar Styles */
@@ -655,15 +655,17 @@ body.dark-mode {
     margin-right: 3vw;
   }
 
-  #mouse-circle {
+  #mouse-square {
     position: absolute;
-    width: 30px;
-    height: 30px;
-    background-color: var(--color-sixteen);
-    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-eight);
+    opacity: 0.85; /* Makes the square semi-transparent */
     pointer-events: none;
-    transform: translate(-50%, -50%);
-    transition: left 0.1s ease-out, top 0.1s ease-out;
+    transform: translate(-50%, -50%) rotate(0deg);
+    transition: left 0.1s ease-out, top 0.1s ease-out, transform 0.1s ease-out;
+    mix-blend-mode: difference;
+    z-index: 12000;
   }
 
   /* Standard syntax */

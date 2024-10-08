@@ -114,6 +114,10 @@ document.addEventListener("DOMContentLoaded", function () {
         duration: 0.2,
         backgroundColor: "var(--color-ten)",
       });
+      gsap.to(menuOverlay, {
+        duration: 0.5,
+        backdropFilter: "blur(3px)",
+      });
       gsap.to(menuLines, {
         duration: 0.6,
         delay: 0.1,
@@ -121,46 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
         stagger: 0.2,
         ease: "power4.out",
       });
-      menuTitleTwos.forEach((element, index) => {
-        gsap.fromTo(
-          element,
-          {
-            text: {
-              value: "",
-            },
-          },
-          {
-            duration: 0.6,
-            delay: index * 0.3 + 0.2,
-            text: {
-              value: element.textContent,
-              scramble: 5,
-              chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-            },
-            ease: "none",
-          }
-        );
-      });
-      menuTitleOne.forEach((element, index) => {
-        gsap.fromTo(
-          element,
-          {
-            text: {
-              value: "",
-            },
-          },
-          {
-            duration: 0.6,
-            delay: index * 0.2 + 0.2,
-            text: {
-              value: element.textContent,
-              scramble: 5,
-              chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-            },
-            ease: "none",
-          }
-        );
-      });
+      // ... (rest of your code for animating text)
     } else {
       menuOpen = false;
       // Animate menu bars moving up
@@ -173,6 +138,11 @@ document.addEventListener("DOMContentLoaded", function () {
         duration: 0.2,
         delay: 0.6,
         backgroundColor: "transparent",
+      });
+      gsap.to(menuOverlay, {
+        duration: 0.3,
+        backdropFilter: "blur(0px)",
+        delay: 0.6,
       });
       gsap.to(menuLines, {
         duration: 0.6,
@@ -625,15 +595,27 @@ document.addEventListener("DOMContentLoaded", function () {
   // Mouse Circle Follow Effect
   // ------------------------------
 
-  document.addEventListener("mousemove", function (e) {
-    var circle = document.getElementById("mouse-circle");
-    if (circle) {
-      var offsetX = 20; // Adjust the horizontal offset as needed
-      var offsetY = 20; // Adjust the vertical offset as needed
+  let prevX = null;
+  let prevY = null;
 
-      // Update the position of the circle
-      circle.style.left = e.pageX + offsetX + "px";
-      circle.style.top = e.pageY + offsetY + "px";
+  document.addEventListener("mousemove", function (e) {
+    const square = document.getElementById("mouse-square");
+    if (square) {
+      // Update the position of the square
+      square.style.left = e.pageX + "px";
+      square.style.top = e.pageY + "px";
+
+      // Calculate angle of movement for rotation
+      if (prevX !== null && prevY !== null) {
+        const deltaX = e.pageX - prevX;
+        const deltaY = e.pageY - prevY;
+        const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
+        square.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+      }
+
+      // Update previous mouse positions
+      prevX = e.pageX;
+      prevY = e.pageY;
     }
   });
 
