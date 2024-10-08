@@ -1205,6 +1205,10 @@ body.dark-mode {
     animation: marquee 60s linear infinite;
     filter: blur(2px);
     cursor: pointer;
+    user-select: none; /* Prevents text selection */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* Internet Explorer and Edge */
+    touch-action: none; /* Prevents default touch behaviors */
   }
 
   .update {
