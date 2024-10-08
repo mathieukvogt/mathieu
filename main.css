@@ -99,7 +99,7 @@ body.dark-mode {
     font-size: 12.5px;
     color: var(--background-color-one);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     padding-left: 0;
     font-weight: bold;
@@ -594,18 +594,24 @@ body.dark-mode {
   th,
   td {
     border-collapse: collapse;
-    padding: 6px;
     font-size: 12.5px;
     height: 35px;
+    border: 1;
   }
 
   .tableletters {
-    color: var(--background-color-one);
-    background-color: var(--background-color-one);
-    border-top: 1px solid var(--background-color-one);
+    background-color: transparent;
     font-weight: bold;
     text-transform: uppercase;
+    padding: 0;
+    height: 12.5px;
+    border-top: 1px solid var(--background-color-one);
   }
+
+  td.tableletters[data-number] {
+    font-size: 0;
+  }
+
   .expandable-row-content {
     display: none;
   }
@@ -742,7 +748,7 @@ body.dark-mode {
   .left-image {
     height: 175px;
     margin-top: 25px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1186,6 +1192,35 @@ body.dark-mode {
     margin: 8px;
   }
 
+  .marquee-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 50px; /* Adjust the height as needed */
+  }
+
+  .marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 60s linear infinite;
+    filter: blur(2px);
+    cursor: pointer;
+  }
+
+  .update {
+    white-space: nowrap;
+    margin-right: 10px; /* Space between repeated texts */
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
   table {
     width: 100%;
     table-layout: fixed;
@@ -1201,8 +1236,8 @@ body.dark-mode {
   }
 
   .tableletters {
-    color: var(--color-one);
-    background-color: var(--background-color-one);
+    color: var(--background-color-one);
+    background-color: transparent;
     border-top: 1px solid var(--background-color-one);
     font-weight: bold;
     text-transform: uppercase;

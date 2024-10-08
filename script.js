@@ -622,4 +622,40 @@ document.addEventListener("DOMContentLoaded", function () {
   // ------------------------------
   // End of Mouse Circle Follow Effect
   // ------------------------------
+
+  // ------------------------------
+  // Marquee Effect for the .update Element
+  // ------------------------------
+
+  // Select the .update element
+  const marqueeContainer = document.querySelector(".marquee-container");
+  const marquee = document.querySelector(".marquee");
+
+  if (marquee) {
+    // Add event listeners for mouse and touch interactions
+    marquee.addEventListener("mousedown", () => {
+      marquee.style.animationPlayState = "paused";
+      marquee.style.filter = "none";
+    });
+
+    marquee.addEventListener("mouseup", () => {
+      marquee.style.animationPlayState = "running";
+      marquee.style.filter = "blur(2px)";
+    });
+
+    // For touch devices
+    marquee.addEventListener("touchstart", () => {
+      marquee.style.animationPlayState = "paused";
+      marquee.style.filter = "none";
+    });
+
+    marquee.addEventListener("touchend", () => {
+      marquee.style.animationPlayState = "running";
+      marquee.style.filter = "blur(2px)";
+    });
+  }
+
+  // ------------------------------
+  // End of Marquee Effect
+  // ------------------------------
 });
