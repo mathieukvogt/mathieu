@@ -1245,7 +1245,13 @@ body.dark-mode {
     border-top: 1px solid var(--background-color-one);
     font-weight: bold;
     text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
   }
+
+  .tablenr {
+  }
+
   .expandable-row-content {
     display: none;
   }
