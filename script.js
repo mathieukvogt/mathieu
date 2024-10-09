@@ -90,8 +90,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Register GSAP Plugins
   gsap.registerPlugin(TextPlugin);
 
-  // Select the burger button and menu bars
   const burgerButton = document.querySelector(".burger");
+  const squareOne = document.querySelector(".square-one");
+  const squareTwo = document.querySelector(".square-two");
   const menuBars = document.querySelectorAll(".menu-bar");
   const menuOverlay = document.querySelector(".menu-overlay");
   const menuLines = document.querySelectorAll(".menu-line");
@@ -114,10 +115,6 @@ document.addEventListener("DOMContentLoaded", function () {
         duration: 0.2,
         backgroundColor: "var(--color-ten)",
       });
-      gsap.to(menuOverlay, {
-        duration: 0.5,
-        backdropFilter: "blur(3px)",
-      });
       gsap.to(menuLines, {
         duration: 0.6,
         delay: 0.1,
@@ -125,7 +122,46 @@ document.addEventListener("DOMContentLoaded", function () {
         stagger: 0.2,
         ease: "power4.out",
       });
-      // ... (rest of your code for animating text)
+      menuTitleTwos.forEach((element, index) => {
+        gsap.fromTo(
+          element,
+          {
+            text: {
+              value: "",
+            },
+          },
+          {
+            duration: 0.6,
+            delay: index * 0.3 + 0.2,
+            text: {
+              value: element.textContent,
+              scramble: 5,
+              chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+            },
+            ease: "none",
+          }
+        );
+      });
+      menuTitleOne.forEach((element, index) => {
+        gsap.fromTo(
+          element,
+          {
+            text: {
+              value: "",
+            },
+          },
+          {
+            duration: 0.6,
+            delay: index * 0.2 + 0.2,
+            text: {
+              value: element.textContent,
+              scramble: 5,
+              chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+            },
+            ease: "none",
+          }
+        );
+      });
     } else {
       menuOpen = false;
       // Animate menu bars moving up
@@ -139,11 +175,6 @@ document.addEventListener("DOMContentLoaded", function () {
         delay: 0.6,
         backgroundColor: "transparent",
       });
-      gsap.to(menuOverlay, {
-        duration: 0.3,
-        backdropFilter: "blur(0px)",
-        delay: 0.6,
-      });
       gsap.to(menuLines, {
         duration: 0.6,
         delay: 0.1,
@@ -153,10 +184,16 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
-
-  // Rotate the burger button on click
+  let isRotated = false;
   burgerButton.addEventListener("click", () => {
-    burgerButton.classList.toggle("rotate");
+    if (!isRotated) {
+      squareOne.style.animation = "moveSquareOne 0.3s forwards";
+      squareTwo.style.animation = "moveSquareTwo 0.3s forwards";
+    } else {
+      squareOne.style.animation = "moveSquareOneReverse 0.3s forwards";
+      squareTwo.style.animation = "moveSquareTwoReverse 0.3s forwards";
+    }
+    isRotated = !isRotated;
   });
 
   // **Simplified Scramble Text on Hover Implementation**
@@ -391,6 +428,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // ------------------------------
 
   // Get the canvas and context
+  function getBackgroundColorOne() {
+    const styles = getComputedStyle(document.body);
+    return styles.getPropertyValue("--background-color-one").trim();
+  }
+
   const cubeCanvas = document.getElementById("cubeCanvas");
   if (cubeCanvas) {
     const cubeCtx = cubeCanvas.getContext("2d");
@@ -440,6 +482,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const boxProj = [];
 
     function animate(time) {
+      // Fetch the current color at the start of each frame
+      const color = getBackgroundColorOne();
+
       const t = time * 0.006;
       const width = cubeCanvas.clientWidth; // Use clientWidth for consistent scaling
       const height = cubeCanvas.clientHeight;
@@ -505,7 +550,7 @@ document.addEventListener("DOMContentLoaded", function () {
             continue;
           } else {
             const char = density[idx];
-            cubeCtx.fillStyle = "royalblue";
+            cubeCtx.fillStyle = color;
             cubeCtx.fillText(char, x * charWidth, y * charHeight);
           }
         }
@@ -658,4 +703,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // ------------------------------
   // End of Marquee Effect
   // ------------------------------
+  document.querySelectorAll("h4 u").forEach(function (element) {
+    if (element.textContent.trim() === "Specifications") {
+      element.textContent = "Examples";
+    }
+  });
 });

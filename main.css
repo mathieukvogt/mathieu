@@ -12,7 +12,7 @@
   --color-nine: #070707;
   --color-ten: rgba(0, 0, 0, 0.85);
   --color-eleven: rgba(7, 7, 7, 0.98);
-  --color-twelve: #4169e1;
+  --color-twelve: #4effd6;
   --color-thirteen: #000000;
   --color-fourteen: #1c1c1c;
   --color-fifteen: rgb(255, 255, 255);
@@ -34,7 +34,7 @@ body.dark-mode {
   --color-nine: #eaeaea;
   --color-ten: rgba(255, 255, 255, 0.85);
   --color-eleven: rgba(240, 240, 240, 0.98);
-  --color-twelve: #4169e1;
+  --color-twelve: #4effd6;
   --color-thirteen: #ffffff;
   --color-fourteen: #e3e3e3;
   --color-fifteen: rgb(0, 0, 0);
@@ -282,14 +282,6 @@ body.dark-mode {
     mix-blend-mode: difference;
   }
 
-  .fixed-box button {
-    height: 25px;
-    width: 25px;
-    background-color: transparent;
-    border: 1px solid #f2f2f2;
-    touch-action: manipulation;
-  }
-
   .fixed-box a.center-text {
     text-decoration: none;
     color: #f2f2f2;
@@ -343,6 +335,14 @@ body.dark-mode {
     cursor: pointer;
   }
 
+  .fixed-box button {
+    height: 25px;
+    width: 25px;
+    background-color: transparent;
+    border: 1px solid #f2f2f2;
+    touch-action: manipulation;
+  }
+
   .burger {
     display: flex;
     justify-content: center;
@@ -351,21 +351,124 @@ body.dark-mode {
   }
 
   .square-container {
-    display: flex;
-    gap: 5px; /* Space between the squares */
-    transition: flex-direction 0.3s ease; /* Smooth transition */
+    position: relative;
+    width: 20px;
+    height: 20px;
   }
 
   .square-one,
   .square-two {
+    position: absolute;
     width: 4px;
     height: 4px;
-    background-color: #f2f2f2; /* You can choose any color */
+    background-color: #f2f2f2;
   }
 
-  /* When the button has the rotate class, change the flex direction */
-  .burger.rotate .square-container {
-    flex-direction: column;
+  /* Initial Positions */
+  .square-one {
+    left: 4px;
+    top: 8px;
+  }
+
+  .square-two {
+    left: 12px;
+    top: 8px;
+  }
+
+  /* Keyframes for Square One */
+  @keyframes moveSquareOne {
+    0% {
+      left: 4px;
+      top: 8px;
+    }
+    25% {
+      left: 5px;
+      top: 7px;
+    }
+    50% {
+      left: 6px;
+      top: 6px;
+    }
+    75% {
+      left: 7px;
+      top: 5px;
+    }
+    100% {
+      left: 8px;
+      top: 4px;
+    }
+  }
+
+  /* Keyframes for Square Two */
+  @keyframes moveSquareTwo {
+    0% {
+      left: 12px;
+      top: 8px;
+    }
+    25% {
+      left: 11px;
+      top: 9px;
+    }
+    50% {
+      left: 10px;
+      top: 10px;
+    }
+    75% {
+      left: 9px;
+      top: 11px;
+    }
+    100% {
+      left: 8px;
+      top: 12px;
+    }
+  }
+
+  /* Reverse Keyframes for Square One */
+  @keyframes moveSquareOneReverse {
+    0% {
+      left: 8px;
+      top: 4px;
+    }
+    25% {
+      left: 7px;
+      top: 5px;
+    }
+    50% {
+      left: 6px;
+      top: 6px;
+    }
+    75% {
+      left: 5px;
+      top: 7px;
+    }
+    100% {
+      left: 4px;
+      top: 8px;
+    }
+  }
+
+  /* Reverse Keyframes for Square Two */
+  @keyframes moveSquareTwoReverse {
+    0% {
+      left: 8px;
+      top: 12px;
+    }
+    25% {
+      left: 9px;
+      top: 11px;
+    }
+    50% {
+      left: 10px;
+      top: 10px;
+    }
+    75% {
+      left: 11px;
+      top: 9px;
+    }
+    100% {
+      left: 12px;
+      top: 8px;
+    }
   }
 
   h2 {
@@ -591,6 +694,10 @@ body.dark-mode {
     margin: 8px;
   }
 
+  u {
+    text-decoration: none;
+  }
+
   table {
     width: 100%;
     table-layout: fixed;
@@ -628,6 +735,10 @@ body.dark-mode {
     align-items: center;
     justify-content: space-between;
     border-top: 1px solid var(--background-color-one);
+  }
+
+  .datatype {
+    border-bottom: 1px solid var(--background-color-one);
   }
 
   .clickable:hover {
@@ -864,13 +975,43 @@ body.dark-mode {
   /* Menu Title Styles */
   .menu-title {
     color: var(--background-color-one); /* Text color */
-    font-size: 20px; /* Font size */
+    font-size: 15px; /* Font size */
     margin: 10px 0; /* Spacing around titles */
-    font-weight: bold;
   }
 
   .menu-title.one {
-    font-size: 40px; /* Font size */
+    font-size: 30px; /* Font size */
+    font-weight: bold;
+  }
+
+  .menu-bar {
+    height: 100%;
+  }
+
+  /* Menu Content Styles */
+  .menu-content {
+    margin-top: 70px; /* Start 50px from the top */
+    margin-left: 3vw;
+    margin-right: 3vw;
+  }
+
+  .menu-line {
+    padding: 0 8px;
+    height: 125px;
+    width: 94vw;
+    border: 1px solid var(--background-color-one);
+    transform: translateX(100%);
+    margin-bottom: 10px;
+    background-color: var(--color-one);
+  }
+
+  .fixed-box button {
+    height: 25px;
+    width: 25px;
+  }
+
+  .fixed-box a.center-text {
+    text-decoration: none;
   }
 
   .fixed-box {
@@ -887,14 +1028,6 @@ body.dark-mode {
     padding-right: 6px;
     height: 35px;
     mix-blend-mode: difference;
-  }
-
-  .fixed-box button {
-    height: 25px;
-    width: 25px;
-    background-color: transparent;
-    border: 1px solid #f2f2f2;
-    touch-action: manipulation;
   }
 
   .fixed-box a.center-text {
@@ -950,6 +1083,14 @@ body.dark-mode {
     cursor: pointer;
   }
 
+  .fixed-box button {
+    height: 25px;
+    width: 25px;
+    background-color: transparent;
+    border: 1px solid #f2f2f2;
+    touch-action: manipulation;
+  }
+
   .burger {
     display: flex;
     justify-content: center;
@@ -958,21 +1099,124 @@ body.dark-mode {
   }
 
   .square-container {
-    display: flex;
-    gap: 5px; /* Space between the squares */
-    transition: flex-direction 0.3s ease; /* Smooth transition */
+    position: relative;
+    width: 20px;
+    height: 20px;
   }
 
   .square-one,
   .square-two {
+    position: absolute;
     width: 4px;
     height: 4px;
-    background-color: #f2f2f2; /* You can choose any color */
+    background-color: #f2f2f2;
   }
 
-  /* When the button has the rotate class, change the flex direction */
-  .burger.rotate .square-container {
-    flex-direction: column;
+  /* Initial Positions */
+  .square-one {
+    left: 4px;
+    top: 8px;
+  }
+
+  .square-two {
+    left: 12px;
+    top: 8px;
+  }
+
+  /* Keyframes for Square One */
+  @keyframes moveSquareOne {
+    0% {
+      left: 4px;
+      top: 8px;
+    }
+    25% {
+      left: 5px;
+      top: 7px;
+    }
+    50% {
+      left: 6px;
+      top: 6px;
+    }
+    75% {
+      left: 7px;
+      top: 5px;
+    }
+    100% {
+      left: 8px;
+      top: 4px;
+    }
+  }
+
+  /* Keyframes for Square Two */
+  @keyframes moveSquareTwo {
+    0% {
+      left: 12px;
+      top: 8px;
+    }
+    25% {
+      left: 11px;
+      top: 9px;
+    }
+    50% {
+      left: 10px;
+      top: 10px;
+    }
+    75% {
+      left: 9px;
+      top: 11px;
+    }
+    100% {
+      left: 8px;
+      top: 12px;
+    }
+  }
+
+  /* Reverse Keyframes for Square One */
+  @keyframes moveSquareOneReverse {
+    0% {
+      left: 8px;
+      top: 4px;
+    }
+    25% {
+      left: 7px;
+      top: 5px;
+    }
+    50% {
+      left: 6px;
+      top: 6px;
+    }
+    75% {
+      left: 5px;
+      top: 7px;
+    }
+    100% {
+      left: 4px;
+      top: 8px;
+    }
+  }
+
+  /* Reverse Keyframes for Square Two */
+  @keyframes moveSquareTwoReverse {
+    0% {
+      left: 8px;
+      top: 12px;
+    }
+    25% {
+      left: 9px;
+      top: 11px;
+    }
+    50% {
+      left: 10px;
+      top: 10px;
+    }
+    75% {
+      left: 11px;
+      top: 9px;
+    }
+    100% {
+      left: 12px;
+      top: 8px;
+    }
   }
 
   h2 {
@@ -1271,6 +1515,10 @@ body.dark-mode {
     border-top: 1px solid var(--background-color-one);
   }
 
+  .datatype {
+    border-bottom: 1px solid var(--background-color-one);
+  }
+
   .clickable:hover {
     text-decoration: none;
   }
@@ -1278,7 +1526,7 @@ body.dark-mode {
   .clickable::after {
     content: "[+]"; /* Plus sign, indicating expandable */
     font-size: 12px;
-    color: var(--color-twelve);
+    color: var(--background-color-one);
   }
 
   .expanded::after {
@@ -1332,50 +1580,13 @@ body.dark-mode {
     padding: 8px;
   }
 
-  .menu-bar {
-    height: 100%;
-  }
-
-  /* Menu Content Styles */
-  .menu-content {
-    margin-top: 70px; /* Start 50px from the top */
-    margin-left: 3vw;
-    margin-right: 3vw;
-  }
-
-  .menu-line {
-    padding: 0 8px;
-    height: 125px;
-    width: 94vw;
-    border: 1px solid var(--background-color-one);
-    transform: translateX(100%);
-    margin-bottom: 10px;
-    background-color: var(--color-one);
-  }
-
-  /* Menu Title Styles */
-  .menu-title {
-    color: var(--background-color-one); /* Text color */
-    font-size: 20px; /* Font size */
-    margin: 10px 0; /* Spacing around titles */
-  }
-
-  .menu-title.one {
-    font-size: 40px; /* Font size */
-  }
-
-  .fixed-box button {
-    height: 25px;
-    width: 25px;
-  }
-
-  .fixed-box a.center-text {
-    text-decoration: none;
-  }
-
   h2 {
     padding-top: 85px;
     padding-bottom: 20px;
+  }
+
+  u {
+    text-decoration: none;
   }
 
   .hljs {
