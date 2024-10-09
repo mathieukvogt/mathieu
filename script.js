@@ -115,6 +115,10 @@ document.addEventListener("DOMContentLoaded", function () {
         duration: 0.2,
         backgroundColor: "var(--color-ten)",
       });
+      gsap.to(menuOverlay, {
+        duration: 0.3,
+        backdropFilter: "blur(2px)",
+      });
       gsap.to(menuLines, {
         duration: 0.6,
         delay: 0.1,
@@ -174,6 +178,11 @@ document.addEventListener("DOMContentLoaded", function () {
         duration: 0.2,
         delay: 0.6,
         backgroundColor: "transparent",
+      });
+      gsap.to(menuOverlay, {
+        duration: 0.3,
+        backdropFilter: "blur(0px)",
+        delay: 0.6,
       });
       gsap.to(menuLines, {
         duration: 0.6,
