@@ -995,7 +995,7 @@ body.dark-mode {
   /* Menu Title Styles */
   .menu-title {
     color: var(--background-color-one); /* Text color */
-    font-size: 25px; /* Font size */
+    font-size: 22.5px; /* Font size */
     margin: 10px 5px; /* Spacing around titles */
     font-family: "VT323", monospace;
     font-weight: 400;
@@ -1003,7 +1003,7 @@ body.dark-mode {
   }
 
   .menu-title.one {
-    font-size: 50px; /* Font size */
+    font-size: 45px; /* Font size */
     font-weight: bold;
   }
 
@@ -1394,6 +1394,7 @@ body.dark-mode {
   ol {
     color: var(--color-seven);
     line-height: 1.5;
+    font-size: 13px;
   }
 
   ol,
@@ -1418,15 +1419,15 @@ body.dark-mode {
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* Internet Explorer and Edge */
     touch-action: none; /* Prevents default touch behaviors */
-    font-family: "VT323", monospace;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 16px;
   }
 
   .update {
     white-space: nowrap;
     margin-right: 10px; /* Space between repeated texts */
+    font-family: "VT323", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
   }
 
   @keyframes marquee {
@@ -1450,6 +1451,7 @@ body.dark-mode {
     padding: 6px;
     font-size: 12.5px;
     height: 35px;
+    font-size: 13px;
   }
 
   .tableletters {
@@ -1464,10 +1466,7 @@ body.dark-mode {
     font-family: "VT323", monospace;
     font-weight: 400;
     font-style: normal;
-    font-size: 16px;
-  }
-
-  .tablenr {
+    font-size: 18px;
   }
 
   .expandable-row-content {
@@ -1557,7 +1556,7 @@ body.dark-mode {
   }
 
   .hljs {
-    font-size: 12.5px;
+    font-size: 13px;
   }
 
   .mobile-ascii-art {
