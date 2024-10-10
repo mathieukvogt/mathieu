@@ -41,6 +41,48 @@ body.dark-mode {
   --color-sixteen: rgba(0, 0, 0, 0.75);
 }
 
+.dm-mono-light {
+  font-family: "DM Mono", monospace;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.dm-mono-regular {
+  font-family: "DM Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.dm-mono-medium {
+  font-family: "DM Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.dm-mono-light-italic {
+  font-family: "DM Mono", monospace;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.dm-mono-regular-italic {
+  font-family: "DM Mono", monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.dm-mono-medium-italic {
+  font-family: "DM Mono", monospace;
+  font-weight: 500;
+  font-style: italic;
+}
+
+body {
+  font-family: "DM Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
 @media (min-width: 601px) {
   * {
     margin: 0;
@@ -229,29 +271,27 @@ body.dark-mode {
     overflow: hidden; /* Clip overflowing content */
   }
 
-  /* Menu Content Styles */
   .menu-content {
-    position: relative; /* Relative to .menu-bar */
-    z-index: 2; /* Above .menu-bar */
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
-    margin-top: 70px; /* Start 50px from the top */
+    margin-top: 70px;
     margin-left: 3vw;
     margin-right: 3vw;
   }
 
-  /* Menu Line Styles */
   .menu-line {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     padding: 0 8px;
-    height: 110px;
-    width: 94vw;
+    height: 125px;
+    width: 100%;
+    box-sizing: border-box; /* Include padding and border in width */
     border: 1px solid var(--background-color-one);
-    transform: translateX(100%);
-    margin-bottom: 15px;
-    background-color: var(--color-thirteen);
+    margin-bottom: 10px;
+    background-color: var(--color-one);
   }
 
   /* Menu Title Styles */
@@ -260,6 +300,9 @@ body.dark-mode {
     font-size: 20px; /* Font size */
     margin: 10px 0; /* Spacing around titles */
     font-weight: bold;
+    font-family: "DM Mono", monospace;
+    font-weight: 500;
+    font-style: normal;
   }
 
   .menu-title.one {
@@ -946,30 +989,27 @@ body.dark-mode {
     z-index: 1; /* Below the menu content */
     overflow: hidden; /* Clip overflowing content */
   }
-
-  /* Menu Content Styles */
   .menu-content {
-    position: relative; /* Relative to .menu-bar */
-    z-index: 2; /* Above .menu-bar */
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
-    margin-top: 70px; /* Start 50px from the top */
+    margin-top: 70px;
     margin-left: 3vw;
     margin-right: 3vw;
   }
 
-  /* Menu Line Styles */
   .menu-line {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     padding: 0 8px;
-    height: 110px;
-    width: 94vw;
+    height: 125px;
+    width: 100%;
+    box-sizing: border-box; /* Include padding and border in width */
     border: 1px solid var(--background-color-one);
-    transform: translateX(100%);
-    margin-bottom: 15px;
-    background-color: var(--color-thirteen);
+    margin-bottom: 10px;
+    background-color: var(--color-one);
   }
 
   /* Menu Title Styles */
@@ -986,23 +1026,6 @@ body.dark-mode {
 
   .menu-bar {
     height: 100%;
-  }
-
-  /* Menu Content Styles */
-  .menu-content {
-    margin-top: 70px; /* Start 50px from the top */
-    margin-left: 3vw;
-    margin-right: 3vw;
-  }
-
-  .menu-line {
-    padding: 0 8px;
-    height: 125px;
-    width: 94vw;
-    border: 1px solid var(--background-color-one);
-    transform: translateX(100%);
-    margin-bottom: 10px;
-    background-color: var(--color-one);
   }
 
   .fixed-box button {
@@ -1228,53 +1251,6 @@ body.dark-mode {
     color: var(--color-seven);
   }
 
-  .tooltip {
-    position: relative;
-    cursor: pointer;
-  }
-
-  .tooltip::after {
-    content: "Hey there!\A I write code that occasionally agrees to compile.";
-    position: absolute;
-    top: 180%;
-    left: 25%;
-    transform: translateX(-75%);
-    background-color: var(--background-color-one);
-    color: var(--color-six);
-    padding: 10px;
-    border-radius: 2px;
-    white-space: pre-wrap;
-    width: 150px;
-    max-width: 250px;
-    text-align: left;
-    opacity: 70%;
-    visibility: hidden;
-    transition: opacity 0.3s;
-    z-index: 1;
-    line-height: 1.5;
-  }
-
-  .tooltip::before {
-    content: "";
-    position: absolute;
-    top: 125%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: 5px;
-    border-style: solid;
-    border-color: var(--background-color-one) transparent transparent
-      transparent;
-    opacity: 70%;
-    visibility: hidden;
-    transition: opacity 0.3s;
-  }
-
-  .tooltip:hover::after,
-  .tooltip:hover::before {
-    opacity: 1;
-    visibility: visible;
-  }
-
   h3 {
     color: var(--color-seven);
     padding-top: 7.5px;
@@ -1425,7 +1401,6 @@ body.dark-mode {
 
   .hljs {
     border-radius: 2px;
-    font-family: JetBrains Mono, monospace;
     font-size: 13px;
     line-height: 1.5;
   }
