@@ -83,6 +83,18 @@ body.dark-mode {
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Teko-Variable"; /* Name of the font */
+  src: url("WEB/fonts/Teko-Variable.woff2") format("woff2"),
+    /* Path to the font file in .woff2 format */
+      url("WEB/fonts/Teko-Variable.woff") format("woff"),
+    /* Path to the font file in .woff format */
+      url("WEB/fonts/Teko-Variable.ttf") format("truetype"); /* Path to the font file in .ttf format */
+  font-weight: 300 700; /* Font weight (regular is typically 400) */
+  font-style: normal; /* Font style (normal or italic) */
+  font-display: swap; /* Control how font loads (optional but recommended) */
+}
+
 @media (min-width: 601px) {
   * {
     margin: 0;
@@ -733,7 +745,7 @@ body.dark-mode {
   }
 
   .tableletters {
-    background-color: transparent;
+    background-color: var(--background-color-one);
     font-weight: bold;
     text-transform: uppercase;
     padding: 0;
@@ -1456,8 +1468,8 @@ body.dark-mode {
   }
 
   .tableletters {
-    color: var(--background-color-one);
-    background-color: transparent;
+    color: var(--color-one);
+    background-color: var(--background-color-one);
     border-top: 1px solid var(--background-color-one);
     font-weight: bold;
     text-transform: uppercase;
