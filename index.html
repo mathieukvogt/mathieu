@@ -138,13 +138,13 @@
                 // METADATA
               </p>
               <p class="update">
-                // [LAST UPDATED] 11/10/2024
+                // [LAST UPDATED] 21/10/2024
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
               </p>
               <p class="update">
-                // [LAST UPDATED] 11/10/2024
+                // [LAST UPDATED] 21/10/2024
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
@@ -153,13 +153,13 @@
                 // METADATA
               </p>
               <p class="update">
-                // [LAST UPDATED] 11/10/2024
+                // [LAST UPDATED] 21/10/2024
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
               </p>
               <p class="update">
-                // [LAST UPDATED] 11/10/2024
+                // [LAST UPDATED] 21/10/2024
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
@@ -11133,12 +11133,115 @@
               </td>
             </tr>
             <tr>
-              <td class="clickable" onclick="toggleDetail('detail-tag-htmlforms', event)">html forms</td>
+              <td class="clickable" data-detail-id="detail-tag-clientside">client-side validation: html</td>
+            </tr>
+            <tr id="detail-tag-clientside" class="expandable-row-content">
+              <td>
+                <h3>client-side validation</h3>
+                <p>Client-side form validation is a technique used to prevent problematic inputs from being submitted to the server by checking the data within the user's web browser before submission. The validation logic is embedded in the code that displays the form on the user's device, eliminating the need for interaction with the back-end server for this process. Modern HTML offers built-in validation features, allowing developers to make certain form fields required or optional, set minimum and maximum values for inputs, enforce length restrictions on text inputs, and specify patterns that inputs must match using regular expressions. If the user's input doesn't comply with these rules, the form cannot be submitted, and an error message explains the issue. This not only reduces the likelihood of incorrect data reaching the back-end but also enhances the user experience by providing immediate feedback without the delays of server communication.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+&lt;!-- Example 1: Required field --&gt;
+&lt;form&gt;
+  &lt;label for="username"&gt;Username:&lt;/label&gt;
+  &lt;input type="text" id="username" name="username" required&gt;
+  &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 2: Input with a minimum value --&gt;
+&lt;form&gt;
+  &lt;label for="age"&gt;Age (must be at least 18):&lt;/label&gt;
+  &lt;input type="number" id="age" name="age" min="18"&gt;
+  &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 3: Input with a maximum value --&gt;
+&lt;form&gt;
+  &lt;label for="tickets"&gt;Number of Tickets (max 5):&lt;/label&gt;
+  &lt;input type="number" id="tickets" name="tickets" max="5"&gt;
+  &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 4: Text input with a minimum length --&gt;
+&lt;form&gt;
+  &lt;label for="password"&gt;Password (at least 8 characters):&lt;/label&gt;
+  &lt;input type="password" id="password" name="password" minlength="8"&gt;
+  &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 5: Text input with a maximum length --&gt;
+&lt;form&gt;
+  &lt;label for="nickname"&gt;Nickname (max 15 characters):&lt;/label&gt;
+  &lt;input type="text" id="nickname" name="nickname" maxlength="15"&gt;
+  &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 6: Email input type for validating email addresses --&gt;
+&lt;form&gt;
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" required&gt;
+  &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 7: Input that must match a specific pattern (regular expression) --&gt;
+&lt;form&gt;
+  &lt;label for="zipcode"&gt;Zip Code (5 digits):&lt;/label&gt;
+  &lt;input type="text" id="zipcode" name="zipcode" pattern="[0-9]{5}" title="Please enter a 5-digit zip code"&gt;
+  &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 8: Date input with minimum and maximum dates --&gt;
+&lt;form&gt;
+  &lt;label for="birthday"&gt;Birthday (between 1900-01-01 and 2024-12-31):&lt;/label&gt;
+  &lt;input type="date" id="birthday" name="birthday" min="1900-01-01" max="2024-12-31"&gt;
+  &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 9: URL input type for validating website addresses --&gt;
+&lt;form&gt;
+  &lt;label for="website"&gt;Website:&lt;/label&gt;
+  &lt;input type="url" id="website" name="website"&gt;
+  &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 10: Input with a custom validation message --&gt;
+&lt;form&gt;
+  &lt;label for="promo_code"&gt;Promo Code (5 uppercase letters):&lt;/label&gt;
+  &lt;input type="text" id="promo_code" name="promo_code" pattern="[A-Z]{5}" title="Promo code must be 5 uppercase letters"&gt;
+  &lt;input type="submit" value="Apply"&gt;
+&lt;/form&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-clientsidejs">client-side validation: js</td>
+            </tr>
+            <tr id="detail-tag-clientsidejs" class="expandable-row-content">
+              <td>
+                <h3>client-side validation: js</h3>
+                <p>Client-side validation using JavaScript enhances the user experience by providing immediate feedback on form inputs, allowing users to correct errors without waiting for server responses. This not only improves user satisfaction but also conserves application resources by reducing unnecessary server interactions. While HTML offers built-in validation features, they might not suffice for all scenarios, especially when dealing with complex or customized validation rules. JavaScript enables developers to create more sophisticated validations, either by writing custom scripts or by incorporating validation libraries. For instance, unique username requirements might necessitate bespoke validation logic. For simpler websites, manually coding the validation or using a vanilla JavaScript library like **just-validate** can be effective. However, when working with frameworks that utilize a virtual DOM, such as React or Vue, manipulating the actual DOM can be challenging. In these cases, it's beneficial to use libraries designed for those frameworks, like **Formik** for React, which streamline the form validation process within the virtual DOM environment.</p>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-backendval">back-end validation</td>
+            </tr>
+            <tr id="detail-tag-backendval" class="expandable-row-content">
+              <td>
+                <h3>back-end validation</h3>
+                <p>Back-end form validation is a crucial process that ensures the data received by the server is both valid and secure, regardless of any validation that might have occurred on the front-end. Front-end validations can easily be bypassed by malicious users, for example, by disabling JavaScript in their browser or intercepting and altering data in transit before it reaches the server. For this reason, the back-end must never fully trust the data it receives from the front-end. On the back-end, developers have complete control over the data, allowing for more robust and secure validations. These validations can also leverage more powerful server resources and remain hidden from users, making it harder for attackers to circumvent them. Additionally, back-end validation can access information that the front-end cannot, such as checking a database to see if a username is already in use. There are two main ways to perform back-end validation: asynchronously, during the user’s interaction with the form, or after the form has been submitted. The latter is the final safeguard against problematic or malicious data, ensuring it is properly validated and sanitized before being stored in a database, where consistent formatting is critical for maintaining data integrity.</p>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-regex">client-side validation</td>
             </tr>
             <tr id="detail-tag-htmlforms" class="expandable-row-content">
               <td>
-                <h3>html forms</h3>
-                <p>DOM (Document Object Model) events in JavaScript refer to the actions or occurrences that happen in the web browser, which the browser can respond to. These events are usually triggered by user interactions such as clicking a button, typing in a text field, or moving the mouse. JavaScript can listen for these events and execute specific functions, called event handlers, in response. Common DOM events include "click," "mouseover," "keydown," and "submit." By adding event listeners to HTML elements, developers can make their web pages more interactive, allowing the page to respond dynamically to user input or system-generated actions, like page loading. JavaScript's event model provides a powerful way to control the flow of interaction between the user and the web application.</p>
+                <h3>client-side validation</h3>
+                <p>DOM (Document Object Model) events</p>
                 <h4><u>Specifications</u></h4>
                 <pre>
              <code class="language-js">
