@@ -1470,8 +1470,8 @@ body.dark-mode {
   }
 
   .tableletters {
-    color: var(--background-color-one);
-    background-color: transparent;
+    color: var(--color-one);
+    background-color: var(--background-color-one);
     border-top: 1px solid var(--background-color-one);
     font-weight: bold;
     text-transform: uppercase;
