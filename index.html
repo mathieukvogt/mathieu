@@ -23,10 +23,10 @@
       content="Mathieu"
     />
     <meta name="theme-color" content="#000000" />
-    <title>Mathieu</title>
+    <title>mathieu | learn javascript</title>
     <link href="main.css" rel="stylesheet" />
     <link rel="stylesheet" href="github-dark.css" />
-    <link rel="icon" href="favicon-blue.png" type="image/png">
+    <link rel="icon" href="green.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=VT323&display=swap" rel="stylesheet">
@@ -11236,18 +11236,260 @@
               </td>
             </tr>
             <tr>
-              <td class="clickable" data-detail-id="detail-tag-regex">client-side validation</td>
+              <td class="clickable" data-detail-id="detail-tag-actionmethod">html forms: action & method</td>
             </tr>
-            <tr id="detail-tag-htmlforms" class="expandable-row-content">
+            <tr id="detail-tag-actionmethod" class="expandable-row-content">
               <td>
-                <h3>client-side validation</h3>
-                <p>DOM (Document Object Model) events</p>
+                <h3>html forms: action & method</h3>
+                <p>In web development, an HTML &amp;lt;form&amp;gt; element is essential for collecting user information and sending it to a server for processing. The internet operates as a network of computers that communicate by sending and receiving information through HTTP requests, which act as instructions for handling data. When setting up a form, we specify where the data should be sent and the type of HTTP request to use by adding the &amp;lt;action&amp;gt; and &amp;lt;method&amp;gt; attributes. For example, in &amp;lt;form action=&amp;quot;/example.html&amp;quot; method=&amp;quot;POST&amp;gt;, the &amp;lt;action&amp;gt; attribute directs the information to a specific URL, and the &amp;lt;method&amp;gt; attribute sets the type of request—often &amp;quot;POST&amp;quot; or &amp;quot;GET&amp;quot;. Although conventionally written in uppercase, &amp;quot;post&amp;quot; in lowercase would work just as well. The &amp;lt;form&amp;gt; element can also contain child elements such as headers and paragraphs, which help users understand the form's purpose and provide additional context. By defining these attributes and elements, the form serves as a bridge between users' inputs and the instructions the server needs to process them effectively.</p>
                 <h4><u>Specifications</u></h4>
                 <pre>
-             <code class="language-js">
-  // Example 1: Redeclaration in the same block
-  let x = 10;
-  // let x = 20; // SyntaxError: Identifier 'x' has already been declared
+             <code class="language-html">
+&lt;!-- 1. Simple form to submit a users name via GET method to "submit_name.html" --&gt;
+&lt;form action="submit_name.html" method="GET"&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name"&gt;
+    &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+
+&lt;!-- 2. Form to submit a user's feedback via POST method to "feedback.html" --&gt;
+&lt;form action="feedback.html" method="POST"&gt;
+    &lt;label for="feedback"&gt;Feedback:&lt;/label&gt;
+    &lt;textarea id="feedback" name="feedback"&gt;&lt;/textarea&gt;
+    &lt;input type="submit" value="Send Feedback"&gt;
+&lt;/form&gt;
+
+&lt;!-- 3. Login form that sends data to "login.html" using POST for secure data handling --&gt;
+&lt;form action="login.html" method="POST"&gt;
+    &lt;label for="username"&gt;Username:&lt;/label&gt;
+    &lt;input type="text" id="username" name="username"&gt;
+    &lt;label for="password"&gt;Password:&lt;/label&gt;
+    &lt;input type="password" id="password" name="password"&gt;
+    &lt;input type="submit" value="Login"&gt;
+&lt;/form&gt;
+
+&lt;!-- 4. Search form that sends a search term to "search.html" via GET for easy bookmarking --&gt;
+&lt;form action="search.html" method="GET"&gt;
+    &lt;label for="query"&gt;Search:&lt;/label&gt;
+    &lt;input type="text" id="query" name="query"&gt;
+    &lt;input type="submit" value="Search"&gt;
+&lt;/form&gt;
+
+&lt;!-- 5. Contact form that sends data to "contact.html" using POST for privacy --&gt;
+&lt;form action="contact.html" method="POST"&gt;
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email"&gt;
+    &lt;label for="message"&gt;Message:&lt;/label&gt;
+    &lt;textarea id="message" name="message"&gt;&lt;/textarea&gt;
+    &lt;input type="submit" value="Send Message"&gt;
+&lt;/form&gt;
+
+&lt;!-- 6. Newsletter subscription form that sends the user's email to "subscribe.html" using POST --&gt;
+&lt;form action="subscribe.html" method="POST"&gt;
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email"&gt;
+    &lt;input type="submit" value="Subscribe"&gt;
+&lt;/form&gt;
+
+&lt;!-- 7. File upload form to upload an image to "upload_image.html" using POST and enctype attribute --&gt;
+&lt;form action="upload_image.html" method="POST" enctype="multipart/form-data"&gt;
+    &lt;label for="file"&gt;Upload Image:&lt;/label&gt;
+    &lt;input type="file" id="file" name="file"&gt;
+    &lt;input type="submit" value="Upload"&gt;
+&lt;/form&gt;
+
+&lt;!-- 8. Survey form to collect user responses and submit to "survey.html" using POST --&gt;
+&lt;form action="survey.html" method="POST"&gt;
+    &lt;label for="age"&gt;Age:&lt;/label&gt;
+    &lt;input type="number" id="age" name="age"&gt;
+    &lt;label for="satisfaction"&gt;Satisfaction Level:&lt;/label&gt;
+    &lt;select id="satisfaction" name="satisfaction"&gt;
+        &lt;option value="1"&gt;1 - Poor&lt;/option&gt;
+        &lt;option value="5"&gt;5 - Excellent&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;input type="submit" value="Submit Survey"&gt;
+&lt;/form&gt;
+
+&lt;!-- 9. Registration form that posts data to "register.html" for user account creation --&gt;
+&lt;form action="register.html" method="POST"&gt;
+    &lt;label for="username"&gt;Username:&lt;/label&gt;
+    &lt;input type="text" id="username" name="username"&gt;
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email"&gt;
+    &lt;label for="password"&gt;Password:&lt;/label&gt;
+    &lt;input type="password" id="password" name="password"&gt;
+    &lt;input type="submit" value="Register"&gt;
+&lt;/form&gt;
+
+&lt;!-- 10. Profile update form to submit updates to "update_profile.html" using POST --&gt;
+&lt;form action="update_profile.html" method="POST"&gt;
+    &lt;label for="bio"&gt;Bio:&lt;/label&gt;
+    &lt;textarea id="bio" name="bio"&gt;&lt;/textarea&gt;
+    &lt;label for="location"&gt;Location:&lt;/label&gt;
+    &lt;input type="text" id="location" name="location"&gt;
+    &lt;input type="submit" value="Update Profile"&gt;
+&lt;/form&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-htmlinput">html forms: input</td>
+            </tr>
+            <tr id="detail-tag-htmlinput" class="expandable-row-content">
+              <td>
+                <h3>html forms: input</h3>
+                <p>The HTML &lt;input&gt; element is a versatile tool used within a form to gather user information. It allows for the creation of various interactive fields, such as text boxes, color pickers, date selectors, and more. The &lt;input&gt; element’s behavior and appearance are controlled by the &lt;type&gt; attribute, which specifies the kind of data it can accept. By default, the type is set to "text," creating a simple text input field that users can type into. For an input field to send data when the form is submitted, it’s crucial to include a &lt;name&gt; attribute. Without it, the data from that input will not be part of the submission. For example, a form with &lt;input type="text" name="first-text-field"&gt; generates a text input field that accepts user text. When users type into this field, the value they enter is paired with the &lt;name&gt; attribute and sent upon submission, so if the user enters "important details," the form sends "first-text-field=important details" to the server. Additionally, we can use the &lt;value&gt; attribute to set a default text that users see in the field initially. This functionality allows developers to create customized, interactive forms tailored to specific data requirements.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+&lt;!-- 1. Basic text input field --&gt;
+&lt;input type=&quot;text&quot; name=&quot;username&quot; placeholder=&quot;Enter your username&quot;&gt;
+
+&lt;!-- 2. Password input field --&gt;
+&lt;input type=&quot;password&quot; name=&quot;password&quot; placeholder=&quot;Enter your password&quot;&gt;
+
+&lt;!-- 3. Email input field --&gt;
+&lt;input type=&quot;email&quot; name=&quot;email&quot; placeholder=&quot;Enter your email&quot;&gt;
+
+&lt;!-- 4. Number input field --&gt;
+&lt;input type=&quot;number&quot; name=&quot;age&quot; placeholder=&quot;Enter your age&quot;&gt;
+
+&lt;!-- 5. Date picker input field --&gt;
+&lt;input type=&quot;date&quot; name=&quot;birthdate&quot;&gt;
+
+&lt;!-- 6. Color picker input field --&gt;
+&lt;input type=&quot;color&quot; name=&quot;favoriteColor&quot;&gt;
+
+&lt;!-- 7. File upload input field --&gt;
+&lt;input type=&quot;file&quot; name=&quot;profilePicture&quot;&gt;
+
+&lt;!-- 8. Checkbox input field --&gt;
+&lt;input type=&quot;checkbox&quot; name=&quot;subscribe&quot; value=&quot;newsletter&quot;&gt; Subscribe to newsletter
+
+&lt;!-- 9. Radio button input field --&gt;
+&lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;male&quot;&gt; Male
+&lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;female&quot;&gt; Female
+
+&lt;!-- 10. Submit button --&gt;
+&lt;input type=&quot;submit&quot; value=&quot;Submit Form&quot;&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-htmllabel">html forms: label</td>
+            </tr>
+            <tr id="detail-tag-htmllabel" class="expandable-row-content">
+              <td>
+                <h3>html forms: label</h3>
+                <p>The HTML &amp;lt;label&amp;gt; tag is used to define labels for user input elements, helping improve accessibility and user experience by associating descriptive text with form controls like &amp;lt;input&amp;gt; fields. By linking a &amp;lt;label&amp;gt; tag to an input element, users know exactly what information is expected in each field. This association is created by using the &amp;lt;for&amp;gt; attribute within the &amp;lt;label&amp;gt; tag, which should match the &amp;lt;id&amp;gt; of the corresponding input element. For instance, in &amp;lt;label for=&quot;username&quot;&amp;gt;Username&amp;lt;/label&amp;gt; paired with &amp;lt;input type=&quot;text&quot; id=&quot;username&quot;&gt;, the label "Username" is explicitly connected to the input field. This association allows users to click on the label to focus the input, which is particularly useful for larger click targets and essential for screen readers, enhancing accessibility for those using assistive technology. The &amp;lt;label&amp;gt; tag can either wrap around the input element or be separate with the &amp;for&amp; attribute to provide flexibility in layout and design.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+&lt;!-- 1. Label for a text input field --&gt;
+&lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
+&lt;input type=&quot;text&quot; id=&quot;username&quot; name=&quot;username&quot;&gt;
+
+&lt;!-- 2. Label for a password input field --&gt;
+&lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;
+&lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot;&gt;
+
+&lt;!-- 3. Label for an email input field --&gt;
+&lt;label for=&quot;email&quot;&gt;Email Address&lt;/label&gt;
+&lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot;&gt;
+
+&lt;!-- 4. Label for a date input field --&gt;
+&lt;label for=&quot;birthdate&quot;&gt;Date of Birth&lt;/label&gt;
+&lt;input type=&quot;date&quot; id=&quot;birthdate&quot; name=&quot;birthdate&quot;&gt;
+
+&lt;!-- 5. Label wrapping a checkbox input field --&gt;
+&lt;label&gt;
+    &lt;input type=&quot;checkbox&quot; name=&quot;subscribe&quot;&gt; Subscribe to newsletter
+&lt;/label&gt;
+
+&lt;!-- 6. Label for a radio button input field --&gt;
+&lt;label for=&quot;male&quot;&gt;Male&lt;/label&gt;
+&lt;input type=&quot;radio&quot; id=&quot;male&quot; name=&quot;gender&quot; value=&quot;male&quot;&gt;
+
+&lt;label for=&quot;female&quot;&gt;Female&lt;/label&gt;
+&lt;input type=&quot;radio&quot; id=&quot;female&quot; name=&quot;gender&quot; value=&quot;female&quot;&gt;
+
+&lt;!-- 7. Label for a color picker input field --&gt;
+&lt;label for=&quot;favcolor&quot;&gt;Favorite Color&lt;/label&gt;
+&lt;input type=&quot;color&quot; id=&quot;favcolor&quot; name=&quot;favcolor&quot;&gt;
+
+&lt;!-- 8. Label for a number input field --&gt;
+&lt;label for=&quot;quantity&quot;&gt;Quantity&lt;/label&gt;
+&lt;input type=&quot;number&quot; id=&quot;quantity&quot; name=&quot;quantity&quot;&gt;
+
+&lt;!-- 9. Label for a file upload input field --&gt;
+&lt;label for=&quot;profilePic&quot;&gt;Upload Profile Picture&lt;/label&gt;
+&lt;input type=&quot;file&quot; id=&quot;profilePic&quot; name=&quot;profilePic&quot;&gt;
+
+&lt;!-- 10. Label for a search input field --&gt;
+&lt;label for=&quot;search&quot;&gt;Search&lt;/label&gt;
+&lt;input type=&quot;search&quot; id=&quot;search&quot; name=&quot;search&quot; placeholder=&quot;Type to search...&quot;&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-actionmethod">html forms: action & method</td>
+            </tr>
+            <tr id="detail-tag-actionmethod" class="expandable-row-content">
+              <td>
+                <h3>html forms: action & method</h3>
+                <p>In web development, an HTML</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+&lt;!-- 1. Simple form to submit a users name via GET method to "submit_name.html" --&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-actionmethod">html forms: action & method</td>
+            </tr>
+            <tr id="detail-tag-actionmethod" class="expandable-row-content">
+              <td>
+                <h3>html forms: action & method</h3>
+                <p>In web development, an HTML</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+&lt;!-- 1. Simple form to submit a users name via GET method to "submit_name.html" --&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-actionmethod">html forms: action & method</td>
+            </tr>
+            <tr id="detail-tag-actionmethod" class="expandable-row-content">
+              <td>
+                <h3>html forms: action & method</h3>
+                <p>In web development, an HTML</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+&lt;!-- 1. Simple form to submit a users name via GET method to "submit_name.html" --&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-actionmethod">html forms: action & method</td>
+            </tr>
+            <tr id="detail-tag-actionmethod" class="expandable-row-content">
+              <td>
+                <h3>html forms: action & method</h3>
+                <p>In web development, an HTML</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+&lt;!-- 1. Simple form to submit a users name via GET method to "submit_name.html" --&gt;
               </code></pre>
                 <br />
               </td>
