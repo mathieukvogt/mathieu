@@ -104,11 +104,12 @@
             <li><a href="#array-utility">Array Utility</a></li>
             <li><a href="#loops">Loops</a></li>
             <li><a href="#objects">Objects</a></li>
-            <li><a href="#comments">Comments</a></li>
-            <li><a href="#data-types">Data Types</a></li>
             <li><a href="#dom">Document Object Model</a></li>
             <li><a href="#domevents">Events</a></li>
             <li><a href="#htmlforms">HTML Forms</a></li>
+            <li><a href="#formvalidation">Form Validation</a></li>
+            <li><a href="#comments">Comments</a></li>
+            <li><a href="#data-types">Data Types</a></li>
           </ul>
         </div>
       </nav>
@@ -138,13 +139,13 @@
                 // METADATA
               </p>
               <p class="update">
-                // [LAST UPDATED] 21/10/2024
+                // [LAST UPDATED] 27/10/2024
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
               </p>
               <p class="update">
-                // [LAST UPDATED] 21/10/2024
+                // [LAST UPDATED] 27/10/2024
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
@@ -153,13 +154,13 @@
                 // METADATA
               </p>
               <p class="update">
-                // [LAST UPDATED] 21/10/2024
+                // [LAST UPDATED] 27/10/2024
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
               </p>
               <p class="update">
-                // [LAST UPDATED] 21/10/2024
+                // [LAST UPDATED] 27/10/2024
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
@@ -167,7 +168,7 @@
             </div>
           </div>
           <div class="left-index">
-            <div class="navigation-title">Index [141]</div>
+            <div class="navigation-title">Index [153]</div>
             <div class="indexscroller">
               <div class="navigation-container">
                 <div class="navigationnumber">[01]</div>
@@ -235,10 +236,14 @@
               </div>
               <div class="navigation-container">
                 <div class="navigationnumber">[17]</div>
-                <div><a href="#comments" class="titleindex">Comments</a></div>
+                <div><a href="#formvalidation" class="titleindex">Form Validation</a></div>
               </div>
               <div class="navigation-container">
                 <div class="navigationnumber">[18]</div>
+                <div><a href="#comments" class="titleindex">Comments</a></div>
+              </div>
+              <div class="navigation-container">
+                <div class="navigationnumber">[19]</div>
                 <div><a href="#data-types" class="titleindex">Data Types</a></div>
               </div>
             </div>
@@ -10811,7 +10816,7 @@
             </tr>
             <tr>
               <td id="htmlforms" class="tableletters" data-number="16">HTML Forms
-                <div class="tablenr">[06]</div>
+                <div class="tablenr">[18]</div>
               </td>
             </tr>
             <tr>
@@ -11236,266 +11241,1174 @@
               </td>
             </tr>
             <tr>
-              <td class="clickable" data-detail-id="detail-tag-actionmethod">html forms: action & method</td>
+              <td class="clickable" data-detail-id="detail-tag-actionmethod">action & method</td>
             </tr>
             <tr id="detail-tag-actionmethod" class="expandable-row-content">
               <td>
-                <h3>html forms: action & method</h3>
-                <p>In web development, an HTML &amp;lt;form&amp;gt; element is essential for collecting user information and sending it to a server for processing. The internet operates as a network of computers that communicate by sending and receiving information through HTTP requests, which act as instructions for handling data. When setting up a form, we specify where the data should be sent and the type of HTTP request to use by adding the &amp;lt;action&amp;gt; and &amp;lt;method&amp;gt; attributes. For example, in &amp;lt;form action=&amp;quot;/example.html&amp;quot; method=&amp;quot;POST&amp;gt;, the &amp;lt;action&amp;gt; attribute directs the information to a specific URL, and the &amp;lt;method&amp;gt; attribute sets the type of request—often &amp;quot;POST&amp;quot; or &amp;quot;GET&amp;quot;. Although conventionally written in uppercase, &amp;quot;post&amp;quot; in lowercase would work just as well. The &amp;lt;form&amp;gt; element can also contain child elements such as headers and paragraphs, which help users understand the form's purpose and provide additional context. By defining these attributes and elements, the form serves as a bridge between users' inputs and the instructions the server needs to process them effectively.</p>
+                <h3>action & method</h3>
+                <p>In HTML forms, the &lt;form&gt; element is used to collect user input and submit it to a server for processing. The `action` attribute within the &lt;form&gt; tag specifies the URL of the server-side script that will handle the form data upon submission. Meanwhile, the `method` attribute determines the HTTP method used to send the data, typically either "GET" or "POST". Using `method="GET"` appends the form data to the URL, making it visible in the browser's address bar, which is suitable for non-sensitive information. On the other hand, `method="POST"` sends the data within the request body, providing a more secure way to transmit sensitive information. Within the form, the &lt;label&gt; tag is associated with form controls like &lt;input&gt; tags through the `for` and `id` attributes, enhancing accessibility and usability by allowing users to click on the label to focus the corresponding input field. Properly configuring the `action` and `method` attributes ensures that the form data is accurately and securely transmitted to the intended server-side processing script.</p>
                 <h4><u>Specifications</u></h4>
                 <pre>
              <code class="language-html">
-&lt;!-- 1. Simple form to submit a users name via GET method to "submit_name.html" --&gt;
-&lt;form action="submit_name.html" method="GET"&gt;
+&lt;!-- Example 1: Form with POST method and action to /submit --&gt;
+&lt;form action="/submit" method="POST"&gt;
+    &lt;label for="username1"&gt;Username:&lt;/label&gt;
+    &lt;input type="text" id="username1" name="username"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 2: Form with GET method and action to /search --&gt;
+&lt;form action="/search" method="GET"&gt;
+    &lt;label for="query"&gt;Search Query:&lt;/label&gt;
+    &lt;input type="text" id="query" name="q"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 3: Form with POST method and action to /register --&gt;
+&lt;form action="/register" method="POST"&gt;
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email"&gt;
+    &lt;label for="password"&gt;Password:&lt;/label&gt;
+    &lt;input type="password" id="password" name="password"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 4: Form with GET method and action to /filter --&gt;
+&lt;form action="/filter" method="GET"&gt;
+    &lt;label for="minPrice"&gt;Minimum Price:&lt;/label&gt;
+    &lt;input type="number" id="minPrice" name="min"&gt;
+    &lt;label for="maxPrice"&gt;Maximum Price:&lt;/label&gt;
+    &lt;input type="number" id="maxPrice" name="max"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 5: Form with POST method and action to /upload --&gt;
+&lt;form action="/upload" method="POST" enctype="multipart/form-data"&gt;
+    &lt;label for="file"&gt;Upload File:&lt;/label&gt;
+    &lt;input type="file" id="file" name="file"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 6: Form with POST method and action to /feedback --&gt;
+&lt;form action="/feedback" method="POST"&gt;
+    &lt;label for="feedback"&gt;Your Feedback:&lt;/label&gt;
+    &lt;input type="text" id="feedback" name="feedback"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 7: Form with GET method and action to /subscribe --&gt;
+&lt;form action="/subscribe" method="GET"&gt;
+    &lt;label for="emailSubscribe"&gt;Subscribe Email:&lt;/label&gt;
+    &lt;input type="email" id="emailSubscribe" name="email"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 8: Form with POST method and action to /login --&gt;
+&lt;form action="/login" method="POST"&gt;
+    &lt;label for="user"&gt;User ID:&lt;/label&gt;
+    &lt;input type="text" id="user" name="user"&gt;
+    &lt;label for="pass"&gt;Password:&lt;/label&gt;
+    &lt;input type="password" id="pass" name="pass"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 9: Form with GET method and action to /newsletter --&gt;
+&lt;form action="/newsletter" method="GET"&gt;
+    &lt;label for="newsletter"&gt;Newsletter ID:&lt;/label&gt;
+    &lt;input type="number" id="newsletter" name="newsletterId"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 10: Form with POST method and action to /contact --&gt;
+&lt;form action="/contact" method="POST"&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name"&gt;
+    &lt;label for="message"&gt;Message:&lt;/label&gt;
+    &lt;input type="text" id="message" name="message"&gt;
+&lt;/form&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-htmlinput">input</td>
+            </tr>
+            <tr id="detail-tag-htmlinput" class="expandable-row-content">
+              <td>
+                <h3>input</h3>
+                <p>In HTML forms, the &lt;input&gt; tag is used to create interactive controls for user input. It works in conjunction with the &lt;form&gt; and &lt;label&gt; tags to collect and submit data effectively. The &lt;label&gt; tag provides descriptive text for the &lt;input&gt; element, enhancing accessibility by linking the label to the corresponding input through the `for` and `id` attributes. The &lt;input&gt; tag supports various types, such as text, password, email, number, and more, each tailored for specific kinds of user input. By configuring attributes like `type`, `name`, `value`, `placeholder`, `required`, and others, developers can control the behavior and validation of input fields, ensuring that the data collected meets the desired criteria. Proper usage of the &lt;input&gt; tag within forms not only improves the user experience but also ensures that the submitted data is structured and secure for processing on the server side.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+&lt;!-- Example 1: Basic text input --&gt;
+&lt;form action="/submit" method="POST"&gt;
+    &lt;label for="username1"&gt;Username:&lt;/label&gt;
+    &lt;input type="text" id="username1" name="username"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 2: Email input with required attribute --&gt;
+&lt;form action="/subscribe" method="POST"&gt;
+    &lt;label for="emailSubscribe"&gt;Subscribe Email:&lt;/label&gt;
+    &lt;input type="email" id="emailSubscribe" name="email" required&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 3: Password input with placeholder --&gt;
+&lt;form action="/login" method="POST"&gt;
+    &lt;label for="passwordLogin"&gt;Password:&lt;/label&gt;
+    &lt;input type="password" id="passwordLogin" name="password" placeholder="Enter your password"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 4: Number input with min and max values --&gt;
+&lt;form action="/ageSubmit" method="POST"&gt;
+    &lt;label for="age"&gt;Age:&lt;/label&gt;
+    &lt;input type="number" id="age" name="age" min="18" max="99"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 5: Date input with default value --&gt;
+&lt;form action="/birthday" method="POST"&gt;
+    &lt;label for="birthday"&gt;Birthday:&lt;/label&gt;
+    &lt;input type="date" id="birthday" name="birthday" value="1990-01-01"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 6: Radio buttons for gender selection --&gt;
+&lt;form action="/genderSubmit" method="POST"&gt;
+    &lt;label for="male"&gt;Male:&lt;/label&gt;
+    &lt;input type="radio" id="male" name="gender" value="male"&gt;
+    &lt;label for="female"&gt;Female:&lt;/label&gt;
+    &lt;input type="radio" id="female" name="gender" value="female"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 7: Checkbox for terms and conditions --&gt;
+&lt;form action="/terms" method="POST"&gt;
+    &lt;label for="agree"&gt;I agree to the terms and conditions:&lt;/label&gt;
+    &lt;input type="checkbox" id="agree" name="agree"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 8: File upload input --&gt;
+&lt;form action="/upload" method="POST" enctype="multipart/form-data"&gt;
+    &lt;label for="fileUpload"&gt;Upload File:&lt;/label&gt;
+    &lt;input type="file" id="fileUpload" name="file"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 9: Telephone input with pattern --&gt;
+&lt;form action="/contact" method="POST"&gt;
+    &lt;label for="phone"&gt;Phone Number:&lt;/label&gt;
+    &lt;input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 10: URL input with autocomplete off --&gt;
+&lt;form action="/website" method="POST"&gt;
+    &lt;label for="website"&gt;Website URL:&lt;/label&gt;
+    &lt;input type="url" id="website" name="website" autocomplete="off"&gt;
+&lt;/form&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-htmllabel">label</td>
+            </tr>
+            <tr id="detail-tag-htmllabel" class="expandable-row-content">
+              <td>
+                <h3>label</h3>
+                <p>In HTML forms, the &lt;label&gt; tag is used to provide descriptive text for form controls, such as input fields, enhancing both accessibility and usability. By associating a &lt;label&gt; with an &lt;input&gt; element through the `for` attribute in the &lt;label&gt; and the corresponding `id` in the &lt;input&gt;, users can click on the label to focus the input field, making the form easier to interact with. This association is particularly beneficial for users utilizing assistive technologies, as it helps screen readers identify the purpose of each form control. Proper use of the &lt;label&gt; tag ensures that forms are more intuitive and accessible, improving the overall user experience and ensuring that data entry is straightforward and efficient.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+&lt;!-- Example 1: Basic label with for attribute --&gt;
+&lt;form action="/submit" method="POST"&gt;
+    &lt;label for="username1"&gt;Username:&lt;/label&gt;
+    &lt;input type="text" id="username1" name="username"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 2: Label wrapping the input element --&gt;
+&lt;form action="/login" method="POST"&gt;
+    &lt;label&gt;Password:
+        &lt;input type="password" name="password"&gt;
+    &lt;/label&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 3: Multiple labels and inputs in one form --&gt;
+&lt;form action="/register" method="POST"&gt;
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email"&gt;&lt;br&gt;&lt;br&gt;
+    
+    &lt;label for="phone"&gt;Phone Number:&lt;/label&gt;
+    &lt;input type="tel" id="phone" name="phone"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 4: Labels with classes for styling --&gt;
+&lt;form action="/contact" method="POST"&gt;
+    &lt;label for="name" class="form-label"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name" class="form-input"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 5: Accessible labels using aria attributes --&gt;
+&lt;form action="/feedback" method="POST"&gt;
+    &lt;label for="feedback"&gt;Your Feedback:&lt;/label&gt;
+    &lt;textarea id="feedback" name="feedback" aria-required="true"&gt;&lt;/textarea&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 6: Hidden label for screen readers --&gt;
+&lt;form action="/subscribe" method="POST"&gt;
+    &lt;label for="emailSubscribe" class="sr-only"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="emailSubscribe" name="email" placeholder="Enter your email"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 7: Labels with inline icons --&gt;
+&lt;form action="/search" method="GET"&gt;
+    &lt;label for="search"&gt;&#128269; Search:&lt;/label&gt;
+    &lt;input type="text" id="search" name="query"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 8: Labels with tooltips for additional information --&gt;
+&lt;form action="/profile" method="POST"&gt;
+    &lt;label for="bio" title="Tell us about yourself"&gt;Bio:&lt;/label&gt;
+    &lt;textarea id="bio" name="bio"&gt;&lt;/textarea&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 9: Labels with required fields indicator --&gt;
+&lt;form action="/apply" method="POST"&gt;
+    &lt;label for="fullName"&gt;Full Name:&lt;/label&gt;
+    &lt;input type="text" id="fullName" name="fullName" required&gt;&lt;span&gt;*&lt;/span&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 10: Labels with dropdown selects --&gt;
+&lt;form action="/preferences" method="POST"&gt;
+    &lt;label for="country"&gt;Country:&lt;/label&gt;
+    &lt;select id="country" name="country"&gt;
+        &lt;option value="us"&gt;United States&lt;/option&gt;
+        &lt;option value="ca"&gt;Canada&lt;/option&gt;
+        &lt;option value="uk"&gt;United Kingdom&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/form&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-passwordinput">password input</td>
+            </tr>
+            <tr id="detail-tag-passwordinput" class="expandable-row-content">
+              <td>
+                <h3>password input</h3>
+                <p>In HTML forms, the &lt;form&gt; element acts as a container for various input elements, enabling users to submit data. Within a form, the &lt;label&gt; tag is utilized to provide descriptive text for form controls, enhancing both accessibility and usability. The &lt;input&gt; tag with the attribute type="password" specifically creates a field that masks user input, displaying characters as dots or asterisks to protect sensitive information. This password input type often includes attributes such as id and name to uniquely identify the field and facilitate data handling. By associating a &lt;label&gt; with the &lt;input&gt; via the for and id attributes, developers can create clear and accessible password fields that not only improve the user experience but also ensure that assistive technologies can accurately interpret the purpose of the input. Additionally, features like required attributes and pattern matching can be implemented to enforce password complexity and enhance security measures within the form.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+&lt;!-- Example 1: Basic password input --&gt;
+&lt;form&gt;
+    &lt;label for="password1"&gt;Password:&lt;/label&gt;
+    &lt;input type="password" id="password1" name="password1"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 2: Password input with placeholder --&gt;
+&lt;form&gt;
+    &lt;label for="password2"&gt;Enter Password:&lt;/label&gt;
+    &lt;input type="password" id="password2" name="password2" placeholder="Enter your password"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 3: Required password input --&gt;
+&lt;form&gt;
+    &lt;label for="password3"&gt;Password (Required):&lt;/label&gt;
+    &lt;input type="password" id="password3" name="password3" required&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 4: Password input with minlength and maxlength --&gt;
+&lt;form&gt;
+    &lt;label for="password4"&gt;Password (8-16 characters):&lt;/label&gt;
+    &lt;input type="password" id="password4" name="password4" minlength="8" maxlength="16"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 5: Password input with pattern matching --&gt;
+&lt;form&gt;
+    &lt;label for="password5"&gt;Password (Must include a number):&lt;/label&gt;
+    &lt;input type="password" id="password5" name="password5" pattern="(?=.*\d).{8,}" title="Must contain at least one number and be at least 8 characters"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 6: Disabled password input --&gt;
+&lt;form&gt;
+    &lt;label for="password6"&gt;Password (Disabled):&lt;/label&gt;
+    &lt;input type="password" id="password6" name="password6" disabled&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 7: Password input with autofocus --&gt;
+&lt;form&gt;
+    &lt;label for="password7"&gt;Password (Autofocus):&lt;/label&gt;
+    &lt;input type="password" id="password7" name="password7" autofocus&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 8: Password input with autocomplete off --&gt;
+&lt;form&gt;
+    &lt;label for="password8"&gt;Password (Autocomplete Off):&lt;/label&gt;
+    &lt;input type="password" id="password8" name="password8" autocomplete="off"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 9: Password input with a toggle to show/hide password --&gt;
+&lt;form&gt;
+    &lt;label for="password9"&gt;Password:&lt;/label&gt;
+    &lt;input type="password" id="password9" name="password9"&gt;
+    &lt;button type="button" onclick="togglePassword('password9')"&gt;Show/Hide&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 10: Password input with a strength indicator --&gt;
+&lt;form&gt;
+    &lt;label for="password10"&gt;Password:&lt;/label&gt;
+    &lt;input type="password" id="password10" name="password10" oninput="checkStrength(this.value)"&gt;
+    &lt;div id="strengthMessage"&gt;&lt;/div&gt;
+&lt;/form&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-numberinput">number input</td>
+            </tr>
+            <tr id="detail-tag-numberinput" class="expandable-row-content">
+              <td>
+                <h3>number input</h3>
+                <p>In HTML forms, the &lt;form&gt; element serves as a container for various input elements, allowing users to submit data. Within a form, the &lt;label&gt; tag is used to provide descriptive text for form controls, enhancing accessibility and usability. The &lt;input&gt; tag with the attribute type="number" specifically creates a field that accepts numerical values. This number input type includes built-in validation to ensure that only numbers within specified ranges are entered, using attributes such as min, max, and step to define acceptable values and increments. By associating a &lt;label&gt; with the &lt;input&gt; via the for and id attributes, developers can create clear and accessible number input fields that improve the user experience and ensure data integrity.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+&lt;!-- Example 1: Basic number input --&gt;
+&lt;form&gt;
+    &lt;label for="number1"&gt;Number 1:&lt;/label&gt;
+    &lt;input type="number" id="number1" name="number1"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 2: Number input with minimum value --&gt;
+&lt;form&gt;
+    &lt;label for="age"&gt;Age:&lt;/label&gt;
+    &lt;input type="number" id="age" name="age" min="18"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 3: Number input with maximum value --&gt;
+&lt;form&gt;
+    &lt;label for="rating"&gt;Rating (1-5):&lt;/label&gt;
+    &lt;input type="number" id="rating" name="rating" max="5"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 4: Number input with step attribute --&gt;
+&lt;form&gt;
+    &lt;label for="quantity"&gt;Quantity:&lt;/label&gt;
+    &lt;input type="number" id="quantity" name="quantity" step="1"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 5: Number input with default value --&gt;
+&lt;form&gt;
+    &lt;label for="score"&gt;Score:&lt;/label&gt;
+    &lt;input type="number" id="score" name="score" value="10"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 6: Number input with placeholder --&gt;
+&lt;form&gt;
+    &lt;label for="height"&gt;Height (cm):&lt;/label&gt;
+    &lt;input type="number" id="height" name="height" placeholder="Enter your height in cm"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 7: Number input required --&gt;
+&lt;form&gt;
+    &lt;label for="quantityRequired"&gt;Quantity (Required):&lt;/label&gt;
+    &lt;input type="number" id="quantityRequired" name="quantityRequired" required&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 8: Number input with multiple attributes --&gt;
+&lt;form&gt;
+    &lt;label for="weight"&gt;Weight (kg):&lt;/label&gt;
+    &lt;input type="number" id="weight" name="weight" min="30" max="200" step="0.5"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 9: Number input with label --&gt;
+&lt;form&gt;
+    &lt;label for="years"&gt;Years of Experience:&lt;/label&gt;
+    &lt;input type="number" id="years" name="years" min="0"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 10: Number input disabled --&gt;
+&lt;form&gt;
+    &lt;label for="points"&gt;Points:&lt;/label&gt;
+    &lt;input type="number" id="points" name="points" disabled&gt;
+&lt;/form&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-rangeinput">range input</td>
+            </tr>
+            <tr id="detail-tag-rangeinput" class="expandable-row-content">
+              <td>
+                <h3>range input</h3>
+                <p>In HTML forms, the &lt;input&gt; tag with the attribute type="range" creates a slider control that allows users to select a value from a specified range. This range input is often paired with the &lt;label&gt; tag to provide a descriptive label, enhancing both accessibility and usability. The &lt;label&gt; tag, associated with the range input via the `for` attribute and the input's `id`, enables users to click on the label to focus the slider, making the form more interactive and user-friendly. Additionally, attributes such as `min`, `max`, and `step` can be utilized to define the range of values and the increments between selectable points, allowing developers to customize the slider according to the desired input requirements. The range input is particularly useful in scenarios where users need to adjust settings like volume levels, brightness, or price ranges, providing an intuitive and visually appealing way to capture numerical data within forms.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+&lt;!-- Example 1: Basic range input --&gt;
+&lt;form action="/submitRange1" method="POST"&gt;
+    &lt;label for="volume"&gt;Volume:&lt;/label&gt;
+    &lt;input type="range" id="volume" name="volume" min="0" max="100"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 2: Range input with step attribute --&gt;
+&lt;form action="/submitRange2" method="POST"&gt;
+    &lt;label for="brightness"&gt;Brightness:&lt;/label&gt;
+    &lt;input type="range" id="brightness" name="brightness" min="0" max="10" step="1"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 3: Range input with default value --&gt;
+&lt;form action="/submitRange3" method="POST"&gt;
+    &lt;label for="temperature"&gt;Temperature (°C):&lt;/label&gt;
+    &lt;input type="range" id="temperature" name="temperature" min="0" max="50" value="25"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 4: Range input with multiple attributes --&gt;
+&lt;form action="/submitRange4" method="POST"&gt;
+    &lt;label for="speed"&gt;Speed:&lt;/label&gt;
+    &lt;input type="range" id="speed" name="speed" min="1" max="10" step="0.5" value="5"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 5: Range input with associated label and display value --&gt;
+&lt;form action="/submitRange5" method="POST"&gt;
+    &lt;label for="rating"&gt;Rating:&lt;/label&gt;
+    &lt;input type="range" id="rating" name="rating" min="1" max="5" value="3" oninput="document.getElementById('ratingValue').textContent = this.value"&gt;
+    &lt;span id="ratingValue"&gt;3&lt;/span&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 6: Range input for price selection --&gt;
+&lt;form action="/submitRange6" method="POST"&gt;
+    &lt;label for="price"&gt;Price Range:&lt;/label&gt;
+    &lt;input type="range" id="price" name="price" min="0" max="1000" step="50"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 7: Range input with custom styling classes --&gt;
+&lt;form action="/submitRange7" method="POST"&gt;
+    &lt;label for="customRange"&gt;Custom Range:&lt;/label&gt;
+    &lt;input type="range" id="customRange" name="customRange" min="10" max="90" class="slider"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 8: Range input for age selection --&gt;
+&lt;form action="/submitRange8" method="POST"&gt;
+    &lt;label for="ageRange"&gt;Age Range:&lt;/label&gt;
+    &lt;input type="range" id="ageRange" name="ageRange" min="18" max="100" value="30"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 9: Range input with aria attributes for accessibility --&gt;
+&lt;form action="/submitRange9" method="POST"&gt;
+    &lt;label for="accessibleRange"&gt;Accessible Range:&lt;/label&gt;
+    &lt;input type="range" id="accessibleRange" name="accessibleRange" min="0" max="200" aria-valuemin="0" aria-valuemax="200" aria-valuenow="100"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 10: Range input for volume control with JavaScript interaction --&gt;
+&lt;form action="/submitRange10" method="POST"&gt;
+    &lt;label for="volumeControl"&gt;Volume Control:&lt;/label&gt;
+    &lt;input type="range" id="volumeControl" name="volumeControl" min="0" max="100" value="50" oninput="updateVolume(this.value)"&gt;
+    &lt;span id="volumeDisplay"&gt;50&lt;/span&gt;
+&lt;/form&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-checkbox">checkbox input</td>
+            </tr>
+            <tr id="detail-tag-checkbox" class="expandable-row-content">
+              <td>
+                <h3>checkbox input</h3>
+                <p>In HTML forms, the &lt;input&gt; tag with the attribute type="checkbox" creates a selectable box that allows users to make binary choices, such as opting in for newsletters or agreeing to terms and conditions. This checkbox input is typically paired with the &lt;label&gt; tag to provide a clear and descriptive label, enhancing both accessibility and usability. By associating the &lt;label&gt; with the checkbox input through the `for` attribute and the input's `id`, users can click on the label text to toggle the checkbox, making the form more user-friendly. Additionally, attributes like `name`, `value`, and `checked` can be used to define the checkbox's behavior, identify the selected options upon form submission, and set default states. Proper implementation of checkbox inputs within forms ensures that users can easily select multiple options, contributing to a more interactive and efficient data collection process.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+&lt;!-- Example 1: Basic checkbox input --&gt;
+&lt;form action="/subscribe" method="POST"&gt;
+    &lt;label for="newsletter"&gt;Subscribe to Newsletter:&lt;/label&gt;
+    &lt;input type="checkbox" id="newsletter" name="newsletter"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 2: Checkbox input with value attribute --&gt;
+&lt;form action="/preferences" method="POST"&gt;
+    &lt;label for="darkMode"&gt;Enable Dark Mode:&lt;/label&gt;
+    &lt;input type="checkbox" id="darkMode" name="theme" value="dark"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 3: Pre-checked checkbox input --&gt;
+&lt;form action="/settings" method="POST"&gt;
+    &lt;label for="notifications"&gt;Receive Notifications:&lt;/label&gt;
+    &lt;input type="checkbox" id="notifications" name="notifications" checked&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 4: Multiple checkboxes with the same name --&gt;
+&lt;form action="/interests" method="POST"&gt;
+    &lt;label for="sports"&gt;Sports:&lt;/label&gt;
+    &lt;input type="checkbox" id="sports" name="interests" value="sports"&gt;
+    
+    &lt;label for="music"&gt;Music:&lt;/label&gt;
+    &lt;input type="checkbox" id="music" name="interests" value="music"&gt;
+    
+    &lt;label for="travel"&gt;Travel:&lt;/label&gt;
+    &lt;input type="checkbox" id="travel" name="interests" value="travel"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 5: Required checkbox input --&gt;
+&lt;form action="/agreement" method="POST"&gt;
+    &lt;label for="terms"&gt;I agree to the terms and conditions:&lt;/label&gt;
+    &lt;input type="checkbox" id="terms" name="terms" required&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 6: Disabled checkbox input --&gt;
+&lt;form action="/survey" method="POST"&gt;
+    &lt;label for="surveyConsent"&gt;Participate in Survey:&lt;/label&gt;
+    &lt;input type="checkbox" id="surveyConsent" name="surveyConsent" disabled&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 7: Checkbox input with inline label --&gt;
+&lt;form action="/subscribe" method="POST"&gt;
+    &lt;input type="checkbox" id="emailUpdates" name="emailUpdates"&gt;
+    &lt;label for="emailUpdates"&gt;Receive Email Updates&lt;/label&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 8: Checkbox input with classes for styling --&gt;
+&lt;form action="/preferences" method="POST"&gt;
+    &lt;label for="autoPlay" class="checkbox-label"&gt;Enable Auto-Play Videos:&lt;/label&gt;
+    &lt;input type="checkbox" id="autoPlay" name="autoPlay" class="checkbox-input"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 9: Checkbox input with aria attributes for accessibility --&gt;
+&lt;form action="/accessibility" method="POST"&gt;
+    &lt;label for="highContrast"&gt;High Contrast Mode:&lt;/label&gt;
+    &lt;input type="checkbox" id="highContrast" name="highContrast" aria-checked="false"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 10: Group of checkboxes within a fieldset --&gt;
+&lt;form action="/hobbies" method="POST"&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;Select Your Hobbies:&lt;/legend&gt;
+        
+        &lt;label for="reading"&gt;Reading:&lt;/label&gt;
+        &lt;input type="checkbox" id="reading" name="hobbies" value="reading"&gt;
+        
+        &lt;label for="gaming"&gt;Gaming:&lt;/label&gt;
+        &lt;input type="checkbox" id="gaming" name="hobbies" value="gaming"&gt;
+        
+        &lt;label for="cooking"&gt;Cooking:&lt;/label&gt;
+        &lt;input type="checkbox" id="cooking" name="hobbies" value="cooking"&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-radiobutton">radio button input</td>
+            </tr>
+            <tr id="detail-tag-radiobutton" class="expandable-row-content">
+              <td>
+                <h3>radio button input</h3>
+                <p>In HTML forms, the &lt;input&gt; tag with the attribute type="radio" creates a set of mutually exclusive options, allowing users to select one option from a predefined list. This radio button input is typically paired with the &lt;label&gt; tag to provide clear and descriptive labels for each option, enhancing both accessibility and usability. By associating each &lt;label&gt; with its corresponding radio input through the `for` attribute and the input's `id`, users can click on the label text to select the radio button, making the form more user-friendly. Additionally, the `name` attribute groups related radio buttons together, ensuring that only one option within the group can be selected at a time. Attributes like `value` can be used to define the data that will be submitted when an option is selected, while the `checked` attribute can set a default selected option. Proper implementation of radio button inputs within forms ensures that users can easily make single selections, contributing to a more organized and efficient data collection process.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+&lt;!-- Example 1: Basic radio buttons for gender selection --&gt;
+&lt;form action="/submitGender" method="POST"&gt;
+    &lt;label for="male"&gt;Male:&lt;/label&gt;
+    &lt;input type="radio" id="male" name="gender" value="male"&gt;
+    
+    &lt;label for="female"&gt;Female:&lt;/label&gt;
+    &lt;input type="radio" id="female" name="gender" value="female"&gt;
+    
+    &lt;label for="other"&gt;Other:&lt;/label&gt;
+    &lt;input type="radio" id="other" name="gender" value="other"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 2: Radio buttons for subscription plan selection --&gt;
+&lt;form action="/choosePlan" method="POST"&gt;
+    &lt;label for="basic"&gt;Basic Plan:&lt;/label&gt;
+    &lt;input type="radio" id="basic" name="plan" value="basic"&gt;
+    
+    &lt;label for="premium"&gt;Premium Plan:&lt;/label&gt;
+    &lt;input type="radio" id="premium" name="plan" value="premium"&gt;
+    
+    &lt;label for="enterprise"&gt;Enterprise Plan:&lt;/label&gt;
+    &lt;input type="radio" id="enterprise" name="plan" value="enterprise"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 3: Radio buttons with a default selected option --&gt;
+&lt;form action="/selectOption" method="POST"&gt;
+    &lt;label for="option1"&gt;Option 1:&lt;/label&gt;
+    &lt;input type="radio" id="option1" name="option" value="1" checked&gt;
+    
+    &lt;label for="option2"&gt;Option 2:&lt;/label&gt;
+    &lt;input type="radio" id="option2" name="option" value="2"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 4: Radio buttons within a fieldset for grouping --&gt;
+&lt;form action="/survey" method="POST"&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;Do you own a vehicle?&lt;/legend&gt;
+        
+        &lt;label for="vehicleYes"&gt;Yes:&lt;/label&gt;
+        &lt;input type="radio" id="vehicleYes" name="vehicle" value="yes"&gt;
+        
+        &lt;label for="vehicleNo"&gt;No:&lt;/label&gt;
+        &lt;input type="radio" id="vehicleNo" name="vehicle" value="no"&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 5: Radio buttons for selecting payment method --&gt;
+&lt;form action="/payment" method="POST"&gt;
+    &lt;label for="creditCard"&gt;Credit Card:&lt;/label&gt;
+    &lt;input type="radio" id="creditCard" name="paymentMethod" value="creditCard"&gt;
+    
+    &lt;label for="paypal"&gt;PayPal:&lt;/label&gt;
+    &lt;input type="radio" id="paypal" name="paymentMethod" value="paypal"&gt;
+    
+    &lt;label for="bankTransfer"&gt;Bank Transfer:&lt;/label&gt;
+    &lt;input type="radio" id="bankTransfer" name="paymentMethod" value="bankTransfer"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 6: Radio buttons for selecting newsletter frequency --&gt;
+&lt;form action="/newsletterFrequency" method="POST"&gt;
+    &lt;label for="daily"&gt;Daily:&lt;/label&gt;
+    &lt;input type="radio" id="daily" name="frequency" value="daily"&gt;
+    
+    &lt;label for="weekly"&gt;Weekly:&lt;/label&gt;
+    &lt;input type="radio" id="weekly" name="frequency" value="weekly"&gt;
+    
+    &lt;label for="monthly"&gt;Monthly:&lt;/label&gt;
+    &lt;input type="radio" id="monthly" name="frequency" value="monthly"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 7: Radio buttons with inline labels --&gt;
+&lt;form action="/selectColor" method="POST"&gt;
+    &lt;input type="radio" id="red" name="color" value="red"&gt;
+    &lt;label for="red"&gt;Red&lt;/label&gt;
+    
+    &lt;input type="radio" id="green" name="color" value="green"&gt;
+    &lt;label for="green"&gt;Green&lt;/label&gt;
+    
+    &lt;input type="radio" id="blue" name="color" value="blue"&gt;
+    &lt;label for="blue"&gt;Blue&lt;/label&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 8: Radio buttons with images as labels --&gt;
+&lt;form action="/chooseAvatar" method="POST"&gt;
+    &lt;label for="avatar1"&gt;&lt;img src="avatar1.png" alt="Avatar 1"&gt;&lt;/label&gt;
+    &lt;input type="radio" id="avatar1" name="avatar" value="avatar1"&gt;
+    
+    &lt;label for="avatar2"&gt;&lt;img src="avatar2.png" alt="Avatar 2"&gt;&lt;/label&gt;
+    &lt;input type="radio" id="avatar2" name="avatar" value="avatar2"&gt;
+    
+    &lt;label for="avatar3"&gt;&lt;img src="avatar3.png" alt="Avatar 3"&gt;&lt;/label&gt;
+    &lt;input type="radio" id="avatar3" name="avatar" value="avatar3"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 9: Radio buttons with additional descriptive text --&gt;
+&lt;form action="/selectSubscription" method="POST"&gt;
+    &lt;label for="basicPlan"&gt;Basic Plan - Access to basic features:&lt;/label&gt;
+    &lt;input type="radio" id="basicPlan" name="subscription" value="basic"&gt;&lt;br&gt;
+    
+    &lt;label for="proPlan"&gt;Pro Plan - Includes advanced features:&lt;/label&gt;
+    &lt;input type="radio" id="proPlan" name="subscription" value="pro"&gt;&lt;br&gt;
+    
+    &lt;label for="vipPlan"&gt;VIP Plan - All features included:&lt;/label&gt;
+    &lt;input type="radio" id="vipPlan" name="subscription" value="vip"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 10: Radio buttons with JavaScript interaction --&gt;
+&lt;form action="/feedback" method="POST"&gt;
+    &lt;label for="satisfied"&gt;Satisfied:&lt;/label&gt;
+    &lt;input type="radio" id="satisfied" name="feedback" value="satisfied" onclick="showComment(false)"&gt;
+    
+    &lt;label for="neutral"&gt;Neutral:&lt;/label&gt;
+    &lt;input type="radio" id="neutral" name="feedback" value="neutral" onclick="showComment(false)"&gt;
+    
+    &lt;label for="dissatisfied"&gt;Dissatisfied:&lt;/label&gt;
+    &lt;input type="radio" id="dissatisfied" name="feedback" value="dissatisfied" onclick="showComment(true)"&gt;
+    
+    &lt;div id="commentBox" style="display:none;"&gt;
+        &lt;label for="comment"&gt;Please provide your comments:&lt;/label&gt;
+        &lt;textarea id="comment" name="comment"&gt;&lt;/textarea&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-dropdownlist">dropdown list</td>
+            </tr>
+            <tr id="detail-tag-dropdownlist" class="expandable-row-content">
+              <td>
+                <h3>dropdown list</h3>
+                <p>In HTML forms, the &lt;select&gt; tag is used to create a dropdown list that allows users to choose one or more options from a predefined set of choices. This dropdown list is typically paired with the &lt;label&gt; tag to provide a clear and descriptive label, enhancing both accessibility and usability. By associating the &lt;label&gt; with the &lt;select&gt; element through the `for` attribute and the select's `id`, users can click on the label to focus the dropdown, making the form more user-friendly. Additionally, attributes such as `name`, `multiple`, `size`, and `required` can be used to define the behavior and appearance of the dropdown list, allowing developers to control whether multiple selections are allowed, the number of visible options, and whether the selection is mandatory. Proper implementation of dropdown lists within forms ensures that users can easily make selections from a comprehensive list, contributing to a more organized and efficient data collection process.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+&lt;!-- Example 1: Basic dropdown list for selecting a country --&gt;
+&lt;form action="/submitCountry" method="POST"&gt;
+    &lt;label for="country"&gt;Select Country:&lt;/label&gt;
+    &lt;select id="country" name="country"&gt;
+        &lt;option value="us"&gt;United States&lt;/option&gt;
+        &lt;option value="ca"&gt;Canada&lt;/option&gt;
+        &lt;option value="uk"&gt;United Kingdom&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 2: Dropdown list with a default selected option --&gt;
+&lt;form action="/chooseFruit" method="POST"&gt;
+    &lt;label for="fruit"&gt;Choose a fruit:&lt;/label&gt;
+    &lt;select id="fruit" name="fruit"&gt;
+        &lt;option value="apple"&gt;Apple&lt;/option&gt;
+        &lt;option value="banana" selected&gt;Banana&lt;/option&gt;
+        &lt;option value="cherry"&gt;Cherry&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 3: Dropdown list allowing multiple selections --&gt;
+&lt;form action="/selectHobbies" method="POST"&gt;
+    &lt;label for="hobbies"&gt;Select your hobbies:&lt;/label&gt;
+    &lt;select id="hobbies" name="hobbies[]" multiple&gt;
+        &lt;option value="reading"&gt;Reading&lt;/option&gt;
+        &lt;option value="gaming"&gt;Gaming&lt;/option&gt;
+        &lt;option value="traveling"&gt;Traveling&lt;/option&gt;
+        &lt;option value="cooking"&gt;Cooking&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 4: Dropdown list with grouped options using optgroup --&gt;
+&lt;form action="/chooseCar" method="POST"&gt;
+    &lt;label for="carBrand"&gt;Choose a car brand:&lt;/label&gt;
+    &lt;select id="carBrand" name="carBrand"&gt;
+        &lt;optgroup label="American"&gt;
+            &lt;option value="ford"&gt;Ford&lt;/option&gt;
+            &lt;option value="chevrolet"&gt;Chevrolet&lt;/option&gt;
+        &lt;/optgroup&gt;
+        &lt;optgroup label="Japanese"&gt;
+            &lt;option value="toyota"&gt;Toyota&lt;/option&gt;
+            &lt;option value="honda"&gt;Honda&lt;/option&gt;
+        &lt;/optgroup&gt;
+    &lt;/select&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 5: Dropdown list with a placeholder option --&gt;
+&lt;form action="/selectLanguage" method="POST"&gt;
+    &lt;label for="language"&gt;Select Language:&lt;/label&gt;
+    &lt;select id="language" name="language" required&gt;
+        &lt;option value="" disabled selected&gt;--Please choose an option--&lt;/option&gt;
+        &lt;option value="en"&gt;English&lt;/option&gt;
+        &lt;option value="es"&gt;Spanish&lt;/option&gt;
+        &lt;option value="fr"&gt;French&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 6: Dropdown list with size attribute to show multiple options --&gt;
+&lt;form action="/chooseColors" method="POST"&gt;
+    &lt;label for="colors"&gt;Select Colors:&lt;/label&gt;
+    &lt;select id="colors" name="colors[]" size="4"&gt;
+        &lt;option value="red"&gt;Red&lt;/option&gt;
+        &lt;option value="green"&gt;Green&lt;/option&gt;
+        &lt;option value="blue"&gt;Blue&lt;/option&gt;
+        &lt;option value="yellow"&gt;Yellow&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 7: Dropdown list with disabled options --&gt;
+&lt;form action="/chooseMeal" method="POST"&gt;
+    &lt;label for="meal"&gt;Choose a meal option:&lt;/label&gt;
+    &lt;select id="meal" name="meal"&gt;
+        &lt;option value="starter"&gt;Starter&lt;/option&gt;
+        &lt;option value="main"&gt;Main Course&lt;/option&gt;
+        &lt;option value="dessert" disabled&gt;Dessert (Coming Soon)&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 8: Dropdown list with onchange event for dynamic interaction --&gt;
+&lt;form action="/updateSelection" method="POST"&gt;
+    &lt;label for="department"&gt;Select Department:&lt;/label&gt;
+    &lt;select id="department" name="department" onchange="loadSubDepartments(this.value)"&gt;
+        &lt;option value="hr"&gt;Human Resources&lt;/option&gt;
+        &lt;option value="it"&gt;Information Technology&lt;/option&gt;
+        &lt;option value="finance"&gt;Finance&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 9: Dropdown list with form validation using required attribute --&gt;
+&lt;form action="/submitForm" method="POST"&gt;
+    &lt;label for="state"&gt;Select State:&lt;/label&gt;
+    &lt;select id="state" name="state" required&gt;
+        &lt;option value="" disabled selected&gt;--Select your state--&lt;/option&gt;
+        &lt;option value="ny"&gt;New York&lt;/option&gt;
+        &lt;option value="ca"&gt;California&lt;/option&gt;
+        &lt;option value="tx"&gt;Texas&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 10: Dropdown list for selecting multiple countries with predefined selections --&gt;
+&lt;form action="/multiSelectCountries" method="POST"&gt;
+    &lt;label for="countries"&gt;Select Countries:&lt;/label&gt;
+    &lt;select id="countries" name="countries[]" multiple&gt;
+        &lt;option value="usa"&gt;USA&lt;/option&gt;
+        &lt;option value="canada"&gt;Canada&lt;/option&gt;
+        &lt;option value="mexico" selected&gt;Mexico&lt;/option&gt;
+        &lt;option value="brazil"&gt;Brazil&lt;/option&gt;
+        &lt;option value="uk"&gt;United Kingdom&lt;/option&gt;
+    &lt;/select&gt;
+&lt;/form&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-datalist">data list input</td>
+            </tr>
+            <tr id="detail-tag-datalist" class="expandable-row-content">
+              <td>
+                <h3>data list input</h3>
+                <p>In HTML forms, the &lt;input&gt; tag can be paired with the &lt;datalist&gt; element to create an input field that offers a predefined list of suggestions while still allowing users to enter custom values. The &lt;label&gt; tag is used to provide a descriptive label for the input field, enhancing both accessibility and usability by associating the label with the input through the `for` and `id` attributes. By setting the `list` attribute of the &lt;input&gt; tag to the `id` of the &lt;datalist&gt;, developers enable a dropdown of suggested options that appear as the user types, facilitating quicker and more accurate data entry. The &lt;datalist&gt; element contains multiple &lt;option&gt; elements, each representing an available choice for the user. This setup is particularly useful for fields such as search bars, auto-complete inputs, or any scenario where providing common input options can improve the user experience while maintaining the flexibility for unique entries. Proper implementation of the &lt;datalist&gt; within forms ensures that users have guided input options, leading to more consistent and efficient data collection.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+&lt;!-- Example 1: Basic datalist for selecting a country --&gt;
+&lt;form action="/submitCountry" method="POST"&gt;
+    &lt;label for="country"&gt;Select Country:&lt;/label&gt;
+    &lt;input list="countries" id="country" name="country"&gt;
+    &lt;datalist id="countries"&gt;
+        &lt;option value="United States"&gt;
+        &lt;option value="Canada"&gt;
+        &lt;option value="United Kingdom"&gt;
+        &lt;option value="Australia"&gt;
+    &lt;/datalist&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 2: Datalist with predefined cities --&gt;
+&lt;form action="/submitCity" method="POST"&gt;
+    &lt;label for="city"&gt;Choose a City:&lt;/label&gt;
+    &lt;input list="cities" id="city" name="city"&gt;
+    &lt;datalist id="cities"&gt;
+        &lt;option value="New York"&gt;
+        &lt;option value="Los Angeles"&gt;
+        &lt;option value="Chicago"&gt;
+        &lt;option value="Houston"&gt;
+    &lt;/datalist&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 3: Datalist for selecting a programming language --&gt;
+&lt;form action="/submitLanguage" method="POST"&gt;
+    &lt;label for="language"&gt;Favorite Programming Language:&lt;/label&gt;
+    &lt;input list="languages" id="language" name="language"&gt;
+    &lt;datalist id="languages"&gt;
+        &lt;option value="JavaScript"&gt;
+        &lt;option value="Python"&gt;
+        &lt;option value="Java"&gt;
+        &lt;option value="C#"&gt;
+        &lt;option value="Ruby"&gt;
+    &lt;/datalist&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 4: Datalist for selecting a fruit with additional options --&gt;
+&lt;form action="/submitFruit" method="POST"&gt;
+    &lt;label for="fruit"&gt;Choose a Fruit:&lt;/label&gt;
+    &lt;input list="fruits" id="fruit" name="fruit"&gt;
+    &lt;datalist id="fruits"&gt;
+        &lt;option value="Apple"&gt;
+        &lt;option value="Banana"&gt;
+        &lt;option value="Cherry"&gt;
+        &lt;option value="Date"&gt;
+        &lt;option value="Elderberry"&gt;
+    &lt;/datalist&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 5: Datalist for selecting a car model --&gt;
+&lt;form action="/submitCarModel" method="POST"&gt;
+    &lt;label for="carModel"&gt;Select Car Model:&lt;/label&gt;
+    &lt;input list="carModels" id="carModel" name="carModel"&gt;
+    &lt;datalist id="carModels"&gt;
+        &lt;option value="Sedan"&gt;
+        &lt;option value="SUV"&gt;
+        &lt;option value="Coupe"&gt;
+        &lt;option value="Convertible"&gt;
+        &lt;option value="Hatchback"&gt;
+    &lt;/datalist&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 6: Datalist for selecting a country with regions --&gt;
+&lt;form action="/submitRegion" method="POST"&gt;
+    &lt;label for="region"&gt;Select Region:&lt;/label&gt;
+    &lt;input list="regions" id="region" name="region"&gt;
+    &lt;datalist id="regions"&gt;
+        &lt;option value="North America"&gt;
+        &lt;option value="Europe"&gt;
+        &lt;option value="Asia"&gt;
+        &lt;option value="South America"&gt;
+    &lt;/datalist&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 7: Datalist for selecting a browser --&gt;
+&lt;form action="/submitBrowser" method="POST"&gt;
+    &lt;label for="browser"&gt;Choose Your Browser:&lt;/label&gt;
+    &lt;input list="browsers" id="browser" name="browser"&gt;
+    &lt;datalist id="browsers"&gt;
+        &lt;option value="Chrome"&gt;
+        &lt;option value="Firefox"&gt;
+        &lt;option value="Safari"&gt;
+        &lt;option value="Edge"&gt;
+        &lt;option value="Opera"&gt;
+    &lt;/datalist&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 8: Datalist for selecting a country code --&gt;
+&lt;form action="/submitCountryCode" method="POST"&gt;
+    &lt;label for="countryCode"&gt;Country Code:&lt;/label&gt;
+    &lt;input list="countryCodes" id="countryCode" name="countryCode"&gt;
+    &lt;datalist id="countryCodes"&gt;
+        &lt;option value="+1"&gt;
+        &lt;option value="+44"&gt;
+        &lt;option value="+91"&gt;
+        &lt;option value="+81"&gt;
+    &lt;/datalist&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 9: Datalist for selecting a state --&gt;
+&lt;form action="/submitState" method="POST"&gt;
+    &lt;label for="state"&gt;Select State:&lt;/label&gt;
+    &lt;input list="states" id="state" name="state"&gt;
+    &lt;datalist id="states"&gt;
+        &lt;option value="California"&gt;
+        &lt;option value="Texas"&gt;
+        &lt;option value="New York"&gt;
+        &lt;option value="Florida"&gt;
+    &lt;/datalist&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 10: Datalist for selecting a meal preference --&gt;
+&lt;form action="/submitMeal" method="POST"&gt;
+    &lt;label for="meal"&gt;Choose a Meal Preference:&lt;/label&gt;
+    &lt;input list="meals" id="meal" name="meal"&gt;
+    &lt;datalist id="meals"&gt;
+        &lt;option value="Vegetarian"&gt;
+        &lt;option value="Vegan"&gt;
+        &lt;option value="Gluten-Free"&gt;
+        &lt;option value="Keto"&gt;
+        &lt;option value="Paleo"&gt;
+    &lt;/datalist&gt;
+&lt;/form&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-textarea">textarea element</td>
+            </tr>
+            <tr id="detail-tag-textarea" class="expandable-row-content">
+              <td>
+                <h3>textarea element</h3>
+                <p>In HTML forms, the &lt;textarea&gt; element is used to create a multi-line text input field, allowing users to enter larger amounts of text, such as comments, descriptions, or messages. This element is typically paired with the &lt;label&gt; tag to provide a clear and descriptive label, enhancing both accessibility and usability. By associating the &lt;label&gt; with the &lt;textarea&gt; through the `for` attribute in the label and the `id` attribute in the textarea, users can click on the label to focus the text area, making the form more user-friendly. Attributes like `rows` and `cols` can be used to define the visible size of the textarea, while `placeholder` provides hint text to guide users on what to enter. Additionally, attributes such as `required`, `maxlength`, and `readonly` can control the behavior and constraints of the input, ensuring that the data collected meets the desired criteria. Proper implementation of the &lt;textarea&gt; element within forms allows for efficient and organized data collection, catering to scenarios where detailed user input is necessary.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+&lt;!-- Example 1: Basic textarea input --&gt;
+&lt;form action="/submitFeedback" method="POST"&gt;
+    &lt;label for="feedback"&gt;Your Feedback:&lt;/label&gt;
+    &lt;textarea id="feedback" name="feedback"&gt;&lt;/textarea&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 2: Textarea with placeholder text --&gt;
+&lt;form action="/submitComment" method="POST"&gt;
+    &lt;label for="comment"&gt;Leave a Comment:&lt;/label&gt;
+    &lt;textarea id="comment" name="comment" placeholder="Enter your comment here..."&gt;&lt;/textarea&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 3: Required textarea input --&gt;
+&lt;form action="/submitReview" method="POST"&gt;
+    &lt;label for="review"&gt;Product Review:&lt;/label&gt;
+    &lt;textarea id="review" name="review" required&gt;&lt;/textarea&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 4: Textarea with specified rows and cols --&gt;
+&lt;form action="/submitDescription" method="POST"&gt;
+    &lt;label for="description"&gt;Description:&lt;/label&gt;
+    &lt;textarea id="description" name="description" rows="5" cols="30"&gt;&lt;/textarea&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 5: Textarea with maxlength attribute --&gt;
+&lt;form action="/submitMessage" method="POST"&gt;
+    &lt;label for="message"&gt;Message:&lt;/label&gt;
+    &lt;textarea id="message" name="message" maxlength="500"&gt;&lt;/textarea&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 6: Textarea with default text --&gt;
+&lt;form action="/submitNote" method="POST"&gt;
+    &lt;label for="note"&gt;Note:&lt;/label&gt;
+    &lt;textarea id="note" name="note"&gt;Enter your note here...&lt;/textarea&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 7: Readonly textarea input --&gt;
+&lt;form action="/displayInfo" method="POST"&gt;
+    &lt;label for="info"&gt;Information:&lt;/label&gt;
+    &lt;textarea id="info" name="info" readonly&gt;This information is read-only.&lt;/textarea&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 8: Disabled textarea input --&gt;
+&lt;form action="/disabledForm" method="POST"&gt;
+    &lt;label for="disabledTextarea"&gt;Disabled Textarea:&lt;/label&gt;
+    &lt;textarea id="disabledTextarea" name="disabledTextarea" disabled&gt;You cannot edit this text.&lt;/textarea&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 9: Textarea with oninput event for character count --&gt;
+&lt;form action="/submitBio" method="POST"&gt;
+    &lt;label for="bio"&gt;Biography:&lt;/label&gt;
+    &lt;textarea id="bio" name="bio" oninput="updateCharCount(this.value)"&gt;&lt;/textarea&gt;
+    &lt;div id="charCount"&gt;0 characters&lt;/div&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 10: Textarea within a fieldset for grouping related inputs --&gt;
+&lt;form action="/submitSurvey" method="POST"&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;Survey Questions&lt;/legend&gt;
+        
+        &lt;label for="experience"&gt;Describe your experience:&lt;/label&gt;
+        &lt;textarea id="experience" name="experience" rows="4" cols="50"&gt;&lt;/textarea&gt;
+        
+        &lt;label for="suggestions"&gt;Suggestions for improvement:&lt;/label&gt;
+        &lt;textarea id="suggestions" name="suggestions" rows="4" cols="50"&gt;&lt;/textarea&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-submitform">submit form</td>
+            </tr>
+            <tr id="detail-tag-submitform" class="expandable-row-content">
+              <td>
+                <h3>submit form</h3>
+                <p>In HTML forms, the &lt;input&gt; tag with the attribute type="submit" or the &lt;button&gt; tag with type="submit" creates a button that allows users to submit the form data to the server for processing. This submit button is typically paired with other form elements like &lt;label&gt; and various &lt;input&gt; types to collect user information. The &lt;label&gt; tags provide descriptive text for the form controls, ensuring that users understand what data is being requested. When the submit button is clicked, the browser sends the form data to the URL specified in the `action` attribute of the &lt;form&gt; tag, using the HTTP method defined by the `method` attribute, usually "GET" or "POST". The submit button plays a crucial role in triggering the form submission process, enabling the collection and transmission of user inputs to the server for further handling. Proper implementation of the submit button within a form enhances the user experience by providing a clear and intuitive way to finalize and send the entered information.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+&lt;!-- Example 1: Basic form with text input and submit button --&gt;
+&lt;form action="/submitName" method="POST"&gt;
     &lt;label for="name"&gt;Name:&lt;/label&gt;
     &lt;input type="text" id="name" name="name"&gt;
     &lt;input type="submit" value="Submit"&gt;
 &lt;/form&gt;
 
-&lt;!-- 2. Form to submit a user's feedback via POST method to "feedback.html" --&gt;
-&lt;form action="feedback.html" method="POST"&gt;
-    &lt;label for="feedback"&gt;Feedback:&lt;/label&gt;
-    &lt;textarea id="feedback" name="feedback"&gt;&lt;/textarea&gt;
-    &lt;input type="submit" value="Send Feedback"&gt;
+&lt;!-- Example 2: Form with email input and submit button --&gt;
+&lt;form action="/subscribe" method="POST"&gt;
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;
+    &lt;input type="submit" value="Subscribe"&gt;
 &lt;/form&gt;
 
-&lt;!-- 3. Login form that sends data to "login.html" using POST for secure data handling --&gt;
-&lt;form action="login.html" method="POST"&gt;
+&lt;!-- Example 3: Form using a button tag for submission --&gt;
+&lt;form action="/login" method="POST"&gt;
     &lt;label for="username"&gt;Username:&lt;/label&gt;
     &lt;input type="text" id="username" name="username"&gt;
     &lt;label for="password"&gt;Password:&lt;/label&gt;
     &lt;input type="password" id="password" name="password"&gt;
-    &lt;input type="submit" value="Login"&gt;
+    &lt;button type="submit"&gt;Login&lt;/button&gt;
 &lt;/form&gt;
 
-&lt;!-- 4. Search form that sends a search term to "search.html" via GET for easy bookmarking --&gt;
-&lt;form action="search.html" method="GET"&gt;
+&lt;!-- Example 4: Form with GET method and submit button --&gt;
+&lt;form action="/search" method="GET"&gt;
     &lt;label for="query"&gt;Search:&lt;/label&gt;
-    &lt;input type="text" id="query" name="query"&gt;
+    &lt;input type="text" id="query" name="q" placeholder="Enter search term"&gt;
     &lt;input type="submit" value="Search"&gt;
 &lt;/form&gt;
 
-&lt;!-- 5. Contact form that sends data to "contact.html" using POST for privacy --&gt;
-&lt;form action="contact.html" method="POST"&gt;
-    &lt;label for="email"&gt;Email:&lt;/label&gt;
-    &lt;input type="email" id="email" name="email"&gt;
+&lt;!-- Example 5: Form with POST method and submit button --&gt;
+&lt;form action="/contact" method="POST"&gt;
+    &lt;label for="subject"&gt;Subject:&lt;/label&gt;
+    &lt;input type="text" id="subject" name="subject"&gt;
     &lt;label for="message"&gt;Message:&lt;/label&gt;
     &lt;textarea id="message" name="message"&gt;&lt;/textarea&gt;
     &lt;input type="submit" value="Send Message"&gt;
 &lt;/form&gt;
 
-&lt;!-- 6. Newsletter subscription form that sends the user's email to "subscribe.html" using POST --&gt;
-&lt;form action="subscribe.html" method="POST"&gt;
-    &lt;label for="email"&gt;Email:&lt;/label&gt;
-    &lt;input type="email" id="email" name="email"&gt;
-    &lt;input type="submit" value="Subscribe"&gt;
-&lt;/form&gt;
-
-&lt;!-- 7. File upload form to upload an image to "upload_image.html" using POST and enctype attribute --&gt;
-&lt;form action="upload_image.html" method="POST" enctype="multipart/form-data"&gt;
-    &lt;label for="file"&gt;Upload Image:&lt;/label&gt;
-    &lt;input type="file" id="file" name="file"&gt;
-    &lt;input type="submit" value="Upload"&gt;
-&lt;/form&gt;
-
-&lt;!-- 8. Survey form to collect user responses and submit to "survey.html" using POST --&gt;
-&lt;form action="survey.html" method="POST"&gt;
-    &lt;label for="age"&gt;Age:&lt;/label&gt;
-    &lt;input type="number" id="age" name="age"&gt;
-    &lt;label for="satisfaction"&gt;Satisfaction Level:&lt;/label&gt;
-    &lt;select id="satisfaction" name="satisfaction"&gt;
-        &lt;option value="1"&gt;1 - Poor&lt;/option&gt;
-        &lt;option value="5"&gt;5 - Excellent&lt;/option&gt;
-    &lt;/select&gt;
-    &lt;input type="submit" value="Submit Survey"&gt;
-&lt;/form&gt;
-
-&lt;!-- 9. Registration form that posts data to "register.html" for user account creation --&gt;
-&lt;form action="register.html" method="POST"&gt;
+&lt;!-- Example 6: Form with hidden input and submit button --&gt;
+&lt;form action="/process" method="POST"&gt;
+    &lt;input type="hidden" name="formType" value="registration"&gt;
     &lt;label for="username"&gt;Username:&lt;/label&gt;
     &lt;input type="text" id="username" name="username"&gt;
-    &lt;label for="email"&gt;Email:&lt;/label&gt;
-    &lt;input type="email" id="email" name="email"&gt;
-    &lt;label for="password"&gt;Password:&lt;/label&gt;
-    &lt;input type="password" id="password" name="password"&gt;
     &lt;input type="submit" value="Register"&gt;
 &lt;/form&gt;
 
-&lt;!-- 10. Profile update form to submit updates to "update_profile.html" using POST --&gt;
-&lt;form action="update_profile.html" method="POST"&gt;
-    &lt;label for="bio"&gt;Bio:&lt;/label&gt;
-    &lt;textarea id="bio" name="bio"&gt;&lt;/textarea&gt;
-    &lt;label for="location"&gt;Location:&lt;/label&gt;
-    &lt;input type="text" id="location" name="location"&gt;
-    &lt;input type="submit" value="Update Profile"&gt;
+&lt;!-- Example 7: Form with disabled submit button --&gt;
+&lt;form action="/submitData" method="POST"&gt;
+    &lt;label for="data"&gt;Data:&lt;/label&gt;
+    &lt;input type="text" id="data" name="data" required&gt;
+    &lt;input type="submit" value="Submit" disabled&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 8: Form with multiple submit buttons --&gt;
+&lt;form action="/handleAction" method="POST"&gt;
+    &lt;label for="item"&gt;Item:&lt;/label&gt;
+    &lt;input type="text" id="item" name="item"&gt;
+    &lt;input type="submit" name="action" value="Add"&gt;
+    &lt;input type="submit" name="action" value="Remove"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 9: Form with submit button styled using a class --&gt;
+&lt;form action="/submitStyled" method="POST"&gt;
+    &lt;label for="feedback"&gt;Feedback:&lt;/label&gt;
+    &lt;textarea id="feedback" name="feedback"&gt;&lt;/textarea&gt;
+    &lt;input type="submit" value="Submit Feedback" class="btn-primary"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 10: Form with submit button having JavaScript onclick handler --&gt;
+&lt;form action="/saveData" method="POST"&gt;
+    &lt;label for="info"&gt;Information:&lt;/label&gt;
+    &lt;input type="text" id="info" name="info"&gt;
+    &lt;input type="submit" value="Save" onclick="return validateForm()"&gt;
 &lt;/form&gt;
               </code></pre>
                 <br />
               </td>
             </tr>
             <tr>
-              <td class="clickable" data-detail-id="detail-tag-htmlinput">html forms: input</td>
+              <td id="formvalidation" class="tableletters" data-number="17">Form Validation
+                <div class="tablenr">[02]</div>
+              </td>
             </tr>
-            <tr id="detail-tag-htmlinput" class="expandable-row-content">
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-checkbox">checkbox input</td>
+            </tr>
+            <tr id="detail-tag-checkbox" class="expandable-row-content">
               <td>
-                <h3>html forms: input</h3>
-                <p>The HTML &lt;input&gt; element is a versatile tool used within a form to gather user information. It allows for the creation of various interactive fields, such as text boxes, color pickers, date selectors, and more. The &lt;input&gt; element’s behavior and appearance are controlled by the &lt;type&gt; attribute, which specifies the kind of data it can accept. By default, the type is set to "text," creating a simple text input field that users can type into. For an input field to send data when the form is submitted, it’s crucial to include a &lt;name&gt; attribute. Without it, the data from that input will not be part of the submission. For example, a form with &lt;input type="text" name="first-text-field"&gt; generates a text input field that accepts user text. When users type into this field, the value they enter is paired with the &lt;name&gt; attribute and sent upon submission, so if the user enters "important details," the form sends "first-text-field=important details" to the server. Additionally, we can use the &lt;value&gt; attribute to set a default text that users see in the field initially. This functionality allows developers to create customized, interactive forms tailored to specific data requirements.</p>
+                <h3>checkbox input</h3>
+                <p>In HTML forms</p>
                 <h4><u>Specifications</u></h4>
                 <pre>
              <code class="language-html">
-&lt;!-- 1. Basic text input field --&gt;
-&lt;input type=&quot;text&quot; name=&quot;username&quot; placeholder=&quot;Enter your username&quot;&gt;
-
-&lt;!-- 2. Password input field --&gt;
-&lt;input type=&quot;password&quot; name=&quot;password&quot; placeholder=&quot;Enter your password&quot;&gt;
-
-&lt;!-- 3. Email input field --&gt;
-&lt;input type=&quot;email&quot; name=&quot;email&quot; placeholder=&quot;Enter your email&quot;&gt;
-
-&lt;!-- 4. Number input field --&gt;
-&lt;input type=&quot;number&quot; name=&quot;age&quot; placeholder=&quot;Enter your age&quot;&gt;
-
-&lt;!-- 5. Date picker input field --&gt;
-&lt;input type=&quot;date&quot; name=&quot;birthdate&quot;&gt;
-
-&lt;!-- 6. Color picker input field --&gt;
-&lt;input type=&quot;color&quot; name=&quot;favoriteColor&quot;&gt;
-
-&lt;!-- 7. File upload input field --&gt;
-&lt;input type=&quot;file&quot; name=&quot;profilePicture&quot;&gt;
-
-&lt;!-- 8. Checkbox input field --&gt;
-&lt;input type=&quot;checkbox&quot; name=&quot;subscribe&quot; value=&quot;newsletter&quot;&gt; Subscribe to newsletter
-
-&lt;!-- 9. Radio button input field --&gt;
-&lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;male&quot;&gt; Male
-&lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;female&quot;&gt; Female
-
-&lt;!-- 10. Submit button --&gt;
-&lt;input type=&quot;submit&quot; value=&quot;Submit Form&quot;&gt;
+&lt;!-- Example 1: Basic checkbox input --&gt;
               </code></pre>
                 <br />
               </td>
             </tr>
             <tr>
-              <td class="clickable" data-detail-id="detail-tag-htmllabel">html forms: label</td>
+              <td class="clickable" data-detail-id="detail-tag-checkbox">checkbox input</td>
             </tr>
-            <tr id="detail-tag-htmllabel" class="expandable-row-content">
+            <tr id="detail-tag-checkbox" class="expandable-row-content">
               <td>
-                <h3>html forms: label</h3>
-                <p>The HTML &amp;lt;label&amp;gt; tag is used to define labels for user input elements, helping improve accessibility and user experience by associating descriptive text with form controls like &amp;lt;input&amp;gt; fields. By linking a &amp;lt;label&amp;gt; tag to an input element, users know exactly what information is expected in each field. This association is created by using the &amp;lt;for&amp;gt; attribute within the &amp;lt;label&amp;gt; tag, which should match the &amp;lt;id&amp;gt; of the corresponding input element. For instance, in &amp;lt;label for=&quot;username&quot;&amp;gt;Username&amp;lt;/label&amp;gt; paired with &amp;lt;input type=&quot;text&quot; id=&quot;username&quot;&gt;, the label "Username" is explicitly connected to the input field. This association allows users to click on the label to focus the input, which is particularly useful for larger click targets and essential for screen readers, enhancing accessibility for those using assistive technology. The &amp;lt;label&amp;gt; tag can either wrap around the input element or be separate with the &amp;for&amp; attribute to provide flexibility in layout and design.</p>
+                <h3>checkbox input</h3>
+                <p>In HTML forms</p>
                 <h4><u>Specifications</u></h4>
                 <pre>
              <code class="language-html">
-&lt;!-- 1. Label for a text input field --&gt;
-&lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
-&lt;input type=&quot;text&quot; id=&quot;username&quot; name=&quot;username&quot;&gt;
-
-&lt;!-- 2. Label for a password input field --&gt;
-&lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;
-&lt;input type=&quot;password&quot; id=&quot;password&quot; name=&quot;password&quot;&gt;
-
-&lt;!-- 3. Label for an email input field --&gt;
-&lt;label for=&quot;email&quot;&gt;Email Address&lt;/label&gt;
-&lt;input type=&quot;email&quot; id=&quot;email&quot; name=&quot;email&quot;&gt;
-
-&lt;!-- 4. Label for a date input field --&gt;
-&lt;label for=&quot;birthdate&quot;&gt;Date of Birth&lt;/label&gt;
-&lt;input type=&quot;date&quot; id=&quot;birthdate&quot; name=&quot;birthdate&quot;&gt;
-
-&lt;!-- 5. Label wrapping a checkbox input field --&gt;
-&lt;label&gt;
-    &lt;input type=&quot;checkbox&quot; name=&quot;subscribe&quot;&gt; Subscribe to newsletter
-&lt;/label&gt;
-
-&lt;!-- 6. Label for a radio button input field --&gt;
-&lt;label for=&quot;male&quot;&gt;Male&lt;/label&gt;
-&lt;input type=&quot;radio&quot; id=&quot;male&quot; name=&quot;gender&quot; value=&quot;male&quot;&gt;
-
-&lt;label for=&quot;female&quot;&gt;Female&lt;/label&gt;
-&lt;input type=&quot;radio&quot; id=&quot;female&quot; name=&quot;gender&quot; value=&quot;female&quot;&gt;
-
-&lt;!-- 7. Label for a color picker input field --&gt;
-&lt;label for=&quot;favcolor&quot;&gt;Favorite Color&lt;/label&gt;
-&lt;input type=&quot;color&quot; id=&quot;favcolor&quot; name=&quot;favcolor&quot;&gt;
-
-&lt;!-- 8. Label for a number input field --&gt;
-&lt;label for=&quot;quantity&quot;&gt;Quantity&lt;/label&gt;
-&lt;input type=&quot;number&quot; id=&quot;quantity&quot; name=&quot;quantity&quot;&gt;
-
-&lt;!-- 9. Label for a file upload input field --&gt;
-&lt;label for=&quot;profilePic&quot;&gt;Upload Profile Picture&lt;/label&gt;
-&lt;input type=&quot;file&quot; id=&quot;profilePic&quot; name=&quot;profilePic&quot;&gt;
-
-&lt;!-- 10. Label for a search input field --&gt;
-&lt;label for=&quot;search&quot;&gt;Search&lt;/label&gt;
-&lt;input type=&quot;search&quot; id=&quot;search&quot; name=&quot;search&quot; placeholder=&quot;Type to search...&quot;&gt;
+&lt;!-- Example 1: Basic checkbox input --&gt;
               </code></pre>
                 <br />
               </td>
             </tr>
             <tr>
-              <td class="clickable" data-detail-id="detail-tag-actionmethod">html forms: action & method</td>
+              <td class="clickable" data-detail-id="detail-tag-checkbox">checkbox input</td>
             </tr>
-            <tr id="detail-tag-actionmethod" class="expandable-row-content">
+            <tr id="detail-tag-checkbox" class="expandable-row-content">
               <td>
-                <h3>html forms: action & method</h3>
-                <p>In web development, an HTML</p>
+                <h3>checkbox input</h3>
+                <p>In HTML forms</p>
                 <h4><u>Specifications</u></h4>
                 <pre>
              <code class="language-html">
-&lt;!-- 1. Simple form to submit a users name via GET method to "submit_name.html" --&gt;
+&lt;!-- Example 1: Basic checkbox input --&gt;
               </code></pre>
                 <br />
               </td>
             </tr>
             <tr>
-              <td class="clickable" data-detail-id="detail-tag-actionmethod">html forms: action & method</td>
-            </tr>
-            <tr id="detail-tag-actionmethod" class="expandable-row-content">
-              <td>
-                <h3>html forms: action & method</h3>
-                <p>In web development, an HTML</p>
-                <h4><u>Specifications</u></h4>
-                <pre>
-             <code class="language-html">
-&lt;!-- 1. Simple form to submit a users name via GET method to "submit_name.html" --&gt;
-              </code></pre>
-                <br />
-              </td>
-            </tr>
-            <tr>
-              <td class="clickable" data-detail-id="detail-tag-actionmethod">html forms: action & method</td>
-            </tr>
-            <tr id="detail-tag-actionmethod" class="expandable-row-content">
-              <td>
-                <h3>html forms: action & method</h3>
-                <p>In web development, an HTML</p>
-                <h4><u>Specifications</u></h4>
-                <pre>
-             <code class="language-html">
-&lt;!-- 1. Simple form to submit a users name via GET method to "submit_name.html" --&gt;
-              </code></pre>
-                <br />
-              </td>
-            </tr>
-            <tr>
-              <td class="clickable" data-detail-id="detail-tag-actionmethod">html forms: action & method</td>
-            </tr>
-            <tr id="detail-tag-actionmethod" class="expandable-row-content">
-              <td>
-                <h3>html forms: action & method</h3>
-                <p>In web development, an HTML</p>
-                <h4><u>Specifications</u></h4>
-                <pre>
-             <code class="language-html">
-&lt;!-- 1. Simple form to submit a users name via GET method to "submit_name.html" --&gt;
-              </code></pre>
-                <br />
-              </td>
-            </tr>
-            <tr>
-              <td id="comments" class="tableletters" data-number="17">Comments
+              <td id="comments" class="tableletters" data-number="18">Comments
                 <div class="tablenr">[02]</div>
               </td>
             </tr>
@@ -11582,7 +12495,7 @@
               </td>
             </tr>
             <tr>
-              <td id="data-types" class="tableletters" data-number="18">Data Types
+              <td id="data-types" class="tableletters" data-number="19">Data Types
                 <div class="tablenr">[01]</div>
               </td>
             </tr>
