@@ -17,6 +17,7 @@
   --color-fourteen: #1c1c1c;
   --color-fifteen: rgb(255, 255, 255);
   --color-sixteen: rgba(242, 242, 242, 0.75);
+  --color-twenty: #94febf;
   overscroll-behavior: contain;
 }
 
@@ -39,6 +40,7 @@ body.dark-mode {
   --color-fourteen: #e3e3e3;
   --color-fifteen: rgb(0, 0, 0);
   --color-sixteen: rgba(0, 0, 0, 0.75);
+  --color-twenty: #2a2aff;
 }
 
 .dm-mono-light {
@@ -745,7 +747,7 @@ body.dark-mode {
   }
 
   .tableletters {
-    background-color: var(--background-color-one);
+    background-color: transparent;
     font-weight: bold;
     text-transform: uppercase;
     padding: 0;
@@ -1468,8 +1470,8 @@ body.dark-mode {
   }
 
   .tableletters {
-    color: var(--color-one);
-    background-color: var(--background-color-one);
+    color: var(--background-color-one);
+    background-color: transparent;
     border-top: 1px solid var(--background-color-one);
     font-weight: bold;
     text-transform: uppercase;
@@ -1505,16 +1507,16 @@ body.dark-mode {
   .clickable::after {
     content: "[+]"; /* Plus sign, indicating expandable */
     font-size: 12px;
-    color: var(--background-color-one);
+    color: var(--color-twenty);
   }
 
   .expanded::after {
     content: "[-]"; /* Minus sign, indicating collapsible */
-    color: var(--color-twelve);
+    color: var(--color-twenty);
   }
 
   .clickable.expanded {
-    color: var(--color-twelve);
+    color: var(--color-twenty);
   }
 
   .ascii-art {
