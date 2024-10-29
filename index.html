@@ -80,7 +80,7 @@
     </header>
     <main role="main" class="main-content">
       <section id="elements">
-        <h2>Index [153]</h2>
+        <h2>Index [156]</h2>
       </section>
       <div class="custom-hr">
         <div class="symbol half-plus l"></div>
@@ -107,7 +107,7 @@
             <li><a href="#dom">Document Object Model</a></li>
             <li><a href="#domevents">Events</a></li>
             <li><a href="#htmlforms">HTML Forms</a></li>
-            <li><a href="#formvalidation">Form Validation</a></li>
+            <li><a href="#classes">Classes</a></li>
             <li><a href="#comments">Comments</a></li>
             <li><a href="#data-types">Data Types</a></li>
           </ul>
@@ -139,13 +139,13 @@
                 // METADATA
               </p>
               <p class="update">
-                // [LAST UPDATED] 27/10/2024
+                // [LAST UPDATED] 29/10/2024
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
               </p>
               <p class="update">
-                // [LAST UPDATED] 27/10/2024
+                // [LAST UPDATED] 29/10/2024
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
@@ -154,13 +154,13 @@
                 // METADATA
               </p>
               <p class="update">
-                // [LAST UPDATED] 27/10/2024
+                // [LAST UPDATED] 29/10/2024
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
               </p>
               <p class="update">
-                // [LAST UPDATED] 27/10/2024
+                // [LAST UPDATED] 29/10/2024
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
@@ -168,7 +168,7 @@
             </div>
           </div>
           <div class="left-index">
-            <div class="navigation-title">Index [153]</div>
+            <div class="navigation-title">Index [156]</div>
             <div class="indexscroller">
               <div class="navigation-container">
                 <div class="navigationnumber">[01]</div>
@@ -236,7 +236,7 @@
               </div>
               <div class="navigation-container">
                 <div class="navigationnumber">[17]</div>
-                <div><a href="#formvalidation" class="titleindex">Form Validation</a></div>
+                <div><a href="#classes" class="titleindex">Classes</a></div>
               </div>
               <div class="navigation-container">
                 <div class="navigationnumber">[18]</div>
@@ -12358,7 +12358,266 @@
               </td>
             </tr>
             <tr>
-              <td id="formvalidation" class="tableletters" data-number="17">Form Validation
+              <td class="clickable" data-detail-id="detail-tag-required">required attribute</td>
+            </tr>
+            <tr id="detail-tag-required" class="expandable-row-content">
+              <td>
+                <h3>required attribute</h3>
+                <p>In HTML forms, the `required` attribute is used within input elements to indicate that a user must fill out that field before submitting the form. This attribute enhances form validation by preventing the form from being submitted until the required fields are completed, ensuring that essential information is collected. Typically paired with the `<label>` tag, the `required` attribute improves both accessibility and usability. The `<label>` provides a descriptive text for the input field, and when combined with `required`, it clearly communicates to users which fields are mandatory. For example, adding `required` to an `<input type="email">` ensures that users provide a valid email address before submission. Additionally, browsers often display built-in validation messages for required fields, guiding users to complete the necessary information. Proper use of the `required` attribute within forms not only streamlines data collection but also enhances the overall user experience by reducing errors and ensuring that all necessary data is provided.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+&lt;!-- Example 1: Required text input for username --&gt;
+&lt;form action="/submitUsername" method="POST"&gt;
+    &lt;label for="username"&gt;Username:&lt;/label&gt;
+    &lt;input type="text" id="username" name="username" required&gt;
+    &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 2: Required email input for subscription --&gt;
+&lt;form action="/subscribe" method="POST"&gt;
+    &lt;label for="emailSubscribe"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="emailSubscribe" name="email" required&gt;
+    &lt;input type="submit" value="Subscribe"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 3: Required password input for registration --&gt;
+&lt;form action="/register" method="POST"&gt;
+    &lt;label for="passwordRegister"&gt;Password:&lt;/label&gt;
+    &lt;input type="password" id="passwordRegister" name="password" required&gt;
+    &lt;input type="submit" value="Register"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 4: Required number input for age --&gt;
+&lt;form action="/submitAge" method="POST"&gt;
+    &lt;label for="age"&gt;Age:&lt;/label&gt;
+    &lt;input type="number" id="age" name="age" min="18" required&gt;
+    &lt;input type="submit" value="Submit Age"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 5: Required textarea for comments --&gt;
+&lt;form action="/submitComment" method="POST"&gt;
+    &lt;label for="comment"&gt;Comment:&lt;/label&gt;
+    &lt;textarea id="comment" name="comment" required&gt;&lt;/textarea&gt;
+    &lt;input type="submit" value="Submit Comment"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 6: Required radio buttons for gender selection --&gt;
+&lt;form action="/submitGender" method="POST"&gt;
+    &lt;label&gt;Gender:&lt;/label&gt;&lt;br&gt;
+    &lt;input type="radio" id="male" name="gender" value="male" required&gt;
+    &lt;label for="male"&gt;Male&lt;/label&gt;&lt;br&gt;
+    &lt;input type="radio" id="female" name="gender" value="female"&gt;
+    &lt;label for="female"&gt;Female&lt;/label&gt;&lt;br&gt;
+    &lt;input type="radio" id="other" name="gender" value="other"&gt;
+    &lt;label for="other"&gt;Other&lt;/label&gt;&lt;br&gt;
+    &lt;input type="submit" value="Submit Gender"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 7: Required checkbox for terms agreement --&gt;
+&lt;form action="/agreeTerms" method="POST"&gt;
+    &lt;input type="checkbox" id="terms" name="terms" required&gt;
+    &lt;label for="terms"&gt;I agree to the terms and conditions&lt;/label&gt;
+    &lt;input type="submit" value="Agree and Submit"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 8: Required select dropdown for country selection --&gt;
+&lt;form action="/selectCountry" method="POST"&gt;
+    &lt;label for="country"&gt;Select Country:&lt;/label&gt;
+    &lt;select id="country" name="country" required&gt;
+        &lt;option value="" disabled selected&gt;--Choose a country--&lt;/option&gt;
+        &lt;option value="us"&gt;United States&lt;/option&gt;
+        &lt;option value="ca"&gt;Canada&lt;/option&gt;
+        &lt;option value="uk"&gt;United Kingdom&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;input type="submit" value="Submit Country"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 9: Required file input for uploading a document --&gt;
+&lt;form action="/uploadDocument" method="POST" enctype="multipart/form-data"&gt;
+    &lt;label for="document"&gt;Upload Document:&lt;/label&gt;
+    &lt;input type="file" id="document" name="document" required&gt;
+    &lt;input type="submit" value="Upload"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 10: Required date input for selecting a birthdate --&gt;
+&lt;form action="/submitBirthdate" method="POST"&gt;
+    &lt;label for="birthdate"&gt;Birthdate:&lt;/label&gt;
+    &lt;input type="date" id="birthdate" name="birthdate" required&gt;
+    &lt;input type="submit" value="Submit Birthdate"&gt;
+&lt;/form&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-minmax">min, max, minlength, maxlength</td>
+            </tr>
+            <tr id="detail-tag-minmax" class="expandable-row-content">
+              <td>
+                <h3>min, max, minlength, maxlength</h3>
+                <p>In HTML forms, attributes such as `min`, `max`, `minlength`, and `maxlength` are used within the &lt;input&gt; tag to enforce constraints on user input, enhancing data validation and user experience. The `min` and `max` attributes define the minimum and maximum acceptable values for input types like `number`, `range`, and `date`, ensuring that users enter values within a specified range. For example, setting `min="18"` and `max="99"` on an &lt;input type="number"&gt; field restricts input to values between 18 and 99. On the other hand, `minlength` and `maxlength` attributes are used to specify the minimum and maximum number of characters that a user can enter in text-based inputs such as `text`, `password`, and `textarea`. For instance, applying `minlength="5"` and `maxlength="15"` on a username field ensures that the input is neither too short nor excessively long, promoting consistency and preventing potential errors. These attributes are typically paired with the &lt;label&gt; tag, which provides descriptive text for each input field, enhancing accessibility and usability by clearly indicating the requirements to the user. Proper utilization of `min`, `max`, `minlength`, and `maxlength` within forms ensures that the data collected is both valid and meaningful, streamlining the processing and storage of user inputs.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+&lt;!-- Example 1: Number input with min and max attributes --&gt;
+&lt;form action="/submitAge" method="POST"&gt;
+    &lt;label for="age"&gt;Age:&lt;/label&gt;
+    &lt;input type="number" id="age" name="age" min="18" max="99" required&gt;
+    &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 2: Text input with minlength and maxlength attributes --&gt;
+&lt;form action="/submitUsername" method="POST"&gt;
+    &lt;label for="username"&gt;Username:&lt;/label&gt;
+    &lt;input type="text" id="username" name="username" minlength="5" maxlength="15" required&gt;
+    &lt;input type="submit" value="Register"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 3: Password input with minlength and maxlength attributes --&gt;
+&lt;form action="/submitPassword" method="POST"&gt;
+    &lt;label for="password"&gt;Password:&lt;/label&gt;
+    &lt;input type="password" id="password" name="password" minlength="8" maxlength="20" required&gt;
+    &lt;input type="submit" value="Set Password"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 4: Email input with minlength and maxlength attributes --&gt;
+&lt;form action="/submitEmail" method="POST"&gt;
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" minlength="10" maxlength="50" required&gt;
+    &lt;input type="submit" value="Subscribe"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 5: Range input with min and max attributes --&gt;
+&lt;form action="/submitVolume" method="POST"&gt;
+    &lt;label for="volume"&gt;Volume Level:&lt;/label&gt;
+    &lt;input type="range" id="volume" name="volume" min="0" max="100" required&gt;
+    &lt;input type="submit" value="Set Volume"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 6: Date input with min and max attributes --&gt;
+&lt;form action="/submitBirthdate" method="POST"&gt;
+    &lt;label for="birthdate"&gt;Birthdate:&lt;/label&gt;
+    &lt;input type="date" id="birthdate" name="birthdate" min="1900-01-01" max="2023-12-31" required&gt;
+    &lt;input type="submit" value="Submit Birthdate"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 7: Telephone input with minlength and maxlength attributes --&gt;
+&lt;form action="/submitPhone" method="POST"&gt;
+    &lt;label for="phone"&gt;Phone Number:&lt;/label&gt;
+    &lt;input type="tel" id="phone" name="phone" minlength="10" maxlength="15" required&gt;
+    &lt;input type="submit" value="Submit Phone"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 8: URL input with minlength and maxlength attributes --&gt;
+&lt;form action="/submitWebsite" method="POST"&gt;
+    &lt;label for="website"&gt;Website URL:&lt;/label&gt;
+    &lt;input type="url" id="website" name="website" minlength="10" maxlength="100" required&gt;
+    &lt;input type="submit" value="Submit URL"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 9: Textarea with minlength and maxlength attributes --&gt;
+&lt;form action="/submitBio" method="POST"&gt;
+    &lt;label for="bio"&gt;Biography:&lt;/label&gt;
+    &lt;textarea id="bio" name="bio" minlength="50" maxlength="500" required&gt;&lt;/textarea&gt;
+    &lt;input type="submit" value="Submit Biography"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 10: Password input with minlength and maxlength attributes --&gt;
+&lt;form action="/changePassword" method="POST"&gt;
+    &lt;label for="newPassword"&gt;New Password:&lt;/label&gt;
+    &lt;input type="password" id="newPassword" name="newPassword" minlength="8" maxlength="20" required&gt;
+    &lt;input type="submit" value="Change Password"&gt;
+&lt;/form&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-pattern">pattern attribute</td>
+            </tr>
+            <tr id="detail-tag-pattern" class="expandable-row-content">
+              <td>
+                <h3>pattern attribute</h3>
+                <p>In HTML forms, the `pattern` attribute is used within the &lt;input&gt; tag to define a regular expression that the input value must match for the form to be submitted. This attribute enhances form validation by ensuring that user input adheres to a specific format, such as email addresses, phone numbers, or custom patterns. When paired with the &lt;label&gt; tag, the `pattern` attribute provides clear and descriptive instructions to users about the expected input format. The &lt;label&gt; enhances accessibility by associating descriptive text with the input field through the `for` and `id` attributes. If the input does not match the specified pattern, the browser can display a validation message, guiding users to correct their input before submission. Additionally, the `title` attribute can be used to provide a custom error message that appears when the input does not conform to the pattern. Proper implementation of the `pattern` attribute within forms ensures that the data collected is consistent, accurate, and meets the desired validation criteria, thereby improving both user experience and data integrity.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+&lt;!-- Example 1: Email input with pattern for basic email validation --&gt;
+&lt;form action="/submitEmail" method="POST"&gt;
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter a valid email address." required&gt;
+    &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 2: Phone number input with pattern for format 123-456-7890 --&gt;
+&lt;form action="/submitPhone" method="POST"&gt;
+    &lt;label for="phone"&gt;Phone Number:&lt;/label&gt;
+    &lt;input type="tel" id="phone" name="phone" pattern="\d{3}-\d{3}-\d{4}" title="Format: 123-456-7890" required&gt;
+    &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 3: Username input with alphanumeric pattern, length 5-15 --&gt;
+&lt;form action="/submitUsername" method="POST"&gt;
+    &lt;label for="username"&gt;Username:&lt;/label&gt;
+    &lt;input type="text" id="username" name="username" pattern="[A-Za-z0-9]{5,15}" title="5-15 characters: letters and numbers only." required&gt;
+    &lt;input type="submit" value="Register"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 4: Password input with pattern for complexity --&gt;
+&lt;form action="/submitPassword" method="POST"&gt;
+    &lt;label for="password"&gt;Password:&lt;/label&gt;
+    &lt;input type="password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number, one uppercase and lowercase letter, and at least 8 characters." required&gt;
+    &lt;input type="submit" value="Set Password"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 5: URL input with pattern for http:// or https:// validation --&gt;
+&lt;form action="/submitURL" method="POST"&gt;
+    &lt;label for="website"&gt;Website URL:&lt;/label&gt;
+    &lt;input type="url" id="website" name="website" pattern="https?://.+" title="Must start with http:// or https://" required&gt;
+    &lt;input type="submit" value="Submit URL"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 6: ZIP code input with 5-digit pattern --&gt;
+&lt;form action="/submitZIP" method="POST"&gt;
+    &lt;label for="zip"&gt;ZIP Code:&lt;/label&gt;
+    &lt;input type="text" id="zip" name="zip" pattern="\d{5}" title="Enter a 5-digit ZIP code." required&gt;
+    &lt;input type="submit" value="Submit ZIP"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 7: HEX color code input with pattern #FFFFFF --&gt;
+&lt;form action="/submitColor" method="POST"&gt;
+    &lt;label for="color"&gt;Color Code:&lt;/label&gt;
+    &lt;input type="text" id="color" name="color" pattern="#[A-Fa-f0-9]{6}" title="Enter a valid HEX color code (e.g., #FFFFFF)" required&gt;
+    &lt;input type="submit" value="Submit Color"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 8: Date input with pattern for YYYY-MM-DD format --&gt;
+&lt;form action="/submitDate" method="POST"&gt;
+    &lt;label for="date"&gt;Event Date (YYYY-MM-DD):&lt;/label&gt;
+    &lt;input type="text" id="date" name="date" pattern="\d{4}-\d{2}-\d{2}" title="Enter date in YYYY-MM-DD format." required&gt;
+    &lt;input type="submit" value="Submit Date"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 9: License plate input with pattern for two letters and five digits --&gt;
+&lt;form action="/submitPlate" method="POST"&gt;
+    &lt;label for="license"&gt;License Plate:&lt;/label&gt;
+    &lt;input type="text" id="license" name="license" pattern="[A-Za-z]{2}\d{5}" title="Format: two letters followed by five digits." required&gt;
+    &lt;input type="submit" value="Submit License"&gt;
+&lt;/form&gt;
+
+&lt;!-- Example 10: Credit card input with pattern for 16 digits --&gt;
+&lt;form action="/submitCreditCard" method="POST"&gt;
+    &lt;label for="creditcard"&gt;Credit Card Number:&lt;/label&gt;
+    &lt;input type="text" id="creditcard" name="creditcard" pattern="\d{16}" title="Enter a 16-digit credit card number." required&gt;
+    &lt;input type="submit" value="Submit Credit Card"&gt;
+&lt;/form&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td id="classes" class="tableletters" data-number="17">Classes
                 <div class="tablenr">[02]</div>
               </td>
             </tr>

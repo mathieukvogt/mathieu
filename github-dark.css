@@ -11,7 +11,7 @@
   --color-eight: #f2f2f2;
   --hljs-three: #ff7b72;
   --hljs-four: #d2a8ff;
-  --hljs-five: #79c0ff;
+  --hljs-five: #79deff;
   --hljs-six: #4effd6;
   --hljs-seven: #ffa657;
   --hljs-eight: #8b949e;
@@ -56,7 +56,7 @@ pre code.hljs {
 code.hljs {
   padding: 0;
   font-family: "DM Mono", monospace;
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal;
 }
 /*!

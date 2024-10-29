@@ -17,7 +17,7 @@
   --color-fourteen: #1c1c1c;
   --color-fifteen: rgb(255, 255, 255);
   --color-sixteen: rgba(242, 242, 242, 0.75);
-  --color-twenty: #94febf;
+  --color-twenty: #4effd6;
   overscroll-behavior: contain;
 }
 
@@ -40,7 +40,7 @@ body.dark-mode {
   --color-fourteen: #e3e3e3;
   --color-fifteen: rgb(0, 0, 0);
   --color-sixteen: rgba(0, 0, 0, 0.75);
-  --color-twenty: #2a2aff;
+  --color-twenty: #4e2aff;
 }
 
 .dm-mono-light {
@@ -175,6 +175,7 @@ body.dark-mode {
 
   .left-image {
     height: 200px;
+    width: auto;
   }
 
   #cubeCanvas {
@@ -362,11 +363,10 @@ body.dark-mode {
   .fixed-box a.center-text {
     text-decoration: none;
     color: #f2f2f2;
-    font-size: 16px;
-    font-family: "VT323", monospace;
-    font-weight: 400;
+    font-size: 12px;
+    font-family: "DM Mono", monospace;
+    font-weight: 300;
     font-style: normal;
-    letter-spacing: 1px;
   }
 
   #darkModeButton {
@@ -565,14 +565,18 @@ body.dark-mode {
     color: var(--color-seven);
     padding-top: 7.5px;
     padding-bottom: 20px;
-    font-size: 14px;
+    font-size: 12.5px;
+    color: var(--color-twenty);
+    font-weight: 300;
   }
 
   h4 {
     color: var(--color-seven);
     padding-top: 20px;
     padding-bottom: 0;
-    font-size: 14px;
+    font-size: 12.5px;
+    color: var(--color-twenty);
+    font-weight: 300;
   }
 
   a {
@@ -782,16 +786,16 @@ body.dark-mode {
   .clickable::after {
     content: "[+]"; /* Plus sign, indicating expandable */
     font-size: 12px;
-    color: var(--background-color-one);
+    color: var(--color-twenty);
   }
 
   .expanded::after {
     content: "[-]"; /* Minus sign, indicating collapsible */
-    color: var(--color-twelve);
+    color: var(--color-twenty);
   }
 
   .clickable.expanded {
-    color: var(--color-twelve);
+    color: var(--color-twenty);
   }
 
   .ascii-art {
@@ -1032,10 +1036,10 @@ body.dark-mode {
 
   .fixed-box a.center-text {
     text-decoration: none;
-    font-family: "VT323", monospace;
-    font-weight: 400;
+    font-family: "DM Mono", monospace;
+    font-weight: 300;
     font-style: normal;
-    font-size: 18px;
+    font-size: 12.5px;
     color: #f2f2f2;
   }
 
@@ -1252,17 +1256,19 @@ body.dark-mode {
   }
 
   h3 {
-    color: var(--color-seven);
     padding-top: 7.5px;
     padding-bottom: 20px;
-    font-size: 14px;
+    font-size: 13px;
+    color: var(--color-twenty);
+    font-weight: 300;
   }
 
   h4 {
-    color: var(--color-seven);
     padding-top: 20px;
     padding-bottom: 0;
-    font-size: 14px;
+    font-size: 13px;
+    color: var(--color-twenty);
+    font-weight: 300;
   }
 
   a {
