@@ -161,8 +161,8 @@ body.dark-mode {
 
   .left-title {
     height: 36.5px;
-    font-size: 16px;
-    color: var(--background-color-one);
+    font-size: 20px;
+    color: var(--color-twenty);
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -191,7 +191,7 @@ body.dark-mode {
   }
 
   .navigation-title {
-    font-size: 16px;
+    font-size: 20px;
     color: var(--background-color-one);
     padding-left: 0;
     padding-top: 10px;
@@ -755,7 +755,7 @@ body.dark-mode {
     font-weight: bold;
     text-transform: uppercase;
     padding: 0;
-    height: 12.5px;
+    height: 20px;
     border-top: 1px solid var(--background-color-one);
   }
 
@@ -795,7 +795,7 @@ body.dark-mode {
   }
 
   .clickable.expanded {
-    color: var(--color-twenty);
+    color: var(--background-color-one);
   }
 
   .ascii-art {
@@ -1522,7 +1522,7 @@ body.dark-mode {
   }
 
   .clickable.expanded {
-    color: var(--color-twenty);
+    color: var(--background-color-one);
   }
 
   .ascii-art {
