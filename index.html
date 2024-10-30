@@ -80,7 +80,7 @@
     </header>
     <main role="main" class="main-content">
       <section id="elements">
-        <h2>Index [156]</h2>
+        <h2>Index [166]</h2>
       </section>
       <div class="custom-hr">
         <div class="symbol half-plus l"></div>
@@ -139,13 +139,13 @@
                 // METADATA
               </p>
               <p class="update">
-                // [LAST UPDATED] 29/10/2024
+                // [LAST UPDATED] 30/10/2024
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
               </p>
               <p class="update">
-                // [LAST UPDATED] 29/10/2024
+                // [LAST UPDATED] 30/10/2024
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
@@ -154,13 +154,13 @@
                 // METADATA
               </p>
               <p class="update">
-                // [LAST UPDATED] 29/10/2024
+                // [LAST UPDATED] 30/10/2024
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
               </p>
               <p class="update">
-                // [LAST UPDATED] 29/10/2024
+                // [LAST UPDATED] 30/10/2024
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
@@ -168,7 +168,7 @@
             </div>
           </div>
           <div class="left-index">
-            <div class="navigation-title">Index [156]</div>
+            <div class="navigation-title">Index [166]</div>
             <div class="indexscroller">
               <div class="navigation-container">
                 <div class="navigationnumber">[01]</div>
@@ -12618,45 +12618,916 @@
             </tr>
             <tr>
               <td id="classes" class="tableletters" data-number="17">Classes
-                <div class="tablenr">[02]</div>
+                <div class="tablenr">[07]</div>
               </td>
             </tr>
             <tr>
-              <td class="clickable" data-detail-id="detail-tag-checkbox">checkbox input</td>
+              <td class="clickable" data-detail-id="detail-tag-classes">classes</td>
             </tr>
-            <tr id="detail-tag-checkbox" class="expandable-row-content">
+            <tr id="detail-tag-classes" class="expandable-row-content">
               <td>
-                <h3>checkbox input</h3>
-                <p>In HTML forms</p>
+                <h3>classes</h3>
+                <p>In JavaScript, classes are a blueprint for creating objects, introduced in ES6 as a more structured way to define objects and inheritance in JavaScript. A class is defined using the `class` keyword, followed by the class name. Inside a class, a special `constructor` method is used for initializing new instances of the class, allowing properties to be set when the object is created. Additionally, classes can have methods, which are functions associated with the objects created by the class. Inheritance can be achieved through the `extends` keyword, allowing one class to inherit properties and methods from another. This makes code more organized and promotes reusability by grouping related functionalities in one place. While JavaScript classes use a syntax similar to traditional object-oriented programming languages, they are essentially syntactic sugar over JavaScript’s prototype-based inheritance, meaning that they are built on the same underlying mechanisms but offer a cleaner and more readable syntax.</p>
                 <h4><u>Specifications</u></h4>
                 <pre>
-             <code class="language-html">
-&lt;!-- Example 1: Basic checkbox input --&gt;
+             <code class="language-js">
+// Example 1: Basic class definition with constructor
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    greet() {
+        return `Hello, my name is ${this.name} and I am ${this.age} years old.`;
+    }
+}
+
+// Example 2: Class with a static method
+class MathUtil {
+    static add(a, b) {
+        return a + b;
+    }
+}
+
+// Example 3: Class inheritance with extends
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+    speak() {
+        return `${this.name} makes a sound.`;
+    }
+}
+class Dog extends Animal {
+    speak() {
+        return `${this.name} barks.`;
+    }
+}
+
+// Example 4: Class with a getter and setter
+class Rectangle {
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+    }
+    get area() {
+        return this.width * this.height;
+    }
+    set dimensions({ width, height }) {
+        this.width = width;
+        this.height = height;
+    }
+}
+
+// Example 5: Class with a private field (using # in newer JavaScript versions)
+class BankAccount {
+    #balance;
+    constructor(balance) {
+        this.#balance = balance;
+    }
+    getBalance() {
+        return this.#balance;
+    }
+}
+
+// Example 6: Abstract class simulation (JavaScript doesn’t have true abstract classes)
+class Shape {
+    constructor() {
+        if (this.constructor === Shape) {
+            throw new Error("Abstract class 'Shape' cannot be instantiated directly.");
+        }
+    }
+    area() {
+        throw new Error("Method 'area()' must be implemented.");
+    }
+}
+
+// Example 7: Class with async method
+class DataFetcher {
+    async fetchData(url) {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+    }
+}
+
+// Example 8: Singleton class pattern
+class Singleton {
+    constructor() {
+        if (Singleton.instance) {
+            return Singleton.instance;
+        }
+        Singleton.instance = this;
+    }
+}
+
+// Example 9: Factory method in a class
+class Car {
+    constructor(make, model) {
+        this.make = make;
+        this.model = model;
+    }
+    static createToyota(model) {
+        return new Car('Toyota', model);
+    }
+}
+
+// Example 10: Class with method chaining
+class Counter {
+    constructor() {
+        this.count = 0;
+    }
+    increment() {
+        this.count++;
+        return this;
+    }
+    decrement() {
+        this.count--;
+        return this;
+    }
+}
               </code></pre>
                 <br />
               </td>
             </tr>
             <tr>
-              <td class="clickable" data-detail-id="detail-tag-checkbox">checkbox input</td>
+              <td class="clickable" data-detail-id="detail-tag-constructorm">constructor</td>
             </tr>
-            <tr id="detail-tag-checkbox" class="expandable-row-content">
+            <tr id="detail-tag-constructorm" class="expandable-row-content">
               <td>
-                <h3>checkbox input</h3>
-                <p>In HTML forms</p>
+                <h3>constructor</h3>
+                <p>In JavaScript, the `constructor` is a special method used within classes to initialize new objects and set up initial property values. Defined with the `constructor` keyword, this method is automatically called when a new instance of the class is created using the `new` keyword. The `constructor` can accept parameters, allowing values to be passed in and assigned to properties of the instance. For example, a `Person` class might have a `constructor` method that takes `name` and `age` as arguments, setting `this.name` and `this.age` to these values, making them accessible to all methods within the class. Each class can have only one `constructor`, and if none is explicitly defined, JavaScript provides a default constructor. The `constructor` is crucial in class-based programming as it enables the customization and initialization of objects as they are created, helping establish each instance's unique state.</p>
                 <h4><u>Specifications</u></h4>
                 <pre>
-             <code class="language-html">
-&lt;!-- Example 1: Basic checkbox input --&gt;
+             <code class="language-js">
+// Example 1: Basic constructor setting two properties
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+
+// Example 2: Constructor with default parameter values
+class Animal {
+    constructor(type = 'Unknown', sound = 'No sound') {
+        this.type = type;
+        this.sound = sound;
+    }
+}
+
+// Example 3: Constructor with a single parameter object for multiple properties
+class Car {
+    constructor({ make, model, year }) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+    }
+}
+
+// Example 4: Constructor with optional chaining for nested properties
+class Book {
+    constructor(info) {
+        this.title = info?.title || 'Untitled';
+        this.author = info?.author || 'Unknown';
+    }
+}
+
+// Example 5: Constructor that initializes an array property
+class Playlist {
+    constructor(name) {
+        this.name = name;
+        this.songs = [];
+    }
+}
+
+// Example 6: Constructor that validates input parameters
+class Rectangle {
+    constructor(width, height) {
+        if (width <= 0 || height <= 0) {
+            throw new Error('Width and height must be positive numbers.');
+        }
+        this.width = width;
+        this.height = height;
+    }
+}
+
+// Example 7: Constructor initializing a property with a function
+class Timer {
+    constructor(duration) {
+        this.duration = duration;
+        this.startTime = () => new Date();
+    }
+}
+
+// Example 8: Constructor with default values using destructuring
+class Product {
+    constructor({ name = 'Unnamed', price = 0 } = {}) {
+        this.name = name;
+        this.price = price;
+    }
+}
+
+// Example 9: Constructor setting properties and creating another object
+class User {
+    constructor(username, password) {
+        this.username = username;
+        this.password = password;
+        this.profile = { bio: '', website: '' };
+    }
+}
+
+// Example 10: Constructor that logs a message each time an instance is created
+class Logger {
+    constructor(message) {
+        this.message = message;
+        console.log(`New instance created with message: "${message}"`);
+    }
+}
               </code></pre>
                 <br />
               </td>
             </tr>
             <tr>
-              <td class="clickable" data-detail-id="detail-tag-checkbox">checkbox input</td>
+              <td class="clickable" data-detail-id="detail-tag-instance">instance</td>
             </tr>
-            <tr id="detail-tag-checkbox" class="expandable-row-content">
+            <tr id="detail-tag-instance" class="expandable-row-content">
               <td>
-                <h3>checkbox input</h3>
+                <h3>instance</h3>
+                <p>In JavaScript, an instance is an individual object created from a class, which acts as a blueprint. When a class is defined, it provides the structure and behavior that can be shared by multiple instances. Each instance is created using the `new` keyword followed by the class name, which calls the class’s constructor method to initialize the instance with unique properties. For example, if there is a `Person` class, `const person1 = new Person('Alice', 25)` creates an instance named `person1` with specific properties (name and age). This instance has its own copy of the class properties and can access any methods defined in the class, but its property values are independent of other instances. Instances allow us to create multiple, unique objects with the same structure defined by the class, promoting reusability and modular code. In JavaScript, each instance also inherits the prototype of the class, which enables shared functionality while maintaining individual state for each instance.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// Example 1: Creating an instance of a Person class
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+const person1 = new Person('Alice', 25);
+console.log(person1); // Logs: Person { name: 'Alice', age: 25 }
+
+// Example 2: Creating multiple instances of the Animal class
+class Animal {
+    constructor(type, sound) {
+        this.type = type;
+        this.sound = sound;
+    }
+}
+const dog = new Animal('Dog', 'Bark');
+const cat = new Animal('Cat', 'Meow');
+console.log(dog); // Logs: Animal { type: 'Dog', sound: 'Bark' }
+console.log(cat); // Logs: Animal { type: 'Cat', sound: 'Meow' }
+
+// Example 3: Creating an instance with default constructor values
+class Car {
+    constructor(make = 'Toyota', model = 'Corolla') {
+        this.make = make;
+        this.model = model;
+    }
+}
+const car1 = new Car();
+console.log(car1); // Logs: Car { make: 'Toyota', model: 'Corolla' }
+
+// Example 4: Creating an instance with an array property
+class Playlist {
+    constructor(name) {
+        this.name = name;
+        this.songs = [];
+    }
+}
+const playlist1 = new Playlist('My Playlist');
+console.log(playlist1); // Logs: Playlist { name: 'My Playlist', songs: [] }
+
+// Example 5: Creating an instance of a User class with nested properties
+class User {
+    constructor(username, email) {
+        this.username = username;
+        this.email = email;
+        this.profile = { bio: '', avatar: '' };
+    }
+}
+const user1 = new User('johndoe', 'john@example.com');
+console.log(user1); // Logs: User { username: 'johndoe', email: 'john@example.com', profile: { bio: '', avatar: '' } }
+
+// Example 6: Creating an instance of a Book class with a method
+class Book {
+    constructor(title, author) {
+        this.title = title;
+        this.author = author;
+    }
+    getSummary() {
+        return `${this.title} by ${this.author}`;
+    }
+}
+const book1 = new Book('1984', 'George Orwell');
+console.log(book1.getSummary()); // Logs: "1984 by George Orwell"
+
+// Example 7: Creating instances of a Rectangle class with different dimensions
+class Rectangle {
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+    }
+    getArea() {
+        return this.width * this.height;
+    }
+}
+const rect1 = new Rectangle(5, 10);
+const rect2 = new Rectangle(3, 6);
+console.log(rect1.getArea()); // Logs: 50
+console.log(rect2.getArea()); // Logs: 18
+
+// Example 8: Creating instances of a Counter class with an initial count
+class Counter {
+    constructor(count = 0) {
+        this.count = count;
+    }
+    increment() {
+        this.count++;
+    }
+}
+const counter1 = new Counter();
+counter1.increment();
+console.log(counter1.count); // Logs: 1
+
+// Example 9: Creating instances of a Product class with a factory method
+class Product {
+    constructor(name, price) {
+        this.name = name;
+        this.price = price;
+    }
+    static createDiscountedProduct(name, price) {
+        return new Product(name, price * 0.9);
+    }
+}
+const discountedProduct = Product.createDiscountedProduct('Laptop', 1000);
+console.log(discountedProduct); // Logs: Product { name: 'Laptop', price: 900 }
+
+// Example 10: Creating multiple instances of a Person class to show individuality
+class PersonExample {
+    constructor(name) {
+        this.name = name;
+    }
+}
+const personA = new PersonExample('John');
+const personB = new PersonExample('Jane');
+console.log(personA.name); // Logs: "John"
+console.log(personB.name); // Logs: "Jane"
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-classmethods">methods</td>
+            </tr>
+            <tr id="detail-tag-classmethods" class="expandable-row-content">
+              <td>
+                <h3>methods</h3>
+                <p>In JavaScript classes, methods are functions defined within a class to describe actions or behaviors that instances of the class can perform. Methods allow classes to encapsulate functionality and operate on the data stored in an instance’s properties, providing a way to interact with and manipulate that data. A `getter`, on the other hand, is a special type of method used to retrieve or compute a property’s value when accessed. Defined using the `get` keyword, getters appear like regular properties when accessed (without parentheses) but act as functions, often performing calculations or formatting the data before returning it. For instance, in a `Rectangle` class, a `get area()` method might compute and return the area of the rectangle based on its `width` and `height` properties. Getters are useful for creating read-only properties, allowing controlled access to specific calculations or values without directly exposing or modifying the underlying data. Together, methods and getters provide classes with powerful ways to manage and interact with data while promoting encapsulation and ease of use for developers.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// Example 1: Basic method in a class
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+    greet() {
+        return `Hello, my name is ${this.name}.`;
+    }
+}
+const person1 = new Person('Alice');
+console.log(person1.greet()); // Logs: "Hello, my name is Alice."
+
+// Example 2: Getter for computed property
+class Rectangle {
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+    }
+    get area() {
+        return this.width * this.height;
+    }
+}
+const rect = new Rectangle(5, 10);
+console.log(rect.area); // Logs: 50
+
+// Example 3: Method to calculate discount price
+class Product {
+    constructor(price) {
+        this.price = price;
+    }
+    calculateDiscount(discount) {
+        return this.price - (this.price * discount);
+    }
+}
+const product = new Product(100);
+console.log(product.calculateDiscount(0.2)); // Logs: 80
+
+// Example 4: Getter that returns a formatted string
+class Book {
+    constructor(title, author) {
+        this.title = title;
+        this.author = author;
+    }
+    get description() {
+        return `${this.title} by ${this.author}`;
+    }
+}
+const book = new Book('1984', 'George Orwell');
+console.log(book.description); // Logs: "1984 by George Orwell"
+
+// Example 5: Method that increments a count
+class Counter {
+    constructor() {
+        this.count = 0;
+    }
+    increment() {
+        this.count++;
+    }
+}
+const counter = new Counter();
+counter.increment();
+console.log(counter.count); // Logs: 1
+
+// Example 6: Getter that calculates the length of an array
+class Playlist {
+    constructor() {
+        this.songs = [];
+    }
+    addSong(song) {
+        this.songs.push(song);
+    }
+    get songCount() {
+        return this.songs.length;
+    }
+}
+const playlist = new Playlist();
+playlist.addSong('Song 1');
+playlist.addSong('Song 2');
+console.log(playlist.songCount); // Logs: 2
+
+// Example 7: Method that converts a string to uppercase
+class Message {
+    constructor(text) {
+        this.text = text;
+    }
+    toUpperCase() {
+        return this.text.toUpperCase();
+    }
+}
+const message = new Message('hello');
+console.log(message.toUpperCase()); // Logs: "HELLO"
+
+// Example 8: Getter for full name concatenation
+class User {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+}
+const user = new User('John', 'Doe');
+console.log(user.fullName); // Logs: "John Doe"
+
+// Example 9: Method that resets a value to zero
+class Score {
+    constructor() {
+        this.points = 10;
+    }
+    reset() {
+        this.points = 0;
+    }
+}
+const score = new Score();
+score.reset();
+console.log(score.points); // Logs: 0
+
+// Example 10: Getter for checking if a value is positive
+class NumberCheck {
+    constructor(value) {
+        this.value = value;
+    }
+    get isPositive() {
+        return this.value > 0;
+    }
+}
+const number = new NumberCheck(5);
+console.log(number.isPositive); // Logs: true
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-methodcalls">method calls</td>
+            </tr>
+            <tr id="detail-tag-methodcalls" class="expandable-row-content">
+              <td>
+                <h3>method calls</h3>
+                <p>In JavaScript classes, method calls refer to the execution of functions defined within a class, allowing instances of the class to perform specific actions or access certain behaviors. When an instance is created, it inherits all the methods defined within its class, enabling method calls on that instance using dot notation. For example, if there is a `Car` class with a `drive` method, creating an instance with `const myCar = new Car()` allows calling the method with `myCar.drive()`. Method calls can return values, modify instance properties, or interact with other methods and data within the class, making them essential for managing and manipulating the class’s internal state. Method calls encapsulate functionality, so users of the class can easily perform complex actions with a simple, readable interface. By using methods, JavaScript classes offer a structured way to perform actions on instances, facilitating a clear separation of behavior and data, which enhances code readability, modularity, and reusability.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// Example 1: Calling a simple greet method
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+    greet() {
+        return `Hello, my name is ${this.name}.`;
+    }
+}
+const person1 = new Person('Alice');
+console.log(person1.greet()); // Logs: "Hello, my name is Alice."
+
+// Example 2: Calling a method to calculate area
+class Rectangle {
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+    }
+    area() {
+        return this.width * this.height;
+    }
+}
+const rect = new Rectangle(5, 10);
+console.log(rect.area()); // Logs: 50
+
+// Example 3: Calling a method with parameters to calculate discount
+class Product {
+    constructor(price) {
+        this.price = price;
+    }
+    discount(rate) {
+        return this.price - (this.price * rate);
+    }
+}
+const product = new Product(100);
+console.log(product.discount(0.2)); // Logs: 80
+
+// Example 4: Calling a method to add an item to a list
+class ShoppingCart {
+    constructor() {
+        this.items = [];
+    }
+    addItem(item) {
+        this.items.push(item);
+    }
+}
+const cart = new ShoppingCart();
+cart.addItem('Apple');
+console.log(cart.items); // Logs: ["Apple"]
+
+// Example 5: Calling a method to check stock availability
+class Inventory {
+    constructor(quantity) {
+        this.quantity = quantity;
+    }
+    inStock() {
+        return this.quantity > 0;
+    }
+}
+const item = new Inventory(5);
+console.log(item.inStock()); // Logs: true
+
+// Example 6: Calling a method that increments a counter
+class Counter {
+    constructor() {
+        this.count = 0;
+    }
+    increment() {
+        this.count++;
+    }
+}
+const counter = new Counter();
+counter.increment();
+console.log(counter.count); // Logs: 1
+
+// Example 7: Calling a method to convert text to uppercase
+class Message {
+    constructor(text) {
+        this.text = text;
+    }
+    toUpperCase() {
+        return this.text.toUpperCase();
+    }
+}
+const message = new Message('hello');
+console.log(message.toUpperCase()); // Logs: "HELLO"
+
+// Example 8: Calling a method that reverses a string
+class StringManipulator {
+    constructor(value) {
+        this.value = value;
+    }
+    reverse() {
+        return this.value.split('').reverse().join('');
+    }
+}
+const str = new StringManipulator('hello');
+console.log(str.reverse()); // Logs: "olleh"
+
+// Example 9: Calling a method to calculate the perimeter of a square
+class Square {
+    constructor(side) {
+        this.side = side;
+    }
+    perimeter() {
+        return 4 * this.side;
+    }
+}
+const square = new Square(4);
+console.log(square.perimeter()); // Logs: 16
+
+// Example 10: Calling a method to reset a score
+class Score {
+    constructor() {
+        this.value = 10;
+    }
+    reset() {
+        this.value = 0;
+    }
+}
+const score = new Score();
+score.reset();
+console.log(score.value); // Logs: 0
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-inheritance">inheritance</td>
+            </tr>
+            <tr id="detail-tag-inheritance" class="expandable-row-content">
+              <td>
+                <h3>inheritance</h3>
+                <p>In JavaScript, inheritance allows one class to extend or inherit properties and methods from another, creating a hierarchy of classes where common functionality is shared. The parent class, known as the superclass, defines shared properties and methods, while the child class, or subclass, inherits this functionality and can add its own specialized behavior. Inheritance is achieved with the `extends` keyword, allowing the subclass to inherit all the properties and methods of the superclass. For instance, if there is a `Vehicle` superclass with properties like `speed` and methods like `drive`, a `Car` subclass can extend `Vehicle`, inheriting `drive` and `speed` while adding its own unique features, such as a method for opening doors. Additionally, subclasses can override methods from the superclass to provide specific implementations. The `super` keyword is used in subclass constructors to call the superclass constructor, ensuring that inherited properties are initialized correctly. By leveraging inheritance, JavaScript classes become more modular, organized, and reusable, enabling developers to structure code in a way that mirrors real-world hierarchies and relationships, reducing redundancy by promoting shared functionality across related classes.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// Example 1: Basic inheritance with superclass Animal and subclass Dog
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+    speak() {
+        return `${this.name} makes a sound.`;
+    }
+}
+class Dog extends Animal {
+    speak() {
+        return `${this.name} barks.`;
+    }
+}
+const dog = new Dog('Buddy');
+console.log(dog.speak()); // Logs: "Buddy barks."
+
+// Example 2: Using super in subclass constructor
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+}
+class Student extends Person {
+    constructor(name, grade) {
+        super(name);
+        this.grade = grade;
+    }
+}
+const student = new Student('Alice', 'A');
+console.log(student.name); // Logs: "Alice"
+console.log(student.grade); // Logs: "A"
+
+// Example 3: Method inheritance from superclass Vehicle to subclass Car
+class Vehicle {
+    drive() {
+        return 'Vehicle is moving';
+    }
+}
+class Car extends Vehicle {}
+const car = new Car();
+console.log(car.drive()); // Logs: "Vehicle is moving"
+
+// Example 4: Overriding a superclass method
+class Bird {
+    fly() {
+        return 'Bird is flying';
+    }
+}
+class Penguin extends Bird {
+    fly() {
+        return 'Penguins cannot fly';
+    }
+}
+const penguin = new Penguin();
+console.log(penguin.fly()); // Logs: "Penguins cannot fly"
+
+// Example 5: Adding a new method in subclass
+class Employee {
+    constructor(name) {
+        this.name = name;
+    }
+}
+class Manager extends Employee {
+    manage() {
+        return `${this.name} is managing the team.`;
+    }
+}
+const manager = new Manager('John');
+console.log(manager.manage()); // Logs: "John is managing the team."
+
+// Example 6: Inheriting properties with super in subclass
+class Shape {
+    constructor(color) {
+        this.color = color;
+    }
+}
+class Circle extends Shape {
+    constructor(color, radius) {
+        super(color);
+        this.radius = radius;
+    }
+}
+const circle = new Circle('red', 5);
+console.log(circle.color); // Logs: "red"
+console.log(circle.radius); // Logs: 5
+
+// Example 7: Calling a superclass method in subclass
+class Writer {
+    write() {
+        return 'Writing content';
+    }
+}
+class Blogger extends Writer {
+    write() {
+        return `Blogger: ${super.write()}`;
+    }
+}
+const blogger = new Blogger();
+console.log(blogger.write()); // Logs: "Blogger: Writing content"
+
+// Example 8: Accessing superclass method from subclass instance
+class Appliance {
+    operate() {
+        return 'Appliance is operating';
+    }
+}
+class WashingMachine extends Appliance {}
+const washer = new WashingMachine();
+console.log(washer.operate()); // Logs: "Appliance is operating"
+
+// Example 9: Superclass method with subclass-specific properties
+class Product {
+    constructor(name) {
+        this.name = name;
+    }
+}
+class Book extends Product {
+    constructor(name, author) {
+        super(name);
+        this.author = author;
+    }
+    details() {
+        return `${this.name} by ${this.author}`;
+    }
+}
+const book = new Book('1984', 'George Orwell');
+console.log(book.details()); // Logs: "1984 by George Orwell"
+
+// Example 10: Multiple subclasses inheriting from one superclass
+class Instrument {
+    play() {
+        return 'Playing instrument';
+    }
+}
+class Guitar extends Instrument {
+    play() {
+        return 'Playing the guitar';
+    }
+}
+class Piano extends Instrument {
+    play() {
+        return 'Playing the piano';
+    }
+}
+const guitar = new Guitar();
+const piano = new Piano();
+console.log(guitar.play()); // Logs: "Playing the guitar"
+console.log(piano.play()); // Logs: "Playing the piano"
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-staticmethods">static methods</td>
+            </tr>
+            <tr id="detail-tag-staticmethods" class="expandable-row-content">
+              <td>
+                <h3>static methods</h3>
+                <p>In JavaScript, static methods are functions defined on a class itself rather than on instances of the class. They are created using the `static` keyword within the class body and can be called directly on the class, without the need to create an instance. Static methods are often used for utility functions or behaviors that are relevant to all instances but don’t rely on instance-specific data. For example, a `MathUtil` class might have a static method `add` that takes two numbers and returns their sum, allowing it to be called with `MathUtil.add(2, 3)` without needing an instance of `MathUtil`. Static methods cannot access or modify instance properties because they are not associated with any particular instance of the class. Instead, they operate solely on parameters passed to them or class-level data. By using static methods, developers can group related utility functions within a class structure, enhancing code organization and readability while keeping instance-specific behaviors separate.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// Example 1: Basic static method for addition
+class MathUtil {
+    static add(a, b) {
+        return a + b;
+    }
+}
+console.log(MathUtil.add(3, 5)); // Logs: 8
+
+// Example 2: Static method for converting Celsius to Fahrenheit
+class TemperatureConverter {
+    static celsiusToFahrenheit(celsius) {
+        return (celsius * 9/5) + 32;
+    }
+}
+console.log(TemperatureConverter.celsiusToFahrenheit(30)); // Logs: 86
+
+// Example 3: Static method for generating a random number
+class RandomGenerator {
+    static randomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+}
+console.log(RandomGenerator.randomInt(1, 10)); // Logs a random integer between 1 and 10
+
+// Example 4: Static method for checking if a number is even
+class NumberUtil {
+    static isEven(number) {
+        return number % 2 === 0;
+    }
+}
+console.log(NumberUtil.isEven(4)); // Logs: true
+console.log(NumberUtil.isEven(5)); // Logs: false
+
+// Example 5: Static method for calculating the area of a circle
+class Geometry {
+    static circleArea(radius) {
+        return Math.PI * radius * radius;
+    }
+}
+console.log(Geometry.circleArea(5)); // Logs: 78.53981633974483
+
+// Example 6: Static method for formatting a date
+class DateFormatter {
+    static formatDate(date) {
+        return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+    }
+}
+const today = new Date();
+console.log(DateFormatter.formatDate(today)); // Logs the current date in "DD/MM/YYYY" format
+
+// Example 7: Static method for reversing a string
+class StringUtil {
+    static reverseString(str) {
+        return str.split('').reverse().join('');
+    }
+}
+console.log(StringUtil.reverseString('hello')); // Logs: "olleh"
+
+// Example 8: Static method for finding the maximum number in an array
+class ArrayUtil {
+    static max(arr) {
+        return Math.max(...arr);
+    }
+}
+console.log(ArrayUtil.max([2, 5, 8, 1])); // Logs: 8
+
+// Example 9: Static method to count words in a string
+class TextUtil {
+    static wordCount(text) {
+        return text.trim().split(/\s+/).length;
+    }
+}
+console.log(TextUtil.wordCount('Hello world, welcome to JavaScript!')); // Logs: 5
+
+// Example 10: Static method for parsing a JSON string
+class JsonUtil {
+    static parseJson(jsonString) {
+        try {
+            return JSON.parse(jsonString);
+        } catch (error) {
+            return 'Invalid JSON';
+        }
+    }
+}
+console.log(JsonUtil.parseJson('{"name": "Alice", "age": 25}')); // Logs: { name: 'Alice', age: 25 }
+console.log(JsonUtil.parseJson('Invalid JSON string')); // Logs: "Invalid JSON"
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-constructormo">constructor</td>
+            </tr>
+            <tr id="detail-tag-constructormo" class="expandable-row-content">
+              <td>
+                <h3>constructor</h3>
                 <p>In HTML forms</p>
                 <h4><u>Specifications</u></h4>
                 <pre>
