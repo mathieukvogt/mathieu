@@ -17,7 +17,7 @@
   --color-fourteen: #1c1c1c;
   --color-fifteen: rgb(255, 255, 255);
   --color-sixteen: rgba(242, 242, 242, 0.75);
-  --color-twenty: #4effd6;
+  --color-twenty: #f2f2f2;
   overscroll-behavior: contain;
 }
 
@@ -40,7 +40,7 @@ body.dark-mode {
   --color-fourteen: #e3e3e3;
   --color-fifteen: rgb(0, 0, 0);
   --color-sixteen: rgba(0, 0, 0, 0.75);
-  --color-twenty: #155670;
+  --color-twenty: #000000;
 }
 
 .dm-mono-light {
@@ -97,7 +97,7 @@ body.dark-mode {
   font-display: swap; /* Control how font loads (optional but recommended) */
 }
 
-@media (min-width: 601px) {
+@media (min-width: 951px) {
   * {
     margin: 0;
     padding: 0;
@@ -202,6 +202,66 @@ body.dark-mode {
     text-transform: uppercase;
   }
 
+  /* New style for the wrapper to enable Flexbox layout */
+  .index-wrapper {
+    display: flex;
+  }
+
+  .index-menu {
+    flex: 1;
+  }
+
+  .indexscroller {
+    flex: 2;
+    overflow-y: auto; /* Enables vertical scrolling when content overflows */
+    scroll-behavior: smooth;
+  }
+
+  .menu-item input[type="checkbox"] {
+    /* Remove default appearance */
+    appearance: none;
+    -webkit-appearance: none; /* For Safari */
+    -moz-appearance: none; /* For Firefox */
+
+    /* Size of the checkbox */
+    width: 10px;
+    height: 10px;
+
+    /* Border styling */
+    border: 1px solid var(--background-color-one);
+    border-radius: 0; /* No border radius for square shape */
+
+    /* Background */
+    background-color: transparent;
+
+    /* Cursor */
+    cursor: pointer;
+
+    /* Positioning */
+    position: relative;
+
+    /* Margin between checkbox and label */
+    margin-right: 3px;
+
+    /* Transition for smooth background change */
+    transition: background-color 0.2s ease;
+  }
+
+  .menu-item input[type="checkbox"]:checked {
+    background-color: var(
+      --background-color-one
+    ); /* White filling when checked */
+  }
+
+  .menu-item label {
+    font-size: 16px;
+    font-family: "VT323", monospace;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--background-color-one);
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+
   .navigation-container {
     display: flex;
     color: var(--background-color-one);
@@ -221,12 +281,14 @@ body.dark-mode {
     font-style: normal;
   }
 
+  /* Corrected the hover effect to apply styles properly */
   .navigation-container:hover {
     background-color: var(--background-color-one);
     color: var(--color-one);
-    .titleindex {
-      color: var(--color-one);
-    }
+  }
+
+  .navigation-container:hover .titleindex {
+    color: var(--color-one);
   }
 
   [id] {
@@ -775,6 +837,18 @@ body.dark-mode {
     border-top: 1px solid var(--background-color-one);
   }
 
+  .tabletitle {
+    height: 400px;
+    font-family: "VT323", monospace;
+    font-size: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    color: var(--background-color-one);
+  }
+
   .datatype {
     border-bottom: 1px solid var(--background-color-one);
   }
@@ -848,7 +922,7 @@ body.dark-mode {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 950px) {
   * {
     margin: 0;
     padding: 0;
@@ -918,6 +992,10 @@ body.dark-mode {
     height: 100%;
     image-rendering: crisp-edges;
     -ms-interpolation-mode: nearest-neighbor;
+  }
+
+  .menu-item {
+    display: none;
   }
 
   .brone {
@@ -1522,6 +1600,18 @@ body.dark-mode {
   }
 
   .clickable.expanded {
+    color: var(--background-color-one);
+  }
+
+  .tabletitle {
+    height: 300px;
+    font-family: "VT323", monospace;
+    font-size: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
     color: var(--background-color-one);
   }
 
