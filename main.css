@@ -142,10 +142,15 @@ body.dark-mode {
     padding-right: 3vw;
   }
 
+  /* Prevent the body from scrolling */
+  body {
+    overflow: hidden;
+  }
+
   .main-container {
     display: flex;
     flex-direction: row;
-    align-items: top;
+    align-items: flex-start;
     height: 100%;
     width: 100%;
   }
@@ -155,19 +160,19 @@ body.dark-mode {
     width: 29.33vw;
     height: 86vh;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start; /* Align items to the top */
+    gap: 20px; /* Adds a 20px gap between child elements */
     position: fixed;
   }
 
   .left-title {
     height: 36.5px;
-    font-size: 20px;
+    font-size: 16px;
     color: var(--color-twenty);
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     padding-left: 0;
-    font-weight: bold;
     font-family: "VT323", monospace;
     font-weight: 400;
     font-style: normal;
@@ -188,10 +193,12 @@ body.dark-mode {
 
   .left-index {
     height: 400px;
+    position: relative;
+    overflow: hidden;
   }
 
   .navigation-title {
-    font-size: 20px;
+    font-size: 16px;
     color: var(--background-color-one);
     padding-left: 0;
     padding-top: 10px;
@@ -202,9 +209,10 @@ body.dark-mode {
     text-transform: uppercase;
   }
 
-  /* New style for the wrapper to enable Flexbox layout */
+  /* Styles for the wrapper to enable Flexbox layout */
   .index-wrapper {
     display: flex;
+    height: 100%;
   }
 
   .index-menu {
@@ -213,44 +221,28 @@ body.dark-mode {
 
   .indexscroller {
     flex: 2;
-    overflow-y: auto; /* Enables vertical scrolling when content overflows */
+    height: 100%;
+    overflow-y: scroll; /* Always shows vertical scrollbar */
     scroll-behavior: smooth;
   }
 
   .menu-item input[type="checkbox"] {
-    /* Remove default appearance */
     appearance: none;
-    -webkit-appearance: none; /* For Safari */
-    -moz-appearance: none; /* For Firefox */
-
-    /* Size of the checkbox */
+    -webkit-appearance: none;
+    -moz-appearance: none;
     width: 10px;
     height: 10px;
-
-    /* Border styling */
     border: 1px solid var(--background-color-one);
-    border-radius: 0; /* No border radius for square shape */
-
-    /* Background */
+    border-radius: 0;
     background-color: transparent;
-
-    /* Cursor */
     cursor: pointer;
-
-    /* Positioning */
     position: relative;
-
-    /* Margin between checkbox and label */
     margin-right: 3px;
-
-    /* Transition for smooth background change */
     transition: background-color 0.2s ease;
   }
 
   .menu-item input[type="checkbox"]:checked {
-    background-color: var(
-      --background-color-one
-    ); /* White filling when checked */
+    background-color: var(--background-color-one);
   }
 
   .menu-item label {
@@ -259,7 +251,7 @@ body.dark-mode {
     font-weight: 400;
     font-style: normal;
     color: var(--background-color-one);
-    cursor: pointer; /* Change cursor to pointer on hover */
+    cursor: pointer;
   }
 
   .navigation-container {
@@ -281,7 +273,7 @@ body.dark-mode {
     font-style: normal;
   }
 
-  /* Corrected the hover effect to apply styles properly */
+  /* Hover effect to apply styles properly */
   .navigation-container:hover {
     background-color: var(--background-color-one);
     color: var(--color-one);
@@ -298,6 +290,8 @@ body.dark-mode {
   .right-section {
     width: 62.66vw;
     margin-left: 31.33vw;
+    overflow-y: auto; /* Enables vertical scrolling */
+    height: 100vh; /* Ensures it fills the viewport height */
   }
 
   h2 {

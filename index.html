@@ -108,6 +108,8 @@
             <li><a href="#domevents">Events</a></li>
             <li><a href="#htmlforms">HTML Forms</a></li>
             <li><a href="#classes">Classes</a></li>
+            <li><a href="#errorhandling">Error Handling</a></li>
+            <li><a href="#testing">Testing</a></li>
             <li><a href="#comments">Comments</a></li>
             <li><a href="#data-types">Data Types</a></li>
           </ul>
@@ -172,16 +174,24 @@
             <div class="index-wrapper">
               <div class="index-menu">
                 <div class="menu-item">
-                  <input type="checkbox" id="js-checkbox" name="js-checkbox">
+                  <input type="checkbox" id="js-checkbox" name="js-checkbox" checked>
                   <label for="js-checkbox">JAVASCRIPT</label>
-                </div>
-                <div class="menu-item">
-                  <input type="checkbox" id="ts-checkbox" name="ts-checkbox">
-                  <label for="ts-checkbox">TYPESCRIPT</label>
                 </div>
                 <div class="menu-item">
                   <input type="checkbox" id="git-checkbox" name="git-checkbox">
                   <label for="git-checkbox">GIT</label>
+                </div>
+                <div class="menu-item">
+                  <input type="checkbox" id="react-checkbox" name="react-checkbox">
+                  <label for="react-checkbox">REACT</label>
+                </div>
+                <div class="menu-item">
+                  <input type="checkbox" id="next-checkbox" name="next-checkbox">
+                  <label for="next-checkbox">NEXT</label>
+                </div>
+                <div class="menu-item">
+                  <input type="checkbox" id="ts-checkbox" name="ts-checkbox">
+                  <label for="ts-checkbox">TYPESCRIPT</label>
                 </div>
                 <div class="menu-item">
                   <input type="checkbox" id="node-checkbox" name="node-checkbox">
@@ -259,10 +269,26 @@
                 </div>
                 <div class="navigation-container">
                   <div class="navigationnumber">[18]</div>
-                  <div><a href="#comments" class="titleindex">Comments</a></div>
+                  <div><a href="#errorhandling" class="titleindex">Error Handling</a></div>
                 </div>
                 <div class="navigation-container">
                   <div class="navigationnumber">[19]</div>
+                  <div><a href="#testing" class="titleindex">Testing</a></div>
+                </div>
+                <div class="navigation-container">
+                  <div class="navigationnumber">[20]</div>
+                  <div><a href="#comments" class="titleindex">Comments</a></div>
+                </div>
+                <div class="navigation-container">
+                  <div class="navigationnumber">[21]</div>
+                  <div><a href="#data-types" class="titleindex">Data Types</a></div>
+                </div>
+                <div class="navigation-container">
+                  <div class="navigationnumber">[20]</div>
+                  <div><a href="#comments" class="titleindex">Comments</a></div>
+                </div>
+                <div class="navigation-container">
+                  <div class="navigationnumber">[21]</div>
                   <div><a href="#data-types" class="titleindex">Data Types</a></div>
                 </div>
               </div>
@@ -13544,7 +13570,450 @@ console.log(JsonUtil.parseJson('Invalid JSON string')); // Logs: "Invalid JSON"
             </tr>
             <tr>
               <td id="errorhandling" class="tableletters" data-number="18">Error Handling
-                <div class="tablenr">[02]</div>
+                <div class="tablenr">[04]</div>
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-runtimeerror">runtime errors</td>
+            </tr>
+            <tr id="detail-tag-runtimeerror" class="expandable-row-content">
+              <td>
+                <h3>runtime errors</h3>
+                <p>Runtime errors in JavaScript occur while the script is executing, causing the program to halt unexpectedly or behave unpredictably. Unlike syntax errors, which are detected during the parsing phase before the code runs, runtime errors emerge during the execution phase when the JavaScript engine encounters problematic code. Common causes include referencing variables that haven't been defined, attempting to call non-function objects, accessing properties of `null` or `undefined`, and type mismatches. For example, trying to access a property on an undefined object will trigger a runtime error, stopping the script from continuing. These errors can be challenging to debug because they depend on the specific conditions and inputs during execution. To handle runtime errors effectively, developers often use try-catch blocks to gracefully manage exceptions and ensure that the application remains robust and user-friendly even when unexpected issues arise.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// 1. ReferenceError: Accessing an undefined variable
+console.log(nonExistentVariable);
+// ReferenceError occurs because 'nonExistentVariable' is not defined
+
+// Corrected Code:
+let nonExistentVariable = 'Now I am defined';
+console.log(nonExistentVariable);
+
+// 2. TypeError: Attempting to call a non-function
+let notAFunction = 5;
+notAFunction();
+// TypeError occurs because 'notAFunction' is not a function
+
+// Corrected Code:
+let isFunction = function() { console.log('I am a function'); };
+isFunction();
+
+// 3. TypeError: Accessing a property of undefined
+let obj;
+console.log(obj.property);
+// TypeError occurs because 'obj' is undefined
+
+// Corrected Code:
+let objDefined = { property: 'Value exists' };
+console.log(objDefined.property);
+
+// 4. RangeError: Exceeding the maximum call stack size
+function recurse() {
+    recurse();
+}
+recurse();
+// RangeError occurs due to maximum call stack size exceeded
+
+// Corrected Code:
+function recurseLimited(count) {
+    if (count > 0) {
+        recurseLimited(count - 1);
+    }
+}
+recurseLimited(1000); // Set a limit to recursion depth
+
+// 5. TypeError: Assigning to a read-only property
+'use strict';
+const obj2 = {};
+Object.freeze(obj2);
+obj2.newProp = 'value';
+// TypeError occurs because 'obj2' is frozen and cannot have new properties
+
+// Corrected Code:
+const obj2Mutable = {};
+obj2Mutable.newProp = 'value';
+console.log(obj2Mutable.newProp);
+
+// 6. URIError: Invalid URI encoding
+decodeURIComponent('%');
+// URIError occurs because '%' is not a valid URI component
+
+// Corrected Code:
+decodeURIComponent('%25'); // '%25' is the correct encoding for '%'
+
+// 7. ReferenceError: Using a variable before declaration
+'use strict';
+console.log(x);
+let x = 10;
+// ReferenceError occurs because 'x' is used before it is declared
+
+// Corrected Code:
+'use strict';
+let x = 10;
+console.log(x);
+
+// 8. TypeError: Incorrect 'this' context
+'use strict';
+let module = {
+    value: 42,
+    getValue: function() { return this.value; }
+};
+let getValue = module.getValue;
+console.log(getValue());
+// TypeError occurs because 'this' is undefined in the 'getValue' function
+
+// Corrected Code:
+let boundGetValue = module.getValue.bind(module);
+console.log(boundGetValue());
+
+// 9. TypeError: Incorrect argument type
+function square(n) {
+    if (typeof n !== 'number') {
+        throw new TypeError('Expected a number');
+    }
+    return n * n;
+}
+square('a');
+// TypeError occurs because 'n' is expected to be a number, but a string is provided
+
+// Corrected Code:
+square(5); // Pass a number instead of a string
+
+// 10. ReferenceError: Using 'this' in global context (strict mode)
+'use strict';
+console.log(this.someProperty);
+// ReferenceError occurs because 'this' is undefined in strict mode when used in the global context
+
+// Corrected Code:
+'use strict';
+const context = {
+    someProperty: 'Property exists'
+};
+console.log(context.someProperty);
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-constructingerrors">constructing errors</td>
+            </tr>
+            <tr id="detail-tag-constructingerrors" class="expandable-row-content">
+              <td>
+                <h3>constructing errors</h3>
+                <p>Constructing an error in JavaScript involves creating Error objects that represent issues encountered during the execution of a program. These Error objects typically include properties like `name` and `message` to provide detailed information about the problem. While JavaScript offers several built-in error types such as `TypeError` and `ReferenceError` for common issues, there are situations where a custom error is necessary to convey specific conditions unique to an application. For example, if a function requires a password of a certain strength, and the provided password does not meet the criteria, a developer can construct a custom error using the `Error` constructor with a descriptive message like `new Error('Password does not meet the required strength.')`. This approach allows for more precise error handling and clearer communication of issues to users or other parts of the program. It is important to distinguish between constructing an error and throwing it; constructing simply creates the Error object, while throwing the error using the `throw` statement will interrupt the normal flow of the program unless it is properly caught and managed. By effectively constructing errors, developers can enhance the robustness and maintainability of their applications, ensuring that unexpected situations are handled gracefully.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// 1. Creating a generic Error
+const genericError = new Error('This is a generic error.');
+// Creates a generic Error object with a custom message
+
+// 2. Creating a TypeError
+const typeError = new TypeError('Expected a number but received a string.');
+// Creates a TypeError object to indicate a type mismatch
+
+// 3. Creating a RangeError
+const rangeError = new RangeError('The value exceeds the allowed range.');
+// Creates a RangeError object to indicate a value out of the permissible range
+
+// 4. Creating a ReferenceError
+const referenceError = new ReferenceError('Undefined variable accessed.');
+// Creates a ReferenceError object for accessing an undefined variable
+
+// 5. Creating a URIError
+const uriError = new URIError('Malformed URI component.');
+// Creates a URIError object for errors related to URI handling
+
+// 6. Creating a custom ValidationError by extending Error
+class ValidationError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = 'ValidationError';
+    }
+}
+const validationError = new ValidationError('Invalid input provided.');
+// Creates a custom ValidationError object with a specific message
+
+// 7. Creating an EvalError
+const evalError = new EvalError('Error in eval function usage.');
+// Creates an EvalError object related to the misuse of the eval function
+
+// 8. Creating an error with additional properties
+const customError = new Error('An error occurred.');
+customError.code = 500;
+customError.details = { info: 'Additional error details.' };
+// Creates an Error object and adds custom properties for more context
+
+// 9. Creating an error with a dynamic message
+function createError(input) {
+    if (typeof input !== 'string') {
+        return new Error(`Invalid input type: expected string, got ${typeof input}`);
+    }
+}
+const dynamicError = createError(42);
+// Creates an Error object with a message that includes dynamic information based on input
+
+// 10. Creating a SyntaxError
+const syntaxError = new SyntaxError('Unexpected token in JSON at position 10.');
+// Creates a SyntaxError object for errors related to code syntax
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-throwingerror">throwing an error</td>
+            </tr>
+            <tr id="detail-tag-throwingerror" class="expandable-row-content">
+              <td>
+                <h3>throwing an error</h3>
+                <p>Throwing an error in JavaScript involves using the `throw` keyword to intentionally signal that an exceptional condition or unexpected situation has occurred during the execution of a program. When the `throw` statement is executed, it disrupts the normal flow of the code by immediately halting the current function and propagating the error up the call stack until it is either caught by a surrounding `try-catch` block or causes the program to terminate if unhandled. This mechanism allows developers to enforce certain conditions, validate inputs, and handle unexpected scenarios gracefully by providing meaningful error messages or custom error objects. For example, if a function receives invalid input, a developer might throw a specific error to indicate the nature of the problem, enabling the calling code to respond appropriately. By using the `throw` keyword effectively, developers can create more robust and maintainable applications, as it facilitates clear error handling and helps prevent the application from continuing in an invalid or unstable state. Additionally, combining `throw` with `try-catch` blocks allows for sophisticated error management strategies, ensuring that errors are managed in a controlled manner without causing abrupt program termination.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// 1. Throwing a generic Error
+throw new Error('A generic error has occurred.');
+// Throws a generic Error with a custom message indicating an unspecified issue.
+
+// 2. Throwing a TypeError when a function receives an unexpected type
+function setAge(age) {
+    if (typeof age !== 'number') {
+        throw new TypeError('Age must be a number.');
+    }
+    // Function logic here
+}
+setAge('twenty');
+// Throws a TypeError because a string is passed instead of a number.
+
+// 3. Throwing a RangeError when a value is out of allowed range
+function setPercentage(value) {
+    if (value < 0 || value > 100) {
+        throw new RangeError('Percentage must be between 0 and 100.');
+    }
+    // Function logic here
+}
+setPercentage(150);
+// Throws a RangeError because 150 is outside the valid range.
+
+// 4. Throwing a ReferenceError for undefined variables
+function accessProperty(obj) {
+    if (!obj) {
+        throw new ReferenceError('Object is undefined.');
+    }
+    // Access property logic here
+}
+accessProperty(null);
+// Throws a ReferenceError because the passed object is null.
+
+// 5. Throwing a URIError for invalid URI components
+function decodeURIComponent(component) {
+    try {
+        return decodeURIComponent(component);
+    } catch (e) {
+        throw new URIError('Failed to decode URI component.');
+    }
+}
+decodeURIComponent('%E0%A4%A');
+// Throws a URIError due to malformed URI encoding.
+
+// 6. Throwing a custom ValidationError
+class ValidationError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = 'ValidationError';
+    }
+}
+
+function validateUsername(username) {
+    if (username.length < 5) {
+        throw new ValidationError('Username must be at least 5 characters long.');
+    }
+    // Validation logic here
+}
+validateUsername('abc');
+// Throws a ValidationError with a specific message about username length.
+
+// 7. Throwing an EvalError related to eval misuse
+function executeCode(code) {
+    try {
+        eval(code);
+    } catch (e) {
+        throw new EvalError('Error executing eval function.');
+    }
+}
+executeCode('invalid code');
+// Throws an EvalError due to invalid code passed to eval.
+
+// 8. Throwing an error with additional properties
+function fetchData(url) {
+    if (!url.startsWith('https://')) {
+        const error = new Error('Invalid URL protocol.');
+        error.code = 400;
+        throw error;
+    }
+    // Fetching logic here
+}
+fetchData('http://example.com');
+// Throws an Error with an additional 'code' property for more context.
+
+// 9. Throwing an error with a dynamic message based on input
+function divide(a, b) {
+    if (b === 0) {
+        throw new Error(`Cannot divide ${a} by zero.`);
+    }
+    return a / b;
+}
+divide(10, 0);
+// Throws an Error with a message that includes the values of a and b.
+
+// 10. Throwing a SyntaxError manually
+function parseJSON(jsonString) {
+    try {
+        return JSON.parse(jsonString);
+    } catch (e) {
+        throw new SyntaxError('Invalid JSON string provided.');
+    }
+}
+parseJSON('{"key": "value"'); // Missing closing brace
+// Throws a SyntaxError because the JSON string is malformed.
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-trycatch">try...catch statement</td>
+            </tr>
+            <tr id="detail-tag-trycatch" class="expandable-row-content">
+              <td>
+                <h3>try...catch statement</h3>
+                <p>The `try...catch` statement in JavaScript is a fundamental construct used for handling exceptions and managing errors that may occur during the execution of a program. By wrapping potentially problematic code within a `try` block, developers can attempt to execute that code while anticipating that something might go wrong. If an error is thrown within the `try` block, control is immediately transferred to the corresponding `catch` block, where the error can be gracefully handled without causing the entire program to crash. This mechanism allows for the implementation of robust error-handling strategies, enabling developers to provide meaningful feedback, perform cleanup operations, or execute alternative logic when unexpected issues arise. Additionally, an optional `finally` block can be included to execute code that should run regardless of whether an error occurred, ensuring that necessary finalization steps are always performed. By effectively utilizing `try...catch`, developers can enhance the reliability and user experience of their applications, ensuring that errors are managed in a controlled and predictable manner rather than leading to abrupt failures.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// 1. Basic try...catch to handle a generic error
+try {
+    throw new Error('Something went wrong!');
+} catch (error) {
+    console.log(error.message);
+}
+// Catches and logs a generic error message.
+
+// 2. Handling TypeError when performing invalid operations
+try {
+    let num = 5;
+    num.toUpperCase();
+} catch (error) {
+    console.log(`TypeError: ${error.message}`);
+}
+// Catches a TypeError when trying to call a non-function method on a number.
+
+// 3. Catching ReferenceError for undefined variables
+try {
+    console.log(nonExistentVariable);
+} catch (error) {
+    console.log(`ReferenceError: ${error.message}`);
+}
+// Catches a ReferenceError when accessing an undefined variable.
+
+// 4. Using try...catch with JSON parsing
+try {
+    JSON.parse('Invalid JSON string');
+} catch (error) {
+    console.log(`SyntaxError: ${error.message}`);
+}
+// Catches a SyntaxError when parsing an invalid JSON string.
+
+// 5. Handling custom ValidationError
+class ValidationError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = 'ValidationError';
+    }
+}
+
+try {
+    throw new ValidationError('Invalid input provided.');
+} catch (error) {
+    console.log(`${error.name}: ${error.message}`);
+}
+// Catches a custom ValidationError with a specific message.
+
+// 6. Using try...catch with asynchronous code (Promises)
+async function fetchData() {
+    try {
+        let response = await fetch('invalid-url');
+        let data = await response.json();
+    } catch (error) {
+        console.log(`Fetch Error: ${error.message}`);
+    }
+}
+fetchData();
+// Catches errors that occur during the fetch operation, such as network issues.
+
+// 7. Nested try...catch blocks
+try {
+    try {
+        throw new Error('Inner error');
+    } catch (innerError) {
+        console.log(`Inner Catch: ${innerError.message}`);
+        throw new Error('Outer error');
+    }
+} catch (outerError) {
+    console.log(`Outer Catch: ${outerError.message}`);
+}
+// Demonstrates handling errors in nested try...catch blocks.
+
+// 8. Using finally to execute code regardless of error
+try {
+    let result = 10 / 0;
+    if (!isFinite(result)) {
+        throw new Error('Division by zero.');
+    }
+} catch (error) {
+    console.log(`Error: ${error.message}`);
+} finally {
+    console.log('Cleanup operations completed.');
+}
+// Executes cleanup code in the finally block whether or not an error occurred.
+
+// 9. Handling multiple error types
+try {
+    let data = null;
+    if (!data) {
+        throw new ReferenceError('Data is null or undefined.');
+    }
+    data.toString();
+} catch (error) {
+    if (error instanceof ReferenceError) {
+        console.log(`ReferenceError: ${error.message}`);
+    } else if (error instanceof TypeError) {
+        console.log(`TypeError: ${error.message}`);
+    } else {
+        console.log(`Unknown Error: ${error.message}`);
+    }
+}
+// Differentiates between multiple error types within a single catch block.
+
+// 10. Re-throwing an error after handling
+try {
+    try {
+        throw new Error('Initial error');
+    } catch (error) {
+        console.log(`Handled Error: ${error.message}`);
+        throw error; // Re-throws the error to be handled by an outer catch
+    }
+} catch (error) {
+    console.log(`Re-thrown Error: ${error.message}`);
+}
+// Handles an error and then re-throws it for further handling.
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td id="testing" class="tableletters" data-number="18">Testing
+                <div class="tablenr">[06]</div>
               </td>
             </tr>
             <tr>
@@ -13556,7 +14025,7 @@ console.log(JsonUtil.parseJson('Invalid JSON string')); // Logs: "Invalid JSON"
                 <p>In HTML forms</p>
                 <h4><u>Specifications</u></h4>
                 <pre>
-             <code class="language-html">
+             <code class="language-js">
 &lt;!-- Example 1: Basic checkbox input --&gt;
               </code></pre>
                 <br />
@@ -13571,7 +14040,7 @@ console.log(JsonUtil.parseJson('Invalid JSON string')); // Logs: "Invalid JSON"
                 <p>In HTML forms</p>
                 <h4><u>Specifications</u></h4>
                 <pre>
-             <code class="language-html">
+             <code class="language-js">
 &lt;!-- Example 1: Basic checkbox input --&gt;
               </code></pre>
                 <br />
@@ -13586,7 +14055,7 @@ console.log(JsonUtil.parseJson('Invalid JSON string')); // Logs: "Invalid JSON"
                 <p>In HTML forms</p>
                 <h4><u>Specifications</u></h4>
                 <pre>
-             <code class="language-html">
+             <code class="language-js">
 &lt;!-- Example 1: Basic checkbox input --&gt;
               </code></pre>
                 <br />
@@ -13601,7 +14070,7 @@ console.log(JsonUtil.parseJson('Invalid JSON string')); // Logs: "Invalid JSON"
                 <p>In HTML forms</p>
                 <h4><u>Specifications</u></h4>
                 <pre>
-             <code class="language-html">
+             <code class="language-js">
 &lt;!-- Example 1: Basic checkbox input --&gt;
               </code></pre>
                 <br />
@@ -13616,7 +14085,22 @@ console.log(JsonUtil.parseJson('Invalid JSON string')); // Logs: "Invalid JSON"
                 <p>In HTML forms</p>
                 <h4><u>Specifications</u></h4>
                 <pre>
-             <code class="language-html">
+             <code class="language-js">
+&lt;!-- Example 1: Basic checkbox input --&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-constructormo">constructor</td>
+            </tr>
+            <tr id="detail-tag-constructormo" class="expandable-row-content">
+              <td>
+                <h3>constructor</h3>
+                <p>In HTML forms</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
 &lt;!-- Example 1: Basic checkbox input --&gt;
               </code></pre>
                 <br />
