@@ -226,6 +226,20 @@ body.dark-mode {
     scroll-behavior: smooth;
   }
 
+  .indexscroller::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for Internet Explorer, Edge */
+  .indexscroller {
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  /* Hide scrollbar for Firefox */
+  .indexscroller {
+    scrollbar-width: none; /* Firefox */
+  }
+
   .menu-item input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;

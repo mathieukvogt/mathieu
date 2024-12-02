@@ -14012,8 +14012,767 @@ try {
               </td>
             </tr>
             <tr>
-              <td id="testing" class="tableletters" data-number="18">Testing
+              <td id="testing" class="tableletters" data-number="18">Automated Testing
                 <div class="tablenr">[06]</div>
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-unittest">unit tests</td>
+            </tr>
+            <tr id="detail-tag-unittest" class="expandable-row-content">
+              <td>
+                <h3>unit tests</h3>
+                <p>Unit tests are an essential aspect of web development that involve verifying the functionality of individual components or units of code in isolation from the rest of the application. These tests are designed to ensure that each part of the codebase performs as expected, which is crucial for identifying and fixing bugs early in the development process. By implementing unit tests, developers can maintain a high level of code quality, facilitate easier refactoring, and enhance the overall reliability of the application. For example, in a flight booking app, unit tests might be written to validate the function that calculates the total cost of a booking. This function would need to accurately sum base ticket prices, taxes, surcharges, and apply any discounts or promotional codes. By testing this function under various scenarios—such as different destinations, passenger counts, and discount combinations—developers can ensure that users are always presented with the correct total price. This not only improves the user experience by preventing pricing errors but also builds trust in the application's accuracy and reliability.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+&lt;!-- Example 1: Basic checkbox input --&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-implementationtests">integration tests</td>
+            </tr>
+            <tr id="detail-tag-implementationtests" class="expandable-row-content">
+              <td>
+                <h3>integration tests</h3>
+                <p>Integration tests in web development are designed to verify that the software components are correctly implemented according to the specified requirements and design documents. These tests focus on the internal logic, structure, and coding practices of the application rather than just its external behavior. Implementation tests ensure that the code adheres to best practices, follows coding standards, and implements algorithms efficiently and correctly. For instance, in a flight booking app, an implementation test might involve examining the code responsible for processing payment transactions. This would include verifying that the payment module correctly integrates with third-party payment gateways, securely handles user payment information, and properly updates booking records upon successful transactions. By conducting such tests, developers can detect issues related to code quality, security vulnerabilities, and integration problems early in the development process, leading to a more robust and reliable application.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+&lt;!-- Example 1: Basic checkbox input --&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-end-to-end">end-to-end test</td>
+            </tr>
+            <tr id="detail-tag-end-to-end" class="expandable-row-content">
+              <td>
+                <h3>end-to-end tests</h3>
+                <p>End-to-end tests are a critical component of web development that assess the complete flow of an application from the user's perspective, ensuring that all integrated parts function together seamlessly. These tests simulate real-world user scenarios to validate the system's functionality and identify any issues that may arise when different components interact. By encompassing everything from the user interface to the back-end services and databases, end-to-end tests help developers detect problems that unit or integration tests might miss, such as authentication errors, data inconsistencies, or failures in external APIs. For example, in a flight booking app, an end-to-end test would mimic a user journey where someone searches for available flights, selects a suitable option, inputs passenger information, proceeds to payment, and receives a booking confirmation. This comprehensive testing ensures that each step of the booking process works correctly and that the user experiences a smooth and reliable transaction from start to finish.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+&lt;!-- Example 1: Basic checkbox input --&gt;
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-describeit">mocha - describe & it functions</td>
+            </tr>
+            <tr id="detail-tag-describeit" class="expandable-row-content">
+              <td>
+                <h3>mocha - describe & it functions</h3>
+                <p>In Mocha, a widely-used JavaScript testing framework, the `describe` and `it` functions serve as the fundamental structure for writing test suites and test cases, respectively. The `describe` function is used to group related tests together under a common label, effectively creating a test suite that targets a specific module or functionality of the code. It takes a string description and a callback function, within which individual tests are defined. The `it` function, nested inside a `describe` block, defines an individual test case by specifying a particular behavior or outcome to be tested. It also accepts a string description and a callback function that contains the assertions or expectations for that test case. By using `describe` and `it`, developers can write organized, readable, and maintainable tests, with `describe` blocks providing context and grouping, and `it` blocks specifying the expected behavior of the code under test.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// Example 1: Basic usage of describe and it
+describe('Array', function() {
+  it('should return -1 when the value is not present', function() {
+    // Test implementation
+  });
+});
+// This example demonstrates the basic structure of a test suite using `describe` and an individual test case using `it`. The test checks whether the `indexOf` method returns `-1` when a value is not present in an array.
+
+// Example 2: Nested describe blocks
+describe('Math Operations', function() {
+  describe('#Addition', function() {
+    it('should return 4 when adding 2 and 2', function() {
+      // Test implementation
+    });
+  });
+});
+// This example shows how to nest `describe` blocks to create a hierarchy of test suites. This organizes tests into groups, such as all addition-related tests under "Math Operations".
+
+// Example 3: Asynchronous testing with done callback
+describe('User Model', function() {
+  it('should save without error', function(done) {
+    // Async test implementation
+    done();
+  });
+});
+// This example illustrates asynchronous testing using the `done` callback. This is essential when testing asynchronous operations like database queries or API calls to ensure the test waits for completion.
+
+// Example 4: Using arrow functions (not recommended in Mocha)
+describe('Calculator', () => {
+  it('should multiply correctly', () => {
+    // Test implementation
+  });
+});
+// This example uses arrow functions in `describe` and `it`, which is generally discouraged in Mocha because arrow functions bind `this` lexically. Mocha uses `this` for its context, so traditional functions are preferred.
+
+// Example 5: Pending test cases without callback function
+describe('Pending Tests', function() {
+  it('should be implemented later');
+});
+// This example presents a pending test case by omitting the callback function in the `it` block. Mocha recognizes this as a test that is yet to be implemented, and it will show up in the test results as pending.
+
+// Example 6: Using before and after hooks
+describe('Database Tests', function() {
+  before(function() {
+    // Setup code
+  });
+  
+  after(function() {
+    // Teardown code
+  });
+  
+  it('should fetch records', function() {
+    // Test implementation
+  });
+});
+// This example incorporates `before` and `after` hooks within a `describe` block to execute code before and after all tests in the suite. This is useful for setting up and tearing down test environments.
+
+// Example 7: Using only to run exclusive tests
+describe('Exclusive Tests', function() {
+  it.only('should run this test only', function() {
+    // Test implementation
+  });
+});
+// This example uses `it.only` to run a specific test exclusively, skipping all other tests in the suite. This is helpful when you want to focus on debugging a particular test case.
+
+// Example 8: Using skip to skip tests
+describe('Skipped Tests', function() {
+  it.skip('this test will be skipped', function() {
+    // Test implementation
+  });
+});
+// This example applies `it.skip` to intentionally skip a test case. This can be used to temporarily disable a failing test without removing it from the code.
+
+// Example 9: Parameterized tests using loops
+describe('Parameterized Tests', function() {
+  [1, 2, 3].forEach(function(value) {
+    it(`should test with value ${value}`, function() {
+      // Test implementation
+    });
+  });
+});
+// This example demonstrates parameterized tests by looping over an array of values and creating a test for each one. This approach reduces code duplication when testing the same functionality with different inputs.
+
+// Example 10: Testing exceptions
+describe('Error Handling', function() {
+  it('should throw an error', function() {
+    // Test implementation
+  });
+});
+// This example tests exception handling by verifying that a function throws an expected error. This ensures your code properly handles error conditions and behaves as intended when exceptions occur.
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-assertok">assert.ok() - mocha</td>
+            </tr>
+            <tr id="detail-tag-assertok" class="expandable-row-content">
+              <td>
+                <h3>assert.ok() - mocha</h3>
+                <p>In Mocha, `assert.ok()` is a method from Node.js's built-in `assert` module that is frequently used for making assertions within test cases. This function checks whether a given expression evaluates to a truthy value. If the expression is truthy, the assertion passes and the test continues; if it is falsy, the assertion fails, causing Mocha to report the test case as failed. Using `assert.ok()` allows developers to perform general truthiness checks in their tests, making it a straightforward and effective way to validate code behavior without relying on external assertion libraries.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// Example 1: Testing a simple addition function
+describe('Addition Function', function() {
+  it('should return the sum of two numbers', function() {
+    // Setup
+    function add(a, b) {
+      return a + b;
+    }
+    const num1 = 5;
+    const num2 = 7;
+    
+    // Exercise
+    const result = add(num1, num2);
+    
+    // Verify
+    assert.equal(result, 12);
+  });
+});
+// In this test, we set up two numbers and an `add` function, exercise the function by adding the numbers, and verify that the result is 12.
+
+// Example 2: Testing object property assignment
+describe('Object Property Assignment', function() {
+  it('should assign a name property to the object', function() {
+    // Setup
+    const obj = {};
+    const name = 'Alice';
+    
+    // Exercise
+    obj.name = name;
+    
+    // Verify
+    assert.equal(obj.name, 'Alice');
+  });
+});
+// This test sets up an empty object and a name, assigns the name to the object, and verifies the property was set correctly.
+
+// Example 3: Testing an array push operation
+describe('Array Push Operation', function() {
+  it('should add an item to the array', function() {
+    // Setup
+    const arr = [];
+    const item = 'apple';
+    
+    // Exercise
+    arr.push(item);
+    
+    // Verify
+    assert.equal(arr.length, 1);
+    assert.equal(arr[0], 'apple');
+  });
+});
+// In this test, we set up an empty array and an item, push the item into the array, and verify the array's length and content.
+
+// Example 4: Testing asynchronous data fetching
+describe('Asynchronous Data Fetching', function() {
+  it('should fetch user data from API', function(done) {
+    // Setup
+    const userId = 1;
+    function fetchUser(id) {
+      return Promise.resolve({ id, name: 'John Doe' });
+    }
+    
+    // Exercise
+    fetchUser(userId).then(user => {
+      // Verify
+      assert.equal(user.id, 1);
+      assert.equal(user.name, 'John Doe');
+      done();
+    }).catch(done);
+  });
+});
+// This asynchronous test sets up a user ID and a mock `fetchUser` function, exercises the function, and verifies the returned user data.
+
+// Example 5: Testing error throwing
+describe('Error Throwing', function() {
+  it('should throw an error when invalid input is provided', function() {
+    // Setup
+    function divide(a, b) {
+      if (b === 0) throw new Error('Division by zero');
+      return a / b;
+    }
+    const num1 = 10;
+    const num2 = 0;
+    
+    // Exercise and Verify
+    assert.throws(() => divide(num1, num2), /Division by zero/);
+  });
+});
+// This test sets up a division function and numbers, exercises the function with invalid input, and verifies that it throws the expected error.
+
+// Example 6: Testing state change in an object
+describe('State Change in Object', function() {
+  it('should change the user status to active', function() {
+    // Setup
+    const user = { status: 'inactive' };
+    
+    // Exercise
+    user.status = 'active';
+    
+    // Verify
+    assert.equal(user.status, 'active');
+  });
+});
+// Here, we set up a user object with an initial status, change the status, and verify the status has been updated.
+
+// Example 7: Testing a function that modifies a variable
+describe('Counter Increment Function', function() {
+  it('should increment the counter', function() {
+    // Setup
+    let counter = 0;
+    function increment() {
+      counter += 1;
+    }
+    
+    // Exercise
+    increment();
+    
+    // Verify
+    assert.equal(counter, 1);
+  });
+});
+// This test sets up a counter and an `increment` function, calls the function, and verifies that the counter has been incremented.
+
+// Example 8: Testing a function that filters an array
+describe('Array Filtering Function', function() {
+  it('should return only even numbers from the array', function() {
+    // Setup
+    const numbers = [1, 2, 3, 4, 5];
+    function getEvenNumbers(nums) {
+      return nums.filter(n => n % 2 === 0);
+    }
+    
+    // Exercise
+    const evenNumbers = getEvenNumbers(numbers);
+    
+    // Verify
+    assert.deepEqual(evenNumbers, [2, 4]);
+  });
+});
+// In this test, we set up an array of numbers and a filtering function, exercise the function, and verify it returns only even numbers.
+
+// Example 9: Testing a class method
+describe('Person Class', function() {
+  it('should return the full name of the person', function() {
+    // Setup
+    class Person {
+      constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+      }
+      getFullName() {
+        return `${this.firstName} ${this.lastName}`;
+      }
+    }
+    const person = new Person('Jane', 'Doe');
+    
+    // Exercise
+    const fullName = person.getFullName();
+    
+    // Verify
+    assert.equal(fullName, 'Jane Doe');
+  });
+});
+// This test sets up a `Person` class instance, exercises the `getFullName` method, and verifies the returned full name.
+
+// Example 10: Testing a promise rejection
+describe('Promise Rejection', function() {
+  it('should reject the promise with an error', function(done) {
+    // Setup
+    function fetchData() {
+      return Promise.reject(new Error('Network error'));
+    }
+    
+    // Exercise
+    fetchData().then(() => {
+      // Verify
+      done(new Error('Expected method to reject.'));
+    }).catch(err => {
+      // Verify
+      assert.equal(err.message, 'Network error');
+      done();
+    });
+  });
+});
+// This asynchronous test sets up a function that returns a rejected promise, exercises it, and verifies that it rejects with the correct error message.
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-teardown">teardown</td>
+            </tr>
+            <tr id="detail-tag-teardown" class="expandable-row-content">
+              <td>
+                <h3>teardown</h3>
+                <p>In Mocha testing, **teardown** refers to the process of cleaning up and restoring the test environment to its original state after a test or a suite of tests has been executed. This is crucial for ensuring that tests are isolated and do not interfere with each other by leaving behind modified states or consumed resources. Mocha provides hooks like `after` and `afterEach` to facilitate teardown operations, allowing developers to specify code that should run after all tests in a suite or after each individual test, respectively. Teardown activities may include closing database connections, deleting temporary files, resetting variables, or clearing caches. Properly implementing teardown procedures ensures that each test starts with a clean slate, leading to more reliable and maintainable test suites.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// Example 1: Using afterEach to reset a variable
+describe('Counter Tests', function() {
+  let counter = 0;
+
+  afterEach(function() {
+    // Teardown: Reset the counter after each test
+    counter = 0;
+  });
+
+  it('should increment counter to 1', function() {
+    // Exercise
+    counter += 1;
+
+    // Verify
+    assert.equal(counter, 1);
+  });
+
+  it('should increment counter to 2', function() {
+    // Exercise
+    counter += 2;
+
+    // Verify
+    assert.equal(counter, 2);
+  });
+});
+// In this example, `afterEach` is used to reset the `counter` variable to `0` after each test. This ensures that each test starts with a clean state, preventing tests from affecting each other's outcome.
+
+// Example 2: Using after to close a database connection
+describe('Database Connection Tests', function() {
+  let dbConnection;
+
+  before(function() {
+    // Setup: Open database connection before all tests
+    dbConnection = openDatabaseConnection();
+  });
+
+  after(function() {
+    // Teardown: Close database connection after all tests
+    dbConnection.close();
+  });
+
+  it('should fetch user data', function() {
+    // Exercise
+    const user = dbConnection.getUser(1);
+
+    // Verify
+    assert.equal(user.id, 1);
+  });
+
+  it('should update user data', function() {
+    // Exercise
+    const success = dbConnection.updateUser(1, { name: 'Alice' });
+
+    // Verify
+    assert.ok(success);
+  });
+});
+// Here, `after` is used to close the database connection after all tests in the suite have run. This releases resources and ensures that the connection does not remain open.
+
+// Example 3: Using afterEach to clean up temporary files
+describe('File System Tests', function() {
+  const tempFiles = [];
+
+  afterEach(function() {
+    // Teardown: Delete temporary files after each test
+    tempFiles.forEach(file => deleteFile(file));
+    tempFiles.length = 0;
+  });
+
+  it('should create a temporary file', function() {
+    // Exercise
+    const tempFile = createTempFile('test.txt');
+    tempFiles.push(tempFile);
+
+    // Verify
+    assert.ok(fileExists(tempFile));
+  });
+
+  it('should modify a temporary file', function() {
+    // Exercise
+    const tempFile = createTempFile('modify.txt');
+    tempFiles.push(tempFile);
+    modifyFile(tempFile, 'Some content');
+
+    // Verify
+    assert.equal(readFile(tempFile), 'Some content');
+  });
+});
+// In this example, `afterEach` deletes any temporary files created during a test. This prevents leftover files from one test affecting another and keeps the file system clean.
+
+// Example 4: Using after to restore stubs or spies
+describe('API Call Tests', function() {
+  let apiStub;
+
+  before(function() {
+    // Setup: Stub the API call before tests
+    apiStub = sinon.stub(apiService, 'fetchData').resolves({ data: 'test' });
+  });
+
+  after(function() {
+    // Teardown: Restore the original API call after tests
+    apiStub.restore();
+  });
+
+  it('should use stubbed data', async function() {
+    // Exercise
+    const result = await apiService.fetchData();
+
+    // Verify
+    assert.equal(result.data, 'test');
+  });
+});
+// Here, `after` is used to restore the original `fetchData` method after all tests have completed. This ensures that the stub does not affect other tests or parts of the application.
+
+// Example 5: Using afterEach to reset a mocked module
+describe('Module Mocking Tests', function() {
+  let originalModule;
+
+  before(function() {
+    // Setup: Save the original module
+    originalModule = require.cache[require.resolve('someModule')];
+  });
+
+  afterEach(function() {
+    // Teardown: Reset the mocked module after each test
+    delete require.cache[require.resolve('someModule')];
+    require.cache[require.resolve('someModule')] = originalModule;
+  });
+
+  it('should mock the module for test A', function() {
+    // Setup for this test
+    require.cache[require.resolve('someModule')] = {
+      exports: { value: 'Mocked Value A' },
+    };
+    const someModule = require('someModule');
+
+    // Verify
+    assert.equal(someModule.value, 'Mocked Value A');
+  });
+
+  it('should mock the module for test B', function() {
+    // Setup for this test
+    require.cache[require.resolve('someModule')] = {
+      exports: { value: 'Mocked Value B' },
+    };
+    const someModule = require('someModule');
+
+    // Verify
+    assert.equal(someModule.value, 'Mocked Value B');
+  });
+});
+// In this example, `afterEach` resets the mocked module to its original state after each test. This ensures that module mocks in one test do not affect other tests.
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-hooksmocha">hooks</td>
+            </tr>
+            <tr id="detail-tag-hooksmocha" class="expandable-row-content">
+              <td>
+                <h3>hooks</h3>
+                <p>In Mocha testing, **hooks** are special functions that allow you to execute code at specific points in the testing lifecycle, enabling better control over test execution and environment setup. The main hooks are `before`, `after`, `beforeEach`, and `afterEach`. The `before` hook runs once before all tests in a `describe` block, ideal for one-time setup like initializing databases or starting servers. The `after` hook runs once after all tests have completed, useful for teardown activities such as closing connections or cleaning up resources. The `beforeEach` hook runs before each individual test, allowing you to set up conditions that need to be reset for every test, like resetting variables or states. Conversely, the `afterEach` hook runs after each test, providing a place to clean up after individual tests, such as deleting temporary data or restoring mocks. By using these hooks, you can ensure that your tests are isolated, repeatable, and free from side effects, leading to more reliable and maintainable test suites.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// Example 1: Using a before hook for setup
+describe('User Tests', function() {
+  let user;
+
+  before(function() {
+    // Setup: Create a new user before all tests
+    user = new User({ name: 'Alice' });
+  });
+
+  it('should have a name property', function() {
+    // Verify
+    assert.equal(user.name, 'Alice');
+  });
+});
+// This example uses the `before` hook to initialize a user object before any tests run. The user is then available in all tests within the suite.
+
+// Example 2: Using an after hook for teardown
+describe('File System Tests', function() {
+  before(function() {
+    // Setup: Create a temporary file before tests
+    fs.writeFileSync('temp.txt', 'Temporary file content');
+  });
+
+  after(function() {
+    // Teardown: Delete the temporary file after all tests
+    fs.unlinkSync('temp.txt');
+  });
+
+  it('should read the temporary file', function() {
+    // Exercise
+    const content = fs.readFileSync('temp.txt', 'utf8');
+    // Verify
+    assert.equal(content, 'Temporary file content');
+  });
+});
+// In this example, the `before` hook creates a temporary file, and the `after` hook deletes it after all tests have completed, ensuring no files are left behind.
+
+// Example 3: Using beforeEach to reset state before each test
+describe('Array Tests', function() {
+  let arr;
+
+  beforeEach(function() {
+    // Setup: Initialize the array before each test
+    arr = [];
+  });
+
+  it('should start empty', function() {
+    // Verify
+    assert.equal(arr.length, 0);
+  });
+
+  it('should add an element', function() {
+    // Exercise
+    arr.push(1);
+    // Verify
+    assert.equal(arr.length, 1);
+  });
+});
+// This example uses `beforeEach` to reset the array to an empty state before each test, ensuring tests do not affect each other.
+
+// Example 4: Using afterEach to clean up after each test
+describe('DOM Manipulation Tests', function() {
+  afterEach(function() {
+    // Teardown: Remove all DOM elements added during tests
+    document.body.innerHTML = '';
+  });
+
+  it('should add a div to the DOM', function() {
+    // Exercise
+    const div = document.createElement('div');
+    document.body.appendChild(div);
+    // Verify
+    assert.equal(document.body.children.length, 1);
+  });
+
+  it('should add a paragraph to the DOM', function() {
+    // Exercise
+    const p = document.createElement('p');
+    document.body.appendChild(p);
+    // Verify
+    assert.equal(document.body.children.length, 1);
+  });
+});
+// Here, `afterEach` clears the DOM after each test, ensuring that DOM changes do not persist between tests.
+
+// Example 5: Using asynchronous before hook
+describe('Async Setup Tests', function() {
+  let data;
+
+  before(function(done) {
+    // Async Setup: Fetch data before tests
+    fetchDataFromAPI(function(response) {
+      data = response;
+      done();
+    });
+  });
+
+  it('should have data available', function() {
+    // Verify
+    assert.ok(data);
+  });
+});
+// This example demonstrates using an asynchronous `before` hook to fetch data before tests run, ensuring data is available for the tests.
+
+// Example 6: Using beforeEach with async/await
+describe('Async BeforeEach Tests', function() {
+  let token;
+
+  beforeEach(async function() {
+    // Async Setup: Get authentication token before each test
+    token = await getAuthToken();
+  });
+
+  it('should have a valid token', function() {
+    // Verify
+    assert.ok(token);
+  });
+
+  it('should use the token in a request', function() {
+    // Exercise
+    const data = makeAuthenticatedRequest(token);
+    // Verify
+    assert.ok(data);
+  });
+});
+// In this example, `beforeEach` uses async/await to get an authentication token before each test, ensuring each test has a valid token.
+
+// Example 7: Using afterEach to restore spies or mocks
+describe('Spy Restoration Tests', function() {
+  let consoleLogSpy;
+
+  beforeEach(function() {
+    // Setup: Spy on console.log
+    consoleLogSpy = sinon.spy(console, 'log');
+  });
+
+  afterEach(function() {
+    // Teardown: Restore console.log
+    consoleLogSpy.restore();
+  });
+
+  it('should call console.log', function() {
+    // Exercise
+    console.log('Test log');
+    // Verify
+    assert(consoleLogSpy.calledOnce);
+  });
+});
+// This example uses `afterEach` to restore `console.log` after each test, preventing the spy from affecting other tests.
+
+// Example 8: Nested hooks in describe blocks
+describe('Outer Suite', function() {
+  before(function() {
+    // Setup for outer suite
+  });
+
+  describe('Inner Suite', function() {
+    before(function() {
+      // Setup for inner suite
+    });
+
+    it('should run inner test', function() {
+      // Test code
+    });
+  });
+});
+// Here, the outer `before` hook runs before the inner `before` hook. This demonstrates how hooks behave in nested `describe` blocks.
+
+// Example 9: Using hooks to manage timers
+describe('Timer Tests', function() {
+  let clock;
+
+  before(function() {
+    // Setup: Use fake timers
+    clock = sinon.useFakeTimers();
+  });
+
+  after(function() {
+    // Teardown: Restore real timers
+    clock.restore();
+  });
+
+  it('should simulate time', function() {
+    // Exercise
+    setTimeout(function() {
+      // Verify
+      assert.ok(true);
+    }, 1000);
+    clock.tick(1000);
+  });
+});
+// This example uses `before` to replace real timers with fake timers and `after` to restore them, allowing time-dependent code to be tested synchronously.
+
+// Example 10: Using hooks to set up and tear down server
+describe('Server Tests', function() {
+  let server;
+
+  before(function(done) {
+    // Setup: Start the server
+    server = startServer(3000, done);
+  });
+
+  after(function(done) {
+    // Teardown: Stop the server
+    server.close(done);
+  });
+
+  it('should respond to requests', function(done) {
+    // Exercise
+    http.get('http://localhost:3000', function(response) {
+      // Verify
+      assert.equal(response.statusCode, 200);
+      done();
+    });
+  });
+});
+// In this example, `before` starts a server before tests run, and `after` stops the server after all tests have completed, ensuring the server runs only during testing.
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-constructormo">constructor</td>
+            </tr>
+            <tr id="detail-tag-constructormo" class="expandable-row-content">
+              <td>
+                <h3>constructor</h3>
+                <p>In HTML forms</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+&lt;!-- Example 1: Basic checkbox input --&gt;
+              </code></pre>
+                <br />
               </td>
             </tr>
             <tr>
