@@ -14023,11 +14023,6 @@ try {
               <td>
                 <h3>unit tests</h3>
                 <p>Unit tests are an essential aspect of web development that involve verifying the functionality of individual components or units of code in isolation from the rest of the application. These tests are designed to ensure that each part of the codebase performs as expected, which is crucial for identifying and fixing bugs early in the development process. By implementing unit tests, developers can maintain a high level of code quality, facilitate easier refactoring, and enhance the overall reliability of the application. For example, in a flight booking app, unit tests might be written to validate the function that calculates the total cost of a booking. This function would need to accurately sum base ticket prices, taxes, surcharges, and apply any discounts or promotional codes. By testing this function under various scenarios—such as different destinations, passenger counts, and discount combinations—developers can ensure that users are always presented with the correct total price. This not only improves the user experience by preventing pricing errors but also builds trust in the application's accuracy and reliability.</p>
-                <h4><u>Specifications</u></h4>
-                <pre>
-             <code class="language-js">
-&lt;!-- Example 1: Basic checkbox input --&gt;
-              </code></pre>
                 <br />
               </td>
             </tr>
@@ -14038,11 +14033,6 @@ try {
               <td>
                 <h3>integration tests</h3>
                 <p>Integration tests in web development are designed to verify that the software components are correctly implemented according to the specified requirements and design documents. These tests focus on the internal logic, structure, and coding practices of the application rather than just its external behavior. Implementation tests ensure that the code adheres to best practices, follows coding standards, and implements algorithms efficiently and correctly. For instance, in a flight booking app, an implementation test might involve examining the code responsible for processing payment transactions. This would include verifying that the payment module correctly integrates with third-party payment gateways, securely handles user payment information, and properly updates booking records upon successful transactions. By conducting such tests, developers can detect issues related to code quality, security vulnerabilities, and integration problems early in the development process, leading to a more robust and reliable application.</p>
-                <h4><u>Specifications</u></h4>
-                <pre>
-             <code class="language-js">
-&lt;!-- Example 1: Basic checkbox input --&gt;
-              </code></pre>
                 <br />
               </td>
             </tr>
@@ -14053,11 +14043,6 @@ try {
               <td>
                 <h3>end-to-end tests</h3>
                 <p>End-to-end tests are a critical component of web development that assess the complete flow of an application from the user's perspective, ensuring that all integrated parts function together seamlessly. These tests simulate real-world user scenarios to validate the system's functionality and identify any issues that may arise when different components interact. By encompassing everything from the user interface to the back-end services and databases, end-to-end tests help developers detect problems that unit or integration tests might miss, such as authentication errors, data inconsistencies, or failures in external APIs. For example, in a flight booking app, an end-to-end test would mimic a user journey where someone searches for available flights, selects a suitable option, inputs passenger information, proceeds to payment, and receives a booking confirmation. This comprehensive testing ensures that each step of the booking process works correctly and that the user experiences a smooth and reliable transaction from start to finish.</p>
-                <h4><u>Specifications</u></h4>
-                <pre>
-             <code class="language-js">
-&lt;!-- Example 1: Basic checkbox input --&gt;
-              </code></pre>
                 <br />
               </td>
             </tr>
@@ -14166,11 +14151,11 @@ describe('Error Handling', function() {
               </td>
             </tr>
             <tr>
-              <td class="clickable" data-detail-id="detail-tag-assertok">assert.ok() - mocha</td>
+              <td class="clickable" data-detail-id="detail-tag-assertok">assert.ok</td>
             </tr>
             <tr id="detail-tag-assertok" class="expandable-row-content">
               <td>
-                <h3>assert.ok() - mocha</h3>
+                <h3>assert.ok</h3>
                 <p>In Mocha, `assert.ok()` is a method from Node.js's built-in `assert` module that is frequently used for making assertions within test cases. This function checks whether a given expression evaluates to a truthy value. If the expression is truthy, the assertion passes and the test continues; if it is falsy, the assertion fails, causing Mocha to report the test case as failed. Using `assert.ok()` allows developers to perform general truthiness checks in their tests, making it a straightforward and effective way to validate code behavior without relying on external assertion libraries.</p>
                 <h4><u>Specifications</u></h4>
                 <pre>
@@ -14761,46 +14746,367 @@ describe('Server Tests', function() {
               </td>
             </tr>
             <tr>
-              <td class="clickable" data-detail-id="detail-tag-constructormo">constructor</td>
+              <td class="clickable" data-detail-id="detail-tag-assertequal">assert.equal</td>
             </tr>
-            <tr id="detail-tag-constructormo" class="expandable-row-content">
+            <tr id="detail-tag-assertequal" class="expandable-row-content">
               <td>
-                <h3>constructor</h3>
-                <p>In HTML forms</p>
+                <h3>assert.equal</h3>
+                <p>In Mocha testing, `assert.equal` is a method used to verify that two values are equal using the `==` operator, which allows for type coercion during the comparison. This function is part of Node.js's built-in `assert` module and is commonly utilized in test cases to compare an actual result with an expected value. When you invoke `assert.equal(actual, expected)`, the test will pass if the `actual` and `expected` values are considered equal by JavaScript's loose equality; otherwise, it will fail, and Mocha will report an assertion error. This method is particularly useful for checking the equality of simple data types like numbers, strings, and booleans in your tests, ensuring that your code behaves as intended by producing the correct outputs.</p>
                 <h4><u>Specifications</u></h4>
                 <pre>
              <code class="language-js">
-&lt;!-- Example 1: Basic checkbox input --&gt;
+// Example 1: Testing simple numerical equality
+describe('Simple Addition', function() {
+  it('should return the correct sum', function() {
+    const result = 2 + 3;
+    assert.equal(result, 5);
+  });
+});
+// This test verifies that adding 2 and 3 results in 5 using assert.equal.
+
+
+// Example 2: Testing string equality with type coercion
+describe('String and Number Equality', function() {
+  it('should match the string representation of a number', function() {
+    const num = 10;
+    assert.equal(num, '10');
+  });
+});
+// Here, assert.equal passes because '10' == 10 due to type coercion.
+
+
+// Example 3: Testing boolean values
+describe('Boolean and Number Equality', function() {
+  it('should confirm true equals 1', function() {
+    const value = true;
+    assert.equal(value, 1);
+  });
+});
+// This test passes because true == 1 evaluates to true with type coercion.
+
+
+// Example 4: Testing undefined and null equality
+describe('Undefined and Null Equality', function() {
+  it('should confirm undefined equals null', function() {
+    const value = undefined;
+    assert.equal(value, null);
+  });
+});
+// This test passes because undefined == null is true in JavaScript.
+
+
+// Example 5: Testing zero and false equality
+describe('Zero and False Equality', function() {
+  it('should confirm 0 equals false', function() {
+    const value = 0;
+    assert.equal(value, false);
+  });
+});
+// This test passes because 0 == false due to type coercion.
+
+
+// Example 6: Failing test due to strict inequality
+describe('Object Equality', function() {
+  it('should fail when comparing different objects', function() {
+    const obj1 = { a: 1 };
+    const obj2 = { a: 1 };
+    assert.equal(obj1, obj2);
+  });
+});
+// This test fails because obj1 and obj2 reference different objects, even though their contents are the same.
+
+
+// Example 7: Comparing arrays with the same elements
+describe('Array Equality', function() {
+  it('should fail when comparing different arrays', function() {
+    const arr1 = [1, 2, 3];
+    const arr2 = [1, 2, 3];
+    assert.equal(arr1, arr2);
+  });
+});
+// This test fails because arr1 and arr2 are different array instances.
+
+
+// Example 8: Testing function return values
+describe('Function Return Value', function() {
+  it('should return expected value from function', function() {
+    function multiply(a, b) {
+      return a * b;
+    }
+    const result = multiply(4, 5);
+    assert.equal(result, 20);
+  });
+});
+// This test verifies that the multiply function returns 20 when passed 4 and 5.
+
+
+// Example 9: Testing string concatenation
+describe('String Concatenation', function() {
+  it('should concatenate strings correctly', function() {
+    const greeting = 'Hello, ' + 'world!';
+    assert.equal(greeting, 'Hello, world!');
+  });
+});
+// This test checks that string concatenation works as expected.
+
+
+// Example 10: Testing values from async functions
+describe('Async Function Value', function() {
+  it('should get the correct value from a promise', function(done) {
+    Promise.resolve(42).then(function(value) {
+      assert.equal(value, 42);
+      done();
+    });
+  });
+});
+// This test verifies that a resolved promise returns the expected value.
               </code></pre>
                 <br />
               </td>
             </tr>
             <tr>
-              <td class="clickable" data-detail-id="detail-tag-constructormo">constructor</td>
+              <td class="clickable" data-detail-id="detail-tag-assertstrict">assert.strictEqual</td>
             </tr>
-            <tr id="detail-tag-constructormo" class="expandable-row-content">
+            <tr id="detail-tag-assertstrict" class="expandable-row-content">
               <td>
-                <h3>constructor</h3>
-                <p>In HTML forms</p>
+                <h3>assert.strictEqual</h3>
+                <p>In Mocha testing, `assert.strictEqual` is a method used to verify that two values are strictly equal by using the `===` operator, which means no type coercion is applied during the comparison. This function is part of Node.js's built-in `assert` module and is frequently used in test cases to ensure that both the value and the type of the `actual` and `expected` variables match exactly. When you invoke `assert.strictEqual(actual, expected)`, the test will pass only if `actual` and `expected` are strictly equal; otherwise, it will fail, and Mocha will report an assertion error. This method is particularly useful for catching type-related bugs and ensuring that your code behaves precisely as intended, providing a more robust testing approach compared to `assert.equal`, which allows type coercion and might overlook subtle errors due to automatic type conversion in JavaScript.</p>
                 <h4><u>Specifications</u></h4>
                 <pre>
              <code class="language-js">
-&lt;!-- Example 1: Basic checkbox input --&gt;
+// Example 1: Testing numerical strict equality
+describe('Strict Equality - Numbers', function() {
+  it('should confirm that two numbers are strictly equal', function() {
+    const a = 10;
+    const b = 10;
+    assert.strictEqual(a, b);
+  });
+});
+// This test verifies that the numbers 10 and 10 are strictly equal using assert.strictEqual.
+
+
+// Example 2: Testing string strict equality
+describe('Strict Equality - Strings', function() {
+  it('should confirm that two strings are strictly equal', function() {
+    const str1 = 'Mocha';
+    const str2 = 'Mocha';
+    assert.strictEqual(str1, str2);
+  });
+});
+// This test checks that the strings 'Mocha' and 'Mocha' are strictly equal.
+
+
+// Example 3: Testing strict equality with different types
+describe('Strict Equality - Different Types', function() {
+  it('should fail when comparing number and string', function() {
+    const num = 5;
+    const str = '5';
+    assert.strictEqual(num, str);
+  });
+});
+// This test fails because 5 (number) and '5' (string) are not strictly equal, highlighting the importance of type in strict equality.
+
+
+// Example 4: Testing boolean strict equality
+describe('Strict Equality - Booleans', function() {
+  it('should confirm true is strictly equal to true', function() {
+    const val1 = true;
+    const val2 = true;
+    assert.strictEqual(val1, val2);
+  });
+});
+// This test verifies that the boolean values true and true are strictly equal.
+
+
+// Example 5: Testing null and undefined strict equality
+describe('Strict Equality - Null and Undefined', function() {
+  it('should fail when comparing null and undefined', function() {
+    const val1 = null;
+    const val2 = undefined;
+    assert.strictEqual(val1, val2);
+  });
+});
+// This test fails because null and undefined are not strictly equal, even though they are loosely equal in JavaScript.
+
+
+// Example 6: Testing object strict equality
+describe('Strict Equality - Objects', function() {
+  it('should fail when comparing different object instances with same properties', function() {
+    const obj1 = { key: 'value' };
+    const obj2 = { key: 'value' };
+    assert.strictEqual(obj1, obj2);
+  });
+});
+// This test fails because obj1 and obj2 are different instances in memory, so they are not strictly equal.
+
+
+// Example 7: Testing array strict equality
+describe('Strict Equality - Arrays', function() {
+  it('should fail when comparing different array instances with same elements', function() {
+    const arr1 = [1, 2, 3];
+    const arr2 = [1, 2, 3];
+    assert.strictEqual(arr1, arr2);
+  });
+});
+// This test fails because arr1 and arr2 are different array instances, even though they contain the same elements.
+
+
+// Example 8: Testing function strict equality
+describe('Strict Equality - Functions', function() {
+  it('should fail when comparing different functions with same code', function() {
+    const func1 = function(a) { return a + 1; };
+    const func2 = function(a) { return a + 1; };
+    assert.strictEqual(func1, func2);
+  });
+});
+// This test fails because func1 and func2 are different function instances, despite having identical code.
+
+
+// Example 9: Testing strict equality with NaN
+describe('Strict Equality - NaN', function() {
+  it('should fail when comparing NaN to NaN', function() {
+    const val1 = NaN;
+    const val2 = NaN;
+    assert.strictEqual(val1, val2);
+  });
+});
+// This test fails because NaN is not strictly equal to NaN in JavaScript; to check for NaN, use Number.isNaN().
+
+
+// Example 10: Testing strict equality in asynchronous code
+describe('Strict Equality - Async Functions', function() {
+  it('should confirm resolved value is strictly equal to expected', function(done) {
+    Promise.resolve(100).then(function(value) {
+      assert.strictEqual(value, 100);
+      done();
+    });
+  });
+});
+// This test verifies that an asynchronously resolved value is strictly equal to 100, ensuring both value and type match.
               </code></pre>
                 <br />
               </td>
             </tr>
             <tr>
-              <td class="clickable" data-detail-id="detail-tag-constructormo">constructor</td>
+              <td class="clickable" data-detail-id="detail-tag-assertdeep">assert.deepStrictEqual</td>
             </tr>
-            <tr id="detail-tag-constructormo" class="expandable-row-content">
+            <tr id="detail-tag-assertdeep" class="expandable-row-content">
               <td>
                 <h3>constructor</h3>
-                <p>In HTML forms</p>
+                <p>In Mocha testing, `assert.deepStrictEqual` is a method from Node.js's built-in `assert` module that verifies whether two values are deeply and strictly equal. This means it recursively checks all properties of objects or elements of arrays to ensure they are identical in both value and type, using the strict equality operator (`===`) for comparisons. Unlike `assert.strictEqual`, which compares values at the top level, `assert.deepStrictEqual` delves into nested structures, making it ideal for testing complex data like objects within objects or arrays within arrays. By employing this method, developers can confirm that intricate data structures, such as JSON responses or application states, match the expected results exactly, without any discrepancies in nested properties or values. This ensures a higher level of accuracy in tests, catching subtle bugs that might be overlooked with shallow comparisons.</p>
                 <h4><u>Specifications</u></h4>
                 <pre>
              <code class="language-js">
-&lt;!-- Example 1: Basic checkbox input --&gt;
+// Example 1: Comparing two identical objects
+describe('Deep Strict Equal - Identical Objects', function() {
+  it('should confirm that two objects with same properties are deeply and strictly equal', function() {
+    const obj1 = { a: 1, b: 2 };
+    const obj2 = { a: 1, b: 2 };
+    assert.deepStrictEqual(obj1, obj2);
+  });
+});
+// This test verifies that two objects with the same properties and values are deeply and strictly equal.
+
+// Example 2: Comparing nested objects
+describe('Deep Strict Equal - Nested Objects', function() {
+  it('should confirm that two nested objects are deeply and strictly equal', function() {
+    const obj1 = { a: { b: 1, c: 2 } };
+    const obj2 = { a: { b: 1, c: 2 } };
+    assert.deepStrictEqual(obj1, obj2);
+  });
+});
+// This test checks that nested objects with identical structures and values are deeply and strictly equal.
+
+// Example 3: Comparing arrays with objects
+describe('Deep Strict Equal - Arrays of Objects', function() {
+  it('should confirm that two arrays containing objects are deeply and strictly equal', function() {
+    const arr1 = [{ x: 1 }, { y: 2 }];
+    const arr2 = [{ x: 1 }, { y: 2 }];
+    assert.deepStrictEqual(arr1, arr2);
+  });
+});
+// This test verifies that arrays containing objects with the same properties and values are deeply and strictly equal.
+
+// Example 4: Comparing different instances with same properties
+describe('Deep Strict Equal - Instances with Same Properties', function() {
+  it('should confirm that two instances of a class with same properties are deeply and strictly equal', function() {
+    class MyClass {
+      constructor(a) {
+        this.a = a;
+      }
+    }
+    const instance1 = new MyClass(5);
+    const instance2 = new MyClass(5);
+    assert.deepStrictEqual(instance1, instance2);
+  });
+});
+// This test ensures that two instances of a class with the same properties and values are deeply and strictly equal.
+
+// Example 5: Comparing Buffers with same content
+describe('Deep Strict Equal - Buffers', function() {
+  it('should confirm that two Buffers with the same content are deeply and strictly equal', function() {
+    const buf1 = Buffer.from('hello');
+    const buf2 = Buffer.from('hello');
+    assert.deepStrictEqual(buf1, buf2);
+  });
+});
+// This test checks that two Buffer objects containing the same data are deeply and strictly equal.
+
+// Example 6: Failing test due to different types
+describe('Deep Strict Equal - Different Types', function() {
+  it('should fail when comparing object and array with similar content', function() {
+    const obj = { '0': 'a', '1': 'b' };
+    const arr = ['a', 'b'];
+    assert.deepStrictEqual(obj, arr);
+  });
+});
+// This test fails because an object and an array, even with similar content, are of different types.
+
+// Example 7: Comparing Maps with same entries
+describe('Deep Strict Equal - Maps', function() {
+  it('should confirm that two Maps with the same entries are deeply and strictly equal', function() {
+    const map1 = new Map();
+    map1.set('key1', 'value1');
+    map1.set('key2', 'value2');
+
+    const map2 = new Map();
+    map2.set('key1', 'value1');
+    map2.set('key2', 'value2');
+
+    assert.deepStrictEqual(map1, map2);
+  });
+});
+// This test verifies that two Map objects with identical key-value pairs are deeply and strictly equal.
+
+// Example 8: Comparing Sets with same elements
+describe('Deep Strict Equal - Sets', function() {
+  it('should confirm that two Sets with the same elements are deeply and strictly equal', function() {
+    const set1 = new Set([1, 2, 3]);
+    const set2 = new Set([1, 2, 3]);
+    assert.deepStrictEqual(set1, set2);
+  });
+});
+// This test ensures that two Set objects containing the same elements are deeply and strictly equal.
+
+// Example 9: Comparing objects with different property order
+describe('Deep Strict Equal - Property Order', function() {
+  it('should confirm that objects with properties in different orders are deeply and strictly equal', function() {
+    const obj1 = { a: 1, b: 2, c: 3 };
+    const obj2 = { c: 3, b: 2, a: 1 };
+    assert.deepStrictEqual(obj1, obj2);
+  });
+});
+// This test shows that the order of properties does not affect deep strict equality of objects.
+
+// Example 10: Failing test due to different nested values
+describe('Deep Strict Equal - Different Nested Values', function() {
+  it('should fail when nested objects have different values', function() {
+    const obj1 = { a: { b: 1, c: 2 } };
+    const obj2 = { a: { b: 1, c: 3 } };
+    assert.deepStrictEqual(obj1, obj2);
+  });
+});
+// This test fails because the nested property 'c' has different values in obj1 and obj2, so they are not deeply and strictly equal.
               </code></pre>
                 <br />
               </td>
