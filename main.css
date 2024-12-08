@@ -915,19 +915,19 @@ body.dark-mode {
   /* Standard syntax */
   ::selection {
     background-color: var(--background-color-one);
-    color: var(--color-twelve);
+    color: var(--color-one);
   }
 
   /* Mozilla Firefox */
   ::-moz-selection {
     background-color: var(--background-color-one);
-    color: var(--color-twelve);
+    color: var(--color-one);
   }
 
   /* WebKit browsers (Chrome, Safari) */
   ::-webkit-selection {
     background-color: var(--background-color-one);
-    color: var(--color-twelve);
+    color: var(--color-one);
   }
 }
 
