@@ -825,8 +825,9 @@ body.dark-mode {
     font-weight: bold;
     text-transform: uppercase;
     padding: 0;
-    height: 20px;
+    height: 17.5px;
     border-top: 1px solid var(--background-color-one);
+    background-color: var(--background-color-one);
   }
 
   td.tableletters[data-number] {
