@@ -91,6 +91,7 @@
       <nav class="alphsort">
         <div class="scroller">
           <ul class="scroller-content">
+            <li><a href="#data-types">Data Types</a></li>
             <li><a href="#variables">Variables</a></li>
             <li><a href="#conditionals">Conditionals</a></li>
             <li><a href="#ao">Arithmetic Operators</a></li>
@@ -111,7 +112,6 @@
             <li><a href="#errorhandling">Error Handling</a></li>
             <li><a href="#testing">Testing</a></li>
             <li><a href="#comments">Comments</a></li>
-            <li><a href="#data-types">Data Types</a></li>
           </ul>
         </div>
       </nav>
@@ -141,13 +141,13 @@
                 // METADATA
               </p>
               <p class="update">
-                // [LAST UPDATED] 01/12/2024
+                // [LAST UPDATED] 08/01/2025
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
               </p>
               <p class="update">
-                // [LAST UPDATED] 01/12/2024
+                // [LAST UPDATED] 08/01/2025
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
@@ -156,13 +156,13 @@
                 // METADATA
               </p>
               <p class="update">
-                // [LAST UPDATED] 01/12/2024
+                // [LAST UPDATED] 08/01/2025
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
               </p>
               <p class="update">
-                // [LAST UPDATED] 01/12/2024
+                // [LAST UPDATED] 08/01/2025
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
@@ -199,6 +199,10 @@
                 </div>
               </div>
               <div class="indexscroller">
+                <div class="navigation-container">
+                  <div class="navigationnumber">[00]</div>
+                  <div><a href="#data-types" class="titleindex">Data Types</a></div>
+                </div>
                 <div class="navigation-container">
                   <div class="navigationnumber">[01]</div>
                   <div><a href="#variables" class="titleindex">Variables</a></div>
@@ -287,16 +291,435 @@
                   <div class="navigationnumber">[20]</div>
                   <div><a href="#comments" class="titleindex">Comments</a></div>
                 </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[21]</div>
-                  <div><a href="#data-types" class="titleindex">Data Types</a></div>
-                </div>
               </div>
             </div>
           </div>          
         </div>
         <table class="right-section">
           <tbody>
+            <tr>
+              <td id="data-types" class="tableletters" data-number="19">Data Types
+                <div class="tablenr">[01]</div>
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-dynamicandweak">dynamic & weak typing</td>
+            </tr>
+            <tr id="detail-tag-dynamicandweak" class="expandable-row-content">
+              <td>
+                <h3>dynamic typing</h3>
+                <p>In JavaScript, dynamic typing refers to the process of determining a variable’s data type during runtime, granting the developer the freedom to assign values of different types to the same variable as the program executes. When a variable is first declared, there is no requirement for it to be of a specific type, and the engine will infer the type based on the value that is eventually assigned. For instance, a variable might initially hold a numeric value, but later it can be changed to a string or even an object without causing any type errors. This flexibility allows for quick prototyping and reduces overhead in declaring and managing types, but it also places the burden of caution on the developer because inadvertent changes in variable types can lead to unpredictable behavior and debugging challenges.</p>
+                <br>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// Example 1: Changing a variable from a number to a string
+let dataPoint = 42;
+console.log(typeof dataPoint); // "number"
+dataPoint = "Now I'm a string!";
+console.log(typeof dataPoint); // "string"
+
+// Example 2: Changing a variable from a string to a boolean
+let message = "Hello";
+console.log(typeof messageOrStatus); // "string"
+messageOrStatus = false;
+console.log(typeof messageOrStatus); // "boolean"
+
+// Example 3: Changing a variable from an object to an array
+let person = { name: "Alice" };
+console.log(typeof personOrTeam); // "object"
+personOrTeam = ["Bob", "Carol"];
+console.log(typeof personOrTeam); // "object" (arrays are still "object" type)
+
+// Example 4: Reassigning types within a loop
+let dynamicValue = 10;
+console.log(typeof dynamicValue); // "number"
+for (let i = 0; i < 2; i++) {
+  if (i === 1) {
+    dynamicValue = "Swapped to a string";
+  }
+  console.log(dynamicValue, typeof dynamicValue);
+}
+
+// Example 5: Returning different types from a function based on a condition
+function getDynamicValue(flag) {
+  if (flag) {
+    return 100;
+  } else {
+    return "No value here";
+  }
+}
+let returnValue = getDynamicValue(true);
+console.log(returnValue, typeof returnValue); // "number"
+returnValue = getDynamicValue(false);
+console.log(returnValue, typeof returnValue); // "string"
+                </code></pre>
+                <br />
+                <h3>weak typing</h3>
+                <p>Weak typing in JavaScript refers to the language’s tendency to automatically and implicitly convert values between different data types, often referred to as type coercion, whenever it deems it necessary for an operation to proceed. For example, when an expression involves both a string and a number, JavaScript may convert the number to a string (as in the case of `'5' + 2` resulting in `'52'`), or convert the string to a number (as in the case of `'5' - 2` yielding `3`). This behavior can sometimes make code concise by reducing the need for explicit conversions, but it also has the potential to produce unexpected outcomes if the developer is not fully aware of how these implicit transformations are performed. Consequently, it is critical to understand JavaScript’s rules for converting values in expressions such as comparisons, arithmetic, and concatenation, as well as being mindful when using the loose equality operator (`==`) instead of the strict equality operator (`===`), since the former will trigger type coercion while the latter will not.</p>
+                <br>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// Example 1: Automatic conversion from number to string during concatenation
+let concatenatedStringAndNumber = "5" + 2; 
+console.log(concatenatedStringAndNumber); // "52"
+
+// Example 2: Automatic conversion from string to number during subtraction
+let subtractedStringAndNumber = "5" - 2;
+console.log(subtractedStringAndNumber); // 3
+
+// Example 3: Coercion in comparison, where a string is treated as a number
+let stringGreaterThanNumber = "10" > 9;
+console.log(stringGreaterThanNumber); // true
+
+// Example 4: Loose equality triggers type coercion (0 is coerced to false)
+let zeroEqualsFalse = (0 == false);
+console.log(zeroEqualsFalse); // true
+
+// Example 5: Loose equality between a string and a number
+let stringLooseEqualsNumber = ("5" == 5);
+console.log(stringLooseEqualsNumber); // true
+
+// Example 6: String + boolean becomes a concatenated string
+let stringPlusBoolean = "Hello" + true;
+console.log(stringPlusBoolean); // "Hellotrue"
+
+// Example 7: Subtraction between a string and a boolean (boolean becomes a number: true -> 1)
+let stringMinusBoolean = "5" - true;
+console.log(stringMinusBoolean); // 4
+
+// Example 8: Multiplication between string representations of numbers
+let multipliedStrings = "6" * "3";
+console.log(multipliedStrings); // 18
+
+// Example 9: Coercion of null to 0 in arithmetic
+let nullInArithmetic = null + 10;
+console.log(nullInArithmetic); // 10
+
+// Example 10: NaN result when a string cannot be coerced to a valid number
+let invalidStringSubtraction = "Hello" - 2;
+console.log(invalidStringSubtraction); // NaN
+                </code></pre>
+                <br />
+              </td>
+            </tr> 
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-data-types">primitive & non-prim. data types</td>
+            </tr>
+            <tr id="detail-tag-data-types" class="expandable-row-content">
+              <td>
+                <h3>Number</h3>
+                <p>Number is a fundamental primitive type in JavaScript used to represent both integers and floating-point values, including special numeric values like Infinity, -Infinity, and NaN. Since there is no separate data type for integers, numbers are stored in a double-precision 64-bit format, allowing for a wide range of values. However, because of this floating-point representation, precision issues can sometimes arise in arithmetic operations. Despite these quirks, the Number type remains central to most basic arithmetic tasks in JavaScript.</p>
+                <pre>
+             <code class="language-js">
+// Example 1: A simple integer value
+let userAge = 25;
+console.log(userAge, typeof userAge); // 25, "number"
+
+// Example 2: A negative integer
+let temperatureInCelsius = -5;
+console.log(temperatureInCelsius, typeof temperatureInCelsius); // -5, "number"
+
+// Example 3: A floating-point number
+let piApproximation = 3.14;
+console.log(piApproximation, typeof piApproximation); // 3.14, "number"
+
+// Example 4: Using scientific notation for a large number
+let largeScientificNumber = 1.2e6; 
+console.log(largeScientificNumber, typeof largeScientificNumber); // 1200000, "number"
+
+// Example 5: Special numeric value Infinity
+let infiniteValue = Infinity;
+console.log(infiniteValue, typeof infiniteValue); // Infinity, "number"
+                </code></pre>
+                <br />
+                <h3>BigInt</h3>
+                <p>BigInt is a more recent addition to JavaScript’s set of primitive types, allowing developers to work with integers of arbitrary precision. It is created by appending the letter “n” to an integer literal or by calling the BigInt constructor, enabling calculations on values larger than the maximum safe integer representable by the Number type. BigInt operations cannot be mixed freely with regular Number arithmetic without explicit conversion, making it important to decide when high-precision arithmetic is genuinely needed. Its introduction addresses a longstanding limitation for working with very large or very small integer values.</p>
+                <pre>
+             <code class="language-js">
+// Example 1: Defining a very large integer using the "n" suffix
+let largeCountValue = 123456789012345678901234567890n;
+console.log(largeCountValue, typeof largeCountValue); 
+// 123456789012345678901234567890n, "bigint"
+
+// Example 2: Creating a negative BigInt
+let negativeBigIntValue = -1234567890123456789n;
+console.log(negativeBigIntValue, typeof negativeBigIntValue);
+// -1234567890123456789n, "bigint"
+
+// Example 3: Constructing a BigInt from a string
+let stringConstructorValue = BigInt("999999999999999999999999999999");
+console.log(stringConstructorValue, typeof stringConstructorValue);
+// 999999999999999999999999999999n, "bigint"
+
+// Example 4: Performing arithmetic with BigInts
+let sumOfBigInts = 5000n + 6000n;
+console.log(sumOfBigInts, typeof sumOfBigInts); 
+// 11000n, "bigint"
+
+// Example 5: Comparing two BigInt values
+let firstBigInt = 10000n;
+let secondBigInt = 9999n;
+console.log(firstBigInt > secondBigInt); 
+// true
+                </code></pre>
+                <br />
+                <h3>Boolean</h3>
+                <p>Boolean is a simple primitive type representing only two values: true or false. These values are instrumental in controlling logic flow in JavaScript programs through conditional statements, loops, and logical operators. Booleans can also be produced by explicit comparisons, such as checking if a certain condition is met or if two values are equal. Although it is one of the smallest and most basic data types, it plays a crucial role in determining the behavior of nearly every program.</p>
+                <pre>
+             <code class="language-js">
+// Example 1: A simple true value
+let isUserLoggedIn = true;
+console.log(isUserLoggedIn, typeof isUserLoggedIn); // true, "boolean"
+
+// Example 2: A simple false value
+let hasErrorOccurred = false;
+console.log(hasErrorOccurred, typeof hasErrorOccurred); // false, "boolean"
+
+// Example 3: Boolean resulting from a comparison
+let isAgeValid = (25 > 18);
+console.log(isAgeValid, typeof isAgeValid); // true, "boolean"
+
+// Example 4: Converting a truthy value to a boolean
+let userResponse = Boolean("Yes");
+console.log(userResponse, typeof userResponse); // true, "boolean"
+
+// Example 5: Checking equality in a loose comparison
+let isEqual = ("100" == 100);
+console.log(isEqual, typeof isEqual); // true, "boolean"
+                </code></pre>
+                <br />
+                <h3>String</h3>
+                <p>String is a primitive type that stores sequences of characters and is used extensively for representing text. In JavaScript, strings are immutable, meaning their contents cannot be altered once created, although new strings can be formed through concatenation or other operations. String literals can be denoted using single quotes, double quotes, or backticks, the latter allowing for template literals that support embedded expressions and multi-line text. Even though strings handle text data, they can also be involved in numeric-like operations due to JavaScript’s implicit type coercion, making it important to keep in mind how the language interprets these interactions.</p>
+                <pre>
+             <code class="language-js">
+// Example 1: Defining a string with single quotes
+let greetingMessage = 'Hello, world!';
+console.log(greetingMessage, typeof greetingMessage); // "Hello, world!", "string"
+
+// Example 2: Defining a string with double quotes
+let userName = "Alice";
+console.log(userName, typeof userName); // "Alice", "string"
+
+// Example 3: Using a template literal for interpolation
+let userAge = 25;
+let userIntroduction = `My name is ${userName} and I am ${userAge} years old.`;
+console.log(userIntroduction, typeof userIntroduction); // "My name is Alice and I am 25 years old.", "string"
+
+// Example 4: Creating a multi-line string with backticks
+let multiLineQuote = `This is line one
+and this is line two.`;
+console.log(multiLineQuote, typeof multiLineQuote); // (two lines of text), "string"
+
+// Example 5: Including escape characters within a string
+let filePath = "C:\\Users\\Alice\\Documents";
+console.log(filePath, typeof filePath); // "C:\Users\Alice\Documents", "string"
+                </code></pre>
+                <br />
+                <h3>Null</h3>
+                <p>Null represents the intentional absence of any object value and is considered a primitive type despite the historical quirk that causes typeof null to return "object." It often serves as a way to indicate that a variable should not hold any valid data or that a requested piece of data was intentionally cleared. Because null is an actual value, assigning a variable to null is different from leaving it undefined, making it a useful marker in APIs and functions for conveying “no data.”</p>
+                <pre>
+             <code class="language-js">
+// Example 1: Explicitly assigning null to a variable
+let noValueAssigned = null;
+console.log(noValueAssigned, typeof noValueAssigned); // null, "object"
+
+// Example 2: Setting a variable to null after using it
+let userId = 12345;
+// Later, the user logs out or the ID is cleared
+userId = null;
+console.log(userId, typeof userId); // null, "object"
+
+// Example 3: Returning null from a function to indicate no result
+function findUser() {
+  // Logic determines no user is found
+  return null;
+}
+let foundUser = findUser();
+console.log(foundUser, typeof foundUser); // null, "object"
+
+// Example 4: Using null to initialize an object property
+let userSettings = {
+  theme: null,
+  notifications: true
+};
+console.log(userSettings.theme, typeof userSettings.theme); // null, "object"
+
+// Example 5: Placeholder null value before assigning actual data
+let productDescription = null;
+// Later in the code, you might replace null with an actual string
+productDescription = "This is a premium product.";
+console.log(productDescription); // "This is a premium product."
+                </code></pre>
+                <br />
+                <h3>Undefined</h3>
+                <p>Undefined is a primitive type that signifies a variable has been declared but has not yet been assigned a value, or that a function did not explicitly return any value. It is generally associated with uninitialized variables or missing function parameters. Although it serves a role similar to null in representing “no data,” they are conceptually different: null is an explicit assignment, while undefined naturally arises when a variable or property has no valid data bound to it yet.</p>
+                <pre>
+             <code class="language-js">
+// Example 1: Declaring a variable without initializing it
+let userScore;
+console.log(userScore, typeof userScore); // undefined, "undefined"
+
+// Example 2: Accessing a property that does not exist on an object
+let userProfile = { name: "Alice", age: 30 };
+let profileEmail = userProfile.email;
+console.log(profileEmail, typeof profileEmail); // undefined, "undefined"
+
+// Example 3: Accessing an out-of-range array index
+let productList = ["Apple", "Banana", "Cherry"];
+let missingProduct = productList[5];
+console.log(missingProduct, typeof missingProduct); // undefined, "undefined"
+
+// Example 4: A function that does not explicitly return anything
+function calculateTotal() {
+  let subtotal = 100;
+  // No return statement, so it implicitly returns undefined
+}
+let totalCost = calculateTotal();
+console.log(totalCost, typeof totalCost); // undefined, "undefined"
+
+// Example 5: Setting a variable to undefined (though not generally recommended)
+let temporaryHolder = "Some value";
+temporaryHolder = undefined;
+console.log(temporaryHolder, typeof temporaryHolder); // undefined, "undefined"
+                </code></pre>
+                <br />
+                <h3>Symbol</h3>
+                <p>Symbol is a unique and immutable primitive type introduced in ECMAScript 2015 (ES6) primarily for creating unique object property keys. Each symbol has its own identity, even if multiple symbols share the same description text. Since symbols cannot be automatically converted to strings, they help avoid naming collisions and allow the creation of hidden object properties that libraries or frameworks can use internally without worrying about conflicting with user-defined property names.</p>
+                <pre>
+             <code class="language-js">
+// Example 1: Creating a simple symbol with a description
+let uniqueUserId = Symbol("userId");
+console.log(uniqueUserId, typeof uniqueUserId); 
+// Symbol(userId), "symbol"
+
+// Example 2: Creating a symbol without a description
+let anonymousSymbol = Symbol();
+console.log(anonymousSymbol, typeof anonymousSymbol);
+// Symbol(), "symbol"
+
+// Example 3: Using a symbol as a key in an object
+let statusKey = Symbol("status");
+let orderDetails = {
+  [statusKey]: "Pending",
+  orderId: 12345
+};
+console.log(orderDetails[statusKey]); 
+// "Pending"
+
+// Example 4: Preventing property name collisions with symbols
+let sharedObject = {};
+let configSymbol = Symbol("config");
+let debugSymbol = Symbol("debug");
+sharedObject[configSymbol] = { mode: "production" };
+sharedObject[debugSymbol] = { level: "verbose" };
+console.log(sharedObject[configSymbol], sharedObject[debugSymbol]);
+// { mode: "production" } { level: "verbose" }
+
+// Example 5: Symbols in a function to create unique identifiers
+function createUniqueTag(tagDescription) {
+  return Symbol(tagDescription);
+}
+let myUniqueTag = createUniqueTag("componentTag");
+console.log(myUniqueTag, typeof myUniqueTag);
+// Symbol(componentTag), "symbol"
+                </code></pre>
+                <br />
+                <h3>Object</h3>
+                <p>Object is the only non-primitive data type in JavaScript, encompassing arrays, functions, dates, and regular expressions, as well as custom objects defined by developers. Objects are mutable collections of key-value pairs, where values can be of any type, including other objects. They are compared by reference rather than by value, meaning two different objects with identical properties are not considered equal unless they reference the exact same instance. Because objects are so flexible, they form the basis of many data structures and design patterns in JavaScript.</p>
+                <pre>
+             <code class="language-js">
+// Example 1: A plain object with key-value pairs
+let userProfile = {
+  name: "Alice",
+  age: 30
+};
+console.log(userProfile, typeof userProfile); 
+// { name: "Alice", age: 30 }, "object"
+
+// Example 2: An array (arrays are a type of object)
+let fruitBasket = ["Apple", "Banana", "Cherry"];
+console.log(fruitBasket, typeof fruitBasket); 
+// ["Apple", "Banana", "Cherry"], "object"
+
+// Example 3: A function (functions are special objects in JavaScript)
+function greetUser() {
+  console.log("Hello, user!");
+}
+console.log(greetUser, typeof greetUser); 
+// [Function: greetUser], "function" 
+// (though internally a function is still considered an object)
+
+// Example 4: A built-in Date object
+let currentDateTime = new Date();
+console.log(currentDateTime, typeof currentDateTime); 
+// e.g., 2025-01-08T12:34:56.789Z, "object"
+
+// Example 5: A regular expression object
+let namePattern = /Alice/;
+console.log(namePattern, typeof namePattern); 
+// /Alice/, "object"
+                </code></pre>
+                <br />
+              </td>
+            </tr> 
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-typeof">typeof operator</td>
+            </tr>
+            <tr id="detail-tag-typeof" class="expandable-row-content">
+              <td>
+                <h3>typeof operator</h3>
+                <p>The typeof operator in JavaScript is used to determine the type of a given value at runtime and returns the result as a string. Common return values include “number” for numeric data, “string” for text, “boolean” for true or false, “object” for objects (including arrays and many built-in objects), “function” for functions, and “undefined” for variables that have not been assigned a value. An important quirk is that typeof null also returns “object,” which is a well-known historical artifact in the language. Despite this, typeof remains a handy tool for simple type checks, letting developers verify whether a variable holds the kind of data they expect.</p>
+                <br>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// Example 1: Checking the type of a number
+let currentLevel = 42;
+console.log(typeof currentLevel); // "number"
+
+// Example 2: Checking the type of a string
+let welcomeMessage = "Hello, JavaScript!";
+console.log(typeof welcomeMessage); // "string"
+
+// Example 3: Checking the type of a boolean
+let isGameOver = false;
+console.log(typeof isGameOver); // "boolean"
+
+// Example 4: Checking the type of an object
+let playerProfile = { name: "Alice", score: 100 };
+console.log(typeof playerProfile); // "object"
+
+// Example 5: Checking the type of an array
+let itemCollection = ["sword", "shield", "potion"];
+console.log(typeof itemCollection); // "object"
+
+// Example 6: Checking the type of a function
+function greetPlayer() {
+  return "Greetings!";
+}
+console.log(typeof greetPlayer); // "function"
+
+// Example 7: Checking the type of undefined
+let uninitializedValue;
+console.log(typeof uninitializedValue); // "undefined"
+
+// Example 8: Checking the type of null (historical quirk)
+let emptySlot = null;
+console.log(typeof emptySlot); // "object"
+
+// Example 9: Checking the type of a symbol
+let uniqueIdentifier = Symbol("id");
+console.log(typeof uniqueIdentifier); // "symbol"
+
+// Example 10: Checking the type of a BigInt
+let largeNumber = 9007199254740992n;
+console.log(typeof largeNumber); // "bigint"
+                </code></pre>
+                <br />
+              </td>
+            </tr> 
             <tr>
               <td id="variables" class="tableletters" data-number="01">VARIABLES
                 <div class="tablenr">[02]</div>
@@ -15257,83 +15680,7 @@ describe('Deep Strict Equal - Different Nested Values', function() {
              </code></pre>
                 <br />
               </td>
-            </tr>
-            <tr>
-              <td id="data-types" class="tableletters" data-number="19">Data Types
-                <div class="tablenr">[01]</div>
-              </td>
-            </tr>
-            <tr>
-              <td class="clickable datatype" data-detail-id="detail-tag-data-types">data types</td>
-            </tr>
-            <tr id="detail-tag-data-types" class="expandable-row-content">
-              <td>
-                <h3>7 primitive data types & objects</h3>
-                <p>JavaScript has a variety of data types that can be categorized into primitive types and objects. Primitive types are immutable and compared by value, while objects are mutable and compared by reference.</p>
-                <br>
-                   <p>String: Represents text and is enclosed in quotes.</p>
-                   <p>Number: Represents both integers and floating-point numbers.</p>
-                   <p>Boolean: Represents true or false values.</p>
-                   <p>Undefined: A variable that has been declared but not assigned a value has the type undefined.</p>
-                   <p>Null: Represents the intentional absence of any object value.</p>
-                   <p>Symbol: Represents a unique identifier created using the Symbol function.</p>
-                   <p>BigInt: Represents integers larger than the maximum safe integer limit for Number.</p>
-                   <p>Object: A complex data type that allows you to store collections of data in key-value pairs.</p>
-                <h4><u>Specifications</u></h4>
-                <pre>
-             <code class="language-js">
-  // String
-  let greeting = "Hello, world!";
-  let name = 'Alice';
-  let phrase = `JavaScript is fun!`; // Template literals allow for embedded expressions
-  
-  // Number
-  let age = 25;
-  let pi = 3.14159;
-  let negativeNumber = -42; // Negative number example
-  
-  // Boolean
-  let isStudent = true;
-  let hasGraduated = false;
-  let isLoggedIn = true;
-  
-  // Undefined
-  let x;
-  let y = undefined;
-  let z; // Undefined by default when not assigned
-  
-  // Null
-  let emptyValue = null;
-  let noValue = null;
-  let response = null; // Commonly used to indicate no response or empty result
-  
-  // Symbol
-  let sym1 = Symbol('unique');
-  let sym2 = Symbol('unique');
-  let sym3 = Symbol(); // Symbol without a description
-  
-  // BigInt
-  let bigInt1 = 1234567890123456789012345678901234567890n;
-  let bigInt2 = BigInt(1234567890123456789012345678901234567890);
-  let bigInt3 = 9007199254740991n; // Maximum safe integer + 1
-  
-  // Object
-  let person = {
-    name: "Alice",
-    age: 25
-  };
-  let car = {
-    brand: "Toyota",
-    model: "Corolla"
-  };
-  let book = {
-    title: "JavaScript: The Good Parts",
-    author: "Douglas Crockford"
-  };
-                </code></pre>
-                <br />
-              </td>
-            </tr>  
+            </tr> 
             <tr>
               <td id="git" class="tabletitle" data-number="1">
                 <div class="firstletter">[</div>

@@ -858,10 +858,6 @@ body.dark-mode {
     color: var(--background-color-one);
   }
 
-  .datatype {
-    border-bottom: 1px solid var(--background-color-one);
-  }
-
   .clickable:hover {
     text-decoration: none;
   }
@@ -1587,10 +1583,6 @@ body.dark-mode {
     align-items: center;
     justify-content: space-between;
     border-top: 1px solid var(--background-color-one);
-  }
-
-  .datatype {
-    border-bottom: 1px solid var(--background-color-one);
   }
 
   .clickable:hover {
