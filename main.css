@@ -45,6 +45,14 @@ body.dark-mode {
   --background-color-twenty: #0400ff;
 }
 
+@font-face {
+  font-family: "KK-Topo";
+  src: url("./KK-Topo/KK-Topo-Regular.otf") format("woff2"),
+    url("./KK-Topo/KK-Topo-Regular.otf") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .dm-mono-light {
   font-family: "DM Mono", monospace;
   font-weight: 300;
@@ -111,7 +119,6 @@ body.dark-mode {
     overflow-y: auto;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    font-family: monospace, "Times New Roman", Times, serif;
     overscroll-behavior: contain;
   }
 
@@ -169,14 +176,14 @@ body.dark-mode {
 
   .left-title {
     height: 36.5px;
-    font-size: 16px;
+    font-size: 15px;
     color: var(--color-twenty);
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     padding-left: 0;
-    font-family: "VT323", monospace;
-    font-weight: 400;
+    font-family: "KK-Topo", monospace;
+    font-weight: normal;
     font-style: normal;
   }
 
@@ -200,13 +207,13 @@ body.dark-mode {
   }
 
   .navigation-title {
-    font-size: 16px;
+    font-size: 15px;
     color: var(--background-color-one);
     padding-left: 0;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-family: "VT323", monospace;
-    font-weight: 400;
+    font-family: "KK-Topo", monospace;
+    font-weight: normal;
     font-style: normal;
     text-transform: uppercase;
   }
@@ -262,8 +269,8 @@ body.dark-mode {
   }
 
   .menu-item label {
-    font-size: 16px;
-    font-family: "VT323", monospace;
+    font-size: 13.5px;
+    font-family: "KK-Topo", monospace;
     font-weight: 400;
     font-style: normal;
     color: var(--background-color-one);
@@ -276,15 +283,15 @@ body.dark-mode {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 3px;
-    font-size: 16px;
-    font-family: "VT323", monospace;
-    font-weight: 400;
+    font-size: 13.5px;
+    font-family: "KK-Topo", monospace;
+    font-weight: normal;
     font-style: normal;
   }
 
   .titleindex {
-    font-size: 16px;
-    font-family: "VT323", monospace;
+    font-size: 13.5px;
+    font-family: "KK-Topo", monospace;
     font-weight: 400;
     font-style: normal;
   }
@@ -407,13 +414,14 @@ body.dark-mode {
     font-size: 25px; /* Font size */
     margin: 15px 5px; /* Spacing around titles */
     font-weight: bold;
-    font-family: "VT323", monospace;
+    font-family: "KK-Topo", monospace;
     font-weight: 400;
     font-style: normal;
   }
 
   .menu-title.one {
     font-size: 50px; /* Font size */
+    font-family: "KK-Topo", monospace;
   }
 
   .fixed-box {
@@ -435,8 +443,8 @@ body.dark-mode {
   .fixed-box a.center-text {
     text-decoration: none;
     color: #f2f2f2;
-    font-size: 12px;
-    font-family: "DM Mono", monospace;
+    font-size: 13.5px;
+    font-family: "KK-Topo", monospace;
     font-weight: 300;
     font-style: normal;
   }
@@ -631,24 +639,29 @@ body.dark-mode {
     text-align: left;
     overflow: hidden;
     color: var(--color-seven);
+    font-family: "KK-Topo", monospace;
   }
 
   h3 {
     color: var(--color-seven);
-    padding-top: 7.5px;
+    padding-top: 12.5px;
     padding-bottom: 20px;
-    font-size: 12.5px;
+    font-size: 13.5px;
     color: var(--color-twenty);
     font-weight: 300;
+    font-family: "KK-Topo", monospace;
+    text-transform: uppercase;
   }
 
   h4 {
     color: var(--color-seven);
-    padding-top: 20px;
+    padding-top: 30px;
     padding-bottom: 0;
-    font-size: 12.5px;
+    font-size: 13.5px;
     color: var(--color-twenty);
     font-weight: 300;
+    font-family: "KK-Topo", monospace;
+    text-transform: uppercase;
   }
 
   a {
@@ -850,12 +863,12 @@ body.dark-mode {
 
   .tabletitle {
     height: 400px;
-    font-family: "VT323", monospace;
+    font-family: "KK-Topo", monospace;
     font-size: 200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0;
+    margin-bottom: 40px;
     padding: 0;
     color: var(--background-color-one);
   }
@@ -941,7 +954,6 @@ body.dark-mode {
     overflow-y: auto;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    font-family: monospace, "Times New Roman", Times, serif;
     overscroll-behavior: contain;
   }
 
@@ -1098,15 +1110,15 @@ body.dark-mode {
   /* Menu Title Styles */
   .menu-title {
     color: var(--background-color-one); /* Text color */
-    font-size: 22.5px; /* Font size */
+    font-size: 20px; /* Font size */
     margin: 10px 5px; /* Spacing around titles */
-    font-family: "VT323", monospace;
-    font-weight: 400;
+    font-family: "KK-Topo", monospace;
+    font-weight: normal;
     font-style: normal;
   }
 
   .menu-title.one {
-    font-size: 45px; /* Font size */
+    font-size: 37.5px; /* Font size */
     font-weight: bold;
   }
 
@@ -1121,10 +1133,10 @@ body.dark-mode {
 
   .fixed-box a.center-text {
     text-decoration: none;
-    font-family: "DM Mono", monospace;
-    font-weight: 300;
+    font-family: "KK-Topo", monospace;
+    font-weight: normal;
     font-style: normal;
-    font-size: 12.5px;
+    font-size: 13px;
     color: #f2f2f2;
   }
 
@@ -1328,32 +1340,36 @@ body.dark-mode {
   }
 
   h2 {
-    font-size: 18px;
+    font-size: 15px;
     padding-top: 80px;
     padding-bottom: 20px;
     text-align: left;
     overflow: hidden;
     color: var(--color-seven);
-    font-family: "VT323", monospace;
-    font-weight: 400;
+    font-family: "KK-Topo", monospace;
+    font-weight: normal;
     font-style: normal;
     text-transform: uppercase;
   }
 
   h3 {
-    padding-top: 7.5px;
+    padding-top: 6px;
     padding-bottom: 20px;
     font-size: 13px;
     color: var(--color-twenty);
-    font-weight: 300;
+    font-weight: normal;
+    font-family: "KK-Topo", monospace;
+    text-transform: uppercase;
   }
 
   h4 {
-    padding-top: 20px;
+    padding-top: 30px;
     padding-bottom: 0;
     font-size: 13px;
     color: var(--color-twenty);
     font-weight: 300;
+    font-family: "KK-Topo", monospace;
+    text-transform: uppercase;
   }
 
   a {
@@ -1530,10 +1546,10 @@ body.dark-mode {
   .update {
     white-space: nowrap;
     margin-right: 10px; /* Space between repeated texts */
-    font-family: "VT323", monospace;
-    font-weight: 400;
+    font-family: "KK-Topo", monospace;
+    font-weight: normal;
     font-style: normal;
-    font-size: 18px;
+    font-size: 15px;
   }
 
   @keyframes marquee {
@@ -1569,10 +1585,10 @@ body.dark-mode {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-family: "VT323", monospace;
-    font-weight: 400;
+    font-family: "KK-Topo", monospace;
+    font-weight: normal;
     font-style: normal;
-    font-size: 18px;
+    font-size: 13px;
   }
 
   .expandable-row-content {
@@ -1608,7 +1624,7 @@ body.dark-mode {
 
   .tabletitle {
     height: 300px;
-    font-family: "VT323", monospace;
+    font-family: "KK-Topo", monospace;
     font-size: 120px;
     display: flex;
     justify-content: space-between;
