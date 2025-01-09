@@ -439,7 +439,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Get the canvas and context
   function getBackgroundColorOne() {
     const styles = getComputedStyle(document.body);
-    return styles.getPropertyValue("--background-color-one").trim();
+    return styles.getPropertyValue("--background-color-twenty").trim();
   }
 
   const cubeCanvas = document.getElementById("cubeCanvas");

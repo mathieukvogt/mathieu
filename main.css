@@ -18,6 +18,7 @@
   --color-fifteen: rgb(255, 255, 255);
   --color-sixteen: rgba(242, 242, 242, 0.75);
   --color-twenty: #f2f2f2;
+  --background-color-twenty: #2f6dff;
   overscroll-behavior: contain;
 }
 
@@ -41,6 +42,7 @@ body.dark-mode {
   --color-fifteen: rgb(0, 0, 0);
   --color-sixteen: rgba(0, 0, 0, 0.75);
   --color-twenty: #000000;
+  --background-color-twenty: #0400ff;
 }
 
 .dm-mono-light {
