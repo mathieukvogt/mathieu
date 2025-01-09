@@ -271,7 +271,7 @@ body.dark-mode {
   .menu-item label {
     font-size: 13.5px;
     font-family: "KK-Topo", monospace;
-    font-weight: 400;
+    font-weight: normal;
     font-style: normal;
     color: var(--background-color-one);
     cursor: pointer;
@@ -292,7 +292,7 @@ body.dark-mode {
   .titleindex {
     font-size: 13.5px;
     font-family: "KK-Topo", monospace;
-    font-weight: 400;
+    font-weight: normal;
     font-style: normal;
   }
 
@@ -447,6 +447,10 @@ body.dark-mode {
     font-family: "KK-Topo", monospace;
     font-weight: 300;
     font-style: normal;
+  }
+
+  .center-text b {
+    font-weight: normal;
   }
 
   #darkModeButton {
@@ -1115,6 +1119,7 @@ body.dark-mode {
     font-family: "KK-Topo", monospace;
     font-weight: normal;
     font-style: normal;
+    font-weight: bold;
   }
 
   .menu-title.one {
@@ -1136,8 +1141,12 @@ body.dark-mode {
     font-family: "KK-Topo", monospace;
     font-weight: normal;
     font-style: normal;
-    font-size: 13px;
+    font-size: 15px;
     color: #f2f2f2;
+  }
+
+  .center-text b {
+    font-weight: normal;
   }
 
   .fixed-box {
@@ -1340,7 +1349,7 @@ body.dark-mode {
   }
 
   h2 {
-    font-size: 15px;
+    font-size: 17px;
     padding-top: 80px;
     padding-bottom: 20px;
     text-align: left;
@@ -1355,7 +1364,7 @@ body.dark-mode {
   h3 {
     padding-top: 6px;
     padding-bottom: 20px;
-    font-size: 13px;
+    font-size: 15px;
     color: var(--color-twenty);
     font-weight: normal;
     font-family: "KK-Topo", monospace;
@@ -1365,9 +1374,9 @@ body.dark-mode {
   h4 {
     padding-top: 30px;
     padding-bottom: 0;
-    font-size: 13px;
+    font-size: 15px;
     color: var(--color-twenty);
-    font-weight: 300;
+    font-weight: normal;
     font-family: "KK-Topo", monospace;
     text-transform: uppercase;
   }
@@ -1580,7 +1589,6 @@ body.dark-mode {
     color: var(--color-one);
     background-color: var(--background-color-one);
     border-top: 1px solid var(--background-color-one);
-    font-weight: bold;
     text-transform: uppercase;
     display: flex;
     align-items: center;
@@ -1588,7 +1596,7 @@ body.dark-mode {
     font-family: "KK-Topo", monospace;
     font-weight: normal;
     font-style: normal;
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .expandable-row-content {
