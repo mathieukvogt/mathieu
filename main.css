@@ -167,35 +167,44 @@ body.dark-mode {
   .left-section {
     display: flex;
     width: 29.33vw;
-    height: 86vh;
+    height: 87vh;
     flex-direction: column;
-    justify-content: flex-start; /* Align items to the top */
-    gap: 20px; /* Adds a 20px gap between child elements */
+    justify-content: space-around; /* Align items to the top */
     position: fixed;
+    border: 1px solid var(--background-color-one);
+    padding: 0 10px 15px 10px;
   }
 
   .left-title {
     height: 36.5px;
-    font-size: 15px;
+    font-size: 13.5px;
     color: var(--color-twenty);
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     padding-left: 0;
     font-family: "KK-Topo", monospace;
     font-weight: normal;
     font-style: normal;
+    border-bottom: 1px solid var(--background-color-one);
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 
   .left-image {
-    height: 200px;
+    height: 250px;
     width: auto;
+    border-bottom: 1px solid var(--background-color-one);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 
   #cubeCanvas {
     width: 100%;
     height: 100%;
-    margin-top: 14px;
     image-rendering: crisp-edges;
     -ms-interpolation-mode: nearest-neighbor;
   }
@@ -207,7 +216,7 @@ body.dark-mode {
   }
 
   .navigation-title {
-    font-size: 15px;
+    font-size: 13.5px;
     color: var(--background-color-one);
     padding-left: 0;
     padding-top: 10px;
@@ -436,7 +445,7 @@ body.dark-mode {
     z-index: 1000;
     padding-left: 6px;
     padding-right: 6px;
-    height: 35px;
+    height: 40px;
     mix-blend-mode: difference;
   }
 

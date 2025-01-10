@@ -388,7 +388,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Loop through each heading to find the one currently in view
     tableHeadings.forEach((heading) => {
       const rect = heading.getBoundingClientRect();
-      if (rect.top <= 85) {
+      if (rect.top <= 95) {
         currentHeading = heading;
       }
     });
