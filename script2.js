@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    const currentMode = localStorage.getItem("mode") || "light";
+    const currentMode = localStorage.getItem("mode") || "dark";
     applyMode(currentMode);
 
     darkModeButton.addEventListener("click", () => {
@@ -271,7 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
           scrollAllowed = true;
           lastScrollTime = Date.now();
-        }, 100);
+        }, 25);
       },
     });
 
@@ -282,8 +282,8 @@ document.addEventListener("DOMContentLoaded", () => {
           direction === "down"
             ? "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)"
             : "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-        duration: 1.25,
-        ease: CustomEase.create("", ".87,0,.13,1"),
+        duration: 0.5, // Increased duration for smoother transition
+        ease: "power2.out", // Adjusted easing for smoother effect
       },
       0
     )
@@ -291,8 +291,8 @@ document.addEventListener("DOMContentLoaded", () => {
         currentSlideElement.querySelector("img"),
         {
           scale: 1.5,
-          duration: 1.25,
-          ease: CustomEase.create("", ".87,0,.13,1"),
+          duration: 1.5, // Increased duration
+          ease: "power2.inOut", // Smoother easing
         },
         0
       )
@@ -303,8 +303,8 @@ document.addEventListener("DOMContentLoaded", () => {
             direction === "down"
               ? "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
               : "polygon(0% 100%, 100% 100%, 100% 0%, 0% 0%)",
-          duration: 1.25,
-          ease: CustomEase.create("", ".87,0,.13,1"),
+          duration: 1.5, // Increased duration
+          ease: "power2.inOut",
         },
         0
       )
@@ -312,8 +312,8 @@ document.addEventListener("DOMContentLoaded", () => {
         currentMainWrapper.querySelector("img"),
         {
           y: direction === "down" ? "50%" : "-50%",
-          duration: 1.25,
-          ease: CustomEase.create("", ".87,0,.13,1"),
+          duration: 1.5, // Increased duration
+          ease: "power2.inOut",
         },
         0
       )
@@ -321,8 +321,8 @@ document.addEventListener("DOMContentLoaded", () => {
         newMainWrapper.querySelector("img"),
         {
           y: "0%",
-          duration: 1.25,
-          ease: CustomEase.create("", ".87,0,.13,1"),
+          duration: 1.5, // Increased duration
+          ease: "power2.inOut",
         },
         0
       )
@@ -330,8 +330,8 @@ document.addEventListener("DOMContentLoaded", () => {
         currentTitle,
         {
           y: direction === "down" ? -50 : 50,
-          duration: 1.25,
-          ease: CustomEase.create("", ".87,0,.13,1"),
+          duration: 1.5, // Increased duration
+          ease: "power2.inOut",
         },
         0
       )
@@ -339,8 +339,8 @@ document.addEventListener("DOMContentLoaded", () => {
         newTitle,
         {
           y: 0,
-          duration: 1.25,
-          ease: CustomEase.create("", ".87,0,.13,1"),
+          duration: 1.5, // Increased duration
+          ease: "power2.inOut",
         },
         0
       )
@@ -348,8 +348,8 @@ document.addEventListener("DOMContentLoaded", () => {
         currentCounter,
         {
           y: direction === "down" ? -18 : 18,
-          duration: 1.25,
-          ease: CustomEase.create("", ".87,0,.13,1"),
+          duration: 1.5, // Increased duration
+          ease: "power2.inOut",
         },
         0
       )
@@ -357,37 +357,37 @@ document.addEventListener("DOMContentLoaded", () => {
         newCounter,
         {
           y: 0,
-          duration: 1.25,
-          ease: CustomEase.create("", ".87,0,.13,1"),
+          duration: 1.5, // Increased duration
+          ease: "power2.inOut",
         },
         0
       )
 
-      // Crossfade in new slide while old slide fades out
+      // Enhanced Crossfade for smoother image transition
       .to(
         newSlide,
         {
-          autoAlpha: 1, // fade the new slide in
-          duration: 0.6,
+          autoAlpha: 1,
+          duration: 0.5, // Slower fade-in
           ease: "power2.inOut",
         },
-        "-=0.5"
+        "-=1.0" // Overlap with previous animations for smoothness
       )
       .to(
         currentSlideElement,
         {
-          autoAlpha: 0, // fade the old slide out
-          duration: 0.6,
+          autoAlpha: 0,
+          duration: 0.5, // Slower fade-out
           ease: "power2.inOut",
         },
-        "<"
+        "-=1.0" // Synchronize with fade-in
       );
   }
 
   function handleScroll(direction) {
     const now = Date.now();
     if (isAnimating || !scrollAllowed) return;
-    if (now - lastScrollTime < 1000) return;
+    if (now - lastScrollTime < 300) return;
     lastScrollTime = now;
     animateSlide(direction);
   }

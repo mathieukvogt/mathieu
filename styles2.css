@@ -294,6 +294,10 @@ body.dark-mode {
   background-color: black;
 }
 
+body {
+  background-color: rgb(60, 95, 255);
+}
+
 /* Fixed header container with the dark mode button & burger */
 .fixed-box {
   position: fixed;
@@ -454,7 +458,6 @@ body.dark-mode {
 .menu-title.two {
   font-size: 17px;
 }
-
 .noise {
   z-index: -1;
   position: fixed;

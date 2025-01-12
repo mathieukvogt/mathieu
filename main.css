@@ -37,12 +37,12 @@ body.dark-mode {
   --color-ten: rgba(255, 255, 255, 0.85);
   --color-eleven: rgba(240, 240, 240, 0.98);
   --color-twelve: #000000;
-  --color-thirteen: #ffffff;
+  --color-thirteen: #3a5665;
   --color-fourteen: #e3e3e3;
   --color-fifteen: rgb(0, 0, 0);
   --color-sixteen: rgba(0, 0, 0, 0.75);
   --color-twenty: #000000;
-  --background-color-twenty: #0400ff;
+  --background-color-twenty: #000000;
 }
 
 @font-face {
