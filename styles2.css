@@ -1,0 +1,474 @@
+:root {
+  --background-color-one: #f2f2f2;
+  --color-one: #070707;
+  --background-color-two: #323232;
+  --color-two: #f7f7f7;
+  --color-three: #222222;
+  --color-four: #f7f7f7;
+  --color-five: #cbcbcb;
+  --color-six: #232323;
+  --color-seven: #d5d5d5;
+  --color-eight: #ffffff;
+  --color-nine: #070707;
+  --color-ten: rgba(0, 0, 0, 0.85);
+  --color-eleven: rgba(7, 7, 7, 0.98);
+  --color-twelve: #f2f2f2;
+  --color-thirteen: #000000;
+  --color-fourteen: #1c1c1c;
+  --color-fifteen: rgb(255, 255, 255);
+  --color-sixteen: rgba(242, 242, 242, 0.75);
+  --color-twenty: #f2f2f2;
+  --background-color-twenty: #2f6dff;
+  --color-thirty: rgba(0, 0, 0, 0.125);
+  overscroll-behavior: contain;
+}
+
+body.dark-mode {
+  --background-color-one: #000000;
+  --color-one: #f0f0f0;
+  --background-color-two: #000000;
+  --color-two: #000000;
+  --color-three: #d6d6d6;
+  --color-four: #070707;
+  --color-five: #707070;
+  --color-six: #dddddd;
+  --color-seven: #171717;
+  --color-eight: black;
+  --color-nine: #eaeaea;
+  --color-ten: rgba(255, 255, 255, 0.85);
+  --color-eleven: rgba(240, 240, 240, 0.98);
+  --color-twelve: #000000;
+  --color-thirteen: #ffffff;
+  --color-fourteen: #e3e3e3;
+  --color-fifteen: rgb(0, 0, 0);
+  --color-sixteen: rgba(0, 0, 0, 0.75);
+  --color-twenty: #000000;
+  --background-color-twenty: #0400ff;
+  --color-thirty: rgba(0, 0, 0, 0.125);
+}
+
+@font-face {
+  font-family: "KK-Topo";
+  src: url("./KK-Topo/KK-Topo-Regular.otf") format("woff2"),
+    url("./KK-Topo/KK-Topo-Regular.otf") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.dm-mono-light {
+  font-family: "DM Mono", monospace;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.dm-mono-regular {
+  font-family: "DM Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.dm-mono-medium {
+  font-family: "DM Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.dm-mono-light-italic {
+  font-family: "DM Mono", monospace;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.dm-mono-regular-italic {
+  font-family: "DM Mono", monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.dm-mono-medium-italic {
+  font-family: "DM Mono", monospace;
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* LOADING ANIMATION */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2000;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.bar {
+  width: 10vw;
+  height: 105vh;
+  background: var(--background-color-one, #f2f2f2);
+  margin: 0;
+  padding: 0;
+}
+
+/* --------------------------------------------- */
+/* Base styles */
+/* --------------------------------------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "KK-Topo", sans-serif;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  padding: 4em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+footer p {
+  color: var(--color-one);
+  font-size: 15px;
+  font-weight: lighter;
+}
+
+.slider-counter {
+  display: flex;
+}
+
+.slider-counter p,
+.slider-counter > div {
+  width: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.count {
+  position: relative;
+  height: 18px;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.count p {
+  position: absolute;
+  transform: translateY(0px);
+  font-size: 16px;
+  line-height: 1;
+  will-change: transform;
+  opacity: 1;
+}
+
+.slider {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  will-change: clip-path;
+  opacity: 0.3;
+}
+
+.slide-bg-img:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-color: var(--color-thirty);
+}
+
+.slide-main-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 25%;
+  height: 50%;
+  z-index: 2;
+  opacity: 0.5;
+}
+
+.slide-main-img-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  will-change: clip-path;
+}
+
+.slide-copy {
+  position: absolute;
+  justify-content: center;
+  color: var(--color-one);
+  z-index: 2;
+  width: auto;
+  padding: 20px;
+  top: 50vh;
+  left: 37.5vw;
+  right: 3vw;
+  border: 1px solid var(--color-one);
+}
+
+.slide-title {
+  position: relative;
+  width: 500px;
+  height: 50px;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.slide-title h1 {
+  position: absolute;
+  color: var(--color-one);
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1;
+  transform: translateY(0px);
+  will-change: transform;
+}
+
+@media (max-width: 900px) {
+  .slide-main-img {
+    width: 80%;
+  }
+  .slide-copy {
+    left: 10vw;
+  }
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    padding: 3em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+  }
+}
+
+/* Dark Mode Toggle */
+body.dark-mode {
+  background-color: black;
+  color: red;
+}
+
+/* Fixed header container with the dark mode button & burger */
+.fixed-box {
+  position: fixed;
+  top: 20px;
+  left: 3vw;
+  right: 3vw;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  border: 1px solid var(--color-one);
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+.big-box {
+  position: fixed;
+  top: 80px;
+  bottom: 20px;
+  left: 3vw;
+  right: 3vw;
+  z-index: 10;
+  border: 1px solid var(--color-one);
+}
+
+/* Dark Mode Button (circle with two halves) */
+#darkModeButton {
+  height: 25px;
+  width: 25px;
+  background-color: transparent;
+  border: 1px solid var(--color-one);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.circle {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--color-one);
+}
+
+.half {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  opacity: 1;
+}
+
+.left {
+  left: 0;
+  border-top-left-radius: 7.5px;
+  border-bottom-left-radius: 7.5px;
+  background-color: transparent !important;
+}
+
+.right {
+  right: 0;
+  border-top-right-radius: 7.5px;
+  border-bottom-right-radius: 7.5px;
+  background-color: var(--color-one) !important;
+}
+
+/* The clickable logo text (center-text) */
+.center-text {
+  text-decoration: none;
+  color: var(--color-one);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Burger button */
+.burger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 1px solid var(--color-one);
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+.square-container {
+  display: flex;
+  gap: 5px;
+  transition: flex-direction 0.3s ease;
+}
+.square-one,
+.square-two {
+  width: 4px;
+  height: 4px;
+  background-color: var(--color-one);
+}
+.burger.rotate .square-container {
+  flex-direction: column;
+}
+
+/* Menu Overlay / Slide-down Bars */
+.menu-overlay {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  backdrop-filter: blur(0px);
+  transition: background-color 0.5s, backdrop-filter 0.5s;
+  z-index: 10;
+  overflow: hidden;
+}
+.menu-bar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateX(100%);
+  z-index: 1;
+  overflow: hidden;
+}
+.menu-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+  margin-left: 3vw;
+  margin-right: 3vw;
+}
+.menu-line {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 8px;
+  height: 110px;
+  width: 94vw;
+  border: 1px solid var(--color-one);
+  transform: translateX(100%);
+  margin-bottom: 20px;
+  background-color: var(--background-color-one);
+}
+.menu-title {
+  color: var(--color-one);
+  font-size: 20px;
+  margin: 10px 0;
+  font-weight: bold;
+}
+.menu-title.one {
+  font-size: 34px;
+}
+.menu-title.two {
+  font-size: 17px;
+}
+
+.noise {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+/* Optionally, you can also place the .menu-open class definition in your main CSS file: */
+.fixed-box.menu-open {
+  background-color: var(--background-color-one);
+  transition: background-color 0.6s ease;
+}

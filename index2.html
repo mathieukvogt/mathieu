@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mathieu | Home</title>
+    <link rel="stylesheet" href="styles2.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <base href="https://mathieu/home.so/" />
+  </head>
+  <body>
+    <canvas id="noise" class="noise"></canvas>
+
+    <!-- LOADING ANIMATION OVERLAY -->
+    <div class="overlay">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <!-- END LOADING ANIMATION OVERLAY -->
+
+    <!-- BEGIN NAVBAR + DARK MODE INTEGRATION -->
+    <header>
+      <div class="fixed-box">
+        <!-- Dark Mode Button -->
+        <button id="darkModeButton">
+          <div class="circle">
+            <div class="half left"></div>
+            <div class="half right"></div>
+          </div>
+        </button>
+
+        <!-- Logo / Brand Text -->
+        <a href="#top" class="center-text"><b>MATHIEU</b></a>
+
+        <!-- Burger Menu Trigger -->
+        <button class="burger">
+          <div class="square-container">
+            <div class="square-one"></div>
+            <div class="square-two"></div>
+          </div>
+        </button>
+      </div>
+      <div class="big-box"></div>
+    </header>
+
+    <!-- Menu Overlay (slides in on Burger click) -->
+    <div class="menu-overlay">
+      <div class="menu-bar">
+        <div class="menu-content">
+          <div class="menu-line">
+            <div class="menu-title one">JAVASCRIPT</div>
+            <div class="menu-title two">[01]</div>
+          </div>
+          <div class="menu-line">
+            <div class="menu-title one">ARTICLES</div>
+            <div class="menu-title two">[02]</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END NAVBAR + DARK MODE INTEGRATION -->
+
+    <footer>
+      <p>Index</p>
+
+      <div class="slider-counter">
+        <div class="count"><p>1</p></div>
+        <p>/</p>
+        <p>3</p>
+      </div>
+    </footer>
+
+    <div class="slider">
+      <!-- Slide 1 -->
+      <div class="slide">
+        <div class="slide-bg-img">
+          <img src="./assets/img1.png" alt="" />
+        </div>
+      </div>
+
+      <div class="slide-main-img">
+        <div class="slide-main-img-wrapper">
+          <img src="./assets/img1.png" alt="" />
+        </div>
+      </div>
+
+      <!-- Slide Copy Only With Title (No Description) -->
+      <div class="slide-copy">
+        <div class="slide-title">
+          <h1>[Coding]</h1>
+        </div>
+      </div>
+    </div>
+
+    <!-- GSAP and CustomEase scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+    <!-- Your main script with integrated loading animation -->
+    <script src="./script2.js"></script>
+  </body>
+</html>
