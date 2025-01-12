@@ -291,7 +291,7 @@ footer p {
 
 /* Dark Mode Toggle */
 body.dark-mode {
-  background-color: blue;
+  background-color: black;
 }
 
 /* Fixed header container with the dark mode button & burger */

@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
     slideBgImg.className = "slide-bg-img";
 
     const img = document.createElement("img");
-    img.src = `./assets/img${slideNumber}.png`;
+    img.src = `./assets/img${slideNumber}.jpg`;
     img.alt = "";
 
     slideBgImg.appendChild(img);
@@ -179,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
     wrapper.className = "slide-main-img-wrapper";
 
     const img = document.createElement("img");
-    img.src = `./assets/img${slideNumber}.png`;
+    img.src = `./assets/img${slideNumber}.jpg`;
     img.alt = "";
 
     wrapper.appendChild(img);
