@@ -39,8 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    const currentMode = localStorage.getItem("mode") || "dark";
+    // Set default mode to dark
+    const currentMode = "dark"; // Changed to default to dark mode
     applyMode(currentMode);
+    localStorage.setItem("mode", currentMode); // Store the default mode
 
     darkModeButton.addEventListener("click", () => {
       const isDarkMode = document.body.classList.toggle("dark-mode");
@@ -88,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         gsap.to(menuOverlay, {
           duration: 0.2,
-          backgroundColor: "rgba(0, 0, 0, 0.85)",
+          backgroundColor: "var(--color-fourty)",
         });
         gsap.to(menuOverlay, {
           duration: 0.5,
@@ -173,22 +175,39 @@ document.addEventListener("DOMContentLoaded", () => {
     return slide;
   }
 
-  // Create the new main image wrapper
+  // **Updated Function:** Create the new main image wrapper with video
   function createMainImageWrapper(slideNumber, direction) {
     const wrapper = document.createElement("div");
     wrapper.className = "slide-main-img-wrapper";
 
-    const img = document.createElement("img");
-    img.src = `./assets/img${slideNumber}.jpg`;
-    img.alt = "";
+    // Create video element instead of img
+    const video = document.createElement("video");
+    video.src = `./assets/vid${slideNumber}.mp4`;
+    video.autoplay = true;
+    video.loop = true;
+    video.muted = true;
+    video.playsInline = true; // For mobile devices
+    video.style.width = "100%";
+    video.style.height = "100%";
+    video.style.objectFit = "cover";
+    video.style.display = "block";
 
-    wrapper.appendChild(img);
+    // Create overlay div
+    const overlay = document.createElement("div");
+    overlay.className = "red-overlay"; // New class for the overlay
+    overlay.style.opacity = "0.5"; // Set the opacity directly
+
+    wrapper.appendChild(video);
+    wrapper.appendChild(overlay); // Append overlay to the wrapper
+
+    // Set initial visibility of the overlay
+    overlay.style.opacity = "1"; // Ensure the overlay is visible initially
 
     if (direction === "down") {
-      wrapper.style.clipPath = "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)";
-    } else {
       wrapper.style.clipPath =
         "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)";
+    } else {
+      wrapper.style.clipPath = "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)";
     }
 
     return wrapper;
@@ -252,13 +271,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Start the new slide off invisible (for crossfade)
     gsap.set(newSlide, { autoAlpha: 0 });
-    gsap.set(newMainWrapper.querySelector("img"), {
+    gsap.set(newMainWrapper.querySelector("video"), {
       y: direction === "down" ? "-50%" : "50%",
     });
 
     // GSAP Timeline
     const tl = gsap.timeline({
       onComplete: () => {
+        // Pause the previous video to save resources
+        const previousVideo = currentMainWrapper.querySelector("video");
+        if (previousVideo) {
+          previousVideo.pause();
+        }
+
         // Remove old elements
         [
           currentSlideElement,
@@ -309,7 +334,7 @@ document.addEventListener("DOMContentLoaded", () => {
         0
       )
       .to(
-        currentMainWrapper.querySelector("img"),
+        currentMainWrapper.querySelector("video"),
         {
           y: direction === "down" ? "50%" : "-50%",
           duration: 1.5, // Increased duration
@@ -318,7 +343,7 @@ document.addEventListener("DOMContentLoaded", () => {
         0
       )
       .to(
-        newMainWrapper.querySelector("img"),
+        newMainWrapper.querySelector("video"),
         {
           y: "0%",
           duration: 1.5, // Increased duration

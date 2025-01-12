@@ -20,6 +20,7 @@
   --color-twenty: #f2f2f2;
   --background-color-twenty: #2f6dff;
   --color-thirty: rgba(0, 0, 0, 0.125);
+  --color-fourty: rgba(255, 255, 255, 0.85);
   overscroll-behavior: contain;
 }
 
@@ -45,6 +46,7 @@ body.dark-mode {
   --color-twenty: #000000;
   --background-color-twenty: #0400ff;
   --color-thirty: rgba(0, 0, 0, 0.125);
+  --color-fourty: rgba(0, 0, 0, 0.85);
 }
 
 @font-face {
@@ -128,6 +130,7 @@ body {
   width: 100%;
   height: 100%;
   font-family: "KK-Topo", sans-serif;
+  background-color: red;
 }
 
 img {
@@ -216,6 +219,18 @@ footer p {
   height: 100%;
   display: block;
   background-color: var(--color-thirty);
+  border: 1px solid var(--color-one);
+}
+
+.borderdiv {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 50%;
+  border: 1px solid var(--color-one);
+  z-index: 3;
 }
 
 .slide-main-img {
@@ -223,10 +238,10 @@ footer p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 25%;
+  width: 60%;
   height: 50%;
   z-index: 2;
-  opacity: 0.2;
+  opacity: 0.3;
 }
 
 .slide-main-img-wrapper {
@@ -241,15 +256,15 @@ footer p {
 
 .slide-copy {
   position: absolute;
-  justify-content: center;
   color: var(--color-one);
   z-index: 2;
   width: auto;
   padding: 20px;
-  top: 50vh;
-  left: 37.5vw;
-  right: 3vw;
-  border: 1px solid var(--color-one);
+  top: 45vh;
+  left: 20vw;
+  right: 20vw;
+  border-top: 1px solid var(--color-one);
+  border-bottom: 1px solid var(--color-one);
 }
 
 .slide-title {
@@ -270,12 +285,28 @@ footer p {
 }
 
 @media (max-width: 900px) {
+  .borderdiv {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 50%;
+    border: 1px solid var(--color-one);
+    z-index: 3;
+  }
+
   .slide-main-img {
     width: 80%;
   }
+
   .slide-copy {
     left: 10vw;
+    right: 10vw;
+    border-left: none;
+    border-right: none;
   }
+
   footer {
     position: fixed;
     bottom: 0;
@@ -291,11 +322,8 @@ footer p {
 
 /* Dark Mode Toggle */
 body.dark-mode {
-  background-color: black;
-}
-
-body {
-  background-color: rgb(60, 95, 255);
+  background-color: rgb(0, 0, 0);
+  color: white;
 }
 
 /* Fixed header container with the dark mode button & burger */
@@ -322,6 +350,9 @@ body {
   right: 3vw;
   z-index: 10;
   border: 1px solid var(--color-one);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 /* Dark Mode Button (circle with two halves) */
@@ -459,18 +490,37 @@ body {
   font-size: 17px;
 }
 .noise {
-  z-index: -1;
+  z-index: 1;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  opacity: 0.1;
+  opacity: 0.05;
 }
 
 /* Optionally, you can also place the .menu-open class definition in your main CSS file: */
 .fixed-box.menu-open {
-  background-color: var(--background-color-one);
+  background-color: var(--color-fourty);
+  border: 1px solid var(--color-one);
   transition: background-color 0.6s ease;
+}
+
+.slide-main-img-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Red overlay for the main image */
+.red-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1); /* Red color with 0.5 opacity */
+  pointer-events: none; /* Allow clicks to pass through */
 }
