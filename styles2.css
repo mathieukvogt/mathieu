@@ -20,7 +20,7 @@
   --color-twenty: #f2f2f2;
   --background-color-twenty: #2f6dff;
   --color-thirty: rgba(0, 0, 0, 0.125);
-  --color-fourty: rgba(255, 255, 255, 0.85);
+  --color-fourty: rgba(255, 0, 0, 0.85);
   overscroll-behavior: contain;
 }
 
@@ -145,17 +145,24 @@ footer {
   bottom: 0;
   left: 0;
   width: 100vw;
-  padding: 4em;
+  padding: 4em 6em;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 2;
+  font-size: 12px;
 }
 
 footer p {
   color: var(--color-one);
-  font-size: 15px;
-  font-weight: lighter;
+  font-size: 12px;
+  font-family: monospace;
+}
+
+p {
+  color: var(--color-one);
+  font-size: 12px;
+  font-family: monospace;
 }
 
 .slider-counter {
@@ -178,7 +185,7 @@ footer p {
 .count p {
   position: absolute;
   transform: translateY(0px);
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1;
   will-change: transform;
   opacity: 1;
@@ -254,17 +261,81 @@ footer p {
   will-change: clip-path;
 }
 
+.metainfo {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-one);
+  z-index: 2;
+  width: 100%;
+  font-family: monospace;
+  height: 40%;
+}
+
+.metatitleone {
+  width: 50%;
+  border-right: var(--color-one) 1px solid;
+  padding: 10px;
+  font-size: 10px;
+}
+
+.metatitletwo {
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+  width: 50%;
+  padding: 10px;
+  font-size: 10px;
+}
+
+.metaclass {
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  color: var(--color-one);
+  z-index: 2;
+  width: 100%;
+  font-family: monospace;
+  height: 38%;
+  top: 62%;
+}
+
+.metaone {
+  width: 33.3%;
+  border-right: var(--color-one) 1px solid;
+  padding: 10px;
+  font-size: 10px;
+}
+
+.metatwo {
+  width: 33.3%;
+  border-right: var(--color-one) 1px solid;
+  padding: 10px;
+  font-size: 10px;
+  height: 100%;
+}
+
+.metathree {
+  width: 33.3%;
+  padding: 10px;
+  font-size: 10px;
+  height: 100%;
+}
+
 .slide-copy {
   position: absolute;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
   color: var(--color-one);
   z-index: 2;
   width: auto;
-  padding: 20px;
-  top: 45vh;
+  top: 45%;
   left: 20vw;
   right: 20vw;
   border-top: 1px solid var(--color-one);
   border-bottom: 1px solid var(--color-one);
+  height: 11%;
 }
 
 .slide-title {
@@ -277,7 +348,7 @@ footer p {
 .slide-title h1 {
   position: absolute;
   color: var(--color-one);
-  font-size: 48px;
+  font-size: 45px;
   font-weight: 400;
   line-height: 1;
   transform: translateY(0px);
@@ -475,19 +546,19 @@ body.dark-mode {
   border: 1px solid var(--color-one);
   transform: translateX(100%);
   margin-bottom: 20px;
-  background-color: var(--background-color-one);
+  background-color: var(--color-fourty);
 }
 .menu-title {
   color: var(--color-one);
-  font-size: 20px;
+  font-size: 40px;
   margin: 10px 0;
   font-weight: bold;
 }
 .menu-title.one {
-  font-size: 34px;
+  font-size: 36px;
 }
 .menu-title.two {
-  font-size: 17px;
+  font-size: 18px;
 }
 .noise {
   z-index: 1;
