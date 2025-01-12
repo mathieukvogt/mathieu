@@ -226,7 +226,7 @@ footer p {
   width: 25%;
   height: 50%;
   z-index: 2;
-  opacity: 0.5;
+  opacity: 0.2;
 }
 
 .slide-main-img-wrapper {
@@ -291,8 +291,7 @@ footer p {
 
 /* Dark Mode Toggle */
 body.dark-mode {
-  background-color: black;
-  color: red;
+  background-color: blue;
 }
 
 /* Fixed header container with the dark mode button & burger */
