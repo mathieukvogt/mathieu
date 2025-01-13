@@ -722,4 +722,28 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
+  // --------------------------------------------------
+  // 5) DISPLAY ZURICH TIME IN THE .metathree DIV
+  // --------------------------------------------------
+
+  // Function to update Zurich time
+  function updateZurichTime() {
+    const zurichTimeElem = document.querySelector(".metathree");
+    if (zurichTimeElem) {
+      const zurichTime = new Intl.DateTimeFormat("en-GB", {
+        timeZone: "Europe/Zurich",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      }).format(new Date());
+      zurichTimeElem.textContent = zurichTime;
+    }
+  }
+
+  // Initial call to display the time immediately
+  updateZurichTime();
+
+  // Update the time every second
+  setInterval(updateZurichTime, 1000);
 });

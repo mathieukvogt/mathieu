@@ -276,6 +276,10 @@ p {
   border-right: var(--color-one) 1px solid;
   padding: 10px;
   font-size: 11px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .metatitletwo {
