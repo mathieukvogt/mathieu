@@ -150,19 +150,19 @@ footer {
   justify-content: space-between;
   align-items: center;
   z-index: 2;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 footer p {
   color: var(--color-one);
-  font-size: 12px;
-  font-family: monospace;
+  font-size: 13px;
+  font-family: "DM Mono", "KK-Topo", monospace;
 }
 
 p {
   color: var(--color-one);
-  font-size: 12px;
-  font-family: monospace;
+  font-size: 13px;
+  font-family: "DM Mono", "KK-Topo", monospace;
 }
 
 .slider-counter {
@@ -185,7 +185,7 @@ p {
 .count p {
   position: absolute;
   transform: translateY(0px);
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1;
   will-change: transform;
   opacity: 1;
@@ -226,7 +226,6 @@ p {
   height: 100%;
   display: block;
   background-color: var(--color-thirty);
-  border: 1px solid var(--color-one);
 }
 
 .borderdiv {
@@ -268,7 +267,7 @@ p {
   color: var(--color-one);
   z-index: 2;
   width: 100%;
-  font-family: monospace;
+  font-family: "DM Mono", "KK-Topo", monospace;
   height: 40%;
 }
 
@@ -276,26 +275,27 @@ p {
   width: 50%;
   border-right: var(--color-one) 1px solid;
   padding: 10px;
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .metatitletwo {
   display: flex;
   justify-content: flex-end;
+  align-items: flex-end;
   width: 50%;
   width: 50%;
   padding: 10px;
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .metaclass {
   position: absolute;
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   color: var(--color-one);
   z-index: 2;
   width: 100%;
-  font-family: monospace;
+  font-family: "DM Mono", "KK-Topo", monospace;
   height: 38%;
   top: 62%;
 }
@@ -304,22 +304,28 @@ p {
   width: 33.3%;
   border-right: var(--color-one) 1px solid;
   padding: 10px;
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .metatwo {
   width: 33.3%;
   border-right: var(--color-one) 1px solid;
   padding: 10px;
-  font-size: 10px;
+  font-size: 11px;
   height: 100%;
+  font-family: "DM Mono", monospace;
 }
 
 .metathree {
   width: 33.3%;
   padding: 10px;
-  font-size: 10px;
+  font-size: 11px;
+  color: var(--color-one);
+  font-family: "DM Mono", monospace;
   height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .slide-copy {
@@ -388,6 +394,8 @@ p {
     justify-content: space-between;
     align-items: center;
     z-index: 2;
+    font-family: "DM Mono", "KK-Topo", monospace;
+    font-size: 13px;
   }
 }
 
@@ -423,7 +431,8 @@ body.dark-mode {
   border: 1px solid var(--color-one);
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-end;
+  padding: 6px;
 }
 
 /* Dark Mode Button (circle with two halves) */
@@ -473,7 +482,7 @@ body.dark-mode {
 .center-text {
   text-decoration: none;
   color: var(--color-one);
-  font-size: 14px;
+  font-size: 13.5px;
   cursor: pointer;
 }
 
@@ -550,15 +559,21 @@ body.dark-mode {
 }
 .menu-title {
   color: var(--color-one);
-  font-size: 40px;
+  font-size: 32px;
   margin: 10px 0;
   font-weight: bold;
+  text-decoration: none;
 }
+
+a {
+  text-decoration: none;
+}
+
 .menu-title.one {
-  font-size: 36px;
+  font-size: 32px;
 }
 .menu-title.two {
-  font-size: 18px;
+  font-size: 17px;
 }
 .noise {
   z-index: 1;
@@ -594,4 +609,79 @@ body.dark-mode {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.1); /* Red color with 0.5 opacity */
   pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* Add media query for larger screens */
+@media (min-width: 900px) {
+  .menu-line {
+    width: 47vw;
+    margin-left: auto; /* Aligns the menu lines to the right edge */
+  }
+  .menu-title {
+    color: var(--color-one);
+    font-size: 40px;
+    margin: 10px 0;
+    font-weight: bold;
+  }
+  .menu-title.one {
+    font-size: 44px;
+  }
+  .menu-title.two {
+    font-size: 22px;
+  }
+}
+
+/* Style for the Read More button */
+.slide-symbol {
+  position: relative;
+  display: inline-block;
+  width: 75px;
+  height: 25px;
+  padding: 6px;
+  background-color: transparent;
+  color: var(--color-one);
+  cursor: pointer;
+  border-right: 1px solid var(--color-one);
+  border-top: 1px solid var(--color-one);
+  border-left: none;
+  border-bottom: none;
+  box-shadow: none;
+  outline: none;
+  font-family: "DM Mono", "KK-Topo", monospace;
+  overflow: hidden; /* Hide overflowing content */
+}
+
+.slide-symbol span {
+  position: absolute;
+  bottom: 0; /* Position at the bottom */
+  left: 0; /* Position to the left */
+  text-align: left;
+  will-change: transform, opacity;
+  font-size: 13px;
+}
+
+/* Black Overlay for Transition */
+.black-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black; /* Background color for the overlay */
+  opacity: 0; /* Start fully transparent */
+  pointer-events: none; /* Prevent interactions when not active */
+  transform: translateY(100%); /* Start off-screen at the bottom */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transitions */
+  z-index: 9999; /* Ensure it's on top of other elements */
+}
+
+.black-overlay.active {
+  opacity: 1; /* Fully opaque when active */
+  pointer-events: auto; /* Enable interactions if needed */
+  transform: translateY(0%); /* Slide up to cover the screen */
+}
+
+.metatitleone p,
+.metatitletwo p {
+  font-size: 11px;
 }

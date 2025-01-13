@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mathieu | Home</title>
-    <link rel="stylesheet" href="styles2.css" />
+    <link rel="stylesheet" href="base.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=VT323&display=swap"
       rel="stylesheet"
     />
+    <base href="https://mathieu.so/" />
   </head>
   <body class="dark-mode">
     <canvas id="noise" class="noise" aria-hidden="true"></canvas>
@@ -52,21 +53,30 @@
           </div>
         </button>
       </div>
-      <div class="big-box"></div>
+      <div class="big-box">
+        <!-- Dynamic Symbol Button -->
+        <button id="slideSymbol" class="slide-symbol">
+          <span>Coding</span>
+        </button>
+      </div>
     </header>
 
     <!-- Menu Overlay (slides in on Burger click) -->
     <div class="menu-overlay" aria-hidden="true">
       <div class="menu-bar">
         <div class="menu-content">
-          <div class="menu-line">
-            <div class="menu-title one">JAVASCRIPT</div>
+          <a href="encyclopedia.html" class="menu-line">
+            <div class="menu-title one">ENCYCLOPEDIA</div>
             <div class="menu-title two">[01]</div>
-          </div>
-          <div class="menu-line">
+          </a>
+          <a href="articles.html" class="menu-line">
             <div class="menu-title one">ARTICLES</div>
             <div class="menu-title two">[02]</div>
-          </div>
+          </a>
+          <a href="about.html" class="menu-line">
+            <div class="menu-title one">ABOUT</div>
+            <div class="menu-title two">[03]</div>
+          </a>
         </div>
       </div>
     </div>
@@ -94,12 +104,15 @@
 
       <div class="slide-main-img">
         <div class="metainfo">
-          <div class="metatitleone"><p>FULLSTACK</p></div>
-          <div class="metatitletwo"><p>ZURICH</p></div>
+          <div class="metatitleone">
+            <p>Fullstack</p>
+            <p>Bootstrapping</p>
+          </div>
+          <div class="metatitletwo"><p>Zurich</p></div>
         </div>
         <div class="metaclass">
           <div class="metaone"></div>
-          <div class="metatwo"></div>
+          <div class="metatwo">UTC+1</div>
           <div class="metathree"></div>
         </div>
         <div class="slide-main-img-wrapper">
@@ -128,10 +141,18 @@
       defer
     ></script>
     <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"
+      defer
+    ></script>
+    <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"
       defer
     ></script>
+
+    <!-- Black Overlay for Transition -->
+    <div id="blackOverlay" class="black-overlay" aria-hidden="true"></div>
+
     <!-- Your main script with integrated loading animation -->
-    <script src="./script2.js" defer></script>
+    <script src="./base.js" defer></script>
   </body>
 </html>

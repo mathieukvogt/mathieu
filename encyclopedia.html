@@ -24,13 +24,13 @@
     />
     <meta name="theme-color" content="#000000" />
     <title>mathieu | learn javascript</title>
-    <link href="main.css" rel="stylesheet" />
+    <link href="encyclopedia.css" rel="stylesheet" />
     <link rel="stylesheet" href="github-dark.css" />
     <link rel="icon" href="green.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=VT323&display=swap" rel="stylesheet">
-    <base href="https://mathieu.so/" />
+    <!--<base href="https://mathieu.so/" />-->
   </head>
   <body>
     <canvas id="noise" class="noise"></canvas>  
@@ -49,17 +49,20 @@
     <div class="menu-overlay">
       <div class="menu-bar">
         <div class="menu-content">
-          <div class="menu-line">
-            <div class="menu-title one">JAVASCRIPT</div>
+          <a href="encyclopedia.html" class="menu-line">
+            <div class="menu-title one">ENCYCLOPEDIA</div>
             <div class="menu-title two">[01]</div>
-          </div>
-          <div class="menu-line">
+          </a>
+          <a href="articles.html" class="menu-line">
             <div class="menu-title one">ARTICLES</div>
             <div class="menu-title two">[02]</div>
-          </div>
+          </a>
+          <a href="about.html" class="menu-line">
+            <div class="menu-title one">ABOUT</div>
+            <div class="menu-title two">[03]</div>
+          </a>
         </div>
       </div>
-    </div>
     </div>
     <header>
         <div class="fixed-box">
@@ -69,7 +72,7 @@
               <div class="half right"></div>
             </div>
           </button>
-          <a href="#top" class="center-text"><b>MATHIEU</b></a>
+          <a href="base.html" class="center-text"><b>MATHIEU</b></a>
           <button class="burger">
             <div class="square-container">
               <div class="square-one"></div>
@@ -80,7 +83,7 @@
     </header>
     <main role="main" class="main-content">
       <section id="elements">
-        <h2><a href="index2.html">Index [166]</a></h2>
+        <h2>Index [166]</h2>
       </section>
       <div class="custom-hr">
         <div class="symbol half-plus l"></div>
@@ -15801,6 +15804,6 @@ describe('Deep Strict Equal - Different Nested Values', function() {
     </script>
     <script src="https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js"></script>
     <script src="https://unpkg.com/smoothscroll-anchor-polyfill"></script>
-    <script src="script.js"></script>
+    <script src="encyclopedia.js"></script>
   </body>
 </html>

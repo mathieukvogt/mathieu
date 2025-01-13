@@ -41,24 +41,50 @@ document.addEventListener("DOMContentLoaded", function () {
   const leftHalf = darkModeButton.querySelector(".half.left");
   const rightHalf = darkModeButton.querySelector(".half.right");
 
-  // Function to apply the mode by setting background colors
   function applyMode(mode) {
     if (mode === "dark") {
       document.documentElement.classList.add("dark-mode");
       document.body.classList.add("dark-mode");
-      leftHalf.style.backgroundColor = "var(--color-eight)"; // Dark background
-      rightHalf.style.backgroundColor = "transparent"; // Light background
+      leftHalf.style.backgroundColor = "var(--color-eight)"; // Dark side
+      rightHalf.style.backgroundColor = "transparent"; // Light side
     } else {
       document.documentElement.classList.remove("dark-mode");
       document.body.classList.remove("dark-mode");
-      leftHalf.style.backgroundColor = "transparent"; // Light background
-      rightHalf.style.backgroundColor = "var(--color-eight)"; // Dark background
+      leftHalf.style.backgroundColor = "transparent"; // Light side
+      rightHalf.style.backgroundColor = "var(--color-eight)"; // Dark side
     }
   }
 
-  // Initialize mode from localStorage or default to light
-  const currentMode = localStorage.getItem("mode") || "light";
+  // Function to get URL query parameters
+  function getQueryParams() {
+    const params = {};
+    window.location.search
+      .substring(1)
+      .split("&")
+      .forEach(function (param) {
+        const [key, value] = param.split("=");
+        params[key] = value;
+      });
+    return params;
+  }
+
+  // Initialize mode from URL parameter, localStorage, or default to system preference
+  const params = getQueryParams();
+  const urlMode = params["mode"];
+
+  const storedMode = localStorage.getItem("mode");
+  const systemPrefersDark = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+
+  const currentMode =
+    urlMode || storedMode || (systemPrefersDark ? "dark" : "light");
   applyMode(currentMode);
+
+  // If mode is specified in URL, update localStorage
+  if (urlMode) {
+    localStorage.setItem("mode", urlMode);
+  }
 
   // Toggle mode and update background colors on button click
   darkModeButton.addEventListener("click", function () {
@@ -126,46 +152,15 @@ document.addEventListener("DOMContentLoaded", function () {
         stagger: 0.2,
         ease: "power4.out",
       });
-      menuTitleTwos.forEach((element, index) => {
-        gsap.fromTo(
-          element,
-          {
-            text: {
-              value: "",
-            },
-          },
-          {
-            duration: 0.6,
-            delay: index * 0.3 + 0.2,
-            text: {
-              value: element.textContent,
-              scramble: 5,
-              chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-            },
-            ease: "none",
-          }
-        );
+      menuTitleTwos.forEach((element) => {
+        element.textContent = element.textContent;
       });
-      menuTitleOne.forEach((element, index) => {
-        gsap.fromTo(
-          element,
-          {
-            text: {
-              value: "",
-            },
-          },
-          {
-            duration: 0.6,
-            delay: index * 0.2 + 0.2,
-            text: {
-              value: element.textContent,
-              scramble: 5,
-              chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-            },
-            ease: "none",
-          }
-        );
+      menuTitleOne.forEach((element) => {
+        element.textContent = element.textContent;
       });
+
+      // **Enable pointer events when menu is open**
+      menuOverlay.style.pointerEvents = "auto";
     } else {
       menuOpen = false;
       // Animate menu bars moving up
@@ -191,6 +186,9 @@ document.addEventListener("DOMContentLoaded", function () {
         stagger: 0.2,
         ease: "power4.out",
       });
+
+      // **Disable pointer events when menu is closed**
+      menuOverlay.style.pointerEvents = "none";
     }
   });
   let isRotated = false;

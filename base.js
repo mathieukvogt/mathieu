@@ -1,5 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
   // --------------------------------------------------
+  // Register GSAP Plugins
+  // --------------------------------------------------
+  gsap.registerPlugin(TextPlugin);
+
+  // --------------------------------------------------
   // 0) LOADING ANIMATION
   // --------------------------------------------------
   gsap.to(".bar", 1.3, {
@@ -64,6 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuBars = document.querySelectorAll(".menu-bar");
   const menuOverlay = document.querySelector(".menu-overlay");
   const menuLines = document.querySelectorAll(".menu-line");
+  const menuTitleOnes = document.querySelectorAll(".menu-title.one");
+  const menuTitleTwos = document.querySelectorAll(".menu-title.two");
 
   let menuOpen = false;
 
@@ -76,6 +83,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Get the .fixed-box element
       const fixedBox = document.querySelector(".fixed-box");
+
+      // Determine if the screen is large
+      const isLargeScreen = window.innerWidth >= 900;
+
+      // Define x values (consistent across screen sizes now)
+      const menuLineOpenX = "0%";
+      const menuLineCloseX = "100%";
 
       // When we open the menu
       if (menuOpen) {
@@ -99,9 +113,44 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.to(menuLines, {
           duration: 0.6,
           delay: 0.1,
-          x: "0%",
+          x: menuLineOpenX,
           stagger: 0.2,
           ease: "power4.out",
+        });
+
+        // Add scramble text animation to menu titles
+        menuTitleTwos.forEach((element, index) => {
+          gsap.fromTo(
+            element,
+            { text: { value: "" } },
+            {
+              duration: 0.6,
+              delay: index * 0.3 + 0.2,
+              text: {
+                value: element.textContent,
+                scramble: 5,
+                chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+              },
+              ease: "none",
+            }
+          );
+        });
+
+        menuTitleOnes.forEach((element, index) => {
+          gsap.fromTo(
+            element,
+            { text: { value: "" } },
+            {
+              duration: 0.6,
+              delay: index * 0.2 + 0.2,
+              text: {
+                value: element.textContent,
+                scramble: 5,
+                chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+              },
+              ease: "none",
+            }
+          );
         });
       }
       // When we close the menu
@@ -130,16 +179,24 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.to(menuLines, {
           duration: 0.6,
           delay: 0.1,
-          x: "130%",
+          x: menuLineCloseX,
           stagger: 0.2,
           ease: "power4.out",
+        });
+
+        // Optionally, reset the text to original state when closing the menu
+        menuTitleOnes.forEach((element) => {
+          element.textContent = element.textContent;
+        });
+        menuTitleTwos.forEach((element) => {
+          element.textContent = element.textContent;
         });
       }
     });
   }
 
   // --------------------------------------------------
-  // 3) SLIDER FUNCTIONALITY (Title Only)
+  // 3) SLIDER FUNCTIONALITY (Updated)
   // --------------------------------------------------
   const totalSlides = 3;
   let currentSlide = 1;
@@ -149,6 +206,83 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Only slide titles remain
   const slideTitles = ["[Coding]", "[Articles]", "[About]"];
+  const slideLinks = ["encyclopedia.html", "articles.html", "about.html"];
+
+  // Function to update and animate the slideSymbol button
+  function updateSlideSymbolButton(direction) {
+    const slideSymbolButton = document.getElementById("slideSymbol");
+    if (slideSymbolButton) {
+      const oldTextSpan = slideSymbolButton.querySelector("span");
+
+      // Remove square brackets from slide title to get button text
+      const newText = slideTitles[currentSlide - 1].replace(/\[|\]/g, "");
+      const newTextSpan = document.createElement("span");
+      newTextSpan.textContent = newText;
+
+      // Set initial position of the new text span
+      gsap.set(newTextSpan, { y: direction === "down" ? 20 : -20, opacity: 0 });
+
+      slideSymbolButton.appendChild(newTextSpan);
+
+      // Animate old text out and new text in
+      const tl = gsap.timeline({
+        onComplete: () => {
+          // Remove old text span after animation completes
+          if (oldTextSpan) {
+            oldTextSpan.remove();
+          }
+        },
+      });
+
+      tl.to(
+        oldTextSpan,
+        {
+          y: direction === "down" ? "-100%" : "100%",
+          opacity: 0,
+          duration: 0.5,
+          ease: "power2.inOut",
+        },
+        0
+      ).fromTo(
+        newTextSpan,
+        { y: direction === "down" ? "100%" : "-100%", opacity: 0 },
+        {
+          y: "0%",
+          opacity: 1,
+          duration: 0.5,
+          ease: "power2.inOut",
+        },
+        0
+      );
+
+      // Update the button's click handler to navigate to the corresponding page with transition
+      const linkTarget = slideLinks[currentSlide - 1];
+      slideSymbolButton.onclick = function (event) {
+        event.preventDefault(); // Prevent the default navigation
+
+        // Activate the black overlay for slide-up transition
+        const blackOverlay = document.getElementById("blackOverlay");
+        if (blackOverlay) {
+          blackOverlay.classList.add("active");
+
+          // Listen for the end of the transition
+          blackOverlay.addEventListener(
+            "transitionend",
+            () => {
+              window.location.href = linkTarget;
+            },
+            { once: true } // Ensure the event fires only once
+          );
+        } else {
+          // Fallback to default navigation if overlay not found
+          window.location.href = linkTarget;
+        }
+      };
+    }
+  }
+
+  // Initial call to set the button text on page load
+  updateSlideSymbolButton("down");
 
   // Create a new slide's background
   function createSlide(slideNumber, direction) {
@@ -407,6 +541,9 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         "-=1.0" // Synchronize with fade-in
       );
+
+    // Update the slideSymbol button after slide change
+    updateSlideSymbolButton(direction);
   }
 
   function handleScroll(direction) {
@@ -556,4 +693,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Call the noise function to launch the noise effect
   noise();
+
+  // --------------------------------------------------
+  // 4) SMOOTH SLIDE-UP TRANSITION ON MENU LINE CLICK
+  // --------------------------------------------------
+
+  menuLines.forEach((menuLine) => {
+    menuLine.addEventListener("click", (event) => {
+      event.preventDefault(); // Prevent the default navigation
+
+      const targetUrl = menuLine.getAttribute("href");
+
+      // Activate the overlay (trigger CSS transition)
+      if (blackOverlay) {
+        blackOverlay.classList.add("active");
+
+        // Listen for the end of the transition
+        blackOverlay.addEventListener(
+          "transitionend",
+          () => {
+            window.location.href = targetUrl;
+          },
+          { once: true } // Ensure the event fires only once
+        );
+      } else {
+        // Fallback to default navigation if overlay not found
+        window.location.href = targetUrl;
+      }
+    });
+  });
 });

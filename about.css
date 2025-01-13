@@ -18,7 +18,7 @@
   --color-fifteen: rgb(255, 255, 255);
   --color-sixteen: rgba(242, 242, 242, 0.75);
   --color-twenty: #f2f2f2;
-  --background-color-twenty: #2f6dff;
+  --background-color-twenty: #ffffff;
   overscroll-behavior: contain;
 }
 
@@ -37,7 +37,7 @@ body.dark-mode {
   --color-ten: rgba(255, 255, 255, 0.85);
   --color-eleven: rgba(240, 240, 240, 0.98);
   --color-twelve: #000000;
-  --color-thirteen: #3a5665;
+  --color-thirteen: #ffffff;
   --color-fourteen: #e3e3e3;
   --color-fifteen: rgb(0, 0, 0);
   --color-sixteen: rgba(0, 0, 0, 0.75);
@@ -399,7 +399,7 @@ body.dark-mode {
     z-index: 2;
     display: flex;
     flex-direction: column;
-    margin-top: 70px;
+    margin-top: 80px;
     margin-left: 3vw;
     margin-right: 3vw;
   }
@@ -409,18 +409,19 @@ body.dark-mode {
     align-items: flex-end;
     justify-content: space-between;
     padding: 0 8px;
-    height: 125px;
+    height: 110px;
     width: 100%;
     box-sizing: border-box; /* Include padding and border in width */
     border: 1px solid var(--background-color-one);
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     background-color: var(--color-one);
+    cursor: pointer; /* Add this line */
   }
 
   /* Menu Title Styles */
   .menu-title {
     color: var(--background-color-one); /* Text color */
-    font-size: 25px; /* Font size */
+    font-size: 22px; /* Font size */
     margin: 15px 5px; /* Spacing around titles */
     font-weight: bold;
     font-family: "KK-Topo", monospace;
@@ -429,7 +430,7 @@ body.dark-mode {
   }
 
   .menu-title.one {
-    font-size: 50px; /* Font size */
+    font-size: 44px; /* Font size */
     font-family: "KK-Topo", monospace;
   }
 
@@ -1102,7 +1103,7 @@ body.dark-mode {
     z-index: 2;
     display: flex;
     flex-direction: column;
-    margin-top: 70px;
+    margin-top: 80px;
     margin-left: 3vw;
     margin-right: 3vw;
   }
@@ -1112,18 +1113,19 @@ body.dark-mode {
     align-items: flex-end;
     justify-content: space-between;
     padding: 0 8px;
-    height: 125px;
+    height: 110px;
     width: 100%;
     box-sizing: border-box; /* Include padding and border in width */
     border: 1px solid var(--background-color-one);
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     background-color: var(--color-one);
+    cursor: pointer; /* Add this line */
   }
 
   /* Menu Title Styles */
   .menu-title {
     color: var(--background-color-one); /* Text color */
-    font-size: 20px; /* Font size */
+    font-size: 17px; /* Font size */
     margin: 10px 5px; /* Spacing around titles */
     font-family: "KK-Topo", monospace;
     font-weight: normal;
@@ -1132,7 +1134,7 @@ body.dark-mode {
   }
 
   .menu-title.one {
-    font-size: 37.5px; /* Font size */
+    font-size: 32px; /* Font size */
     font-weight: bold;
   }
 
@@ -1150,7 +1152,7 @@ body.dark-mode {
     font-family: "KK-Topo", monospace;
     font-weight: normal;
     font-style: normal;
-    font-size: 15px;
+    font-size: 13.5px;
     color: #f2f2f2;
   }
 
@@ -1170,7 +1172,7 @@ body.dark-mode {
     z-index: 1000;
     padding-left: 6px;
     padding-right: 6px;
-    height: 35px;
+    height: 40px;
     mix-blend-mode: difference;
   }
 
