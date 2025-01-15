@@ -293,7 +293,7 @@ document.addEventListener("DOMContentLoaded", () => {
     slideBgImg.className = "slide-bg-img";
 
     const img = document.createElement("img");
-    img.src = `./assets/img${slideNumber}.jpg`;
+    img.src = `./assets/vid${slideNumber}.gif`;
     img.alt = "";
 
     slideBgImg.appendChild(img);
@@ -314,29 +314,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const wrapper = document.createElement("div");
     wrapper.className = "slide-main-img-wrapper";
 
-    // Create video element instead of img
-    const video = document.createElement("video");
-    video.src = `./assets/vid${slideNumber}.mp4`;
-    video.autoplay = true;
-    video.loop = true;
-    video.muted = true;
-    video.playsInline = true; // For mobile devices
-    video.style.width = "100%";
-    video.style.height = "100%";
-    video.style.objectFit = "cover";
-    video.style.display = "block";
+    // Create img element instead of video
+    const img = document.createElement("img");
+    img.src = `./assets/vid${slideNumber}.gif`;
+    img.alt = `Slide Image ${slideNumber}`;
+    img.style.width = "100%";
+    img.style.height = "100%";
+    img.style.objectFit = "cover";
+    img.style.display = "block";
 
     // Create overlay div
     const overlay = document.createElement("div");
-    overlay.className = "red-overlay"; // New class for the overlay
-    overlay.style.opacity = "0.5"; // Set the opacity directly
+    overlay.className = "red-overlay";
 
-    wrapper.appendChild(video);
-    wrapper.appendChild(overlay); // Append overlay to the wrapper
+    wrapper.appendChild(img);
+    wrapper.appendChild(overlay);
 
-    // Set initial visibility of the overlay
-    overlay.style.opacity = "1"; // Ensure the overlay is visible initially
-
+    // Set initial clip-path for animation
     if (direction === "down") {
       wrapper.style.clipPath =
         "polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)";
@@ -405,7 +399,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Start the new slide off invisible (for crossfade)
     gsap.set(newSlide, { autoAlpha: 0 });
-    gsap.set(newMainWrapper.querySelector("video"), {
+    gsap.set(newMainWrapper.querySelector("img"), {
       y: direction === "down" ? "-50%" : "50%",
     });
 
@@ -468,19 +462,19 @@ document.addEventListener("DOMContentLoaded", () => {
         0
       )
       .to(
-        currentMainWrapper.querySelector("video"),
+        currentMainWrapper.querySelector("img"),
         {
           y: direction === "down" ? "50%" : "-50%",
-          duration: 1.5, // Increased duration
+          duration: 1.5,
           ease: "power2.inOut",
         },
         0
       )
       .to(
-        newMainWrapper.querySelector("video"),
+        newMainWrapper.querySelector("img"),
         {
           y: "0%",
-          duration: 1.5, // Increased duration
+          duration: 1.5,
           ease: "power2.inOut",
         },
         0

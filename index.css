@@ -260,6 +260,13 @@ p {
   will-change: clip-path;
 }
 
+.slide-main-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .metainfo {
   position: absolute;
   display: flex;
@@ -595,13 +602,6 @@ a {
   background-color: var(--color-fourty);
   border: 1px solid var(--color-one);
   transition: background-color 0.6s ease;
-}
-
-.slide-main-img-wrapper video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
 }
 
 /* Red overlay for the main image */
