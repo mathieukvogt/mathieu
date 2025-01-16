@@ -1,6 +1,6 @@
 :root {
-  --background-color-one: #f2f2f2;
-  --color-one: #070707;
+  --background-color-one: #0400df;
+  --color-one: #ffffff;
   --background-color-two: #323232;
   --color-two: #f7f7f7;
   --color-three: #222222;
@@ -20,7 +20,7 @@
   --color-twenty: #f2f2f2;
   --background-color-twenty: #2f6dff;
   --color-thirty: rgba(0, 0, 0, 0.125);
-  --color-fourty: rgba(255, 0, 0, 0.85);
+  --color-fourty: rgba(0, 0, 0, 0.85);
   overscroll-behavior: contain;
 }
 
@@ -130,7 +130,7 @@ body {
   width: 100%;
   height: 100%;
   font-family: "KK-Topo", sans-serif;
-  background-color: red;
+  background-color: var(--background-color-one);
 }
 
 img {
@@ -236,6 +236,7 @@ p {
   width: 60%;
   height: 50%;
   border: 1px solid var(--color-one);
+  background-color: transparent;
   z-index: 3;
 }
 
@@ -247,7 +248,7 @@ p {
   width: 60%;
   height: 50%;
   z-index: 2;
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
 .slide-main-img-wrapper {
@@ -272,7 +273,7 @@ p {
   display: flex;
   justify-content: space-between;
   color: var(--color-one);
-  z-index: 2;
+  z-index: 2000;
   width: 100%;
   font-family: "DM Mono", "KK-Topo", monospace;
   height: 40%;
@@ -304,7 +305,7 @@ p {
   display: flex;
   justify-content: flex-end;
   color: var(--color-one);
-  z-index: 2;
+  z-index: 2000;
   width: 100%;
   font-family: "DM Mono", "KK-Topo", monospace;
   height: 38%;
@@ -337,6 +338,7 @@ p {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  z-index: 20000;
 }
 
 .slide-copy {
