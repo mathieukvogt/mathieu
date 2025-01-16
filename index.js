@@ -689,35 +689,6 @@ document.addEventListener("DOMContentLoaded", () => {
   noise();
 
   // --------------------------------------------------
-  // 4) SMOOTH SLIDE-UP TRANSITION ON MENU LINE CLICK
-  // --------------------------------------------------
-
-  menuLines.forEach((menuLine) => {
-    menuLine.addEventListener("click", (event) => {
-      event.preventDefault(); // Prevent the default navigation
-
-      const targetUrl = menuLine.getAttribute("href");
-
-      // Activate the overlay (trigger CSS transition)
-      if (blackOverlay) {
-        blackOverlay.classList.add("active");
-
-        // Listen for the end of the transition
-        blackOverlay.addEventListener(
-          "transitionend",
-          () => {
-            window.location.href = targetUrl;
-          },
-          { once: true } // Ensure the event fires only once
-        );
-      } else {
-        // Fallback to default navigation if overlay not found
-        window.location.href = targetUrl;
-      }
-    });
-  });
-
-  // --------------------------------------------------
   // 5) DISPLAY ZURICH TIME IN THE .metathree DIV
   // --------------------------------------------------
 
