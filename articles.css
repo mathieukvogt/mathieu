@@ -46,6 +46,20 @@ body.dark-mode {
 }
 
 @font-face {
+  font-family: "Disket-Mono-Regular";
+  src: url("./Disket/Disket-Mono-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Disket-Mono-Bold";
+  src: url("./Disket/Disket-Mono-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "KK-Topo";
   src: url("./KK-Topo/KK-Topo-Regular.otf") format("woff2"),
     url("./KK-Topo/KK-Topo-Regular.otf") format("woff");
@@ -164,173 +178,7 @@ body.dark-mode {
     width: 100%;
   }
 
-  .left-section {
-    display: flex;
-    width: 29.33vw;
-    height: 87vh;
-    flex-direction: column;
-    justify-content: space-around; /* Align items to the top */
-    position: fixed;
-    border: 1px solid var(--background-color-one);
-    padding: 0 10px 15px 10px;
-  }
-
-  .left-title {
-    height: 36.5px;
-    font-size: 13.5px;
-    color: var(--color-twenty);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 0;
-    font-family: "KK-Topo", monospace;
-    font-weight: normal;
-    font-style: normal;
-    border-bottom: 1px solid var(--background-color-one);
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
-
-  .left-image {
-    height: 250px;
-    width: auto;
-    border-bottom: 1px solid var(--background-color-one);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
-
-  #cubeCanvas {
-    width: 100%;
-    height: 100%;
-    image-rendering: crisp-edges;
-    -ms-interpolation-mode: nearest-neighbor;
-  }
-
-  .left-index {
-    height: 400px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .navigation-title {
-    font-size: 13.5px;
-    color: var(--background-color-one);
-    padding-left: 0;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-family: "KK-Topo", monospace;
-    font-weight: normal;
-    font-style: normal;
-    text-transform: uppercase;
-  }
-
-  /* Styles for the wrapper to enable Flexbox layout */
-  .index-wrapper {
-    display: flex;
-    height: 100%;
-  }
-
-  .index-menu {
-    flex: 1;
-  }
-
-  .indexscroller {
-    flex: 2;
-    height: 100%;
-    overflow-y: scroll; /* Always shows vertical scrollbar */
-    scroll-behavior: smooth;
-  }
-
-  .indexscroller::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Hide scrollbar for Internet Explorer, Edge */
-  .indexscroller {
-    -ms-overflow-style: none; /* IE and Edge */
-  }
-
-  /* Hide scrollbar for Firefox */
-  .indexscroller {
-    scrollbar-width: none; /* Firefox */
-  }
-
-  .menu-item input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    width: 10px;
-    height: 10px;
-    border: 1px solid var(--background-color-one);
-    border-radius: 0;
-    background-color: transparent;
-    cursor: pointer;
-    position: relative;
-    margin-right: 3px;
-    transition: background-color 0.2s ease;
-  }
-
-  .menu-item input[type="checkbox"]:checked {
-    background-color: var(--background-color-one);
-  }
-
-  .menu-item label {
-    font-size: 13.5px;
-    font-family: "KK-Topo", monospace;
-    font-weight: normal;
-    font-style: normal;
-    color: var(--background-color-one);
-    cursor: pointer;
-  }
-
-  .navigation-container {
-    display: flex;
-    color: var(--background-color-one);
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 3px;
-    font-size: 13.5px;
-    font-family: "KK-Topo", monospace;
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  .titleindex {
-    font-size: 13.5px;
-    font-family: "KK-Topo", monospace;
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  /* Hover effect to apply styles properly */
-  .navigation-container:hover {
-    background-color: var(--background-color-one);
-    color: var(--color-one);
-  }
-
-  .navigation-container:hover .titleindex {
-    color: var(--color-one);
-  }
-
-  [id] {
-    scroll-margin-top: 76px;
-  }
-
-  .right-section {
-    width: 62.66vw;
-    margin-left: 31.33vw;
-    overflow-y: auto; /* Enables vertical scrolling */
-    height: 100vh; /* Ensures it fills the viewport height */
-  }
-
   h2 {
-    display: none;
-  }
-
-  .update {
     display: none;
   }
 
@@ -424,14 +272,14 @@ body.dark-mode {
     font-size: 22px; /* Font size */
     margin: 15px 5px; /* Spacing around titles */
     font-weight: bold;
-    font-family: "KK-Topo", monospace;
+    font-family: "Disket-Mono-Bold", monospace;
     font-weight: 400;
     font-style: normal;
   }
 
   .menu-title.one {
-    font-size: 44px; /* Font size */
-    font-family: "KK-Topo", monospace;
+    font-size: 40px; /* Font size */
+    font-family: "Disket-Mono-Bold", monospace;
   }
 
   .fixed-box {
@@ -453,8 +301,8 @@ body.dark-mode {
   .fixed-box a.center-text {
     text-decoration: none;
     color: #f2f2f2;
-    font-size: 13.5px;
-    font-family: "KK-Topo", monospace;
+    font-size: 12.5px;
+    font-family: "Disket-Mono-Bold", monospace;
     font-weight: 300;
     font-style: normal;
   }
@@ -653,7 +501,7 @@ body.dark-mode {
     text-align: left;
     overflow: hidden;
     color: var(--color-seven);
-    font-family: "KK-Topo", monospace;
+    font-family: "Disket-Mono-Bold", monospace;
   }
 
   h3 {
@@ -663,7 +511,7 @@ body.dark-mode {
     font-size: 13.5px;
     color: var(--color-twenty);
     font-weight: 300;
-    font-family: "KK-Topo", monospace;
+    font-family: "Disket-Mono-Bold", monospace;
     text-transform: uppercase;
   }
 
@@ -674,7 +522,7 @@ body.dark-mode {
     font-size: 13.5px;
     color: var(--color-twenty);
     font-weight: 300;
-    font-family: "KK-Topo", monospace;
+    font-family: "Disket-Mono-Bold", monospace;
     text-transform: uppercase;
   }
 
@@ -1127,14 +975,14 @@ body.dark-mode {
     color: var(--background-color-one); /* Text color */
     font-size: 17px; /* Font size */
     margin: 10px 5px; /* Spacing around titles */
-    font-family: "KK-Topo", monospace;
+    font-family: "Disket-Mono-Bold", monospace;
     font-weight: normal;
     font-style: normal;
     font-weight: bold;
   }
 
   .menu-title.one {
-    font-size: 32px; /* Font size */
+    font-size: 28px; /* Font size */
     font-weight: bold;
   }
 
@@ -1149,10 +997,10 @@ body.dark-mode {
 
   .fixed-box a.center-text {
     text-decoration: none;
-    font-family: "KK-Topo", monospace;
+    font-family: "Disket-Mono-Bold", monospace;
     font-weight: normal;
     font-style: normal;
-    font-size: 13.5px;
+    font-size: 12px;
     color: #f2f2f2;
   }
 
@@ -1366,7 +1214,7 @@ body.dark-mode {
     text-align: left;
     overflow: hidden;
     color: var(--color-seven);
-    font-family: "KK-Topo", monospace;
+    font-family: "Disket-Mono-Bold", monospace;
     font-weight: normal;
     font-style: normal;
     text-transform: uppercase;
@@ -1378,7 +1226,7 @@ body.dark-mode {
     font-size: 15px;
     color: var(--color-twenty);
     font-weight: normal;
-    font-family: "KK-Topo", monospace;
+    font-family: "Disket-Mono-Bold", monospace;
     text-transform: uppercase;
   }
 
@@ -1388,7 +1236,7 @@ body.dark-mode {
     font-size: 15px;
     color: var(--color-twenty);
     font-weight: normal;
-    font-family: "KK-Topo", monospace;
+    font-family: "Disket-Mono-Bold", monospace;
     text-transform: uppercase;
   }
 

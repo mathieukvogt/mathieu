@@ -50,47 +50,28 @@ body.dark-mode {
 }
 
 @font-face {
-  font-family: "KK-Topo";
-  src: url("./KK-Topo/KK-Topo-Regular.otf") format("woff2"),
-    url("./KK-Topo/KK-Topo-Regular.otf") format("woff");
+  font-family: "Disket-Mono-Regular";
+  src: url("./Disket/Disket-Mono-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-.dm-mono-light {
-  font-family: "DM Mono", monospace;
-  font-weight: 300;
+@font-face {
+  font-family: "Disket-Mono-Bold";
+  src: url("./Disket/Disket-Mono-Bold.ttf") format("truetype");
+  font-weight: normal;
   font-style: normal;
 }
 
-.dm-mono-regular {
-  font-family: "DM Mono", monospace;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.dm-mono-medium {
-  font-family: "DM Mono", monospace;
-  font-weight: 500;
-  font-style: normal;
-}
-
-.dm-mono-light-italic {
-  font-family: "DM Mono", monospace;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.dm-mono-regular-italic {
-  font-family: "DM Mono", monospace;
-  font-weight: 400;
-  font-style: italic;
-}
-
+.dm-mono-light,
+.dm-mono-regular,
+.dm-mono-medium,
+.dm-mono-light-italic,
+.dm-mono-regular-italic,
 .dm-mono-medium-italic {
-  font-family: "DM Mono", monospace;
-  font-weight: 500;
-  font-style: italic;
+  font-family: "Disket-Mono-Regular", "DM Mono", monospace;
+  font-weight: inherit;
+  font-style: inherit;
 }
 
 /* LOADING ANIMATION */
@@ -129,7 +110,7 @@ html,
 body {
   width: 100%;
   height: 100%;
-  font-family: "KK-Topo", sans-serif;
+  font-family: "Disket-Mono-Regular", "DM Mono", monospace;
   background-color: var(--background-color-one);
 }
 
@@ -150,19 +131,19 @@ footer {
   justify-content: space-between;
   align-items: center;
   z-index: 2;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 footer p {
   color: var(--color-one);
-  font-size: 13px;
-  font-family: "DM Mono", "KK-Topo", monospace;
+  font-size: 12px;
+  font-family: "Disket-Mono-Regular", "DM Mono", monospace;
 }
 
 p {
   color: var(--color-one);
-  font-size: 13px;
-  font-family: "DM Mono", "KK-Topo", monospace;
+  font-size: 12px;
+  font-family: "Disket-Mono-Regular", "DM Mono", monospace;
 }
 
 .slider-counter {
@@ -185,7 +166,7 @@ p {
 .count p {
   position: absolute;
   transform: translateY(0px);
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1;
   will-change: transform;
   opacity: 1;
@@ -275,7 +256,7 @@ p {
   color: var(--color-one);
   z-index: 2000;
   width: 100%;
-  font-family: "DM Mono", "KK-Topo", monospace;
+  font-family: "Disket-Mono-Regular", "DM Mono", monospace;
   height: 40%;
 }
 
@@ -283,7 +264,7 @@ p {
   width: 50%;
   border-right: var(--color-one) 1px solid;
   padding: 10px;
-  font-size: 11px;
+  font-size: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -295,9 +276,8 @@ p {
   justify-content: flex-end;
   align-items: flex-end;
   width: 50%;
-  width: 50%;
   padding: 10px;
-  font-size: 11px;
+  font-size: 10px;
 }
 
 .metaclass {
@@ -307,7 +287,7 @@ p {
   color: var(--color-one);
   z-index: 2000;
   width: 100%;
-  font-family: "DM Mono", "KK-Topo", monospace;
+  font-family: "Disket-Mono-Regular", "DM Mono", monospace;
   height: 38%;
   top: 62%;
 }
@@ -316,24 +296,23 @@ p {
   width: 33.3%;
   border-right: var(--color-one) 1px solid;
   padding: 10px;
-  font-size: 11px;
+  font-size: 10px;
 }
 
 .metatwo {
   width: 33.3%;
   border-right: var(--color-one) 1px solid;
   padding: 10px;
-  font-size: 11px;
-  height: 100%;
-  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  font-family: "Disket-Mono-Regular", "DM Mono", monospace;
 }
 
 .metathree {
   width: 33.3%;
   padding: 10px;
-  font-size: 11px;
+  font-size: 10px;
   color: var(--color-one);
-  font-family: "DM Mono", monospace;
+  font-family: "Disket-Mono-Regular", "DM Mono", monospace;
   height: 100%;
   display: flex;
   justify-content: flex-end;
@@ -355,6 +334,7 @@ p {
   border-top: 1px solid var(--color-one);
   border-bottom: 1px solid var(--color-one);
   height: 11%;
+  font-family: "Disket-Mono-Bold", "DM Mono", monospace;
 }
 
 .slide-title {
@@ -362,12 +342,14 @@ p {
   width: 500px;
   height: 50px;
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  display: flex;
+  align-items: center;
 }
 
 .slide-title h1 {
   position: absolute;
   color: var(--color-one);
-  font-size: 45px;
+  font-size: 32px;
   font-weight: 400;
   line-height: 1;
   transform: translateY(0px);
@@ -407,8 +389,8 @@ p {
     justify-content: space-between;
     align-items: center;
     z-index: 2;
-    font-family: "DM Mono", "KK-Topo", monospace;
-    font-size: 13px;
+    font-family: "Disket-Mono-Regular", "DM Mono", monospace;
+    font-size: 12px;
   }
 }
 
@@ -432,6 +414,8 @@ body.dark-mode {
   border: 1px solid var(--color-one);
   padding-left: 6px;
   padding-right: 6px;
+  font-family: "Disket-Mono-Regular", "DM Mono", monospace;
+  font-size: 12px;
 }
 
 .big-box {
@@ -495,8 +479,9 @@ body.dark-mode {
 .center-text {
   text-decoration: none;
   color: var(--color-one);
-  font-size: 13.5px;
+  font-size: 12px;
   cursor: pointer;
+  font-family: "Disket-Mono-Bold", "DM Mono", monospace;
 }
 
 /* Burger button */
@@ -572,10 +557,11 @@ body.dark-mode {
 }
 .menu-title {
   color: var(--color-one);
-  font-size: 32px;
+  font-size: 28px;
   margin: 10px 0;
   font-weight: bold;
   text-decoration: none;
+  font-family: "Disket-Mono-Bold", "DM Mono", monospace;
 }
 
 a {
@@ -583,10 +569,10 @@ a {
 }
 
 .menu-title.one {
-  font-size: 32px;
+  font-size: 28px;
 }
 .menu-title.two {
-  font-size: 17px;
+  font-size: 16px;
 }
 .noise {
   z-index: 1;
@@ -625,15 +611,16 @@ a {
   }
   .menu-title {
     color: var(--color-one);
-    font-size: 40px;
+    font-size: 34px;
     margin: 10px 0;
     font-weight: bold;
+    font-family: "Disket-Mono-Regular", "DM Mono", monospace;
   }
   .menu-title.one {
-    font-size: 44px;
+    font-size: 38px;
   }
   .menu-title.two {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 
@@ -653,7 +640,7 @@ a {
   border-bottom: none;
   box-shadow: none;
   outline: none;
-  font-family: "DM Mono", "KK-Topo", monospace;
+  font-family: "Disket-Mono-Regular", "DM Mono", monospace;
   overflow: hidden; /* Hide overflowing content */
 }
 
@@ -663,10 +650,10 @@ a {
   left: 0; /* Position to the left */
   text-align: left;
   will-change: transform, opacity;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .metatitleone p,
 .metatitletwo p {
-  font-size: 11px;
+  font-size: 10px;
 }
