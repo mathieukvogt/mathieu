@@ -142,13 +142,13 @@
                 // METADATA
               </p>
               <p class="update">
-                // [LAST UPDATED] 08/01/2025
+                // [LAST UPDATED] 20/01/2025
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
               </p>
               <p class="update">
-                // [LAST UPDATED] 08/01/2025
+                // [LAST UPDATED] 20/01/2025
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
@@ -157,13 +157,13 @@
                 // METADATA
               </p>
               <p class="update">
-                // [LAST UPDATED] 08/01/2025
+                // [LAST UPDATED] 20/01/2025
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
               </p>
               <p class="update">
-                // [LAST UPDATED] 08/01/2025
+                // [LAST UPDATED] 20/01/2025
               </p>
               <p class="update">
                 // [AUTHOR] MATHIEU
@@ -279,10 +279,6 @@
                 <div class="navigation-container">
                   <div class="navigationnumber">[19]</div>
                   <div><a href="#testing" class="titleindex">Testing</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[20]</div>
-                  <div><a href="#comments" class="titleindex">Comments</a></div>
                 </div>
                 <div class="navigation-container">
                   <div class="navigationnumber">[20]</div>
@@ -3800,6 +3796,73 @@ console.log(typeof largeNumber); // "bigint"
   let removedElement = matrix[0].pop(); // Removes the last element of the first row
   console.log(removedElement); // Output: 3
   console.log(matrix); // Output: [[1, 2], [4, 5, 6], [7, 10, 9], [10, 11, 12]]
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-destructuringarrays">destructuring arrays</td>
+            </tr>
+            <tr id="detail-tag-destructuringarrays" class="expandable-row-content">
+              <td>
+                <h3>destructuring arrays</h3>
+                <p>Destructuring arrays in JavaScript is a succinct way to unpack values from an array into distinct variables in one step. Rather than accessing each element individually, you can place variable names in brackets on the left side of an assignment, with the right side referencing the array. The position of each variable name corresponds to the item’s index in the array, which frees you from having to write repetitive access operations. You can also use commas to skip elements you don’t need, specify default values to handle missing items safely, and even collect the rest of the array’s elements into a single variable if necessary. This feature makes it simpler and more readable to extract multiple pieces of data at once, especially when working with complex structures or functions that return arrays.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// Example 1: Basic destructuring
+const numberArray = [10, 20, 30];
+const [firstNumber, secondNumber, thirdNumber] = numberArray;
+// Outcome: firstNumber = 10, secondNumber = 20, thirdNumber = 30
+
+// Example 2: Destructuring with default values
+const defaultArray = [5, 15];
+const [primaryValue, secondaryValue, tertiaryValue = 100] = defaultArray;
+// Outcome: primaryValue = 5, secondaryValue = 15, tertiaryValue = 100
+
+// Example 3: Skipping elements
+const colorArray = ["red", "green", "blue", "yellow"];
+const [firstColor, , thirdColor] = colorArray;
+// Outcome: firstColor = "red", thirdColor = "blue"
+
+// Example 4: Destructuring nested arrays
+const nestedArray = [1, [2, 3], 4];
+const [outerValue1, [innerValue2, innerValue3], outerValue4] = nestedArray;
+// Outcome: outerValue1 = 1, innerValue2 = 2, innerValue3 = 3, outerValue4 = 4
+
+// Example 5: Using rest operator
+const letterArray = ["A", "B", "C", "D"];
+const [initialLetter, ...remainingLetters] = letterArray;
+// Outcome: initialLetter = "A", remainingLetters = ["B", "C", "D"]
+
+// Example 6: Using rest operator to skip elements
+const largeNumberArray = [100, 200, 300, 400];
+const [, , ...highNumbers] = largeNumberArray;
+// Outcome: highNumbers = [300, 400]
+
+// Example 7: Mixed destructuring
+const mixedArray = [true, ["hello", "world"], 42];
+const [booleanValue, [greetingText, subjectText], numberValue] = mixedArray;
+// Outcome: booleanValue = true, greetingText = "hello", subjectText = "world", numberValue = 42
+
+// Example 8: Destructuring from a function return
+function getCoordinates() {
+  return [10.5, 22.7];
+}
+const [latitude, longitude] = getCoordinates();
+// Outcome: latitude = 10.5, longitude = 22.7
+
+// Example 9: Ignoring some elements from a function return
+function getData() {
+  return [1, 2, 3, 4];
+}
+const [dataValue1, , dataValue3] = getData();
+// Outcome: dataValue1 = 1, dataValue3 = 3
+
+// Example 10: Destructuring with more variables than array elements
+const singleElementArray = ["X"];
+const [characterX, missingCharacter = "No value provided"] = singleElementArray;
+// Outcome: characterX = "X", missingCharacter = "No value provided"
               </code></pre>
                 <br />
               </td>
