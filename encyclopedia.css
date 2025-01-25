@@ -1420,7 +1420,7 @@ body.dark-mode {
 
   .symbol {
     position: relative;
-    height: 8px; /* Adjust height as needed */
+    height: 10px; /* Adjust height as needed */
   }
 
   /* Set specific widths for symbols */
@@ -1429,7 +1429,7 @@ body.dark-mode {
   }
 
   .symbol.half-plus {
-    width: 4px; /* Half-plus symbols */
+    width: 40px; /* Half-plus symbols */
   }
 
   /* Vertical lines */
