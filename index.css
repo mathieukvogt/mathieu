@@ -1,5 +1,5 @@
 :root {
-  --background-color-one: #ffffff;
+  --background-color-one: #e2e7ff;
   --color-one: #000000;
   --background-color-two: #323232;
   --color-two: #f7f7f7;
@@ -20,7 +20,7 @@
   --color-twenty: #f2f2f2;
   --background-color-twenty: #2f6dff;
   --color-thirty: rgba(0, 0, 0, 0.125);
-  --color-fourty: rgba(219, 219, 219, 0.85);
+  --color-fourty: rgba(226, 226, 226, 0.85);
   overscroll-behavior: contain;
 }
 
