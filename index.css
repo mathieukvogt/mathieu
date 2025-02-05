@@ -1,5 +1,5 @@
 :root {
-  --background-color-one: #e2e7ff;
+  --background-color-one: #bdbdbd;
   --color-one: #000000;
   --background-color-two: #323232;
   --color-two: #f7f7f7;
@@ -229,7 +229,7 @@ p {
   width: 60%;
   height: 50%;
   z-index: 2;
-  opacity: 0.2;
+  opacity: 0.8;
 }
 
 .slide-main-img-wrapper {
