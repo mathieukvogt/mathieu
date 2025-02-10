@@ -178,9 +178,16 @@ body.dark-mode {
     width: 100%;
   }
 
+  .right-section {
+    width: 57vw;
+    margin-left: 40vw;
+    overflow-y: auto; /* Enables vertical scrolling */
+    height: 100vh; /* Ensures it fills the viewport height */
+  }
+
   .left-section {
     display: flex;
-    width: 29.33vw;
+    width: 37vw;
     height: 87vh;
     flex-direction: column;
     justify-content: space-around; /* Align items to the top */
@@ -331,13 +338,6 @@ body.dark-mode {
 
   [id] {
     scroll-margin-top: 76px;
-  }
-
-  .right-section {
-    width: 62.66vw;
-    margin-left: 31.33vw;
-    overflow-y: auto; /* Enables vertical scrolling */
-    height: 100vh; /* Ensures it fills the viewport height */
   }
 
   h2 {
