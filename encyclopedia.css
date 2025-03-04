@@ -6,7 +6,7 @@
   --color-three: #222222;
   --color-four: #f7f7f7;
   --color-five: #cbcbcb;
-  --color-six: #232323;
+  --color-six: #ffffff;
   --color-seven: #d5d5d5;
   --color-eight: #ffffff;
   --color-nine: #070707;
@@ -30,7 +30,7 @@ body.dark-mode {
   --color-three: #d6d6d6;
   --color-four: #070707;
   --color-five: #707070;
-  --color-six: #dddddd;
+  --color-six: #000000;
   --color-seven: #171717;
   --color-eight: black;
   --color-nine: #eaeaea;
@@ -174,8 +174,8 @@ body.dark-mode {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    height: 100%;
     width: 100%;
+    margin-top: 20px;
   }
 
   .right-section {
@@ -188,17 +188,18 @@ body.dark-mode {
   .left-section {
     display: flex;
     width: 37vw;
-    height: 87vh;
+    height: calc(100vh - 140px);
     flex-direction: column;
-    justify-content: space-around; /* Align items to the top */
+    justify-content: space-between; /* Align items to the top */
     position: fixed;
     border: 1px solid var(--background-color-one);
-    padding: 0 10px 15px 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
   }
 
   .left-title {
-    height: 36.5px;
-    font-size: 12.5px;
+    font-size: 14px;
     color: var(--color-twenty);
     display: flex;
     align-items: center;
@@ -207,7 +208,6 @@ body.dark-mode {
     font-family: "Disket-Mono-Bold", monospace;
     font-weight: normal;
     font-style: normal;
-    border-bottom: 1px solid var(--background-color-one);
     padding-top: 15px;
     padding-bottom: 15px;
   }
@@ -215,29 +215,31 @@ body.dark-mode {
   .left-image {
     height: 250px;
     width: auto;
-    border-bottom: 1px solid var(--background-color-one);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
   }
 
-  #cubeCanvas {
+  .left-image-gif {
     width: 100%;
     height: 100%;
-    image-rendering: crisp-edges;
-    -ms-interpolation-mode: nearest-neighbor;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  canvas {
+    display: none;
   }
 
   .left-index {
-    height: 400px;
     position: relative;
     overflow: hidden;
+    padding-bottom: 10px;
+    padding-top: 10px;
   }
 
   .navigation-title {
-    font-size: 12.5px;
+    font-size: 14px;
     color: var(--background-color-one);
     padding-left: 0;
     padding-top: 10px;
@@ -279,48 +281,21 @@ body.dark-mode {
     scrollbar-width: none; /* Firefox */
   }
 
-  .menu-item input[type="checkbox"] {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    width: 10px;
-    height: 10px;
-    border: 1px solid var(--background-color-one);
-    border-radius: 0;
-    background-color: transparent;
-    cursor: pointer;
-    position: relative;
-    margin-right: 3px;
-    transition: background-color 0.2s ease;
-  }
-
-  .menu-item input[type="checkbox"]:checked {
-    background-color: var(--background-color-one);
-  }
-
-  .menu-item label {
-    font-size: 12px;
-    font-family: "Disket-Mono-Bold", monospace;
-    font-weight: normal;
-    font-style: normal;
-    color: var(--background-color-one);
-    cursor: pointer;
-  }
-
   .navigation-container {
     display: flex;
     color: var(--background-color-one);
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 3px;
-    font-size: 12px;
+    margin-bottom: 5px;
+    font-size: 14px;
     font-family: "Disket-Mono-Bold", monospace;
     font-weight: normal;
     font-style: normal;
+    height: 22.5px;
   }
 
   .titleindex {
-    font-size: 12px;
+    font-size: 14px;
     font-family: "Disket-Mono-Bold", monospace;
     font-weight: normal;
     font-style: normal;
@@ -401,7 +376,7 @@ body.dark-mode {
     position: absolute;
     top: 0;
     right: 0; /* Align to the right edge */
-    width: 100%; /* Adjust as needed */
+    width: 40%; /* Adjust as needed */
     height: 100%; /* Full height */
     transform: translateX(100%); /* Start off-screen to the right */
     z-index: 1; /* Below the menu content */
@@ -413,7 +388,7 @@ body.dark-mode {
     z-index: 2;
     display: flex;
     flex-direction: column;
-    margin-top: 80px;
+    margin-top: 90px;
     margin-left: 3vw;
     margin-right: 3vw;
   }
@@ -430,6 +405,10 @@ body.dark-mode {
     margin-bottom: 20px;
     background-color: var(--color-one);
     cursor: pointer; /* Add this line */
+  }
+
+  .menu-line:hover {
+    background-color: var(--color-six);
   }
 
   /* Menu Title Styles */
@@ -458,16 +437,16 @@ body.dark-mode {
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
-    padding-left: 6px;
-    padding-right: 6px;
-    height: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 50px;
     mix-blend-mode: difference;
   }
 
   .fixed-box a.center-text {
     text-decoration: none;
     color: #f2f2f2;
-    font-size: 12px;
+    font-size: 14px;
     font-family: "Disket-Mono-Bold", monospace;
     font-weight: 300;
     font-style: normal;
@@ -525,8 +504,8 @@ body.dark-mode {
   }
 
   .fixed-box button {
-    height: 25px;
-    width: 25px;
+    height: 30px;
+    width: 30px;
     background-color: transparent;
     border: 1px solid #f2f2f2;
     touch-action: manipulation;
@@ -829,14 +808,14 @@ body.dark-mode {
   .hljs {
     border-radius: 2px;
     font-family: JetBrains Mono, monospace;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.5;
   }
 
   p,
   ol {
     color: var(--color-seven);
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.5;
   }
 
@@ -858,8 +837,8 @@ body.dark-mode {
   th,
   td {
     border-collapse: collapse;
-    font-size: 12.5px;
-    height: 35px;
+    font-size: 14px;
+    height: 50px;
     border: 1;
   }
 
@@ -868,7 +847,7 @@ body.dark-mode {
     font-weight: bold;
     text-transform: uppercase;
     padding: 0;
-    height: 17.5px;
+    height: 25px;
     border-top: 1px solid var(--background-color-one);
     background-color: var(--background-color-one);
   }
@@ -1064,6 +1043,10 @@ body.dark-mode {
 
     pointer-events: none;
     opacity: 0.05;
+  }
+
+  .left-image-gif {
+    display: none;
   }
 
   .overlay {
