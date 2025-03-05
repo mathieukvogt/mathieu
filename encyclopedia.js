@@ -125,6 +125,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuTitleTwos = document.querySelectorAll(".menu-title.two");
   const menuTitleOne = document.querySelectorAll(".menu-title.one");
 
+  // Set initial positions for menu elements when page loads
+  gsap.set(menuBars, { x: "100%" });
+  gsap.set(menuLines, { x: "130%" });
+  gsap.set(menuOverlay, {
+    backgroundColor: "transparent",
+    backdropFilter: "blur(0px)",
+    pointerEvents: "none",
+  });
+
   let menuOpen = false; // Track the state of the menu
 
   // Toggle menu on burger button click
@@ -520,7 +529,7 @@ document.addEventListener("DOMContentLoaded", function () {
       cubeCtx.clearRect(0, 0, cubeCanvas.width, cubeCanvas.height);
 
       // Set font for ASCII characters
-      cubeCtx.font = "12px monospace"; // Increased font size for sharpness
+      cubeCtx.font = "12px Gridular"; // Increased font size for sharpness
       cubeCtx.textAlign = "left";
       cubeCtx.textBaseline = "top";
 

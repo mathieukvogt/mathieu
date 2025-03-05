@@ -205,7 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let lastScrollTime = 0;
 
   // Only slide titles remain
-  const slideTitles = ["[Coding]", "[Articles]", "[About]"];
+  const slideTitles = ["[CODING]", "[ARTICLES]", "[ABOUT]"];
   const slideLinks = ["encyclopedia.html", "articles.html", "about.html"];
 
   // Function to update and animate the slideSymbol button

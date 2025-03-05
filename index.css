@@ -50,6 +50,13 @@ body.dark-mode {
 }
 
 @font-face {
+  font-family: "Gridular";
+  src: url("./Gridular/Gridular-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "Disket-Mono-Regular";
   src: url("./Disket/Disket-Mono-Regular.ttf") format("truetype");
   font-weight: normal;
@@ -69,7 +76,7 @@ body.dark-mode {
 .dm-mono-light-italic,
 .dm-mono-regular-italic,
 .dm-mono-medium-italic {
-  font-family: "Disket-Mono-Regular", "DM Mono", monospace;
+  font-family: "Gridular", "DM Mono", monospace;
   font-weight: inherit;
   font-style: inherit;
 }
@@ -110,7 +117,7 @@ html,
 body {
   width: 100%;
   height: 100%;
-  font-family: "Disket-Mono-Regular", "DM Mono", monospace;
+  font-family: "Gridular", "DM Mono", monospace;
   background-color: var(--background-color-one);
 }
 
@@ -137,13 +144,13 @@ footer {
 footer p {
   color: var(--color-one);
   font-size: 12px;
-  font-family: "Disket-Mono-Regular", "DM Mono", monospace;
+  font-family: "Gridular", "DM Mono", monospace;
 }
 
 p {
   color: var(--color-one);
   font-size: 12px;
-  font-family: "Disket-Mono-Regular", "DM Mono", monospace;
+  font-family: "Gridular", "DM Mono", monospace;
 }
 
 .slider-counter {
@@ -256,7 +263,7 @@ p {
   color: var(--color-one);
   z-index: 2000;
   width: 100%;
-  font-family: "Disket-Mono-Regular", "DM Mono", monospace;
+  font-family: "Gridular", "DM Mono", monospace;
   height: 40%;
 }
 
@@ -264,7 +271,7 @@ p {
   width: 50%;
   border-right: var(--color-one) 1px solid;
   padding: 10px;
-  font-size: 10px;
+  font-size: 12px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -277,7 +284,7 @@ p {
   align-items: flex-end;
   width: 50%;
   padding: 10px;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .metaclass {
@@ -287,7 +294,7 @@ p {
   color: var(--color-one);
   z-index: 2000;
   width: 100%;
-  font-family: "Disket-Mono-Regular", "DM Mono", monospace;
+  font-family: "Gridular", "DM Mono", monospace;
   height: 38%;
   top: 62%;
 }
@@ -296,23 +303,23 @@ p {
   width: 33.3%;
   border-right: var(--color-one) 1px solid;
   padding: 10px;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .metatwo {
   width: 33.3%;
   border-right: var(--color-one) 1px solid;
   padding: 10px;
-  font-size: 10px;
-  font-family: "Disket-Mono-Regular", "DM Mono", monospace;
+  font-size: 12px;
+  font-family: "Gridular", "DM Mono", monospace;
 }
 
 .metathree {
   width: 33.3%;
   padding: 10px;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--color-one);
-  font-family: "Disket-Mono-Regular", "DM Mono", monospace;
+  font-family: "Gridular", "DM Mono", monospace;
   height: 100%;
   display: flex;
   justify-content: flex-end;
@@ -334,7 +341,7 @@ p {
   border-top: 1px solid var(--color-one);
   border-bottom: 1px solid var(--color-one);
   height: 11%;
-  font-family: "Disket-Mono-Bold", "DM Mono", monospace;
+  font-family: "Gridular", "DM Mono", monospace;
 }
 
 .slide-title {
@@ -389,7 +396,7 @@ p {
     justify-content: space-between;
     align-items: center;
     z-index: 2;
-    font-family: "Disket-Mono-Regular", "DM Mono", monospace;
+    font-family: "Gridular", "DM Mono", monospace;
     font-size: 12px;
   }
 }
@@ -414,7 +421,7 @@ body.dark-mode {
   border: 1px solid var(--color-one);
   padding-left: 6px;
   padding-right: 6px;
-  font-family: "Disket-Mono-Regular", "DM Mono", monospace;
+  font-family: "Gridular", "DM Mono", monospace;
   font-size: 12px;
 }
 
@@ -481,7 +488,7 @@ body.dark-mode {
   color: var(--color-one);
   font-size: 12px;
   cursor: pointer;
-  font-family: "Disket-Mono-Bold", "DM Mono", monospace;
+  font-family: "Gridular", "DM Mono", monospace;
 }
 
 /* Burger button */
@@ -561,7 +568,7 @@ body.dark-mode {
   margin: 10px 0;
   font-weight: bold;
   text-decoration: none;
-  font-family: "Disket-Mono-Bold", "DM Mono", monospace;
+  font-family: "Gridular", "DM Mono", monospace;
 }
 
 a {
@@ -618,7 +625,7 @@ a {
     border: 1px solid var(--color-one);
     padding-left: 10px;
     padding-right: 10px;
-    font-family: "Disket-Mono-Regular", "DM Mono", monospace;
+    font-family: "Gridular", "DM Mono", monospace;
     font-size: 14px;
   }
 
@@ -685,7 +692,7 @@ a {
     color: var(--color-one);
     font-size: 12px;
     cursor: pointer;
-    font-family: "Disket-Mono-Bold", "DM Mono", monospace;
+    font-family: "Gridular", "DM Mono", monospace;
   }
 
   /* Burger button */
@@ -769,7 +776,7 @@ a {
     margin: 10px 0;
     font-weight: bold;
     text-decoration: none;
-    font-family: "Disket-Mono-Bold", "DM Mono", monospace;
+    font-family: "Gridular", "DM Mono", monospace;
   }
 
   a {
@@ -819,7 +826,7 @@ a {
     font-size: 34px;
     margin: 10px 0;
     font-weight: bold;
-    font-family: "Disket-Mono-Regular", "DM Mono", monospace;
+    font-family: "Gridular", "DM Mono", monospace;
   }
   .menu-title.one {
     font-size: 38px;
@@ -845,7 +852,7 @@ a {
   border-bottom: none;
   box-shadow: none;
   outline: none;
-  font-family: "Disket-Mono-Regular", "DM Mono", monospace;
+  font-family: "Gridular", "DM Mono", monospace;
   overflow: hidden; /* Hide overflowing content */
 }
 
@@ -860,5 +867,5 @@ a {
 
 .metatitleone p,
 .metatitletwo p {
-  font-size: 10px;
+  font-size: 12px;
 }

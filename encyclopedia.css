@@ -46,6 +46,13 @@ body.dark-mode {
 }
 
 @font-face {
+  font-family: "Gridular";
+  src: url("./Gridular/Gridular-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "Disket-Mono-Regular";
   src: url("./Disket/Disket-Mono-Regular.ttf") format("truetype");
   font-weight: normal;
@@ -205,7 +212,7 @@ body.dark-mode {
     align-items: center;
     justify-content: space-between;
     padding-left: 0;
-    font-family: "Disket-Mono-Bold", monospace;
+    font-family: "Gridular", monospace;
     font-weight: normal;
     font-style: normal;
     padding-top: 15px;
@@ -244,7 +251,7 @@ body.dark-mode {
     padding-left: 0;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-family: "Disket-Mono-Bold", monospace;
+    font-family: "Gridular", monospace;
     font-weight: normal;
     font-style: normal;
     text-transform: uppercase;
@@ -288,7 +295,7 @@ body.dark-mode {
     justify-content: space-between;
     margin-bottom: 5px;
     font-size: 14px;
-    font-family: "Disket-Mono-Bold", monospace;
+    font-family: "Gridular", monospace;
     font-weight: normal;
     font-style: normal;
     height: 22.5px;
@@ -296,7 +303,7 @@ body.dark-mode {
 
   .titleindex {
     font-size: 14px;
-    font-family: "Disket-Mono-Bold", monospace;
+    font-family: "Gridular", monospace;
     font-weight: normal;
     font-style: normal;
   }
@@ -417,14 +424,14 @@ body.dark-mode {
     font-size: 22px; /* Font size */
     margin: 15px 5px; /* Spacing around titles */
     font-weight: bold;
-    font-family: "Disket-Mono-Bold", monospace;
+    font-family: "Gridular", monospace;
     font-weight: 400;
     font-style: normal;
   }
 
   .menu-title.one {
     font-size: 40px; /* Font size */
-    font-family: "Disket-Mono-Bold", monospace;
+    font-family: "Gridular", monospace;
   }
 
   .fixed-box {
@@ -447,7 +454,7 @@ body.dark-mode {
     text-decoration: none;
     color: #f2f2f2;
     font-size: 14px;
-    font-family: "Disket-Mono-Bold", monospace;
+    font-family: "Gridular", monospace;
     font-weight: 300;
     font-style: normal;
   }
@@ -646,7 +653,7 @@ body.dark-mode {
     text-align: left;
     overflow: hidden;
     color: var(--color-seven);
-    font-family: "Disket-Mono-Bold", monospace;
+    font-family: "Gridular", monospace;
   }
 
   h3 {
@@ -656,7 +663,7 @@ body.dark-mode {
     font-size: 12.5px;
     color: var(--color-twenty);
     font-weight: 300;
-    font-family: "Disket-Mono-Bold", monospace;
+    font-family: "Gridular", monospace;
     text-transform: uppercase;
   }
 
@@ -667,7 +674,7 @@ body.dark-mode {
     font-size: 12.5px;
     color: var(--color-twenty);
     font-weight: 300;
-    font-family: "Disket-Mono-Bold", monospace;
+    font-family: "Gridular", monospace;
     text-transform: uppercase;
   }
 
@@ -870,7 +877,7 @@ body.dark-mode {
 
   .tabletitle {
     height: 400px;
-    font-family: "Disket-Mono-Bold", monospace;
+    font-family: "Gridular", monospace;
     font-size: 150px;
     display: flex;
     justify-content: space-between;
@@ -1124,7 +1131,7 @@ body.dark-mode {
     color: var(--background-color-one); /* Text color */
     font-size: 15px; /* Font size */
     margin: 10px 5px; /* Spacing around titles */
-    font-family: "Disket-Mono-Bold", monospace;
+    font-family: "Gridular", monospace;
     font-weight: normal;
     font-style: normal;
     font-weight: bold;
@@ -1146,7 +1153,7 @@ body.dark-mode {
 
   .fixed-box a.center-text {
     text-decoration: none;
-    font-family: "Disket-Mono-Bold", monospace;
+    font-family: "Gridular", monospace;
     font-weight: normal;
     font-style: normal;
     font-size: 12px;
@@ -1363,7 +1370,7 @@ body.dark-mode {
     text-align: left;
     overflow: hidden;
     color: var(--color-seven);
-    font-family: "Disket-Mono-Bold", monospace;
+    font-family: "Gridular", monospace;
     font-weight: normal;
     font-style: normal;
     text-transform: uppercase;
@@ -1375,7 +1382,7 @@ body.dark-mode {
     font-size: 12px;
     color: var(--color-twenty);
     font-weight: normal;
-    font-family: "Disket-Mono-Bold", monospace;
+    font-family: "Gridular", monospace;
     text-transform: uppercase;
   }
 
@@ -1385,7 +1392,7 @@ body.dark-mode {
     font-size: 12px;
     color: var(--color-twenty);
     font-weight: normal;
-    font-family: "Disket-Mono-Bold", monospace;
+    font-family: "Gridular", monospace;
     text-transform: uppercase;
   }
 
@@ -1516,6 +1523,7 @@ body.dark-mode {
 
     white-space: nowrap;
     transition: background-color 0.1s;
+    font-family: "Gridular", monospace;
   }
 
   .scroller-content a:hover {
@@ -1563,7 +1571,7 @@ body.dark-mode {
   .update {
     white-space: nowrap;
     margin-right: 10px; /* Space between repeated texts */
-    font-family: "Disket-Mono-Bold", monospace;
+    font-family: "Gridular", monospace;
     font-weight: normal;
     font-style: normal;
     font-size: 12px;
@@ -1601,7 +1609,7 @@ body.dark-mode {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-family: "Disket-Mono-Bold", monospace;
+    font-family: "Gridular", monospace;
     font-weight: normal;
     font-style: normal;
     font-size: 12px;
@@ -1640,7 +1648,7 @@ body.dark-mode {
 
   .tabletitle {
     height: 300px;
-    font-family: "Disket-Mono-Bold", monospace;
+    font-family: "Gridular", monospace;
     font-size: 90px;
     display: flex;
     justify-content: space-between;
