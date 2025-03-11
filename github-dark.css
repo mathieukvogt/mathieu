@@ -7,18 +7,18 @@
   --color-four: #f7f7f7;
   --color-five: #cbcbcb;
   --color-six: #232323;
-  --color-seven: #d5d5d5;
+  --color-seven: #171717;
   --color-eight: #f2f2f2;
-  --hljs-three: #ff7b72;
-  --hljs-four: #d2a8ff;
-  --hljs-five: #79deff;
-  --hljs-six: #4effd6;
-  --hljs-seven: #ffa657;
+  --hljs-three: #ee1c00;
+  --hljs-four: #000ced;
+  --hljs-five: #8100dd;
+  --hljs-six: #6f3b17;
+  --hljs-seven: #ff7700;
   --hljs-eight: #8b949e;
-  --hljs-nine: #7a8ae6;
+  --hljs-nine: #c2008e;
   --hljs-ten: #c9d1d9;
-  --hljs-eleven: #1f6feb;
-  --hljs-twelve: #f2cc60;
+  --hljs-eleven: #eacf00;
+  --hljs-twelve: #f1b100;
   --hljs-thirteen: #c9d1d9;
   --hljs-fourteen: #c9d1d9;
 }
@@ -32,18 +32,18 @@ body.dark-mode {
   --color-four: #070707;
   --color-five: #707070;
   --color-six: #dddddd;
-  --color-seven: #171717;
+  --color-seven: #d5d5d5;
   --color-eight: #f2f2f2;
-  --hljs-three: #ee1c00;
-  --hljs-four: #000ced;
-  --hljs-five: #8100dd;
-  --hljs-six: #6f3b17;
-  --hljs-seven: #ff7700;
+  --hljs-three: #ff7b72;
+  --hljs-four: #d2a8ff;
+  --hljs-five: #79deff;
+  --hljs-six: #4effd6;
+  --hljs-seven: #ffa657;
   --hljs-eight: #8b949e;
-  --hljs-nine: #c2008e;
+  --hljs-nine: #7a8ae6;
   --hljs-ten: #c9d1d9;
-  --hljs-eleven: #eacf00;
-  --hljs-twelve: #f1b100;
+  --hljs-eleven: #1f6feb;
+  --hljs-twelve: #f2cc60;
   --hljs-thirteen: #c9d1d9;
   --hljs-fourteen: #c9d1d9;
 }
@@ -174,6 +174,6 @@ code.hljs {
 }
 
 .hljs::-webkit-scrollbar-thumb {
-  background-color: var(--background-color-one);
+  background-color: var(--color-one);
   border-radius: 4px;
 }

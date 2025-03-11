@@ -1,28 +1,4 @@
 :root {
-  --background-color-one: #f2f2f2;
-  --color-one: #070707;
-  --background-color-two: #323232;
-  --color-two: #f7f7f7;
-  --color-three: #222222;
-  --color-four: #f7f7f7;
-  --color-five: #cbcbcb;
-  --color-six: #ffffff;
-  --color-seven: #d5d5d5;
-  --color-eight: #ffffff;
-  --color-nine: #070707;
-  --color-ten: rgba(0, 0, 0, 0.85);
-  --color-eleven: rgba(7, 7, 7, 0.98);
-  --color-twelve: #f2f2f2;
-  --color-thirteen: #000000;
-  --color-fourteen: #1c1c1c;
-  --color-fifteen: rgb(255, 255, 255);
-  --color-sixteen: rgba(242, 242, 242, 0.75);
-  --color-twenty: #f2f2f2;
-  --background-color-twenty: #ffffff;
-  overscroll-behavior: contain;
-}
-
-body.dark-mode {
   --background-color-one: #000000;
   --color-one: #f0f0f0;
   --background-color-two: #000000;
@@ -43,6 +19,30 @@ body.dark-mode {
   --color-sixteen: rgba(0, 0, 0, 0.75);
   --color-twenty: #000000;
   --background-color-twenty: #000000;
+}
+
+body.dark-mode {
+  --background-color-one: #000000;
+  --color-one: #ffffff;
+  --background-color-two: #323232;
+  --color-two: #f7f7f7;
+  --color-three: #222222;
+  --color-four: #f7f7f7;
+  --color-five: #cbcbcb;
+  --color-six: #ffffff;
+  --color-seven: #d5d5d5;
+  --color-eight: #ffffff;
+  --color-nine: #070707;
+  --color-ten: rgba(0, 0, 0, 0.85);
+  --color-eleven: rgba(7, 7, 7, 0.98);
+  --color-twelve: #f2f2f2;
+  --color-thirteen: #000000;
+  --color-fourteen: #1c1c1c;
+  --color-fifteen: rgb(255, 255, 255);
+  --color-sixteen: rgba(242, 242, 242, 0.75);
+  --color-twenty: #f2f2f2;
+  --background-color-twenty: #ffffff;
+  overscroll-behavior: contain;
 }
 
 @font-face {
@@ -146,7 +146,6 @@ body.dark-mode {
   body {
     touch-action: manipulation;
     margin: 0;
-    background-color: var(--color-thirteen);
     overscroll-behavior: contain;
     min-height: 100%;
     overflow: hidden;
@@ -154,6 +153,7 @@ body.dark-mode {
     font-family: "DM Mono", monospace;
     font-weight: 400;
     font-style: normal;
+    background-color: var(--color-thirteen);
   }
 
   .anton-regular {
@@ -199,7 +199,7 @@ body.dark-mode {
     flex-direction: column;
     justify-content: space-between; /* Align items to the top */
     position: fixed;
-    border: 1px solid var(--background-color-one);
+    border: 1px solid var(--color-one);
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
@@ -207,7 +207,7 @@ body.dark-mode {
 
   .left-title {
     font-size: 14px;
-    color: var(--color-twenty);
+    color: var(--color-one);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -231,10 +231,10 @@ body.dark-mode {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 2px;
   }
 
-  canvas {
+  canvas:not(#noise) {
     display: none;
   }
 
@@ -243,6 +243,9 @@ body.dark-mode {
     overflow: hidden;
     padding-bottom: 10px;
     padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 
   .navigation-title {
@@ -261,6 +264,8 @@ body.dark-mode {
   .index-wrapper {
     display: flex;
     height: 100%;
+    flex: 1;
+    overflow: hidden;
   }
 
   .index-menu {
@@ -269,9 +274,11 @@ body.dark-mode {
 
   .indexscroller {
     flex: 2;
-    height: 100%;
-    overflow-y: scroll; /* Always shows vertical scrollbar */
+    height: auto;
+    max-height: 100%;
+    overflow-y: auto;
     scroll-behavior: smooth;
+    padding-bottom: 20px; /* Add padding at bottom to ensure last items are visible */
   }
 
   .indexscroller::-webkit-scrollbar {
@@ -290,15 +297,17 @@ body.dark-mode {
 
   .navigation-container {
     display: flex;
-    color: var(--background-color-one);
+    color: var(--color-one);
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
     font-size: 14px;
     font-family: "Gridular", monospace;
     font-weight: normal;
     font-style: normal;
     height: 22.5px;
+    border-bottom: 1px solid var(--color-one);
   }
 
   .titleindex {
@@ -310,12 +319,12 @@ body.dark-mode {
 
   /* Hover effect to apply styles properly */
   .navigation-container:hover {
-    background-color: var(--background-color-one);
-    color: var(--color-one);
+    background-color: var(--color-one);
+    color: var(--background-color-one);
   }
 
   .navigation-container:hover .titleindex {
-    color: var(--color-one);
+    color: var(--background-color-one);
   }
 
   [id] {
@@ -408,19 +417,23 @@ body.dark-mode {
     height: 110px;
     width: 100%;
     box-sizing: border-box; /* Include padding and border in width */
-    border: 1px solid var(--background-color-one);
+    border: 1px solid var(--color-one);
     margin-bottom: 20px;
-    background-color: var(--color-one);
+    background-color: var(--background-color-one);
     cursor: pointer; /* Add this line */
   }
 
   .menu-line:hover {
-    background-color: var(--color-six);
+    background-color: var(--color-one);
+  }
+
+  .menu-line:hover .menu-title {
+    color: var(--background-color-one);
   }
 
   /* Menu Title Styles */
   .menu-title {
-    color: var(--background-color-one); /* Text color */
+    color: var(--color-one); /* Text color */
     font-size: 22px; /* Font size */
     margin: 15px 5px; /* Spacing around titles */
     font-weight: bold;
@@ -855,8 +868,8 @@ body.dark-mode {
     text-transform: uppercase;
     padding: 0;
     height: 25px;
-    border-top: 1px solid var(--background-color-one);
-    background-color: var(--background-color-one);
+    border-top: 1px solid var(--color-one);
+    background-color: var(--color-one);
   }
 
   td.tableletters[data-number] {
@@ -872,7 +885,7 @@ body.dark-mode {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-top: 1px solid var(--background-color-one);
+    border-top: 1px solid var(--color-one);
   }
 
   .tabletitle {
@@ -884,7 +897,7 @@ body.dark-mode {
     align-items: center;
     margin-bottom: 40px;
     padding: 0;
-    color: var(--background-color-one);
+    color: var(--color-one);
   }
 
   .clickable:hover {
@@ -1120,15 +1133,15 @@ body.dark-mode {
     height: 110px;
     width: 100%;
     box-sizing: border-box; /* Include padding and border in width */
-    border: 1px solid var(--background-color-one);
+    border: 1px solid var(--color-one);
     margin-bottom: 20px;
-    background-color: var(--color-one);
+    background-color: var(--background-color-one);
     cursor: pointer; /* Add this line */
   }
 
   /* Menu Title Styles */
   .menu-title {
-    color: var(--background-color-one); /* Text color */
+    color: var(--color-one); /* Text color */
     font-size: 15px; /* Font size */
     margin: 10px 5px; /* Spacing around titles */
     font-family: "Gridular", monospace;
@@ -1369,7 +1382,7 @@ body.dark-mode {
     padding-bottom: 20px;
     text-align: left;
     overflow: hidden;
-    color: var(--color-seven);
+    color: var(--color-one);
     font-family: "Gridular", monospace;
     font-weight: normal;
     font-style: normal;
@@ -1428,7 +1441,7 @@ body.dark-mode {
     position: absolute;
     width: 1px; /* Thickness of the vertical line */
     height: 100%;
-    background-color: var(--background-color-one); /* Adjust color as needed */
+    background-color: var(--color-one); /* Adjust color as needed */
   }
 
   /* Position vertical lines */
@@ -1453,7 +1466,7 @@ body.dark-mode {
     content: "";
     position: absolute;
     height: 1px; /* Thickness of the horizontal line */
-    background-color: var(--background-color-one); /* Adjust color as needed */
+    background-color: var(--color-one); /* Adjust color as needed */
     top: 50%;
     transform: translateY(-50%);
   }
@@ -1516,9 +1529,9 @@ body.dark-mode {
     justify-content: center;
     height: 35px;
     padding: 0 10px;
-    border: 1px solid var(--background-color-one);
+    border: 1px solid var(--color-one);
     background-color: transparent;
-    color: var(--background-color-one);
+    color: var(--color-one);
     text-decoration: none;
 
     white-space: nowrap;
@@ -1527,8 +1540,8 @@ body.dark-mode {
   }
 
   .scroller-content a:hover {
-    background-color: var(--background-color-one);
-    color: var(--color-one);
+    background-color: var(--color-one);
+    color: var(--background-color-one);
   }
 
   .hljs {
@@ -1539,7 +1552,7 @@ body.dark-mode {
 
   p,
   ol {
-    color: var(--color-seven);
+    color: var(--color-one);
     line-height: 1.5;
     font-size: 13px;
   }
@@ -1602,9 +1615,9 @@ body.dark-mode {
   }
 
   .tableletters {
-    color: var(--color-one);
-    background-color: var(--background-color-one);
-    border-top: 1px solid var(--background-color-one);
+    color: var(--background-color-one);
+    background-color: var(--color-one);
+    border-top: 1px solid var(--color-one);
     text-transform: uppercase;
     display: flex;
     align-items: center;
@@ -1620,11 +1633,11 @@ body.dark-mode {
   }
   .clickable {
     cursor: pointer;
-    color: var(--color-seven);
+    color: var(--color-one);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-top: 1px solid var(--background-color-one);
+    border-top: 1px solid var(--color-one);
   }
 
   .clickable:hover {
@@ -1643,7 +1656,7 @@ body.dark-mode {
   }
 
   .clickable.expanded {
-    color: var(--background-color-one);
+    color: var(--color-one);
   }
 
   .tabletitle {
@@ -1717,7 +1730,7 @@ body.dark-mode {
 
   .mobile-ascii-art {
     display: block;
-    color: var(--background-color-one);
+    color: var(--color-one);
     display: flex;
     align-items: center;
     justify-content: center;
