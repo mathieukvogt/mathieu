@@ -220,7 +220,7 @@ body.dark-mode {
   }
 
   .left-image {
-    height: 250px;
+    height: 300px;
     width: auto;
     display: flex;
     align-items: center;
@@ -250,7 +250,7 @@ body.dark-mode {
 
   .navigation-title {
     font-size: 14px;
-    color: var(--background-color-one);
+    color: var(--color-one);
     padding-left: 0;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -410,17 +410,17 @@ body.dark-mode {
   }
 
   .menu-line {
+    position: relative;
     display: flex;
     align-items: flex-end;
-    justify-content: space-between;
-    padding: 0 8px;
+    padding: 8px;
     height: 110px;
     width: 100%;
-    box-sizing: border-box; /* Include padding and border in width */
+    box-sizing: border-box;
     border: 1px solid var(--color-one);
     margin-bottom: 20px;
     background-color: var(--background-color-one);
-    cursor: pointer; /* Add this line */
+    cursor: pointer;
   }
 
   .menu-line:hover {
@@ -434,8 +434,8 @@ body.dark-mode {
   /* Menu Title Styles */
   .menu-title {
     color: var(--color-one); /* Text color */
-    font-size: 22px; /* Font size */
-    margin: 15px 5px; /* Spacing around titles */
+    font-size: 18px; /* Font size */
+    margin: 16px 16px; /* Spacing around titles */
     font-weight: bold;
     font-family: "Gridular", monospace;
     font-weight: 400;
@@ -445,6 +445,22 @@ body.dark-mode {
   .menu-title.one {
     font-size: 40px; /* Font size */
     font-family: "Gridular", monospace;
+  }
+
+  .menu-title.two {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    margin: 0;
+    border-top: 1px solid var(--color-one);
+    border-right: 1px solid var(--color-one);
+    padding-top: 8px;
+    padding-right: 8px;
+  }
+
+  .menu-line:hover .menu-title.two {
+    border-top: 1px solid var(--background-color-one);
+    border-right: 1px solid var(--background-color-one);
   }
 
   .fixed-box {
@@ -699,8 +715,6 @@ body.dark-mode {
 
   .custom-hr {
     display: none;
-    justify-content: space-between;
-    align-items: center;
   }
 
   .symbol {
@@ -858,7 +872,7 @@ body.dark-mode {
   td {
     border-collapse: collapse;
     font-size: 14px;
-    height: 50px;
+    height: 40px;
     border: 1;
   }
 
@@ -916,7 +930,7 @@ body.dark-mode {
   }
 
   .clickable.expanded {
-    color: var(--background-color-one);
+    color: var(--color-one);
   }
 
   .ascii-art {
@@ -952,20 +966,20 @@ body.dark-mode {
 
   /* Standard syntax */
   ::selection {
-    background-color: var(--background-color-one);
-    color: var(--color-one);
+    background-color: var(--color-one);
+    color: var(--background-color-one);
   }
 
   /* Mozilla Firefox */
   ::-moz-selection {
-    background-color: var(--background-color-one);
-    color: var(--color-one);
+    background-color: var(--color-one);
+    color: var(--background-color-one);
   }
 
   /* WebKit browsers (Chrome, Safari) */
   ::-webkit-selection {
-    background-color: var(--background-color-one);
-    color: var(--color-one);
+    background-color: var(--color-one);
+    color: var(--background-color-one);
   }
 }
 
@@ -1126,24 +1140,23 @@ body.dark-mode {
   }
 
   .menu-line {
+    position: relative;
     display: flex;
     align-items: flex-end;
-    justify-content: space-between;
-    padding: 0 8px;
     height: 110px;
     width: 100%;
-    box-sizing: border-box; /* Include padding and border in width */
+    box-sizing: border-box;
     border: 1px solid var(--color-one);
     margin-bottom: 20px;
     background-color: var(--background-color-one);
-    cursor: pointer; /* Add this line */
+    cursor: pointer;
   }
 
   /* Menu Title Styles */
   .menu-title {
     color: var(--color-one); /* Text color */
-    font-size: 15px; /* Font size */
-    margin: 10px 5px; /* Spacing around titles */
+    font-size: 14px; /* Font size */
+    margin: 8px 8px; /* Spacing around titles */
     font-family: "Gridular", monospace;
     font-weight: normal;
     font-style: normal;
@@ -1153,6 +1166,17 @@ body.dark-mode {
   .menu-title.one {
     font-size: 28px; /* Font size */
     font-weight: bold;
+  }
+
+  .menu-title.two {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    margin: 0;
+    border-top: 1px solid var(--color-one);
+    border-right: 1px solid var(--color-one);
+    padding-top: 8px;
+    padding-right: 8px;
   }
 
   .menu-bar {
@@ -1419,6 +1443,8 @@ body.dark-mode {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 0;
+    position: relative;
   }
 
   .symbol {
@@ -1668,7 +1694,7 @@ body.dark-mode {
     align-items: center;
     margin: 0;
     padding: 0;
-    color: var(--background-color-one);
+    color: var(--color-one);
     display: flex;
     align-items: center;
   }
@@ -1730,10 +1756,15 @@ body.dark-mode {
 
   .mobile-ascii-art {
     display: block;
-    color: var(--color-one);
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url("assets/vid103.gif");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 2px;
   }
 
   .ascii-art {
