@@ -225,6 +225,7 @@ body.dark-mode {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
 
   .left-image-gif {
@@ -232,6 +233,22 @@ body.dark-mode {
     height: 100%;
     object-fit: cover;
     border-radius: 2px;
+    opacity: 0.8;
+  }
+
+  .ascii-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: monospace;
+    white-space: pre;
+    font-size: 8px;
+    line-height: 1;
+    text-align: center;
+    z-index: 2;
+    pointer-events: none;
   }
 
   canvas:not(#noise) {
@@ -1768,6 +1785,10 @@ body.dark-mode {
   }
 
   .ascii-art {
+    display: none;
+  }
+
+  .ascii-overlay {
     display: none;
   }
 
