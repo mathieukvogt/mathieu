@@ -105,8 +105,8 @@ body.dark-mode {
 /* Mobile grid layout */
 @media (max-width: 900px) {
   .squares-container {
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: repeat(20, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(16, 1fr);
   }
 }
 

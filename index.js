@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
       numCols = 24;
     } else {
       // Mobile layout
-      numRows = 20;
-      numCols = 12;
+      numRows = 16;
+      numCols = 8;
     }
 
     const totalSquares = numRows * numCols;
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
           square,
           {
             opacity: 0,
-            duration: 0.05,
+            duration: 0.001,
             ease: "none",
           },
           index * 0.005
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       // Set total duration to exactly 2 seconds
-      tl.duration(1.75);
+      tl.duration(2);
     }, 800); // 800ms initial delay before animation starts
   }
 
