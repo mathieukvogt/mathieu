@@ -20,12 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (window.innerWidth > 900) {
       // Desktop layout
-      numRows = 12;
-      numCols = 24;
+      numRows = 15;
+      numCols = 30;
     } else {
       // Mobile layout
-      numRows = 16;
-      numCols = 8;
+      numRows = 20;
+      numCols = 10;
     }
 
     const totalSquares = numRows * numCols;
@@ -46,8 +46,10 @@ document.addEventListener("DOMContentLoaded", () => {
       overlay.style.display = "block";
     }
 
-    // Shuffle array to make disappearance random
-    const shuffledSquares = [...squares].sort(() => Math.random() - 0.5);
+    // Double-shuffle for better randomness while keeping same structure
+    const shuffledSquares = [...squares]
+      .sort(() => Math.random() - 0.5)
+      .sort(() => Math.random() - 0.5);
 
     // Add a delay before starting the animation
     setTimeout(() => {
