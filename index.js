@@ -70,9 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
           square,
           {
             opacity: 0,
-            scale: 0.95,
-            duration: 0.2,
-            ease: "power2.out",
+            duration: 0.05,
+            ease: "none",
           },
           index * 0.005
         ); // Stagger effect
