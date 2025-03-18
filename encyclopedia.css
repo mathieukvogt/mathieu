@@ -233,7 +233,7 @@ body.dark-mode {
     height: 100%;
     object-fit: cover;
     border-radius: 2px;
-    opacity: 0.5;
+    opacity: 0.8;
   }
 
   .ascii-overlay {
@@ -1075,7 +1075,6 @@ body.dark-mode {
     align-items: center;
     justify-content: center;
     overflow-x: hidden;
-    position: relative;
   }
 
   #cubeCanvas {

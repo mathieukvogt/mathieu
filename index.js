@@ -5,22 +5,83 @@ document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(TextPlugin);
 
   // --------------------------------------------------
-  // 0) LOADING ANIMATION
+  // LOADING ANIMATION: DISAPPEARING SQUARES
   // --------------------------------------------------
-  gsap.to(".bar", 1.3, {
-    delay: 0,
-    height: 0,
-    stagger: {
-      amount: 0.5,
-    },
-    ease: "power4.inOut",
-    onComplete: function () {
-      const overlayElem = document.querySelector(".overlay");
-      if (overlayElem) {
-        overlayElem.style.display = "none";
-      }
-    },
-  });
+  function createSquaresAnimation() {
+    // Get the container element
+    const container = document.querySelector(".squares-container");
+    if (!container) return;
+
+    // Clear any existing squares
+    container.innerHTML = "";
+
+    // Set grid dimensions based on screen size
+    let numRows, numCols;
+
+    if (window.innerWidth > 900) {
+      // Desktop layout
+      numRows = 12;
+      numCols = 24;
+    } else {
+      // Mobile layout
+      numRows = 20;
+      numCols = 12;
+    }
+
+    const totalSquares = numRows * numCols;
+
+    // Create all squares
+    for (let i = 0; i < totalSquares; i++) {
+      const square = document.createElement("div");
+      square.className = "square";
+      container.appendChild(square);
+    }
+
+    // Get all squares as an array
+    const squares = Array.from(container.querySelectorAll(".square"));
+
+    // Make sure overlay is visible
+    const overlay = document.querySelector(".overlay");
+    if (overlay) {
+      overlay.style.display = "block";
+    }
+
+    // Shuffle array to make disappearance random
+    const shuffledSquares = [...squares].sort(() => Math.random() - 0.5);
+
+    // Add a delay before starting the animation
+    setTimeout(() => {
+      // Create GSAP timeline
+      const tl = gsap.timeline({
+        onComplete: () => {
+          // Remove overlay when animation is complete
+          if (overlay) {
+            overlay.style.display = "none";
+          }
+        },
+      });
+
+      // Add animation for each square
+      shuffledSquares.forEach((square, index) => {
+        tl.to(
+          square,
+          {
+            opacity: 0,
+            scale: 0.95,
+            duration: 0.2,
+            ease: "power2.out",
+          },
+          index * 0.5
+        ); // Stagger effect
+      });
+
+      // Set total duration to exactly 2 seconds
+      tl.duration(1.75);
+    }, 800); // 800ms initial delay before animation starts
+  }
+
+  // Run the animation immediately
+  createSquaresAnimation();
 
   // --------------------------------------------------
   // 1) DARK MODE FUNCTIONALITY

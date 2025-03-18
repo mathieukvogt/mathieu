@@ -88,19 +88,43 @@ body.dark-mode {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 2000;
-  display: flex;
-  justify-content: space-between;
-  margin: 0;
-  padding: 0;
+  z-index: 9999;
+  background-color: transparent;
+  overflow: hidden;
 }
 
-.bar {
-  width: 10vw;
-  height: 105vh;
-  background: var(--background-color-one, #f2f2f2);
+.squares-container {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Mobile grid layout */
+@media (max-width: 900px) {
+  .squares-container {
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+  }
+}
+
+/* Desktop grid layout */
+@media (min-width: 901px) {
+  .squares-container {
+    grid-template-columns: repeat(24, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+  }
+}
+
+.square {
+  background-color: #000000;
+  width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 /* --------------------------------------------- */
@@ -202,7 +226,7 @@ p {
   height: 100%;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   will-change: clip-path;
-  opacity: 0.3;
+  opacity: 0.15;
 }
 
 .slide-bg-img:after {
@@ -226,6 +250,19 @@ p {
   border: 1px solid var(--color-one);
   background-color: transparent;
   z-index: 3;
+  overflow: visible;
+}
+
+/* Hide border animation elements for borderdiv */
+.borderdiv .border-top,
+.borderdiv .border-bottom {
+  display: none;
+}
+
+/* Remove pseudo-elements for borderdiv */
+.borderdiv::before,
+.borderdiv::after {
+  content: none;
 }
 
 .slide-main-img {
@@ -236,7 +273,6 @@ p {
   width: 60%;
   height: 50%;
   z-index: 2;
-  opacity: 0.8;
 }
 
 .slide-main-img-wrapper {
@@ -247,6 +283,7 @@ p {
   height: 100%;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   will-change: clip-path;
+  opacity: 0.2; /* Moved opacity here from parent */
 }
 
 .slide-main-img-wrapper img {
@@ -265,6 +302,8 @@ p {
   width: 100%;
   font-family: "Gridular", "DM Mono", monospace;
   height: 40%;
+  mix-blend-mode: normal;
+  opacity: 1 !important;
 }
 
 .metatitleone {
@@ -276,6 +315,7 @@ p {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  opacity: 1 !important;
 }
 
 .metatitletwo {
@@ -285,6 +325,7 @@ p {
   width: 50%;
   padding: 10px;
   font-size: 12px;
+  opacity: 1 !important;
 }
 
 .metaclass {
@@ -297,6 +338,7 @@ p {
   font-family: "Gridular", "DM Mono", monospace;
   height: 38%;
   top: 62%;
+  opacity: 1 !important;
 }
 
 .metaone {
@@ -304,6 +346,7 @@ p {
   border-right: var(--color-one) 1px solid;
   padding: 10px;
   font-size: 12px;
+  opacity: 1 !important;
 }
 
 .metatwo {
@@ -312,6 +355,7 @@ p {
   padding: 10px;
   font-size: 12px;
   font-family: "Gridular", "DM Mono", monospace;
+  opacity: 1 !important;
 }
 
 .metathree {
@@ -325,6 +369,7 @@ p {
   justify-content: flex-end;
   align-items: flex-end;
   z-index: 20000;
+  opacity: 1 !important;
 }
 
 .slide-copy {
@@ -432,11 +477,23 @@ body.dark-mode {
   left: 3vw;
   right: 3vw;
   z-index: 10;
-  border: 1px solid var(--color-one);
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
   padding: 6px;
+  overflow: visible;
+  border: 1px solid var(--color-one);
+}
+
+/* Remove border animations */
+.big-box::before,
+.big-box::after {
+  display: none;
+}
+
+.big-box .border-top,
+.big-box .border-bottom {
+  display: none;
 }
 
 /* Dark Mode Button (circle with two halves) */
