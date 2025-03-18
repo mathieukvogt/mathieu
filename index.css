@@ -1,6 +1,6 @@
 :root {
-  --background-color-one: #bdbdbd;
-  --color-one: #000000;
+  --background-color-one: #ffffff;
+  --color-one: #ff0000;
   --background-color-two: #323232;
   --color-two: #f7f7f7;
   --color-three: #222222;
@@ -304,6 +304,31 @@ p {
   height: 40%;
   mix-blend-mode: normal;
   opacity: 1 !important;
+}
+
+.metainfo,
+.metaclass,
+.metatitleone p,
+.metatitletwo p,
+.metathree p,
+.metaone p,
+.metatwo p {
+  visibility: hidden; /* Initially hide all meta text elements */
+}
+
+/* Keep borders visible */
+.metatitleone,
+.metatitletwo,
+.metaclass {
+  visibility: visible; /* Keep container elements visible for borders */
+}
+
+.metatitleone p,
+.metatitletwo p,
+.metathree p,
+.metaone p,
+.metatwo p {
+  visibility: hidden; /* Hide only the text content */
 }
 
 .metatitleone {

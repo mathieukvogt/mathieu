@@ -57,6 +57,9 @@ document.addEventListener("DOMContentLoaded", () => {
           // Remove overlay when animation is complete
           if (overlay) {
             overlay.style.display = "none";
+
+            // When loading animation completes, run the text scramble animation
+            animateSliderTexts();
           }
         },
       });
@@ -71,13 +74,53 @@ document.addEventListener("DOMContentLoaded", () => {
             duration: 0.2,
             ease: "power2.out",
           },
-          index * 0.5
+          index * 0.005
         ); // Stagger effect
       });
 
       // Set total duration to exactly 2 seconds
       tl.duration(1.75);
     }, 800); // 800ms initial delay before animation starts
+  }
+
+  // --------------------------------------------------
+  // SLIDER TEXT ANIMATIONS
+  // --------------------------------------------------
+  function animateSliderTexts() {
+    // Get all the small text elements in the slider
+    const smallTextElements = [
+      ...document.querySelectorAll(
+        ".metatitleone p, .metatitletwo p, .metathree, .metaone, .metatwo"
+      ),
+    ];
+
+    if (smallTextElements.length === 0) return;
+
+    // Store original text content
+    const originalTexts = smallTextElements.map((el) => el.textContent);
+
+    // Create a timeline for text animations
+    const textTl = gsap.timeline();
+
+    // First make all text elements visible (they're initially hidden via CSS)
+    smallTextElements.forEach((el) => {
+      el.style.visibility = "visible";
+      el.textContent = "";
+    });
+
+    // Then animate each text element with scramble effect
+    smallTextElements.forEach((element, index) => {
+      textTl.to(element, {
+        duration: 0.8,
+        delay: index * 0.1, // Stagger the animations
+        text: {
+          value: originalTexts[index],
+          scramble: 5,
+          chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+        },
+        ease: "none",
+      });
+    });
   }
 
   // Run the animation immediately
