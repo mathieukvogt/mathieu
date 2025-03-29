@@ -1,131 +1,67 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // --------------------------------------------------
-  // Register GSAP Plugins
-  // --------------------------------------------------
-  gsap.registerPlugin(TextPlugin);
+// Wait for window to load completely (including all resources)
+window.addEventListener("load", function () {
+  // First ensure GSAP is loaded
+  if (typeof gsap === "undefined") {
+    console.error("GSAP not loaded yet");
+    setTimeout(initLoadAnimation, 500); // Try again after a delay
+  } else {
+    // GSAP is available, initialize animation
+    initLoadAnimation();
+  }
+});
 
-  // --------------------------------------------------
-  // LOADING ANIMATION: DISAPPEARING SQUARES
-  // --------------------------------------------------
-  function createSquaresAnimation() {
-    // Get the container element
-    const container = document.querySelector(".squares-container");
-    if (!container) return;
-
-    // Clear any existing squares
-    container.innerHTML = "";
-
-    // Set grid dimensions based on screen size
-    let numRows, numCols;
-
-    if (window.innerWidth > 900) {
-      // Desktop layout
-      numRows = 15;
-      numCols = 30;
-    } else {
-      // Mobile layout
-      numRows = 20;
-      numCols = 10;
-    }
-
-    const totalSquares = numRows * numCols;
-
-    // Create all squares
-    for (let i = 0; i < totalSquares; i++) {
-      const square = document.createElement("div");
-      square.className = "square";
-      container.appendChild(square);
-    }
-
-    // Get all squares as an array
-    const squares = Array.from(container.querySelectorAll(".square"));
-
-    // Make sure overlay is visible
-    const overlay = document.querySelector(".overlay");
-    if (overlay) {
-      overlay.style.display = "block";
-    }
-
-    // Double-shuffle for better randomness while keeping same structure
-    const shuffledSquares = [...squares]
-      .sort(() => Math.random() - 0.5)
-      .sort(() => Math.random() - 0.5);
-
-    // Add a delay before starting the animation
-    setTimeout(() => {
-      // Create GSAP timeline
-      const tl = gsap.timeline({
-        onComplete: () => {
-          // Remove overlay when animation is complete
-          if (overlay) {
-            overlay.style.display = "none";
-
-            // When loading animation completes, run the text scramble animation
-            animateSliderTexts();
-          }
-        },
-      });
-
-      // Add animation for each square
-      shuffledSquares.forEach((square, index) => {
-        tl.to(
-          square,
-          {
-            opacity: 0,
-            duration: 0.001,
-            ease: "none",
-          },
-          index * 0.005
-        ); // Stagger effect
-      });
-
-      // Set total duration to exactly 2 seconds
-      tl.duration(2);
-    }, 800); // 800ms initial delay before animation starts
+function initLoadAnimation() {
+  // Register plugins if GSAP is available
+  if (typeof gsap !== "undefined" && gsap.registerPlugin) {
+    gsap.registerPlugin(TextPlugin);
+  } else {
+    console.error("GSAP still not available");
+    return;
   }
 
-  // --------------------------------------------------
-  // SLIDER TEXT ANIMATIONS
-  // --------------------------------------------------
-  function animateSliderTexts() {
-    // Get all the small text elements in the slider
-    const smallTextElements = [
-      ...document.querySelectorAll(
-        ".metatitleone p, .metatitletwo p, .metathree, .metaone, .metatwo"
-      ),
-    ];
+  // Get loader elements
+  const loaderContainer = document.getElementById("loader-container");
+  const scalingRectangle = document.getElementById("scaling-rectangle");
 
-    if (smallTextElements.length === 0) return;
-
-    // Store original text content
-    const originalTexts = smallTextElements.map((el) => el.textContent);
-
-    // Create a timeline for text animations
-    const textTl = gsap.timeline();
-
-    // First make all text elements visible (they're initially hidden via CSS)
-    smallTextElements.forEach((el) => {
-      el.style.visibility = "visible";
-      el.textContent = "";
-    });
-
-    // Then animate each text element with scramble effect
-    smallTextElements.forEach((element, index) => {
-      textTl.to(element, {
-        duration: 0.8,
-        delay: index * 0.1, // Stagger the animations
-        text: {
-          value: originalTexts[index],
-          scramble: 5,
-          chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-        },
-        ease: "none",
-      });
-    });
+  if (!loaderContainer || !scalingRectangle) {
+    console.error("Loader elements not found");
+    return;
   }
 
-  // Run the animation immediately
-  createSquaresAnimation();
+  console.log("Starting loader animation");
+
+  // Create animation sequence
+  const tl = gsap.timeline({
+    onComplete: function () {
+      // Animation complete, start text animations
+      animateSliderTexts();
+      console.log("Loader animation complete");
+    },
+  });
+
+  // Force rectangle to be visible and small
+  scalingRectangle.style.width = "20%";
+  scalingRectangle.style.height = "20%";
+  scalingRectangle.style.backgroundColor = "#000000";
+
+  // 1. Scale rectangle to fill screen (grows from center)
+  tl.to(scalingRectangle, {
+    width: "120vw", // Extra large to ensure it covers everything
+    height: "120vh", // Extra large to ensure it covers everything
+    duration: 1.5,
+    ease: "power2.inOut",
+  });
+
+  // 2. After rectangle fills screen, slide everything up
+  tl.to(loaderContainer, {
+    y: "-100%",
+    duration: 0.8,
+    ease: "power3.inOut",
+    onComplete: function () {
+      // Remove loader completely from DOM after animation
+      loaderContainer.parentNode.removeChild(loaderContainer);
+    },
+  });
 
   // --------------------------------------------------
   // 1) DARK MODE FUNCTIONALITY
@@ -816,4 +752,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Update the time every second
   setInterval(updateZurichTime, 1000);
-});
+}
+
+// Define animateSliderTexts function
+function animateSliderTexts() {
+  // Get all the small text elements in the slider
+  const smallTextElements = [
+    ...document.querySelectorAll(
+      ".metatitleone p, .metatitletwo p, .metathree, .metaone, .metatwo"
+    ),
+  ];
+
+  if (smallTextElements.length === 0) return;
+
+  // Store original text content
+  const originalTexts = smallTextElements.map((el) => el.textContent);
+
+  // Create a timeline for text animations
+  const textTl = gsap.timeline();
+
+  // First make all text elements visible (they're initially hidden via CSS)
+  smallTextElements.forEach((el) => {
+    el.style.visibility = "visible";
+    el.textContent = "";
+  });
+
+  // Then animate each text element with scramble effect
+  smallTextElements.forEach((element, index) => {
+    textTl.to(element, {
+      duration: 0.8,
+      delay: index * 0.1, // Stagger the animations
+      text: {
+        value: originalTexts[index],
+        scramble: 5,
+        chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+      },
+      ease: "none",
+    });
+  });
+}

@@ -29,11 +29,46 @@
   <body class="dark-mode">
     <canvas id="noise" class="noise" aria-hidden="true"></canvas>
 
-    <!-- LOADING ANIMATION OVERLAY -->
-    <div class="overlay" aria-hidden="true">
-      <div class="squares-container"></div>
+    <!-- RELIABLE LOADER ANIMATION -->
+    <div
+      id="loader-container"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 100000;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      "
+    >
+      <!-- SVG container for better scaling animation -->
+      <div
+        id="rectangle-container"
+        style="
+          position: relative;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <div
+          id="scaling-rectangle"
+          style="
+            background-color: #000000;
+            width: 20%;
+            height: 20%;
+            transform-origin: center;
+          "
+        ></div>
+      </div>
     </div>
-    <!-- END LOADING ANIMATION OVERLAY -->
 
     <!-- BEGIN NAVBAR + DARK MODE INTEGRATION -->
     <header>
@@ -80,6 +115,10 @@
           <a href="about.html" class="menu-line">
             <div class="menu-title one">ABOUT</div>
             <div class="menu-title two">[03]</div>
+          </a>
+          <a href="domains.html" class="menu-line">
+            <div class="menu-title one">DOMAINS</div>
+            <div class="menu-title two">[04]</div>
           </a>
         </div>
       </div>
