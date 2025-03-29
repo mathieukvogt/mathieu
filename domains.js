@@ -1,4 +1,174 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Simple Image Slider Functionality
+  const sliderItems = document.querySelectorAll(".slider-item");
+  const dots = document.querySelectorAll(".dot");
+  const prevButton = document.querySelector(".slider-prev");
+  const nextButton = document.querySelector(".slider-next");
+  const domainNumber = document.querySelector(".domain-number");
+
+  // Image Slider Functionality
+  const slider = document.querySelector(".slider");
+  const totalSlides = 7;
+  let activeSlideIndex = 1;
+  let isAnimating = false;
+
+  const sliderContent = [
+    { name: "DOMAIN 1", img: "assets/1A.png" },
+    { name: "DOMAIN 2", img: "assets/2A.png" },
+    { name: "DOMAIN 3", img: "assets/3A.png" },
+    { name: "DOMAIN 4", img: "assets/4A.png" },
+    { name: "DOMAIN 5", img: "assets/5A.png" },
+    { name: "DOMAIN 6", img: "assets/6A.png" },
+    { name: "DOMAIN 7", img: "assets/7A.png" },
+  ];
+
+  const clipPath = {
+    closed: "polygon(25% 30%, 75% 30%, 75% 70%, 25% 70%)",
+    open: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+  };
+
+  const slidePositions = {
+    prev: { left: "15%", rotation: -20 },
+    active: { left: "50%", rotation: 0 },
+    next: { left: "85%", rotation: 20 },
+  };
+
+  function createSlide(content, className) {
+    const slide = document.createElement("div");
+    slide.className = `slide-container ${className}`;
+    slide.innerHTML = `<div class="slide-img"><img src="${content.img}" alt="${content.name}"></div>`;
+    return slide;
+  }
+
+  function getSlideIndex(increment) {
+    return ((activeSlideIndex + increment - 1 + totalSlides) % totalSlides) + 1;
+  }
+
+  function updateDomainNumber(index) {
+    if (domainNumber) domainNumber.textContent = `[${index}]`;
+  }
+
+  function animateSlide(slide, props) {
+    if (!slide) return;
+    gsap.to(slide, { ...props, duration: 1.5, ease: "power2.inOut" });
+    gsap.to(slide.querySelector(".slide-img"), {
+      rotation: -props.rotation,
+      duration: 1.5,
+      ease: "power2.inOut",
+    });
+  }
+
+  function transitionSlides(direction) {
+    if (isAnimating || !slider) return;
+    isAnimating = true;
+
+    const [outgoingPos, incomingPos] =
+      direction === "next" ? ["prev", "next"] : ["next", "prev"];
+
+    const outgoingSlide = slider.querySelector(`.${outgoingPos}`);
+    const activeSlide = slider.querySelector(".active");
+    const incomingSlide = slider.querySelector(`.${incomingPos}`);
+
+    animateSlide(incomingSlide, {
+      ...slidePositions.active,
+      clipPath: clipPath.open,
+    });
+
+    animateSlide(activeSlide, {
+      ...slidePositions[outgoingPos],
+      clipPath: clipPath.closed,
+    });
+
+    if (outgoingSlide) {
+      gsap.to(outgoingSlide, {
+        scale: 0,
+        opacity: 0,
+        duration: 1.5,
+        ease: "power2.inOut",
+      });
+    }
+
+    const newSlideIndex = getSlideIndex(direction === "next" ? 2 : -2);
+    const newSlide = createSlide(sliderContent[newSlideIndex - 1], incomingPos);
+    slider.appendChild(newSlide);
+
+    gsap.set(newSlide, {
+      ...slidePositions[incomingPos],
+      xPercent: -50,
+      yPercent: -50,
+      scale: 0,
+      opacity: 0,
+      clipPath: clipPath.closed,
+    });
+
+    gsap.to(newSlide, {
+      scale: 1,
+      opacity: 1,
+      duration: 1.5,
+      ease: "power2.inOut",
+    });
+
+    const nextActiveIndex = getSlideIndex(direction === "next" ? 1 : -1);
+    // Remove title animation
+
+    // Update only domain number
+    setTimeout(() => updateDomainNumber(nextActiveIndex), 750);
+
+    setTimeout(() => {
+      if (outgoingSlide) outgoingSlide.remove();
+      if (activeSlide) activeSlide.className = `slide-container ${outgoingPos}`;
+      if (incomingSlide) incomingSlide.className = "slide-container active";
+      if (newSlide) newSlide.className = `slide-container ${incomingPos}`;
+      activeSlideIndex = nextActiveIndex;
+      isAnimating = false;
+    }, 1500);
+  }
+
+  // Initialize slider functionality
+  if (slider) {
+    // Set up click event for the slider
+    slider.addEventListener("click", (e) => {
+      const clickedSlide = e.target.closest(".slide-container");
+      if (clickedSlide && !isAnimating) {
+        transitionSlides(
+          clickedSlide.classList.contains("next") ? "next" : "prev"
+        );
+      }
+    });
+
+    // Initial setup for slide positions
+    Object.entries(slidePositions).forEach(([key, value]) => {
+      const slideElement = slider.querySelector(`.slide-container.${key}`);
+      if (slideElement) {
+        gsap.set(slideElement, {
+          ...value,
+          xPercent: -50,
+          yPercent: -50,
+          clipPath: key === "active" ? clipPath.open : clipPath.closed,
+        });
+
+        const slideImg = slideElement.querySelector(".slide-img");
+        if (slideImg && key !== "active") {
+          gsap.set(slideImg, {
+            rotation: -value.rotation,
+          });
+        }
+      }
+    });
+
+    // Initialize domain number
+    updateDomainNumber(activeSlideIndex);
+
+    // Add keyboard navigation
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") {
+        transitionSlides("prev");
+      } else if (e.key === "ArrowRight") {
+        transitionSlides("next");
+      }
+    });
+  }
+
   // ------------------------------
   // Existing Functionalities
   // ------------------------------
