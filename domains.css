@@ -642,10 +642,9 @@ td {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   overflow: hidden;
   background: transparent;
-  bottom: 60px;
 }
 
 .slider {
@@ -653,11 +652,11 @@ td {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  perspective: 1200px;
   perspective-origin: 50% 50%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
+  padding-bottom: 80px;
 }
 
 .card {
@@ -829,7 +828,7 @@ td {
   /* Card slider container mobile styles */
   .container {
     width: 100%;
-    align-items: center;
+    align-items: flex-end;
     margin: 0 auto;
     height: 100vh;
     position: relative;
@@ -842,10 +841,11 @@ td {
     align-items: flex-end;
     justify-content: center;
     position: relative;
+    padding-bottom: 80px;
   }
 
   .card {
-    width: 86%;
+    width: 93.8%;
     height: 300px;
   }
 
