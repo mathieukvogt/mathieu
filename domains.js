@@ -18,6 +18,27 @@ document.addEventListener("DOMContentLoaded", function () {
     : "power3.inOut";
   let isAnimating = false;
 
+  // Domain data mapping
+  const domainData = {
+    1: { price: "USD 7,500.00$", name: "synchronized.ai" },
+    2: { price: "USD 7,500.00$", name: "peas.ai" },
+    3: { price: "USD 7,500.00$", name: "quicktake.ai" },
+    4: { price: "USD 7,500.00$", name: "sandclock.ai" },
+    5: { price: "USD 7,500.00$", name: "salva.ai" },
+    6: { price: "USD 20,000.00$", name: "onecall.ai" },
+  };
+
+  // Update onecall-box content based on domain index
+  function updateDomainInfo(index) {
+    const domainPrice = document.querySelector(".domain-price");
+    const domainName = document.querySelector(".domain-name");
+
+    if (domainPrice && domainName && domainData[index]) {
+      domainPrice.textContent = domainData[index].price;
+      domainName.textContent = domainData[index].name;
+    }
+  }
+
   // Initialize cards with staggered positioning
   function initializeCards() {
     const cards = Array.from(document.querySelectorAll(".card"));
@@ -44,6 +65,9 @@ document.addEventListener("DOMContentLoaded", function () {
       const activeIndex = cards.length - 1;
       const domainIndex = activeIndex + 1;
       domainNumber.textContent = `[${domainIndex}]`;
+
+      // Initialize domain info on page load
+      updateDomainInfo(domainIndex);
     }
   }
 
@@ -81,10 +105,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const totalImages = 6;
     const nextIndex = currentIndex === 1 ? totalImages : currentIndex - 1;
 
-    // Update domain number
+    // Update domain number and info
     const domainNumber = document.querySelector(".domain-number");
     if (domainNumber) {
       domainNumber.textContent = `[${nextIndex}]`;
+
+      // Update domain info when changing cards
+      updateDomainInfo(nextIndex);
     }
 
     // First animation: Slide the card down off-screen

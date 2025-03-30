@@ -124,6 +124,38 @@ body.dark-mode {
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Gridular";
+  src: url("./Gridular/Gridular-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Disket-Mono-Regular";
+  src: url("./Disket/Disket-Mono-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Disket-Mono-Bold";
+  src: url("./Disket/Disket-Mono-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.dm-mono-light,
+.dm-mono-regular,
+.dm-mono-medium,
+.dm-mono-light-italic,
+.dm-mono-regular-italic,
+.dm-mono-medium-italic {
+  font-family: "Gridular", "DM Mono", monospace;
+  font-weight: inherit;
+  font-style: inherit;
+}
+
 /* ============================
    GLOBAL STYLES
    ============================ */
@@ -149,7 +181,7 @@ body {
   min-height: 100%;
   overflow: hidden;
   z-index: -2;
-  font-family: "DM Mono", monospace;
+  font-family: "Gridular", "DM Mono", monospace;
   font-weight: 400;
   font-style: normal;
 }
@@ -172,7 +204,7 @@ h2 {
   text-align: left;
   overflow: hidden;
   color: var(--color-seven);
-  font-family: "Disket-Mono-Bold", monospace;
+  font-family: "Gridular", "DM Mono", monospace;
 }
 
 h3 {
@@ -182,7 +214,7 @@ h3 {
   font-size: 13.5px;
   color: var(--color-twenty);
   font-weight: 300;
-  font-family: "Disket-Mono-Bold", monospace;
+  font-family: "Gridular", "DM Mono", monospace;
   text-transform: uppercase;
 }
 
@@ -193,7 +225,7 @@ h4 {
   font-size: 13.5px;
   color: var(--color-twenty);
   font-weight: 300;
-  font-family: "Disket-Mono-Bold", monospace;
+  font-family: "Gridular", "DM Mono", monospace;
   text-transform: uppercase;
 }
 
@@ -318,11 +350,36 @@ td {
   mix-blend-mode: difference;
 }
 
+/* Contact button */
+.contact-button {
+  position: fixed;
+  top: 80px; /* 20px below the navigation box which is at top: 20px + 40px height */
+  left: 3vw;
+  height: 40px; /* Same height as the fixed-box */
+  border: 1px solid var(--color-one);
+  background-color: transparent;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 12px;
+  font-family: "Gridular", "DM Mono", monospace;
+  color: var(--color-one);
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.contact-button:hover {
+  background-color: var(--color-one);
+  color: var(--background-color-one);
+}
+
 .fixed-box a.center-text {
   text-decoration: none;
   color: #f2f2f2;
   font-size: 12.5px;
-  font-family: "Disket-Mono-Bold", monospace;
+  font-family: "Gridular", "DM Mono", monospace;
   font-weight: 300;
   font-style: normal;
 }
@@ -532,7 +589,7 @@ td {
   position: absolute;
   top: 0;
   right: 0;
-  width: 100%;
+  width: 40vw;
   height: 100%;
   transform: translateX(100%);
   z-index: 1;
@@ -564,18 +621,18 @@ td {
 }
 
 .menu-title {
-  color: var(--background-color-one);
+  color: var(--color-one);
   font-size: 22px;
   margin: 15px 5px;
   font-weight: bold;
-  font-family: "Disket-Mono-Bold", monospace;
+  font-family: "Gridular", "DM Mono", monospace;
   font-weight: 400;
   font-style: normal;
 }
 
 .menu-title.one {
   font-size: 40px;
-  font-family: "Disket-Mono-Bold", monospace;
+  font-family: "Gridular", "DM Mono", monospace;
 }
 
 .menu-title.two {
@@ -588,11 +645,6 @@ td {
   padding-top: 8px !important;
   padding-right: 8px !important;
   font-size: 16px !important;
-}
-
-.menu-line:hover .menu-title.two {
-  border-top: 1px solid var(--background-color-one) !important;
-  border-right: 1px solid var(--background-color-one) !important;
 }
 
 /* ============================
@@ -624,7 +676,7 @@ td {
 .domain-number,
 .domain-archive {
   font-size: 12px;
-  font-family: "Disket-Mono-Bold", monospace;
+  font-family: "Gridular", "DM Mono", monospace;
   color: var(--color-one);
   letter-spacing: 1px;
 }
@@ -642,7 +694,7 @@ td {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   overflow: hidden;
   background: transparent;
 }
@@ -655,22 +707,21 @@ td {
   perspective-origin: 50% 50%;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  padding-bottom: 80px;
+  align-items: center;
+  padding-bottom: 200px;
 }
 
 .card {
   position: absolute;
-  top: 50%;
+  top: 42.5%;
   left: 50%;
-  width: 60%;
+  width: 65%;
   max-width: 1000px;
-  height: 375px;
+  height: 340px;
   border-radius: 0;
   border: 1px solid var(--color-one);
   transform: translate3d(-50%, -50%, 0px);
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   opacity: 0; /* Start hidden, will be shown by JS */
   background-color: var(--color-seven);
 }
@@ -716,7 +767,7 @@ td {
   align-items: center;
   justify-content: space-between;
   font-size: 12px;
-  font-family: "Disket-Mono-Bold", monospace;
+  font-family: "Gridular", "DM Mono", monospace;
   color: var(--color-one);
   box-sizing: border-box;
   padding-left: 10px;
@@ -774,7 +825,7 @@ td {
     font-size: 17px;
     padding-top: 80px;
     padding-bottom: 20px;
-    font-family: "Disket-Mono-Bold", monospace;
+    font-family: "Gridular", "DM Mono", monospace;
     font-weight: normal;
     text-transform: uppercase;
   }
@@ -803,6 +854,17 @@ td {
 
   .fixed-box a.center-text {
     font-size: 12px;
+  }
+
+  .menu-bar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateX(100%);
+    z-index: 1;
+    overflow: hidden;
   }
 
   /* Menu adjustments */
