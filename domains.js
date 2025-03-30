@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Wait a small amount of time to ensure everything is loaded
+  setTimeout(function () {
+    const pageOverlay = document.querySelector(".page-overlay");
+    if (pageOverlay) {
+      pageOverlay.classList.add("active");
+    }
+  }, 100);
+
   // All slider functionality removed
 
   // ------------------------------
@@ -527,5 +535,42 @@ document.addEventListener("DOMContentLoaded", function () {
     if (element.textContent.trim() === "Specifications") {
       element.textContent = "Examples";
     }
+  });
+
+  // Add this after your DOMContentLoaded event
+  function setupLinkTransitions() {
+    // Select all navigation links except the current page
+    const links = document.querySelectorAll(
+      'a:not([href="' + window.location.pathname.split("/").pop() + '"])'
+    );
+
+    links.forEach((link) => {
+      link.addEventListener("click", function (e) {
+        const href = this.getAttribute("href");
+        if (href && !href.startsWith("#") && !href.startsWith("mailto:")) {
+          e.preventDefault();
+
+          const pageOverlay = document.querySelector(".page-overlay");
+          if (pageOverlay) {
+            // Remove the active class to make overlay visible again
+            pageOverlay.classList.remove("active");
+
+            // Navigate to the new page after animation completes
+            setTimeout(function () {
+              window.location.href = href;
+            }, 800); // Match this to your transition duration
+          } else {
+            // Fallback if overlay isn't found
+            window.location.href = href;
+          }
+        }
+      });
+    });
+  }
+
+  // Call this function after DOM is loaded
+  document.addEventListener("DOMContentLoaded", function () {
+    // Setup link transitions
+    setupLinkTransitions();
   });
 });

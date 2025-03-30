@@ -1589,3 +1589,42 @@ body.dark-mode {
     margin-right: 3vw;
   }
 }
+
+/* Overlay animations */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2000;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+.bar {
+  width: 10vw;
+  height: 105vh;
+  background: var(--background-color-one);
+  margin: 0;
+  padding: 0;
+}
+
+/* New page transition overlay */
+.page-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background-color-one);
+  z-index: 2000;
+  transform: translateY(0);
+  transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.page-overlay.active {
+  transform: translateY(-100%);
+}

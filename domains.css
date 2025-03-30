@@ -329,6 +329,23 @@ td {
   padding: 0;
 }
 
+/* New page transition overlay */
+.page-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background-color-one);
+  z-index: 2000;
+  transform: translateY(0);
+  transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.page-overlay.active {
+  transform: translateY(-100%);
+}
+
 /* ============================
    HEADER & NAVIGATION
    ============================ */
@@ -755,7 +772,7 @@ td {
 /* Onecall.ai box */
 .onecall-box {
   position: fixed;
-  bottom: 80px;
+  bottom: 76px;
   left: 3vw;
   right: 3vw;
   width: calc(100% - 6vw);
