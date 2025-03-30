@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (pageOverlay) {
       pageOverlay.classList.add("active");
     }
-  }, 100);
+  }, 300);
 
   // All slider functionality removed
 
@@ -29,11 +29,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Domain data mapping
   const domainData = {
     1: { price: "USD 7,500.00$", name: "synchronized.ai" },
-    2: { price: "USD 7,500.00$", name: "peas.ai" },
+    2: { price: "USD 7,500.00$", name: "salva.ai" },
     3: { price: "USD 7,500.00$", name: "quicktake.ai" },
     4: { price: "USD 7,500.00$", name: "sandclock.ai" },
-    5: { price: "USD 7,500.00$", name: "salva.ai" },
-    6: { price: "USD 20,000.00$", name: "onecall.ai" },
+    5: { price: "USD 20,000.00$", name: "onecall.ai" },
+    6: { price: "USD 30,000.00$", name: "lives.ai" },
   };
 
   // Update onecall-box content based on domain index
@@ -558,7 +558,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Navigate to the new page after animation completes
             setTimeout(function () {
               window.location.href = href;
-            }, 800); // Match this to your transition duration
+            }, 1500); // Match this to your transition duration
           } else {
             // Fallback if overlay isn't found
             window.location.href = href;

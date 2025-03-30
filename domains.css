@@ -22,6 +22,7 @@
   --color-sixteen: rgba(0, 0, 0, 0.75);
   --color-twenty: #000000;
   --background-color-twenty: #000000;
+  --color-twentyone: rgba(255, 255, 255, 0.902);
 }
 
 body.dark-mode {
@@ -45,6 +46,7 @@ body.dark-mode {
   --color-sixteen: rgba(242, 242, 242, 0.75);
   --color-twenty: #f2f2f2;
   --background-color-twenty: #ffffff;
+  --color-twentyone: rgba(0, 0, 0, 0.872);
 }
 
 /* ============================
@@ -336,10 +338,10 @@ td {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: var(--background-color-one);
+  background-color: black;
   z-index: 2000;
   transform: translateY(0);
-  transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: transform 1.5s cubic-bezier(0.42, 0, 0.1, 1);
 }
 
 .page-overlay.active {
@@ -736,7 +738,7 @@ td {
   max-width: 1000px;
   height: 340px;
   border-radius: 0;
-  border: 1px solid var(--color-one);
+  border: 1px solid white;
   transform: translate3d(-50%, -50%, 0px);
   overflow: hidden;
   opacity: 0; /* Start hidden, will be shown by JS */
@@ -778,7 +780,9 @@ td {
   width: calc(100% - 6vw);
   height: 40px;
   border: 1px solid var(--color-one);
-  background-color: transparent;
+  background-color: var(--color-twentyone);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   z-index: 9;
   display: flex;
   align-items: center;
@@ -789,6 +793,10 @@ td {
   box-sizing: border-box;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+body.dark-mode .onecall-box {
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .domain-price {
@@ -923,7 +931,7 @@ td {
   }
 
   .card {
-    width: 93.8%;
+    width: 94%;
     height: 300px;
   }
 

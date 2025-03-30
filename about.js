@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (pageOverlay) {
       pageOverlay.classList.add("active");
     }
-  }, 100);
+  }, 300);
 
   // ------------------------------
   // Existing Functionalities
@@ -745,7 +745,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Navigate to the new page after animation completes
             setTimeout(function () {
               window.location.href = href;
-            }, 800); // Match this to your transition duration
+            }, 1500); // Match this to your transition duration
           } else {
             // Fallback if overlay isn't found
             window.location.href = href;
