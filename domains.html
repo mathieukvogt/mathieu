@@ -87,25 +87,49 @@
       </div>
     </header>
 
-    <main class="full-container">
-      <div class="slider">
-        <div class="slide-container prev">
-          <div class="slide-img">
-            <img src="assets/7A.png" alt="Domain 7" />
+    <main class="main-content">
+      <div class="container">
+        <div
+          class="slider"
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+          "
+        >
+          <div class="card">
+            <img src="assets/img1.jpg" alt="Domain 1" />
           </div>
-        </div>
-        <div class="slide-container active">
-          <div class="slide-img">
-            <img src="assets/1A.png" alt="Domain 1" />
+          <div class="card">
+            <img src="assets/img2.jpg" alt="Domain 2" />
           </div>
-        </div>
-        <div class="slide-container next">
-          <div class="slide-img">
-            <img src="assets/2A.png" alt="Domain 2" />
+          <div class="card">
+            <img src="assets/img3.jpg" alt="Domain 3" />
+          </div>
+          <div class="card">
+            <img src="assets/img4.jpg" alt="Domain 4" />
+          </div>
+          <div class="card">
+            <img src="assets/img5.jpg" alt="Domain 5" />
+          </div>
+          <div class="card">
+            <img src="assets/img6.jpg" alt="Domain 6" />
           </div>
         </div>
       </div>
     </main>
+
+    <!-- Card swap trigger button -->
+    <div class="card-swap-trigger" id="cardSwapTrigger">
+      <div class="arrow-down"></div>
+    </div>
+
+    <!-- Onecall.ai box -->
+    <div class="onecall-box">
+      <div class="domain-price">USD 15,000.00$</div>
+      <div class="domain-name">onecall.ai</div>
+    </div>
 
     <div class="domain-nav">
       <div class="domain-nav-content">
@@ -119,6 +143,7 @@
     <script src="minified/TextPlugin.min.js"></script>
     <script src="minified/ScrollTrigger.min.js"></script>
     <script src="minified/SplitText.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script>
       hljs.highlightAll();

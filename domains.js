@@ -1,173 +1,142 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Simple Image Slider Functionality
-  const sliderItems = document.querySelectorAll(".slider-item");
-  const dots = document.querySelectorAll(".dot");
-  const prevButton = document.querySelector(".slider-prev");
-  const nextButton = document.querySelector(".slider-next");
-  const domainNumber = document.querySelector(".domain-number");
+  // All slider functionality removed
 
-  // Image Slider Functionality
-  const slider = document.querySelector(".slider");
-  const totalSlides = 7;
-  let activeSlideIndex = 1;
+  // ------------------------------
+  // 3D Card Slider Functionality
+  // ------------------------------
+
+  // Create cubic ease for animations
+  gsap.registerPlugin(TextPlugin);
+  if (!window.CustomEase) {
+    console.warn(
+      "CustomEase plugin not available, using Power3.easeInOut instead"
+    );
+  }
+
+  const ease = window.CustomEase
+    ? CustomEase.create("cubic", "0.83, 0, 0.17, 1")
+    : "power3.inOut";
   let isAnimating = false;
 
-  const sliderContent = [
-    { name: "DOMAIN 1", img: "assets/1A.png" },
-    { name: "DOMAIN 2", img: "assets/2A.png" },
-    { name: "DOMAIN 3", img: "assets/3A.png" },
-    { name: "DOMAIN 4", img: "assets/4A.png" },
-    { name: "DOMAIN 5", img: "assets/5A.png" },
-    { name: "DOMAIN 6", img: "assets/6A.png" },
-    { name: "DOMAIN 7", img: "assets/7A.png" },
-  ];
+  // Initialize cards with staggered positioning
+  function initializeCards() {
+    const cards = Array.from(document.querySelectorAll(".card"));
 
-  const clipPath = {
-    closed: "polygon(25% 30%, 75% 30%, 75% 70%, 25% 70%)",
-    open: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-  };
-
-  const slidePositions = {
-    prev: { left: "15%", rotation: -20 },
-    active: { left: "50%", rotation: 0 },
-    next: { left: "85%", rotation: 20 },
-  };
-
-  function createSlide(content, className) {
-    const slide = document.createElement("div");
-    slide.className = `slide-container ${className}`;
-    slide.innerHTML = `<div class="slide-img"><img src="${content.img}" alt="${content.name}"></div>`;
-    return slide;
-  }
-
-  function getSlideIndex(increment) {
-    return ((activeSlideIndex + increment - 1 + totalSlides) % totalSlides) + 1;
-  }
-
-  function updateDomainNumber(index) {
-    if (domainNumber) domainNumber.textContent = `[${index}]`;
-  }
-
-  function animateSlide(slide, props) {
-    if (!slide) return;
-    gsap.to(slide, { ...props, duration: 1.5, ease: "power2.inOut" });
-    gsap.to(slide.querySelector(".slide-img"), {
-      rotation: -props.rotation,
-      duration: 1.5,
-      ease: "power2.inOut",
+    // Make cards visible but in starting position
+    gsap.set(cards, {
+      opacity: 1,
+      y: (i) => (i === 0 ? "150%" : "0%"),
     });
+
+    // Position and fade in cards
+    gsap.to(cards, {
+      y: (i) => -10 + 10 * i + "%",
+      z: (i) => 15 * i,
+      opacity: 1,
+      duration: 1,
+      ease: ease,
+      stagger: -0.08,
+    });
+
+    // Update domain number
+    const domainNumber = document.querySelector(".domain-number");
+    if (domainNumber) {
+      const activeIndex = cards.length - 1;
+      const domainIndex = activeIndex + 1;
+      domainNumber.textContent = `[${domainIndex}]`;
+    }
   }
 
-  function transitionSlides(direction) {
-    if (isAnimating || !slider) return;
+  // Setup the slider
+  function setupSlider() {
+    // Initialize card positions
+    initializeCards();
+
+    // Add click listener to slider
+    document.querySelector(".slider").addEventListener("click", rotateCards);
+
+    // Add click listener to the card swap trigger button
+    const cardSwapTrigger = document.getElementById("cardSwapTrigger");
+    if (cardSwapTrigger) {
+      cardSwapTrigger.addEventListener("click", rotateCards);
+    }
+  }
+
+  // Rotate cards on click
+  function rotateCards() {
+    if (isAnimating) return;
     isAnimating = true;
 
-    const [outgoingPos, incomingPos] =
-      direction === "next" ? ["prev", "next"] : ["next", "prev"];
+    const slider = document.querySelector(".slider");
+    const cards = Array.from(slider.querySelectorAll(".card"));
+    const lastCard = cards.pop();
+    const nextCard = cards[cards.length - 1];
 
-    const outgoingSlide = slider.querySelector(`.${outgoingPos}`);
-    const activeSlide = slider.querySelector(".active");
-    const incomingSlide = slider.querySelector(`.${incomingPos}`);
+    // Get current domain index
+    const currentIndex = Number(
+      lastCard.querySelector("img").alt.replace(/\D/g, "")
+    );
 
-    animateSlide(incomingSlide, {
-      ...slidePositions.active,
-      clipPath: clipPath.open,
-    });
+    // Calculate next index (handle 6 images instead of 3)
+    const totalImages = 6;
+    const nextIndex = currentIndex === 1 ? totalImages : currentIndex - 1;
 
-    animateSlide(activeSlide, {
-      ...slidePositions[outgoingPos],
-      clipPath: clipPath.closed,
-    });
-
-    if (outgoingSlide) {
-      gsap.to(outgoingSlide, {
-        scale: 0,
-        opacity: 0,
-        duration: 1.5,
-        ease: "power2.inOut",
-      });
+    // Update domain number
+    const domainNumber = document.querySelector(".domain-number");
+    if (domainNumber) {
+      domainNumber.textContent = `[${nextIndex}]`;
     }
 
-    const newSlideIndex = getSlideIndex(direction === "next" ? 2 : -2);
-    const newSlide = createSlide(sliderContent[newSlideIndex - 1], incomingPos);
-    slider.appendChild(newSlide);
-
-    gsap.set(newSlide, {
-      ...slidePositions[incomingPos],
-      xPercent: -50,
-      yPercent: -50,
-      scale: 0,
-      opacity: 0,
-      clipPath: clipPath.closed,
-    });
-
-    gsap.to(newSlide, {
-      scale: 1,
-      opacity: 1,
-      duration: 1.5,
+    // First animation: Slide the card down off-screen
+    gsap.to(lastCard, {
+      y: "+=200%", // Move further down to ensure it's off-screen
+      opacity: 1, // Keep it visible
+      duration: 0.9,
       ease: "power2.inOut",
-    });
+      onComplete: () => {
+        // Move the original card to the beginning of the stack
+        slider.prepend(lastCard);
 
-    const nextActiveIndex = getSlideIndex(direction === "next" ? 1 : -1);
-    // Remove title animation
-
-    // Update only domain number
-    setTimeout(() => updateDomainNumber(nextActiveIndex), 750);
-
-    setTimeout(() => {
-      if (outgoingSlide) outgoingSlide.remove();
-      if (activeSlide) activeSlide.className = `slide-container ${outgoingPos}`;
-      if (incomingSlide) incomingSlide.className = "slide-container active";
-      if (newSlide) newSlide.className = `slide-container ${incomingPos}`;
-      activeSlideIndex = nextActiveIndex;
-      isAnimating = false;
-    }, 1500);
-  }
-
-  // Initialize slider functionality
-  if (slider) {
-    // Set up click event for the slider
-    slider.addEventListener("click", (e) => {
-      const clickedSlide = e.target.closest(".slide-container");
-      if (clickedSlide && !isAnimating) {
-        transitionSlides(
-          clickedSlide.classList.contains("next") ? "next" : "prev"
-        );
-      }
-    });
-
-    // Initial setup for slide positions
-    Object.entries(slidePositions).forEach(([key, value]) => {
-      const slideElement = slider.querySelector(`.slide-container.${key}`);
-      if (slideElement) {
-        gsap.set(slideElement, {
-          ...value,
-          xPercent: -50,
-          yPercent: -50,
-          clipPath: key === "active" ? clipPath.open : clipPath.closed,
+        // Position it below the screen, ready to slide up
+        gsap.set(lastCard, {
+          y: "200%", // Position below the screen
+          opacity: 0,
+          zIndex: -1, // Set a lower z-index so it doesn't interfere with visible cards
         });
 
-        const slideImg = slideElement.querySelector(".slide-img");
-        if (slideImg && key !== "active") {
-          gsap.set(slideImg, {
-            rotation: -value.rotation,
+        // Reposition all other cards with staggering
+        gsap.to(Array.from(slider.querySelectorAll(".card")).slice(1), {
+          y: (i) => -10 + 10 * (i + 1) + "%",
+          z: (i) => 15 * (i + 1),
+          opacity: 1,
+          duration: 0.6,
+          ease: ease,
+          stagger: -0.05,
+        });
+
+        // Short delay before sliding the card back up
+        setTimeout(() => {
+          // Second animation: Slide the card up from below
+          gsap.to(lastCard, {
+            y: -10 + "%", // Match the first card's position
+            z: 0,
+            opacity: 1,
+            duration: 1.0,
+            ease: "power3.out",
+            onComplete: () => {
+              // Allow another animation after completion
+              setTimeout(() => {
+                isAnimating = false;
+              }, 200);
+            },
           });
-        }
-      }
-    });
-
-    // Initialize domain number
-    updateDomainNumber(activeSlideIndex);
-
-    // Add keyboard navigation
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowLeft") {
-        transitionSlides("prev");
-      } else if (e.key === "ArrowRight") {
-        transitionSlides("next");
-      }
+        }, 400); // Slightly longer delay before sliding up
+      },
     });
   }
+
+  // Initialize slider on page load
+  setupSlider();
 
   // ------------------------------
   // Existing Functionalities
@@ -282,9 +251,6 @@ document.addEventListener("DOMContentLoaded", function () {
       document.querySelector(".overlay").style.display = "none";
     },
   });
-
-  // Register GSAP Plugins
-  gsap.registerPlugin(TextPlugin);
 
   const burgerButton = document.querySelector(".burger");
   const squareOne = document.querySelector(".square-one");
@@ -422,8 +388,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const linkElement = document.querySelector(".center-text");
   linkElement.addEventListener("mouseenter", scrambleText);
 
-  // **End of Scramble Text Implementation**
-
   // ------------------------------
   // Integrated Noise Background
   // ------------------------------
@@ -531,355 +495,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize the noise background
   noise();
 
-  // ------------------------------
-  // End of Integrated Noise Background
-  // ------------------------------
-
-  // ------------------------------
-  // New Functionality: Update Left Title and Number on Scroll with Scramble Text Animation
-  // ------------------------------
-
-  // Select the elements to update
-  const leftJavascriptDiv = document.querySelector(".left-javascript");
-  const leftNumberDiv = document.querySelector(".left-number");
-
-  // Select all table headings with the class 'tableletters'
-  const tableHeadings = document.querySelectorAll(".tableletters");
-
-  // Variables to keep track of the current heading
-  let lastHeadingId = null;
-
-  // Function to update the left title and number with scramble text effect
-  const updateLeftTitle = () => {
-    let currentHeading = null;
-
-    // Loop through each heading to find the one currently in view
-    tableHeadings.forEach((heading) => {
-      const rect = heading.getBoundingClientRect();
-      if (rect.top <= 95) {
-        currentHeading = heading;
-      }
-    });
-
-    // Update the content if a new heading is found
-    if (currentHeading && currentHeading.id !== lastHeadingId) {
-      lastHeadingId = currentHeading.id;
-
-      // Update the left-javascript div with scramble text effect
-      gsap.to(leftJavascriptDiv, {
-        duration: 0.8,
-        text: {
-          value: currentHeading.textContent.toUpperCase(),
-          scramble: 5, // Adjust the scramble amount as needed
-          chars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
-        },
-        ease: "none",
-      });
-
-      // Update the left-number div with scramble text effect
-      const headingNumber = currentHeading.getAttribute("data-number");
-      gsap.to(leftNumberDiv, {
-        duration: 0.8,
-        text: {
-          value: "[" + headingNumber + "]",
-          scramble: 5, // Adjust the scramble amount as needed
-          chars: "0123456789",
-        },
-        ease: "none",
-      });
-    }
-  };
-
-  // Add an event listener for the scroll event
-  window.addEventListener("scroll", updateLeftTitle);
-
-  // Initial call to set the correct title and number on page load
-  updateLeftTitle();
-
-  // ------------------------------
-  // End of New Functionality
-  // ------------------------------
-
-  // ------------------------------
-  // ASCII Cube Animation
-  // ------------------------------
-
-  // Get the canvas and context
-  function getBackgroundColorOne() {
-    const styles = getComputedStyle(document.body);
-    return styles.getPropertyValue("--background-color-twenty").trim();
-  }
-
-  const cubeCanvas = document.getElementById("cubeCanvas");
-  if (cubeCanvas) {
-    const cubeCtx = cubeCanvas.getContext("2d");
-
-    // Resize the canvas to match the size of the container and adjust for device pixel ratio
-    function resizeCubeCanvas() {
-      const pixelRatio = window.devicePixelRatio || 1;
-      cubeCanvas.width = cubeCanvas.clientWidth * pixelRatio;
-      cubeCanvas.height = cubeCanvas.clientHeight * pixelRatio;
-      cubeCtx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0); // Reset the transform
-    }
-
-    window.addEventListener("resize", resizeCubeCanvas);
-    resizeCubeCanvas(); // Initial resize
-
-    // Variables for the cube animation
-    const density = " -=+xyzd#";
-
-    const l = 0.6;
-    const box = {
-      vertices: [
-        vec3(l, l, l),
-        vec3(-l, l, l),
-        vec3(-l, -l, l),
-        vec3(l, -l, l),
-        vec3(l, l, -l),
-        vec3(-l, l, -l),
-        vec3(-l, -l, -l),
-        vec3(l, -l, -l),
-      ],
-      edges: [
-        [0, 1],
-        [1, 2],
-        [2, 3],
-        [3, 0],
-        [4, 5],
-        [5, 6],
-        [6, 7],
-        [7, 4],
-        [0, 4],
-        [1, 5],
-        [2, 6],
-        [3, 7],
-      ],
-    };
-
-    const boxProj = [];
-
-    function animate(time) {
-      // Fetch the current color at the start of each frame
-      const color = getBackgroundColorOne();
-
-      const t = time * 0.006;
-      const width = cubeCanvas.clientWidth; // Use clientWidth for consistent scaling
-      const height = cubeCanvas.clientHeight;
-      const m = Math.min(width, height);
-      const aspect = width / height;
-
-      const rot = {
-        x: t * 0.11,
-        y: t * 0.13,
-        z: -t * 0.15,
-      };
-
-      // Adjust d to zoom out the cube slightly
-      const d = 3.0; // Adjusted from 2 to 1.8
-      const zOffs = map(Math.sin(t * 0.12), -1, 1, -2.5, -6);
-
-      for (let i = 0; i < box.vertices.length; i++) {
-        const v = v3_copy(box.vertices[i]);
-        let vt = v3_rotX(v, rot.x);
-        vt = v3_rotY(vt, rot.y);
-        vt = v3_rotZ(vt, rot.z);
-        boxProj[i] = v2_mulN({ x: vt.x, y: vt.y }, d / (vt.z - zOffs));
-      }
-
-      // Clear the canvas
-      cubeCtx.clearRect(0, 0, cubeCanvas.width, cubeCanvas.height);
-
-      // Set font for ASCII characters
-      cubeCtx.font = "12px monospace"; // Increased font size for sharpness
-      cubeCtx.textAlign = "left";
-      cubeCtx.textBaseline = "top";
-
-      const charWidth = 8; // Adjusted character width
-      const charHeight = 14; // Adjusted character height
-
-      const cols = Math.floor(width / charWidth);
-      const rows = Math.floor(height / charHeight);
-
-      for (let x = 0; x < cols; x++) {
-        for (let y = 0; y < rows; y++) {
-          const coord = { x: x, y: y };
-          const st = {
-            x: ((2.0 * (coord.x - cols / 2 + 0.5)) / m) * aspect,
-            y: (2.0 * (coord.y - rows / 2 + 0.5)) / m,
-          };
-
-          let d = 1e10;
-          const n = box.edges.length;
-          const thickness = 0.01;
-          const expMul = -50;
-          for (let i = 0; i < n; i++) {
-            const a = boxProj[box.edges[i][0]];
-            const b = boxProj[box.edges[i][1]];
-            d = Math.min(d, sdSegment(st, a, b, thickness));
-          }
-
-          const idx = Math.floor(
-            Math.exp(expMul * Math.abs(d)) * density.length
-          );
-
-          if (idx === 0) {
-            // Do not draw anything for background
-            continue;
-          } else {
-            const char = density[idx];
-            cubeCtx.fillStyle = color;
-            cubeCtx.fillText(char, x * charWidth, y * charHeight);
-          }
-        }
-      }
-
-      requestAnimationFrame(animate);
-    }
-
-    requestAnimationFrame(animate);
-
-    // Utility functions
-    function vec3(x, y, z) {
-      return { x: x, y: y, z: z };
-    }
-
-    function v3_copy(v) {
-      return { x: v.x, y: v.y, z: v.z };
-    }
-
-    function v3_rotX(v, angle) {
-      const sinAngle = Math.sin(angle);
-      const cosAngle = Math.cos(angle);
-      return {
-        x: v.x,
-        y: v.y * cosAngle - v.z * sinAngle,
-        z: v.y * sinAngle + v.z * cosAngle,
-      };
-    }
-
-    function v3_rotY(v, angle) {
-      const sinAngle = Math.sin(angle);
-      const cosAngle = Math.cos(angle);
-      return {
-        x: v.x * cosAngle + v.z * sinAngle,
-        y: v.y,
-        z: -v.x * sinAngle + v.z * cosAngle,
-      };
-    }
-
-    function v3_rotZ(v, angle) {
-      const sinAngle = Math.sin(angle);
-      const cosAngle = Math.cos(angle);
-      return {
-        x: v.x * cosAngle - v.y * sinAngle,
-        y: v.x * sinAngle + v.y * cosAngle,
-        z: v.z,
-      };
-    }
-
-    function v2_mulN(v, n) {
-      return { x: v.x * n, y: v.y * n };
-    }
-
-    function map(value, inMin, inMax, outMin, outMax) {
-      return ((value - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
-    }
-
-    function sdSegment(p, a, b, thickness) {
-      const pa = { x: p.x - a.x, y: p.y - a.y };
-      const ba = { x: b.x - a.x, y: b.y - a.y };
-      const h = Math.max(0, Math.min(1, dot(pa, ba) / dot(ba, ba)));
-      const d = {
-        x: pa.x - ba.x * h,
-        y: pa.y - ba.y * h,
-      };
-      return length(d) - thickness;
-    }
-
-    function dot(a, b) {
-      return a.x * b.x + a.y * b.y;
-    }
-
-    function length(v) {
-      return Math.sqrt(v.x * v.x + v.y * v.y);
-    }
-  } else {
-    console.error(
-      'Canvas with id "cubeCanvas" not found. Please add a <canvas id="cubeCanvas"></canvas> inside your .left-image div.'
-    );
-  }
-
-  // ------------------------------
-  // End of ASCII Cube Animation
-  // ------------------------------
-
-  // ------------------------------
-  // Mouse Circle Follow Effect
-  // ------------------------------
-
-  let prevX = null;
-  let prevY = null;
-
-  document.addEventListener("mousemove", function (e) {
-    const square = document.getElementById("mouse-square");
-    if (square) {
-      // Update the position of the square
-      square.style.left = e.pageX + "px";
-      square.style.top = e.pageY + "px";
-
-      // Calculate angle of movement for rotation
-      if (prevX !== null && prevY !== null) {
-        const deltaX = e.pageX - prevX;
-        const deltaY = e.pageY - prevY;
-        const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI);
-        square.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
-      }
-
-      // Update previous mouse positions
-      prevX = e.pageX;
-      prevY = e.pageY;
-    }
-  });
-
-  // ------------------------------
-  // End of Mouse Circle Follow Effect
-  // ------------------------------
-
-  // ------------------------------
-  // Marquee Effect for the .update Element
-  // ------------------------------
-
-  // Select the .update element
-  const marqueeContainer = document.querySelector(".marquee-container");
-  const marquee = document.querySelector(".marquee");
-
-  if (marquee) {
-    // Add event listeners for mouse and touch interactions
-    marquee.addEventListener("mousedown", () => {
-      marquee.style.animationPlayState = "paused";
-      marquee.style.filter = "none";
-    });
-
-    marquee.addEventListener("mouseup", () => {
-      marquee.style.animationPlayState = "running";
-      marquee.style.filter = "blur(2px)";
-    });
-
-    // For touch devices
-    marquee.addEventListener("touchstart", () => {
-      marquee.style.animationPlayState = "paused";
-      marquee.style.filter = "none";
-    });
-
-    marquee.addEventListener("touchend", () => {
-      marquee.style.animationPlayState = "running";
-      marquee.style.filter = "blur(2px)";
-    });
-  }
-
-  // ------------------------------
-  // End of Marquee Effect
-  // ------------------------------
+  // Document query selector to update text
   document.querySelectorAll("h4 u").forEach(function (element) {
     if (element.textContent.trim() === "Specifications") {
       element.textContent = "Examples";
