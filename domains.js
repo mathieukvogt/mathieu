@@ -31,8 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
     1: { price: "USD 5,000.00$", name: "salva.ai" },
     2: { price: "USD 5,000.00$", name: "sandclock.ai" },
     3: { price: "USD 5,000.00$", name: "quicktake.ai" },
-    4: { price: "USD 20,000.00$", name: "lives.ai" },
-    5: { price: "USD 20,000.00$", name: "onecall.ai" },
+    4: { price: "USD 25,000.00$", name: "lives.ai" },
+    5: { price: "USD 25,000.00$", name: "onecall.ai" },
     6: { price: "USD 25,000.00$", name: "organisation.ai" },
   };
 
