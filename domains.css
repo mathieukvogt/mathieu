@@ -1102,7 +1102,7 @@ body.grid-active .grid-toggle-trigger {
   border: 1px solid var(--color-one);
   padding: 10px;
   height: auto;
-  background-color: var(--background-color-one);
+  background-color: transparent;
 }
 
 .grid-item img {
@@ -1111,6 +1111,7 @@ body.grid-active .grid-toggle-trigger {
   object-fit: cover;
   margin-right: 20px;
   flex-shrink: 0;
+  opacity: 0.75;
 }
 
 /* Text container for domain name and price */
