@@ -1020,3 +1020,152 @@ body.dark-mode .onecall-box {
     justify-content: center;
   }
 }
+
+/* Grid view */
+.grid-view {
+  position: fixed;
+  top: 140px;
+  left: 3vw;
+  right: 3vw;
+  display: none;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding-bottom: 100px;
+  z-index: 2;
+  overflow-y: scroll;
+  max-height: calc(100vh - 140px);
+  width: calc(94vw);
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.grid-view::-webkit-scrollbar {
+  display: none;
+}
+
+/* Grid toggle button */
+.grid-toggle-trigger {
+  position: fixed;
+  top: 80px;
+  right: calc(3% + 50px);
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-one);
+  background-color: transparent;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: right 0.5s ease;
+}
+
+/* When grid is active, move the button to the right */
+body.grid-active .grid-toggle-trigger {
+  right: 3%;
+}
+
+/* Grid icon */
+.grid-icon {
+  width: 14px;
+  height: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.5s ease;
+}
+
+.grid-icon span {
+  width: 4px;
+  height: 4px;
+  background-color: var(--color-one);
+  transition: background-color 0.3s ease;
+  margin: 0;
+}
+
+/* When active, make squares red and rotate */
+.grid-toggle-trigger.active .grid-icon {
+  transform: rotate(360deg);
+}
+
+.grid-toggle-trigger.active .grid-icon span {
+  background-color: #ff0000;
+}
+
+/* Grid item styles */
+.grid-item {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-one);
+  padding: 10px;
+  height: auto;
+  background-color: var(--background-color-one);
+}
+
+.grid-item img {
+  width: 120px; /* Reduced from 160px */
+  height: 67.5px; /* Reduced from 90px to maintain 16:9 ratio */
+  object-fit: cover;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+/* Text container for domain name and price */
+.grid-item .text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+.grid-item .domain-name {
+  font-size: 13px;
+  font-family: "DM Mono", monospace;
+  color: var(--color-one);
+  text-align: right;
+}
+
+.grid-item .domain-price {
+  font-size: 13px;
+  font-family: "DM Mono", monospace;
+  color: var(--color-one);
+  text-align: right;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 950px) {
+  .grid-view {
+    grid-template-columns: 1fr;
+    left: 3vw;
+    right: 3vw;
+    width: calc(94vw);
+  }
+}
+
+/* Active states */
+.grid-toggle-trigger.active .grid-icon::before,
+.grid-toggle-trigger.active .grid-icon::after {
+  transform: rotate(45deg);
+}
+
+/* Show/hide elements when grid is active */
+body.grid-active .grid-view {
+  display: grid;
+}
+
+body.grid-active .container,
+body.grid-active .card-swap-trigger,
+body.grid-active .onecall-box,
+body.grid-active .domain-nav {
+  display: none;
+}
+
+/* Make body scrollable in grid view */
+body.grid-active {
+  overflow-y: auto;
+  height: auto;
+}

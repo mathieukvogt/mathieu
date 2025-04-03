@@ -38,8 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Update onecall-box content based on domain index
   function updateDomainInfo(index) {
-    const domainPrice = document.querySelector(".domain-price");
-    const domainName = document.querySelector(".domain-name");
+    const domainPrice = document.querySelector(".onecall-box .domain-price");
+    const domainName = document.querySelector(".onecall-box .domain-name");
 
     if (domainPrice && domainName && domainData[index]) {
       domainPrice.textContent = domainData[index].price;
@@ -572,5 +572,13 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("DOMContentLoaded", function () {
     // Setup link transitions
     setupLinkTransitions();
+  });
+
+  // Grid toggle functionality
+  const gridToggleTrigger = document.getElementById("gridToggleTrigger");
+
+  gridToggleTrigger.addEventListener("click", () => {
+    document.body.classList.toggle("grid-active");
+    gridToggleTrigger.classList.toggle("active");
   });
 });
