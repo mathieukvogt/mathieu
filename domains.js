@@ -28,22 +28,53 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Domain data mapping
   const domainData = {
-    1: { price: "USD 5,000.00$", name: "salva.ai" },
-    2: { price: "USD 5,000.00$", name: "sandclock.ai" },
-    3: { price: "USD 5,000.00$", name: "quicktake.ai" },
-    4: { price: "USD 25,000.00$", name: "lives.ai" },
-    5: { price: "USD 25,000.00$", name: "onecall.ai" },
-    6: { price: "USD 25,000.00$", name: "organisation.ai" },
+    1: {
+      price: "3,000.00$",
+      name: "sandclock.ai",
+      url: "https://www.godaddy.com/forsale/sandclock.ai?utm_source=TDFS_BINNS2&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns2_base&traffic_type=TDFS_BINNS2&traffic_id=binns2&",
+    },
+    2: {
+      price: "3,000.00$",
+      name: "quicktake.ai",
+      url: "https://www.godaddy.com/forsale/quicktake.ai?utm_source=TDFS_BINNS2&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns2_base&traffic_type=TDFS_BINNS2&traffic_id=binns2&",
+    },
+    3: {
+      price: "5,000.00$",
+      name: "salva.ai",
+      url: "https://www.godaddy.com/forsale/salva.ai?utm_source=TDFS_BINNS2&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns2_base&traffic_type=TDFS_BINNS2&traffic_id=binns2&",
+    },
+    4: {
+      price: "9,000.00$",
+      name: "milling.ai",
+      url: "https://www.godaddy.com/forsale/milling.ai",
+    },
+    5: {
+      price: "25,000.00$",
+      name: "organisation.ai",
+      url: "https://www.godaddy.com/forsale/organisation.ai",
+    },
+    6: {
+      price: "25,000.00$",
+      name: "onecall.ai",
+      url: "https://www.godaddy.com/forsale/onecall.ai?utm_source=TDFS_BINNS2&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns2_base&traffic_type=TDFS_BINNS2&traffic_id=binns2&",
+    },
+    7: {
+      price: "25,000.00$",
+      name: "lives.ai",
+      url: "https://www.godaddy.com/forsale/lives.ai?utm_source=TDFS_BINNS2&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns2_base&traffic_type=TDFS_BINNS2&traffic_id=binns2&",
+    },
   };
 
   // Update onecall-box content based on domain index
   function updateDomainInfo(index) {
     const domainPrice = document.querySelector(".onecall-box .domain-price");
     const domainName = document.querySelector(".onecall-box .domain-name");
+    const buyNowLink = document.querySelector(".onecall-box .buy-now-link");
 
-    if (domainPrice && domainName && domainData[index]) {
+    if (domainPrice && domainName && buyNowLink && domainData[index]) {
       domainPrice.textContent = domainData[index].price;
       domainName.textContent = domainData[index].name;
+      buyNowLink.href = domainData[index].url;
     }
   }
 

@@ -741,7 +741,7 @@ td {
   border: 1px solid white;
   transform: translate3d(-50%, -50%, 0px);
   overflow: hidden;
-  opacity: 0; /* Start hidden, will be shown by JS */
+  opacity: 0;
   background-color: var(--color-seven);
 }
 
@@ -751,6 +751,10 @@ td {
   height: 100%;
   object-fit: cover;
   opacity: 1;
+}
+
+.buy-now-button {
+  display: none;
 }
 
 /* Card swap trigger button */
@@ -791,20 +795,35 @@ td {
   font-family: "DM Mono", monospace;
   color: var(--color-one);
   box-sizing: border-box;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0 10px;
 }
 
 body.dark-mode .onecall-box {
   background-color: rgba(255, 255, 255, 0.15);
 }
 
-.domain-price {
+.onecall-box .domain-price {
   text-align: left;
+  flex: 1;
 }
 
-.domain-name {
+.onecall-box .domain-name {
+  text-align: center;
+  flex: 2;
+}
+
+.buy-now-link {
   text-align: right;
+  text-decoration: underline;
+  color: var(--color-one);
+  font-size: 13px;
+  transition: opacity 0.2s ease;
+  flex: 1;
+  font-family: "DM Mono", monospace;
+}
+
+.buy-now-link:hover {
+  opacity: 0.7;
 }
 
 .arrow-down {
@@ -1103,18 +1122,18 @@ body.grid-active .grid-toggle-trigger {
   padding: 10px;
   height: auto;
   background-color: transparent;
+  position: relative;
 }
 
 .grid-item img {
-  width: 120px; /* Reduced from 160px */
-  height: 67.5px; /* Reduced from 90px to maintain 16:9 ratio */
+  width: 120px;
+  height: 67.5px;
   object-fit: cover;
   margin-right: 20px;
   flex-shrink: 0;
   opacity: 0.9;
 }
 
-/* Text container for domain name and price */
 .grid-item .text-container {
   display: flex;
   flex-direction: column;
@@ -1135,6 +1154,20 @@ body.grid-active .grid-toggle-trigger {
   font-family: "DM Mono", monospace;
   color: var(--color-one);
   text-align: right;
+  white-space: nowrap;
+}
+
+.grid-item .buy-now-link {
+  font-size: 13px;
+  font-family: "DM Mono", monospace;
+  color: var(--color-one);
+  text-align: right;
+  text-decoration: underline;
+  transition: opacity 0.2s ease;
+}
+
+.grid-item .buy-now-link:hover {
+  opacity: 0.7;
 }
 
 /* Mobile styles */
