@@ -49,9 +49,9 @@ document.addEventListener("DOMContentLoaded", function () {
       url: "https://www.godaddy.com/forsale/milling.ai",
     },
     5: {
-      price: "25,000.00$",
+      price: "20,000.00$",
       name: "organisation.ai",
-      url: "https://www.godaddy.com/forsale/organisation.ai",
+      url: "https://www.godaddy.com/forsale/organisation.ai?utm_source=TDFS_BINNS2&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns2_base&traffic_type=TDFS_BINNS2&traffic_id=binns2&",
     },
     6: {
       price: "25,000.00$",
