@@ -29,37 +29,37 @@ document.addEventListener("DOMContentLoaded", function () {
   // Domain data mapping
   const domainData = {
     1: {
-      price: "3,000.00$",
+      price: "",
       name: "sandclock.ai",
       url: "https://www.godaddy.com/forsale/sandclock.ai?utm_source=TDFS_BINNS2&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns2_base&traffic_type=TDFS_BINNS2&traffic_id=binns2&",
     },
     2: {
-      price: "3,000.00$",
+      price: "",
       name: "quicktake.ai",
       url: "https://www.godaddy.com/forsale/quicktake.ai?utm_source=TDFS_BINNS2&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns2_base&traffic_type=TDFS_BINNS2&traffic_id=binns2&",
     },
     3: {
-      price: "5,000.00$",
+      price: "",
       name: "salva.ai",
       url: "https://www.godaddy.com/forsale/salva.ai?utm_source=TDFS_BINNS2&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns2_base&traffic_type=TDFS_BINNS2&traffic_id=binns2&",
     },
     4: {
-      price: "9,000.00$",
+      price: "",
       name: "milling.ai",
       url: "https://www.godaddy.com/forsale/milling.ai",
     },
     5: {
-      price: "20,000.00$",
+      price: "",
       name: "organisation.ai",
       url: "https://www.godaddy.com/forsale/organisation.ai?utm_source=TDFS_BINNS2&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns2_base&traffic_type=TDFS_BINNS2&traffic_id=binns2&",
     },
     6: {
-      price: "25,000.00$",
+      price: "",
       name: "onecall.ai",
       url: "https://www.godaddy.com/forsale/onecall.ai?utm_source=TDFS_BINNS2&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns2_base&traffic_type=TDFS_BINNS2&traffic_id=binns2&",
     },
     7: {
-      price: "25,000.00$",
+      price: "",
       name: "lives.ai",
       url: "https://www.godaddy.com/forsale/lives.ai?utm_source=TDFS_BINNS2&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns2_base&traffic_type=TDFS_BINNS2&traffic_id=binns2&",
     },
