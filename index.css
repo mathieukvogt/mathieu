@@ -475,7 +475,7 @@ body.dark-mode {
   z-index: 10;
   display: flex;
   align-items: flex-start;
-  justify-content: flex-end;
+  justify-content: flex-start;
   padding: 6px;
   overflow: visible;
   border: 1px solid var(--color-one);
@@ -704,7 +704,7 @@ a {
     border: 1px solid var(--color-one);
     display: flex;
     align-items: flex-start;
-    justify-content: flex-end;
+    justify-content: flex-start;
     padding: 10px;
   }
 
@@ -933,4 +933,28 @@ a {
 .metatitleone p,
 .metatitletwo p {
   font-size: 12px;
+}
+
+/* ElevenLabs Widget Positioning */
+elevenlabs-convai {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+/* Adjust big-box to accommodate the widget */
+.big-box {
+  position: fixed;
+  top: 80px;
+  bottom: 20px;
+  left: 3vw;
+  right: 3vw;
+  z-index: 10;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 6px;
+  overflow: visible;
+  border: 1px solid var(--color-one);
 }
