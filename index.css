@@ -475,7 +475,7 @@ body.dark-mode {
   z-index: 10;
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: flex-end;
   padding: 6px;
   overflow: visible;
   border: 1px solid var(--color-one);
@@ -938,8 +938,8 @@ a {
 /* ElevenLabs Widget Positioning */
 elevenlabs-convai {
   position: fixed;
-  bottom: 0;
-  right: 0;
+  bottom: 20px;
+  right: 3vw;
   z-index: 1000;
 }
 
@@ -953,7 +953,7 @@ elevenlabs-convai {
   z-index: 10;
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: flex-end;
   padding: 6px;
   overflow: visible;
   border: 1px solid var(--color-one);
