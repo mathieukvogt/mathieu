@@ -938,8 +938,8 @@ a {
 /* ElevenLabs Widget Positioning */
 elevenlabs-convai {
   position: fixed;
-  bottom: 20px;
-  right: 3vw;
+  bottom: 0;
+  right: 0;
   z-index: 1000;
 }
 
