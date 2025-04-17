@@ -24,48 +24,6 @@
       href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=VT323&display=swap"
       rel="stylesheet"
     />
-    <!-- ElevenLabs Conversational AI Widget -->
-    <elevenlabs-convai
-      agent-id="p3tm6lojpyLr310VQTew"
-      variant="expanded"
-      authentication="false"
-      style="
-        --elevenlabs-convai-button-background: #000000;
-        --elevenlabs-convai-button-color: #ffffff;
-        --elevenlabs-convai-button-border: 1px solid #0400df;
-        --elevenlabs-convai-button-border-radius: 0;
-        --elevenlabs-convai-button-width: 60px;
-        --elevenlabs-convai-button-height: 60px;
-        --elevenlabs-convai-container-background: #000000;
-        --elevenlabs-convai-container-color: #ffffff;
-        --elevenlabs-convai-container-border: 1px solid #0400df;
-        --elevenlabs-convai-container-border-radius: 0;
-        --elevenlabs-convai-container-width: 400px;
-        --elevenlabs-convai-container-height: 600px;
-        --elevenlabs-convai-font-family: 'DM Mono', monospace;
-        --elevenlabs-convai-font-size: 12px;
-        --elevenlabs-convai-z-index: 9999;
-      "
-    ></elevenlabs-convai>
-    <script
-      src="https://elevenlabs.io/convai-widget/index.js"
-      async
-      type="text/javascript"
-    ></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const widget = document.querySelector("elevenlabs-convai");
-        if (widget) {
-          widget.addEventListener("elevenlabs-convai:error", (event) => {
-            console.error("Widget error:", event.detail);
-          });
-
-          widget.addEventListener("elevenlabs-convai:ready", () => {
-            console.log("Widget is ready");
-          });
-        }
-      });
-    </script>
     <base href="https://mathieu.so/" />
   </head>
   <body class="dark-mode">
@@ -166,6 +124,19 @@
       </div>
     </div>
     <!-- END NAVBAR + DARK MODE INTEGRATION -->
+
+    <div class="description-section">
+      <div class="description-wrapper">
+        <div class="description-content">
+          <h2>About Me</h2>
+          <p>
+            I'm a fullstack developer based in Zurich, Switzerland. I specialize
+            in building modern web applications with a focus on user experience
+            and performance.
+          </p>
+        </div>
+      </div>
+    </div>
 
     <footer>
       <p>INDEX</p>
