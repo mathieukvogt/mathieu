@@ -727,14 +727,14 @@ td {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 200px;
+  padding-bottom: 0;
 }
 
 .card {
   position: absolute;
-  top: 42.5%;
+  top: 45%;
   left: 50%;
-  width: 65%;
+  width: 75%;
   max-width: 1000px;
   height: 340px;
   border-radius: 0;

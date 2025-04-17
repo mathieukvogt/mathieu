@@ -60,6 +60,16 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     7: {
       price: "",
+      name: "legalcheck.ai",
+      url: "https://www.godaddy.com/forsale/legalcheck.ai",
+    },
+    8: {
+      price: "",
+      name: "toward.ai",
+      url: "https://www.godaddy.com/forsale/toward.ai",
+    },
+    9: {
+      price: "",
       name: "lives.ai",
       url: "https://www.godaddy.com/forsale/lives.ai?utm_source=TDFS_BINNS2&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns2_base&traffic_type=TDFS_BINNS2&traffic_id=binns2&",
     },
@@ -85,12 +95,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // Make cards visible but in starting position
     gsap.set(cards, {
       opacity: 1,
-      y: (i) => (i === 0 ? "150%" : "0%"),
+      y: (i) => (i === 0 ? "300%" : "0%"),
     });
 
     // Position and fade in cards
     gsap.to(cards, {
-      y: (i) => -10 + 10 * i + "%",
+      y: (i) => -5 + 5 * i + "%",
       z: (i) => 15 * i,
       opacity: 1,
       duration: 1,
@@ -135,13 +145,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const lastCard = cards.pop();
     const nextCard = cards[cards.length - 1];
 
-    // Get current domain index
+    // Get current domain index from the last card's alt text
     const currentIndex = Number(
       lastCard.querySelector("img").alt.replace(/\D/g, "")
     );
 
-    // Calculate next index (handle 6 images instead of 3)
-    const totalImages = 6;
+    // Calculate next index (handle all images)
+    const totalImages = cards.length + 1; // Include the last card
     const nextIndex = currentIndex === 1 ? totalImages : currentIndex - 1;
 
     // Update domain number and info
@@ -155,7 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // First animation: Slide the card down off-screen
     gsap.to(lastCard, {
-      y: "+=200%", // Move further down to ensure it's off-screen
+      y: "+=300%", // Move further down to ensure it's off-screen
       opacity: 1, // Keep it visible
       duration: 0.9,
       ease: "power2.inOut",
@@ -165,14 +175,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Position it below the screen, ready to slide up
         gsap.set(lastCard, {
-          y: "200%", // Position below the screen
+          y: "300%", // Position below the screen
           opacity: 0,
           zIndex: -1, // Set a lower z-index so it doesn't interfere with visible cards
         });
 
         // Reposition all other cards with staggering
         gsap.to(Array.from(slider.querySelectorAll(".card")).slice(1), {
-          y: (i) => -10 + 10 * (i + 1) + "%",
+          y: (i) => -5 + 5 * (i + 1) + "%",
           z: (i) => 15 * (i + 1),
           opacity: 1,
           duration: 0.6,
@@ -184,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
           // Second animation: Slide the card up from below
           gsap.to(lastCard, {
-            y: -10 + "%", // Match the first card's position
+            y: -5 + "%", // Match the first card's position
             z: 0,
             opacity: 1,
             duration: 1.0,
