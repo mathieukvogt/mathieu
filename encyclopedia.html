@@ -95,27 +95,51 @@
       <nav class="alphsort">
         <div class="scroller">
           <ul class="scroller-content">
-            <li><a href="#data-types">Data Types</a></li>
-            <li><a href="#variables">Variables</a></li>
-            <li><a href="#conditionals">Conditionals</a></li>
-            <li><a href="#ao">Arithmetic Operators</a></li>
-            <li><a href="#functions">Functions</a></li>
-            <li><a href="#scope">Scope</a></li>
-            <li><a href="#arrays">Arrays</a></li>
-            <li><a href="#array-access">Array Inspection</a></li>
-            <li><a href="#array-transformation">Array Transformation</a></li>
-            <li><a href="#array-iteration">Array Iteration</a></li>
-            <li><a href="#array-mutation">Array Mutation</a></li>
-            <li><a href="#array-utility">Array Utility</a></li>
-            <li><a href="#loops">Loops</a></li>
-            <li><a href="#objects">Objects</a></li>
-            <li><a href="#dom">Document Object Model</a></li>
-            <li><a href="#domevents">Events</a></li>
-            <li><a href="#htmlforms">HTML Forms</a></li>
-            <li><a href="#classes">Classes</a></li>
-            <li><a href="#errorhandling">Error Handling</a></li>
-            <li><a href="#testing">Testing</a></li>
-            <li><a href="#comments">Comments</a></li>
+            <li class="topic-selector">
+              <select id="topicSelect">
+                <option value="javascript">JavaScript</option>
+                <option value="git">Git</option>
+                <option value="react">React</option>
+              </select>
+            </li>
+            <div id="javascriptTopics">
+              <li><a href="#data-types">Data Types</a></li>
+              <li><a href="#variables">Variables</a></li>
+              <li><a href="#conditionals">Conditionals</a></li>
+              <li><a href="#ao">Arithmetic Operators</a></li>
+              <li><a href="#functions">Functions</a></li>
+              <li><a href="#scope">Scope</a></li>
+              <li><a href="#arrays">Arrays</a></li>
+              <li><a href="#array-access">Array Inspection</a></li>
+              <li><a href="#array-transformation">Array Transformation</a></li>
+              <li><a href="#array-iteration">Array Iteration</a></li>
+              <li><a href="#array-mutation">Array Mutation</a></li>
+              <li><a href="#array-utility">Array Utility</a></li>
+              <li><a href="#loops">Loops</a></li>
+              <li><a href="#objects">Objects</a></li>
+              <li><a href="#dom">Document Object Model</a></li>
+              <li><a href="#domevents">Events</a></li>
+              <li><a href="#htmlforms">HTML Forms</a></li>
+              <li><a href="#classes">Classes</a></li>
+              <li><a href="#errorhandling">Error Handling</a></li>
+              <li><a href="#testing">Testing</a></li>
+              <li><a href="#comments">Comments</a></li>
+              <li><a href="#asynchronous">Asynchronous JavaScript</a></li>
+            </div>
+            <div id="gitTopics" style="display: none;">
+              <li><a href="#git-basics">Git Basics</a></li>
+              <li><a href="#git-workflow">Git Workflow</a></li>
+              <li><a href="#git-branches">Git Branches</a></li>
+              <li><a href="#git-remote">Remote Repositories</a></li>
+              <li><a href="#git-collaboration">Collaboration</a></li>
+            </div>
+            <div id="reactTopics" style="display: none;">
+              <li><a href="#react-basics">React Basics</a></li>
+              <li><a href="#react-components">Components</a></li>
+              <li><a href="#react-hooks">Hooks</a></li>
+              <li><a href="#react-state">State Management</a></li>
+              <li><a href="#react-routing">Routing</a></li>
+            </div>
           </ul>
         </div>
       </nav>
@@ -239,6 +263,10 @@
                 <div class="navigation-container">
                   <div class="navigationnumber">[20]</div>
                   <div><a href="#comments" class="titleindex">Comments</a></div>
+                </div>
+                <div class="navigation-container">
+                  <div class="navigationnumber">[21]</div>
+                  <div><a href="#asynchronous" class="titleindex">Asynchronous JavaScript</a></div>
                 </div>
               </div>
             </div>

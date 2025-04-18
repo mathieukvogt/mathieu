@@ -724,4 +724,34 @@ document.addEventListener("DOMContentLoaded", function () {
       element.textContent = "Examples";
     }
   });
+
+  // Topic selection functionality
+  const topicSelect = document.getElementById("topicSelect");
+  const javascriptTopics = document.getElementById("javascriptTopics");
+  const gitTopics = document.getElementById("gitTopics");
+  const reactTopics = document.getElementById("reactTopics");
+
+  if (topicSelect) {
+    topicSelect.addEventListener("change", function () {
+      const selectedTopic = this.value;
+
+      // Hide all topic sections
+      javascriptTopics.style.display = "none";
+      gitTopics.style.display = "none";
+      reactTopics.style.display = "none";
+
+      // Show the selected topic section
+      switch (selectedTopic) {
+        case "javascript":
+          javascriptTopics.style.display = "flex";
+          break;
+        case "git":
+          gitTopics.style.display = "flex";
+          break;
+        case "react":
+          reactTopics.style.display = "flex";
+          break;
+      }
+    });
+  }
 });
