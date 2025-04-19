@@ -125,6 +125,7 @@
               <li><a href="#testing">Testing</a></li>
               <li><a href="#comments">Comments</a></li>
               <li><a href="#asynchronous">Asynchronous JavaScript</a></li>
+              <li><a href="#httprequests">HTTP Requests</a></li>
             </div>
             <div id="gitTopics" style="display: none;">
               <li><a href="#git-basics">Git Basics</a></li>
@@ -268,6 +269,10 @@
                   <div class="navigationnumber">[21]</div>
                   <div><a href="#asynchronous" class="titleindex">Asynchronous JavaScript</a></div>
                 </div>
+                <div class="navigation-container">
+                  <div class="navigationnumber">[22]</div>
+                  <div><a href="#httprequests" class="titleindex">HTTP Requests</a></div>
+                </div>
               </div>
             </div>
           </div>          
@@ -278,13 +283,13 @@
               // METADATA
             </p>
             <p class="update">
-              // [LAST UPDATED] 09/04/2025
+              // [LAST UPDATED] 19/04/2025
             </p>
             <p class="update">
               // [AUTHOR] MATHIEU
             </p>
             <p class="update">
-              // [LAST UPDATED] 09/04/2025
+              // [LAST UPDATED] 19/04/2025
             </p>
             <p class="update">
               // [AUTHOR] MATHIEU
@@ -293,13 +298,13 @@
               // METADATA
             </p>
             <p class="update">
-              // [LAST UPDATED] 09/04/2025
+              // [LAST UPDATED] 19/04/2025
             </p>
             <p class="update">
               // [AUTHOR] MATHIEU
             </p>
             <p class="update">
-              // [LAST UPDATED] 09/04/2025
+              // [LAST UPDATED] 19/04/2025
             </p>
             <p class="update">
               // [AUTHOR] MATHIEU
@@ -17328,7 +17333,1324 @@ example10();
              </code></pre>
                 <br />
               </td>
-            </tr> 
+            </tr>
+            <tr>
+              <td id="httprequests" class="tableletters" data-number="22">HTTP Requests
+                <div class="tablenr">[10]</div>
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-httpreq">
+                http requests
+              </td>
+            </tr>
+            <tr id="detail-tag-httpreq" class="expandable-row-content">
+              <td>
+                <h3>http requests</h3>
+                <p>HTTP (Hypertext Transfer Protocol) requests are how a client (like a browser or a JavaScript app) communicates with a server to send or receive data over the internet. Each request uses a specific HTTP method, such as GET to retrieve data or POST to send data to the server. An HTTP request typically includes a URL (which specifies the resource), a method (like GET or POST), optional headers (for metadata like content type), and sometimes a body (for data being sent, such as form submissions or JSON payloads). The server processes the request and returns a response containing a status code (like 200 OK or 404 Not Found), optional headers, and a response body (which may contain data or error information). HTTP requests are foundational to web development and are used in everything from logging in to an app, to fetching news articles, to submitting a contact form.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// Example 1: Basic GET request using fetch
+fetch("https://jsonplaceholder.typicode.com/posts/1")
+  .then(res => res.json())
+  .then(data => console.log("Example 1: GET post →", data));
+// Output: JSON object of post with id 1
+
+// Example 2: Basic POST request using fetch
+fetch("https://jsonplaceholder.typicode.com/posts", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ title: "Hello", body: "World", userId: 1 })
+})
+  .then(res => res.json())
+  .then(data => console.log("Example 2: POST new post →", data));
+// Output: Created post object with an id
+
+// Example 3: GET request with async/await
+async function example3() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users/1");
+  const user = await res.json();
+  console.log("Example 3: GET user →", user);
+}
+// Output: User object with id 1
+example3();
+
+// Example 4: POST request with async/await
+async function example4() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/comments", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ postId: 1, name: "Learner", body: "Great post!" })
+  });
+  const comment = await res.json();
+  console.log("Example 4: POST comment →", comment);
+}
+// Output: New comment object with id
+example4();
+
+// Example 5: Error handling with try...catch
+async function example5() {
+  try {
+    const res = await fetch("https://invalid-url.typicode.com");
+    const data = await res.json(); // This line won't run
+    console.log("Example 5:", data);
+  } catch (err) {
+    console.log("Example 5: Error caught →", err.message);
+  }
+}
+// Output: Error caught → Failed to fetch (or similar)
+example5();
+
+// Example 6: Using query parameters in a GET request
+const userId = 1;
+fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
+  .then(res => res.json())
+  .then(data => console.log("Example 6: GET posts by userId →", data));
+// Output: Array of posts belonging to user with ID 1
+
+// Example 7: Sending custom headers (auth token simulation)
+fetch("https://jsonplaceholder.typicode.com/posts/1", {
+  method: "GET",
+  headers: {
+    "Authorization": "Bearer fake-token-123"
+  }
+})
+  .then(res => res.json())
+  .then(data => console.log("Example 7: GET with Authorization header →", data));
+// Output: Post data (token not validated on placeholder API, but shown for syntax)
+
+// Example 8: PUT request to update data
+fetch("https://jsonplaceholder.typicode.com/posts/1", {
+  method: "PUT",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ id: 1, title: "Updated title", body: "Updated body", userId: 1 })
+})
+  .then(res => res.json())
+  .then(data => console.log("Example 8: PUT update post →", data));
+// Output: Updated post object
+
+// Example 9: DELETE request to remove a resource
+fetch("https://jsonplaceholder.typicode.com/posts/1", {
+  method: "DELETE"
+})
+  .then(res => console.log("Example 9: DELETE post status →", res.status));
+// Output: 200 (OK) or 204 (No Content), depending on mock API
+
+// Example 10: Chaining multiple HTTP requests
+async function example10() {
+  const userRes = await fetch("https://jsonplaceholder.typicode.com/users/1");
+  const user = await userRes.json();
+
+  const postsRes = await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${user.id}`);
+  const posts = await postsRes.json();
+
+  console.log("Example 10: User's posts →", posts);
+}
+// Output: All posts by user with id 1
+example10();
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-getfetch">
+                making get requests (fetch)
+              </td>
+            </tr>
+            <tr id="detail-tag-getfetch" class="expandable-row-content">
+              <td>
+                <h3>making get requests (fetch)</h3>
+                <p>In JavaScript, the Fetch API is a modern interface for making HTTP requests. Making a GET request with fetch() is simple: you pass the URL of the resource you want to retrieve as the first and only required argument. By default, fetch() sends a GET request if no method is specified. For example, fetch('https://api.example.com/data') initiates a GET request to the specified endpoint. No additional configuration is needed unless you want to customize headers or request credentials. GET requests are read-only and do not modify data on the server; they are ideal for retrieving data like JSON from APIs or loading external content into your app.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// Example 1: Basic GET request to an API
+fetch("https://jsonplaceholder.typicode.com/posts/1")
+  .then(res => res.json())
+  .then(data => console.log("Example 1: Single Post →", data));
+// Output: Post object with id = 1
+
+// Example 2: GET request to retrieve a list of items
+fetch("https://jsonplaceholder.typicode.com/posts")
+  .then(res => res.json())
+  .then(data => console.log("Example 2: All Posts →", data));
+// Output: Array of 100 post objects
+
+// Example 3: GET request with query parameters
+fetch("https://jsonplaceholder.typicode.com/comments?postId=1")
+  .then(res => res.json())
+  .then(data => console.log("Example 3: Comments for Post 1 →", data));
+// Output: Array of comments belonging to post with id = 1
+
+// Example 4: GET request inside an async function
+async function example4() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users/1");
+  const user = await res.json();
+  console.log("Example 4: User →", user);
+}
+// Output: User object with id = 1
+example4();
+
+// Example 5: GET request with error handling (try...catch)
+async function example5() {
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/invalid-url");
+    const data = await res.json();
+    console.log("Example 5:", data); // This won't run
+  } catch (err) {
+    console.log("Example 5: Error caught →", err.message);
+  }
+}
+// Output: Error caught → Failed to fetch (or similar)
+example5();
+
+// Example 6: GET request using dynamic ID (template string)
+const postId = 5;
+fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+  .then(res => res.json())
+  .then(data => console.log(`Example 6: Post ${postId} →`, data));
+// Output: Post object with id = 5
+
+// Example 7: GET request with custom headers (for demonstration)
+fetch("https://jsonplaceholder.typicode.com/posts/1", {
+  headers: {
+    "Accept": "application/json"
+  }
+})
+  .then(res => res.json())
+  .then(data => console.log("Example 7: GET with headers →", data));
+// Output: Post object (headers shown for syntax, not required here)
+
+// Example 8: GET request and check response status
+fetch("https://jsonplaceholder.typicode.com/posts/1")
+  .then(res => {
+    if (!res.ok) throw new Error("Request failed");
+    return res.json();
+  })
+  .then(data => console.log("Example 8: Status check passed →", data))
+  .catch(err => console.log("Example 8: Error →", err.message));
+// Output: Post object or error message
+
+// Example 9: GET request and display only specific property
+fetch("https://jsonplaceholder.typicode.com/users/1")
+  .then(res => res.json())
+  .then(user => console.log("Example 9: Username →", user.username));
+// Output: Just the username, e.g., "Bret"
+
+// Example 10: Chaining multiple GET requests
+async function example10() {
+  const postRes = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+  const post = await postRes.json();
+
+  const userRes = await fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`);
+  const user = await userRes.json();
+
+  console.log("Example 10: Post Author →", user.name);
+}
+// Output: Name of the user who wrote post 1
+example10();
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-handgetfetch">
+                handling get requests (fetch)
+              </td>
+            </tr>
+            <tr id="detail-tag-handgetfetch" class="expandable-row-content">
+              <td>
+                <h3>handling get requests (fetch)</h3>
+                <p>After making a GET request with fetch(), the response it returns is a promise that resolves to a Response object. To access the actual data, you typically call .json() on the response to parse the body as JSON, which itself returns a promise. This means you usually write something like fetch(url).then(res => res.json()).then(data => { ... }). If you're using async/await, you can do const response = await fetch(url); const data = await response.json();. It's also important to check response.ok to see if the HTTP status is successful before parsing the response. Handling GET requests also involves catching errors using .catch() or a try...catch block in case of network failures or unexpected responses from the server.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// Example 1: Handle JSON response from a GET request
+fetch("https://jsonplaceholder.typicode.com/posts/1")
+  .then(res => res.json())
+  .then(data => console.log("Example 1: Full post →", data));
+// Output: A post object with id 1
+
+// Example 2: Handle and display only a specific property
+fetch("https://jsonplaceholder.typicode.com/users/1")
+  .then(res => res.json())
+  .then(user => console.log("Example 2: Username →", user.username));
+// Output: Just the username of the user with id 1
+
+// Example 3: Handling HTTP errors (status check)
+fetch("https://jsonplaceholder.typicode.com/posts/invalid")
+  .then(res => {
+    if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+    return res.json();
+  })
+  .then(data => console.log("Example 3:", data))
+  .catch(err => console.log("Example 3: Error →", err.message));
+// Output: Error → HTTP error! Status: 404
+
+// Example 4: Try...catch for handling fetch errors with async/await
+async function example4() {
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+    const data = await res.json();
+    console.log("Example 4: Post title →", data.title);
+  } catch (err) {
+    console.log("Example 4: Error →", err.message);
+  }
+}
+// Output: Title of the post or an error message
+example4();
+
+// Example 5: Handling empty results from GET request
+fetch("https://jsonplaceholder.typicode.com/posts?userId=9999")
+  .then(res => res.json())
+  .then(data => {
+    if (data.length === 0) {
+      console.log("Example 5: No posts found for user");
+    } else {
+      console.log("Example 5: Posts →", data);
+    }
+  });
+// Output: No posts found for user
+
+// Example 6: Displaying a list of items from a GET response
+fetch("https://jsonplaceholder.typicode.com/users")
+  .then(res => res.json())
+  .then(users => {
+    console.log("Example 6: Usernames:");
+    users.forEach(user => console.log(` - ${user.username}`));
+  });
+// Output: List of usernames
+
+// Example 7: Using fetch inside a reusable async function
+async function getPost(id) {
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  if (!res.ok) throw new Error("Post not found");
+  return await res.json();
+}
+getPost(3).then(data => console.log("Example 7: Post 3 →", data));
+// Output: Post object with id 3
+
+// Example 8: Handling JSON parsing errors
+fetch("https://jsonplaceholder.typicode.com/posts/1")
+  .then(res => res.text()) // intentionally wrong to simulate misuse
+  .then(text => {
+    try {
+      const data = JSON.parse(text);
+      console.log("Example 8:", data);
+    } catch (e) {
+      console.log("Example 8: JSON parsing error →", e.message);
+    }
+  });
+// Output: JSON parsing error (only if the response isn’t valid JSON)
+
+// Example 9: Handling unexpected response format
+fetch("https://jsonplaceholder.typicode.com/posts/1")
+  .then(res => res.text()) // pretend we expect plain text
+  .then(text => console.log("Example 9: Raw text →", text));
+// Output: Raw string (JSON string, since that's the real format)
+
+// Example 10: Chaining GET requests and handling dependencies
+async function example10() {
+  try {
+    const res1 = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+    const post = await res1.json();
+
+    const res2 = await fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`);
+    const user = await res2.json();
+
+    console.log("Example 10: Post Author →", user.name);
+  } catch (err) {
+    console.log("Example 10: Error →", err.message);
+  }
+}
+// Output: Name of the author of post 1
+example10();
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-makepostfetch">
+                making post requests (fetch)
+              </td>
+            </tr>
+            <tr id="detail-tag-makepostfetch" class="expandable-row-content">
+              <td>
+                <h3>making post requests (fetch)</h3>
+                <p>To make a POST request with fetch(), you pass a second argument to the function which is an options object. This object should contain the method property set to "POST", and typically a headers object indicating the content type (often 'Content-Type': 'application/json'). You also include a body property containing the data you want to send, often stringified using JSON.stringify(). For example, fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: 'Alice' }) }). POST requests are used when you want to create or submit new data to a server, such as submitting a form, sending user input, or adding a new item to a database.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// Example 1: Basic POST request with JSON body
+fetch("https://jsonplaceholder.typicode.com/posts", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ title: "Hello", body: "World", userId: 1 })
+})
+  .then(res => res.json())
+  .then(data => console.log("Example 1: POST new post →", data));
+// Output: Created post object with id
+
+// Example 2: POST request using async/await
+async function example2() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/comments", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ postId: 1, name: "New User", body: "Nice post!" })
+  });
+  const data = await res.json();
+  console.log("Example 2: POST comment →", data);
+}
+// Output: New comment with ID
+example2();
+
+// Example 3: POST request with error handling (try...catch)
+async function example3() {
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title: "Error test" })
+    });
+
+    if (!res.ok) throw new Error("Network response was not ok");
+    const data = await res.json();
+    console.log("Example 3:", data);
+  } catch (err) {
+    console.log("Example 3: Error →", err.message);
+  }
+}
+example3();
+
+// Example 4: POST request sending form data as JSON
+const formData = {
+  name: "Alice",
+  email: "alice@example.com",
+  message: "Hello!"
+};
+
+fetch("https://jsonplaceholder.typicode.com/posts", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(formData)
+})
+  .then(res => res.json())
+  .then(data => console.log("Example 4: POST contact form →", data));
+// Output: Simulated contact form submission result
+
+// Example 5: POST with dynamic data (user input simulation)
+const userName = "JohnDoe";
+const userEmail = "john@example.com";
+
+fetch("https://jsonplaceholder.typicode.com/users", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ username: userName, email: userEmail })
+})
+  .then(res => res.json())
+  .then(data => console.log("Example 5: POST user →", data));
+// Output: Simulated new user creation
+
+// Example 6: POST request with additional headers (like auth)
+fetch("https://jsonplaceholder.typicode.com/posts", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer fake-token-123"
+  },
+  body: JSON.stringify({ title: "Secure Post", body: "With token", userId: 2 })
+})
+  .then(res => res.json())
+  .then(data => console.log("Example 6: POST with token →", data));
+// Output: Simulated secure post submission
+
+// Example 7: POST request inside a reusable function
+async function createPost(title, body, userId) {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title, body, userId })
+  });
+  return await res.json();
+}
+
+createPost("Reusable Title", "Reusable Body", 3)
+  .then(data => console.log("Example 7: Reusable POST →", data));
+// Output: Reusable post response
+
+// Example 8: POST with manually stringified payload (explicit)
+const payload = JSON.stringify({
+  userId: 5,
+  title: "Manual Stringify",
+  body: "This was stringified manually."
+});
+
+fetch("https://jsonplaceholder.typicode.com/posts", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: payload
+})
+  .then(res => res.json())
+  .then(data => console.log("Example 8: Manual payload POST →", data));
+// Output: JSON response of manually formed post
+
+// Example 9: POST with response status check
+fetch("https://jsonplaceholder.typicode.com/posts", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ title: "Check Status", body: "Response check", userId: 4 })
+})
+  .then(res => {
+    if (res.status === 201) {
+      return res.json();
+    } else {
+      throw new Error("Failed to create resource");
+    }
+  })
+  .then(data => console.log("Example 9: Status 201 →", data))
+  .catch(err => console.log("Example 9: Error →", err.message));
+// Output: Created resource or error message
+
+// Example 10: POST multiple entries in a loop
+async function example10() {
+  const posts = [
+    { title: "First", body: "Post 1", userId: 1 },
+    { title: "Second", body: "Post 2", userId: 2 },
+    { title: "Third", body: "Post 3", userId: 3 }
+  ];
+
+  for (let post of posts) {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(post)
+    });
+    const data = await res.json();
+    console.log("Example 10: POST loop →", data);
+  }
+}
+// Output: Logs 3 created post objects
+example10();
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-handpostfetch">
+                handling post requests (fetch)
+              </td>
+            </tr>
+            <tr id="detail-tag-handpostfetch" class="expandable-row-content">
+              <td>
+                <h3>handling post requests (fetch)</h3>
+                <p>Handling a response from a POST request is similar to a GET request. You await the fetch() call and then await response.json() to extract the data the server returns. Often, the server responds with a confirmation message, a newly created object, or an error message. After sending a POST request, you should also check if response.ok is true to verify that the server successfully handled your request. In many cases, POST responses are used to confirm that an action like form submission, user registration, or file upload was successful, and that information may be displayed in the user interface or used for further processing in your app.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// Example 1: Handle successful POST response with .then()
+fetch("https://jsonplaceholder.typicode.com/posts", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ title: "Hello", body: "World", userId: 1 })
+})
+  .then(res => res.json())
+  .then(data => console.log("Example 1: Response data →", data));
+// Output: JSON object of the newly created post
+
+// Example 2: Handle POST response with async/await
+async function example2() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/comments", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ postId: 1, name: "Student", body: "Nice article!" })
+  });
+  const data = await res.json();
+  console.log("Example 2: Comment response →", data);
+}
+// Output: JSON object of created comment
+example2();
+
+// Example 3: Check response status code before reading body
+fetch("https://jsonplaceholder.typicode.com/posts", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ title: "Check status", userId: 2 })
+})
+  .then(res => {
+    if (res.status === 201) {
+      return res.json();
+    } else {
+      throw new Error("Unexpected status code: " + res.status);
+    }
+  })
+  .then(data => console.log("Example 3: Created successfully →", data))
+  .catch(err => console.log("Example 3: Error →", err.message));
+// Output: New post data or error message
+
+// Example 4: Handle server-side error with try...catch
+async function example4() {
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/invalid-endpoint", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title: "Invalid" })
+    });
+
+    if (!res.ok) throw new Error(`Server error: ${res.status}`);
+    const data = await res.json();
+    console.log("Example 4:", data);
+  } catch (err) {
+    console.log("Example 4: Caught error →", err.message);
+  }
+}
+// Output: Error from catch block
+example4();
+
+// Example 5: Handle empty or malformed response
+async function example5() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: "invalid-json"
+  });
+
+  try {
+    const data = await res.json();
+    console.log("Example 5:", data);
+  } catch (err) {
+    console.log("Example 5: JSON parsing error →", err.message);
+  }
+}
+// Output: JSON parsing error
+example5();
+
+// Example 6: Conditionally handle success or failure in response
+async function example6() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title: "" }) // Simulate bad input
+  });
+
+  const data = await res.json();
+
+  if (res.ok) {
+    console.log("Example 6: Success →", data);
+  } else {
+    console.log("Example 6: Failed →", data);
+  }
+}
+// Output: Logs created post if successful
+example6();
+
+// Example 7: Display feedback to user after POST
+async function example7() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title: "Feedback", body: "Good job!" })
+  });
+
+  const data = await res.json();
+
+  console.log("Example 7: Thank you for your submission!");
+  console.log("Server says:", data);
+}
+// Output: Thank you message and returned post object
+example7();
+
+// Example 8: Return value from async POST handler
+async function createUser(userData) {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(userData)
+  });
+  return await res.json();
+}
+
+createUser({ username: "newbie", email: "new@example.com" })
+  .then(data => console.log("Example 8: User created →", data));
+// Output: New user object
+
+// Example 9: Catch network errors (e.g., offline or bad domain)
+async function example9() {
+  try {
+    const res = await fetch("https://badurl.example.com/posts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title: "Test" })
+    });
+    const data = await res.json();
+    console.log("Example 9:", data);
+  } catch (err) {
+    console.log("Example 9: Network error →", err.message);
+  }
+}
+// Output: Network error (cannot fetch)
+example9();
+
+// Example 10: Parse and display server response in UI context (console version)
+async function example10() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title: "Display UI", body: "Rendered result", userId: 10 })
+  });
+
+  const data = await res.json();
+  console.log("Example 10: Displaying new post:");
+  console.log(`  • ID: ${data.id}`);
+  console.log(`  • Title: ${data.title}`);
+  console.log(`  • Body: ${data.body}`);
+}
+// Output: Nicely formatted post info
+example10();
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-makeasyncget">
+                making async get requests
+              </td>
+            </tr>
+            <tr id="detail-tag-makeasyncget" class="expandable-row-content">
+              <td>
+                <h3>making async get requests</h3>
+                <p>Making an async GET request involves defining an async function and using await with the fetch() call to pause the function until the GET request completes. This leads to cleaner, more readable code compared to chaining .then() calls. For example, you might write const response = await fetch(url); const data = await response.json(); inside an async function. This pattern is ideal for loading data when a component loads or before displaying content to the user. Since the code looks like synchronous code, it's easier to reason about and debug, especially when multiple steps are involved, such as fetching, transforming, and displaying the data.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// Example 1: Basic async GET request
+async function example1() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+  const post = await res.json();
+  console.log("Example 1: Post title →", post.title);
+}
+// Output: Title of post with id 1
+example1();
+
+// Example 2: GET request with error handling (try...catch)
+async function example2() {
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/users/1");
+    const user = await res.json();
+    console.log("Example 2: Username →", user.username);
+  } catch (err) {
+    console.log("Example 2: Error →", err.message);
+  }
+}
+// Output: Username or error message
+example2();
+
+// Example 3: GET request to retrieve a list
+async function example3() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users");
+  const users = await res.json();
+  console.log("Example 3: Number of users →", users.length);
+}
+// Output: Total number of users (should be 10)
+example3();
+
+// Example 4: Use query parameters
+async function example4() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/comments?postId=2");
+  const comments = await res.json();
+  console.log("Example 4: Comments for post 2 →", comments.map(c => c.name));
+}
+// Output: Names of comments on post with id 2
+example4();
+
+// Example 5: GET dynamic ID from variable
+async function example5() {
+  const id = 3;
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  const post = await res.json();
+  console.log("Example 5: Post #3 →", post.title);
+}
+// Output: Title of post with id = 3
+example5();
+
+// Example 6: GET request with status check
+async function example6() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts/12345"); // likely doesn't exist
+  if (!res.ok) {
+    console.log("Example 6: Post not found → Status", res.status);
+    return;
+  }
+  const data = await res.json();
+  console.log("Example 6:", data);
+}
+// Output: Error message or post data
+example6();
+
+// Example 7: Chain multiple async GET requests
+async function example7() {
+  const postRes = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+  const post = await postRes.json();
+
+  const userRes = await fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`);
+  const user = await userRes.json();
+
+  console.log("Example 7: Post author →", user.name);
+}
+// Output: Name of the author of post 1
+example7();
+
+// Example 8: Awaiting fetch in a loop (sequential)
+async function example8() {
+  const ids = [1, 2, 3];
+  for (let id of ids) {
+    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+    const post = await res.json();
+    console.log(`Example 8: Post ${id} →`, post.title);
+  }
+}
+// Output: Title of each post from id 1 to 3, sequentially
+example8();
+
+// Example 9: Awaiting multiple GETs concurrently with Promise.all
+async function example9() {
+  const urls = [
+    "https://jsonplaceholder.typicode.com/posts/1",
+    "https://jsonplaceholder.typicode.com/posts/2",
+    "https://jsonplaceholder.typicode.com/posts/3"
+  ];
+  const fetches = urls.map(url => fetch(url).then(res => res.json()));
+  const posts = await Promise.all(fetches);
+  console.log("Example 9: Fetched posts →", posts.map(p => p.title));
+}
+// Output: Titles of post 1, 2, and 3 all at once (faster than sequential)
+example9();
+
+// Example 10: Handling unexpected JSON format
+async function example10() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+  const text = await res.text();
+  try {
+    const json = JSON.parse(text);
+    console.log("Example 10: Post title (parsed manually) →", json.title);
+  } catch (err) {
+    console.log("Example 10: JSON parsing error →", err.message);
+  }
+}
+// Output: Post title or parsing error
+example10();
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-handasyncget">
+                handling async get requests
+              </td>
+            </tr>
+            <tr id="detail-tag-handasyncget" class="expandable-row-content">
+              <td>
+                <h3>handling async get requests</h3>
+                <p>Handling async GET requests means waiting for both the fetch() to complete and the response body to be parsed. You typically use a try...catch block to handle any potential network or server errors, which makes your application more robust and user-friendly. For example, if the API returns an error or the internet connection fails, you can catch it and show a helpful message instead of crashing the app. This is particularly useful when fetching critical data like user profiles, settings, or app content, and lets you keep your interface responsive and safe against unexpected failures.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// Example 1: Handle async GET and log the full response data
+async function example1() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+  const data = await res.json();
+  console.log("Example 1: Full post object →", data);
+}
+// Output: Post object with id = 1
+example1();
+
+// Example 2: Handle only specific data from response
+async function example2() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users/1");
+  const user = await res.json();
+  console.log("Example 2: Username →", user.username);
+}
+// Output: "Bret" (or username of user with id = 1)
+example2();
+
+// Example 3: Handle fetch errors using try...catch
+async function example3() {
+  try {
+    const res = await fetch("https://invalid-api.example.com");
+    const data = await res.json(); // won't run if fetch fails
+    console.log("Example 3:", data);
+  } catch (err) {
+    console.log("Example 3: Caught error →", err.message);
+  }
+}
+// Output: Error message about failed fetch
+example3();
+
+// Example 4: Check response status before parsing
+async function example4() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts/12345"); // likely doesn't exist
+  if (!res.ok) {
+    console.log("Example 4: HTTP error →", res.status);
+    return;
+  }
+  const data = await res.json();
+  console.log("Example 4:", data);
+}
+// Output: HTTP error → 404
+example4();
+
+// Example 5: Handle empty array response
+async function example5() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts?userId=9999");
+  const posts = await res.json();
+  if (posts.length === 0) {
+    console.log("Example 5: No posts found");
+  } else {
+    console.log("Example 5: Posts found →", posts);
+  }
+}
+// Output: No posts found
+example5();
+
+// Example 6: Loop through and handle list of items
+async function example6() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users");
+  const users = await res.json();
+  console.log("Example 6: Usernames →");
+  users.forEach(user => console.log(" -", user.username));
+}
+// Output: List of usernames
+example6();
+
+// Example 7: Handle dependent GET requests
+async function example7() {
+  const postRes = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+  const post = await postRes.json();
+
+  const userRes = await fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`);
+  const user = await userRes.json();
+
+  console.log("Example 7: Post author →", user.name);
+}
+// Output: Name of the author of post 1
+example7();
+
+// Example 8: Handle JSON parsing errors
+async function example8() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+  const text = await res.text();
+  try {
+    const json = JSON.parse(text);
+    console.log("Example 8: Parsed post →", json.title);
+  } catch (err) {
+    console.log("Example 8: JSON error →", err.message);
+  }
+}
+// Output: Title of the post or error if JSON is broken
+example8();
+
+// Example 9: Use try...catch around full async logic
+async function example9() {
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts/2");
+    if (!res.ok) throw new Error("Failed to fetch");
+    const post = await res.json();
+    console.log("Example 9: Post title →", post.title);
+  } catch (err) {
+    console.log("Example 9: Error →", err.message);
+  }
+}
+// Output: Post title or error
+example9();
+
+// Example 10: Display friendly message based on API result
+async function example10() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users/1");
+  const user = await res.json();
+  console.log(`Example 10: Welcome, ${user.name}! You are user #${user.id}.`);
+}
+// Output: Friendly welcome message
+example10();
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-makeasyncpost">
+                making async post requests
+              </td>
+            </tr>
+            <tr id="detail-tag-makeasyncpost" class="expandable-row-content">
+              <td>
+                <h3>making async post requests</h3>
+                <p>Making an async POST request is done similarly to an async GET, but with the additional configuration of method, headers, and body. You define an async function and use await with fetch() to send data to the server. For example, await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }). This pattern is widely used in form submissions, login flows, and sending updates to servers without needing a page reload. Using await makes the code cleaner, and easier to read and maintain, especially when handling user input and managing UI state.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// Example 1: Basic async POST request with JSON data
+async function example1() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title: "Hello", body: "World", userId: 1 })
+  });
+  const data = await res.json();
+  console.log("Example 1: Created post →", data);
+}
+// Output: New post object with an ID
+example1();
+
+// Example 2: POST request with error handling using try...catch
+async function example2() {
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/comments", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ postId: 1, name: "Student", body: "Great post!" })
+    });
+    const data = await res.json();
+    console.log("Example 2: Comment created →", data);
+  } catch (err) {
+    console.log("Example 2: Error →", err.message);
+  }
+}
+// Output: Created comment or error message
+example2();
+
+// Example 3: POST with form-like data (simulated)
+async function example3() {
+  const contactData = {
+    name: "Alice",
+    email: "alice@example.com",
+    message: "Hello from JS!"
+  };
+
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(contactData)
+  });
+  const data = await res.json();
+  console.log("Example 3: Contact form result →", data);
+}
+// Output: JSON of contact message data
+example3();
+
+// Example 4: POST with dynamic input values
+async function example4() {
+  const username = "john_doe";
+  const email = "john@example.com";
+
+  const res = await fetch("https://jsonplaceholder.typicode.com/users", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ username, email })
+  });
+  const user = await res.json();
+  console.log("Example 4: Created user →", user);
+}
+// Output: Created user object
+example4();
+
+// Example 5: Check if POST was successful using status
+async function example5() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title: "Status Check", body: "Testing status", userId: 2 })
+  });
+
+  if (res.status === 201) {
+    const data = await res.json();
+    console.log("Example 5: Successfully created →", data);
+  } else {
+    console.log("Example 5: Failed to create. Status:", res.status);
+  }
+}
+// Output: Created post data or failure message
+example5();
+
+// Example 6: POST multiple entries in a loop
+async function example6() {
+  const posts = [
+    { title: "Post 1", body: "Content 1", userId: 1 },
+    { title: "Post 2", body: "Content 2", userId: 1 },
+    { title: "Post 3", body: "Content 3", userId: 1 }
+  ];
+
+  for (let post of posts) {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(post)
+    });
+    const data = await res.json();
+    console.log("Example 6: Created post →", data);
+  }
+}
+// Output: 3 created posts, one at a time
+example6();
+
+// Example 7: Reusable POST function
+async function postData(url, payload) {
+  const res = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  });
+  return await res.json();
+}
+
+async function example7() {
+  const result = await postData("https://jsonplaceholder.typicode.com/posts", {
+    title: "Reusable", body: "Function-based", userId: 5
+  });
+  console.log("Example 7: Reusable POST →", result);
+}
+// Output: Created post using reusable function
+example7();
+
+// Example 8: POST and show confirmation message
+async function example8() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title: "Confirm", body: "Done!", userId: 3 })
+  });
+  const data = await res.json();
+  console.log("Example 8: Thank you! Post ID →", data.id);
+}
+// Output: Thank you message with post ID
+example8();
+
+// Example 9: POST with Authorization header (simulated)
+async function example9() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer fake-token-123"
+    },
+    body: JSON.stringify({ title: "Secure", body: "With token", userId: 4 })
+  });
+  const data = await res.json();
+  console.log("Example 9: Auth POST →", data);
+}
+// Output: Simulated secure post
+example9();
+
+// Example 10: POST with invalid data and catch JSON error
+async function example10() {
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: "{ malformedJson: true" // invalid JSON
+    });
+
+    const data = await res.json(); // will throw
+    console.log("Example 10:", data);
+  } catch (err) {
+    console.log("Example 10: JSON error →", err.message);
+  }
+}
+// Output: JSON parsing error
+example10();
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-handasyncpost">
+                handling async post requests
+              </td>
+            </tr>
+            <tr id="detail-tag-handasyncpost" class="expandable-row-content">
+              <td>
+                <h3>handling async post requests</h3>
+                <p>Handling async POST requests involves awaiting both the fetch() call and the parsing of the response. Using await response.json() lets you access the server’s reply, such as a success message, created resource, or error details. Wrapping this process in a try...catch block helps you deal with things like validation errors, server rejections, or network issues. This is especially important in real applications, where you need to give users clear feedback—like showing a success alert when a message is sent or displaying an error message if a signup fails. Proper handling ensures a smooth user experience and helps your app behave reliably.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-js">
+// Example 1: Basic async POST with response handling
+async function example1() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title: "New Post", body: "Learning async POST", userId: 1 })
+  });
+  const data = await res.json();
+  console.log("Example 1: Created post →", data);
+}
+// Output: Post object with ID and submitted fields
+example1();
+
+// Example 2: Handling POST success vs. failure using status code
+async function example2() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title: "Check", body: "Status", userId: 2 })
+  });
+
+  if (res.ok) {
+    const data = await res.json();
+    console.log("Example 2: Successfully created →", data);
+  } else {
+    console.log("Example 2: Failed with status →", res.status);
+  }
+}
+// Output: Created post or error status code
+example2();
+
+// Example 3: Handle network or server errors with try...catch
+async function example3() {
+  try {
+    const res = await fetch("https://invalid-url.typicode.com/posts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title: "Oops" })
+    });
+    const data = await res.json();
+    console.log("Example 3:", data);
+  } catch (err) {
+    console.log("Example 3: Caught error →", err.message);
+  }
+}
+// Output: Network error message
+example3();
+
+// Example 4: Show user-friendly feedback after POST
+async function example4() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title: "Feedback", body: "Thanks!" })
+  });
+
+  const result = await res.json();
+  console.log(`Example 4: Thank you! Your post was created with ID ${result.id}.`);
+}
+// Output: Thank you message with post ID
+example4();
+
+// Example 5: Handle JSON parsing error from invalid response
+async function example5() {
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: "{ bad JSON" // malformed
+    });
+    const data = await res.json(); // will throw
+    console.log("Example 5:", data);
+  } catch (err) {
+    console.log("Example 5: JSON parse error →", err.message);
+  }
+}
+// Output: JSON parsing error
+example5();
+
+// Example 6: Validate server response before using data
+async function example6() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title: "Validate", userId: 5 })
+  });
+
+  const data = await res.json();
+  if (data && data.id) {
+    console.log("Example 6: Post created with ID →", data.id);
+  } else {
+    console.log("Example 6: Invalid response data");
+  }
+}
+// Output: ID of the created post or fallback message
+example6();
+
+// Example 7: POST and update app state (simulate console UI update)
+async function example7() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title: "UI Update", body: "New content" })
+  });
+
+  const data = await res.json();
+  console.log("Example 7: App updated with new post →", {
+    id: data.id,
+    title: data.title
+  });
+}
+// Output: Simulated app update
+example7();
+
+// Example 8: Reusable handler with custom logic
+async function handlePost(endpoint, payload) {
+  try {
+    const res = await fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    if (!res.ok) throw new Error(`Failed with status ${res.status}`);
+    return await res.json();
+  } catch (err) {
+    console.log("Example 8: Error →", err.message);
+    return null;
+  }
+}
+async function example8() {
+  const result = await handlePost("https://jsonplaceholder.typicode.com/posts", {
+    title: "Reusable Handler", userId: 99
+  });
+  console.log("Example 8: Result →", result);
+}
+// Output: Post object or error
+example8();
+
+// Example 9: Display only part of the response
+async function example9() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title: "Partial", body: "Show only title" })
+  });
+
+  const data = await res.json();
+  console.log("Example 9: Only title →", data.title);
+}
+// Output: Title string of created post
+example9();
+
+// Example 10: Chain multiple POST requests and handle results
+async function example10() {
+  const res1 = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title: "First", body: "Chained request 1" })
+  });
+  const post1 = await res1.json();
+
+  const res2 = await fetch("https://jsonplaceholder.typicode.com/comments", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ postId: post1.id, body: "Auto-comment after post" })
+  });
+  const comment = await res2.json();
+
+  console.log("Example 10: Post and related comment created →", {
+    postId: post1.id,
+    commentId: comment.id
+  });
+}
+// Output: IDs of the post and its related comment
+example10();
+              </code></pre>
+                <br />
+              </td>
+            </tr>
             <tr>
               <td id="git" class="tabletitle" data-number="1">
                 <div class="firstletter">[</div>
@@ -17355,7 +18677,7 @@ example10();
               </code></pre>
                 <br />
               </td>
-            </tr>      
+            </tr>    
           </tbody>
           <tfoot></tfoot>
         </table>
