@@ -24,10 +24,10 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.set(contentTexts, { opacity: 0 });
   gsap.to(contentTexts, {
     opacity: 1,
-    duration: 1,
-    stagger: 0.2,
-    ease: "power2.out",
-    delay: 2,
+    duration: 1.4,
+    stagger: 0.3,
+    ease: "power2.inOut",
+    delay: 1.8,
   });
 
   // Animate skills section
@@ -38,18 +38,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   gsap.to(skillsTitles, {
     opacity: 1,
-    duration: 0.8,
-    stagger: 0.15,
-    ease: "power2.out",
-    delay: 2,
+    duration: 1.2,
+    stagger: 0.2,
+    ease: "power2.inOut",
+    delay: 2.2,
   });
 
   gsap.to(skillItems, {
     opacity: 1,
-    duration: 0.8,
-    stagger: 0.05,
-    ease: "power2.out",
-    delay: 2,
+    duration: 1.2,
+    stagger: 0.08,
+    ease: "power2.inOut",
+    delay: 2.4,
   });
 
   // Dark mode functionality
