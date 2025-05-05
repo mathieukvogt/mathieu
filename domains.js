@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Position and fade in cards
     gsap.to(cards, {
-      y: (i) => -5 + 5 * i + "%",
+      y: (i) => -3 + 3 * i + "%",
       z: (i) => 15 * i,
       opacity: 1,
       duration: 1,
@@ -192,7 +192,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Reposition all other cards with staggering
         gsap.to(Array.from(slider.querySelectorAll(".card")).slice(1), {
-          y: (i) => -5 + 5 * (i + 1) + "%",
+          y: (i) => -3 + 3 * (i + 1) + "%",
           z: (i) => 15 * (i + 1),
           opacity: 1,
           duration: 0.6,
@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
           // Second animation: Slide the card up from below
           gsap.to(lastCard, {
-            y: -5 + "%", // Match the first card's position
+            y: -3 + "%",
             z: 0,
             opacity: 1,
             duration: 1.0,
