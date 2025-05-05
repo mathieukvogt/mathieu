@@ -73,6 +73,16 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "lives.ai",
       url: "https://www.godaddy.com/forsale/lives.ai?utm_source=TDFS_BINNS2&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns2_base&traffic_type=TDFS_BINNS2&traffic_id=binns2&",
     },
+    10: {
+      price: "",
+      name: "chk.ai",
+      url: "https://www.godaddy.com/forsale/chk.ai?utm_source=TDFS_BINNS2&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns2_base&traffic_type=TDFS_BINNS2&traffic_id=binns2&",
+    },
+    11: {
+      price: "",
+      name: "xmail.ai",
+      url: "https://xmail.ai",
+    },
   };
 
   // Update onecall-box content based on domain index
