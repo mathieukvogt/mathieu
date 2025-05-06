@@ -45,40 +45,55 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     4: {
       price: "",
+      name: "thechat.ai",
+      url: "https://www.godaddy.com/forsale/thechat.ai",
+    },
+    5: {
+      price: "",
+      name: "workfree.ai",
+      url: "https://www.godaddy.com/forsale/workfree.ai",
+    },
+    6: {
+      price: "",
+      name: "moneyapp.ai",
+      url: "https://www.godaddy.com/forsale/moneyapp.ai",
+    },
+    7: {
+      price: "",
       name: "milling.ai",
       url: "https://www.godaddy.com/forsale/milling.ai",
     },
-    5: {
+    8: {
       price: "",
       name: "organisation.ai",
       url: "https://www.godaddy.com/forsale/organisation.ai?utm_source=TDFS_BINNS2&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns2_base&traffic_type=TDFS_BINNS2&traffic_id=binns2&",
     },
-    6: {
+    9: {
       price: "",
       name: "onecall.ai",
       url: "https://www.godaddy.com/forsale/onecall.ai?utm_source=TDFS_BINNS2&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns2_base&traffic_type=TDFS_BINNS2&traffic_id=binns2&",
     },
-    7: {
+    10: {
       price: "",
       name: "legalcheck.ai",
       url: "https://www.godaddy.com/forsale/legalcheck.ai",
     },
-    8: {
+    11: {
       price: "",
       name: "toward.ai",
       url: "https://www.godaddy.com/forsale/toward.ai",
     },
-    9: {
+    12: {
       price: "",
       name: "lives.ai",
       url: "https://www.godaddy.com/forsale/lives.ai?utm_source=TDFS_BINNS2&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns2_base&traffic_type=TDFS_BINNS2&traffic_id=binns2&",
     },
-    10: {
+    13: {
       price: "",
       name: "chk.ai",
       url: "https://www.godaddy.com/forsale/chk.ai?utm_source=TDFS_BINNS2&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns2_base&traffic_type=TDFS_BINNS2&traffic_id=binns2&",
     },
-    11: {
+    14: {
       price: "",
       name: "xmail.ai",
       url: "https://xmail.ai",
