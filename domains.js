@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
     14: {
       price: "",
       name: "xmail.ai",
-      url: "https://xmail.ai",
+      url: "https://www.godaddy.com/forsale/xmail.ai?utm_source=TDFS_BINNS2&utm_medium=parkedpages&utm_campaign=x_corp_tdfs-binns2_base&traffic_type=TDFS_BINNS2&traffic_id=binns2&",
     },
   };
 
