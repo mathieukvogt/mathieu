@@ -1728,7 +1728,7 @@ body.dark-mode {
   .tabletitle {
     height: 300px;
     font-family: "Gridular", monospace;
-    font-size: 90px;
+    font-size: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;

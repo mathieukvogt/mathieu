@@ -98,8 +98,8 @@
             <li class="topic-selector">
               <select id="topicSelect">
                 <option value="javascript">JavaScript</option>
-                <option value="git">Git</option>
                 <option value="react">React</option>
+                <option value="git">Git</option>
               </select>
             </li>
             <div id="javascriptTopics">
@@ -127,19 +127,19 @@
               <li><a href="#asynchronous">Asynchronous JavaScript</a></li>
               <li><a href="#httprequests">HTTP Requests</a></li>
             </div>
+            <div id="reactTopics" style="display: none;">
+              <li><a href="#react">Introduction</a></li>
+              <li><a href="#react-components">Components</a></li>
+              <li><a href="#react-hooks">Hooks</a></li>
+              <li><a href="#react-state">State Management</a></li>
+              <li><a href="#react-routing">Routing</a></li>
+            </div>
             <div id="gitTopics" style="display: none;">
               <li><a href="#git-basics">Git Basics</a></li>
               <li><a href="#git-workflow">Git Workflow</a></li>
               <li><a href="#git-branches">Git Branches</a></li>
               <li><a href="#git-remote">Remote Repositories</a></li>
               <li><a href="#git-collaboration">Collaboration</a></li>
-            </div>
-            <div id="reactTopics" style="display: none;">
-              <li><a href="#react-basics">React Basics</a></li>
-              <li><a href="#react-components">Components</a></li>
-              <li><a href="#react-hooks">Hooks</a></li>
-              <li><a href="#react-state">State Management</a></li>
-              <li><a href="#react-routing">Routing</a></li>
             </div>
           </ul>
         </div>
@@ -283,13 +283,13 @@
               // METADATA
             </p>
             <p class="update">
-              // [LAST UPDATED] 19/04/2025
+              // [LAST UPDATED] 08/05/2025
             </p>
             <p class="update">
               // [AUTHOR] MATHIEU
             </p>
             <p class="update">
-              // [LAST UPDATED] 19/04/2025
+              // [LAST UPDATED] 08/05/2025
             </p>
             <p class="update">
               // [AUTHOR] MATHIEU
@@ -298,13 +298,13 @@
               // METADATA
             </p>
             <p class="update">
-              // [LAST UPDATED] 19/04/2025
+              // [LAST UPDATED] 08/05/2025
             </p>
             <p class="update">
               // [AUTHOR] MATHIEU
             </p>
             <p class="update">
-              // [LAST UPDATED] 19/04/2025
+              // [LAST UPDATED] 08/05/2025
             </p>
             <p class="update">
               // [AUTHOR] MATHIEU
@@ -18654,6 +18654,156 @@ example10();
             <tr>
               <td id="git" class="tabletitle" data-number="1">
                 <div class="firstletter">[</div>
+                <div class="secondletter">REACT</div>
+                <div class="secondletter">]</div>
+              </td>
+            </tr>
+            <tr>
+              <td id="react" class="tableletters" data-number="1">REACT
+                <div class="tablenr">[02]</div>
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-reactintro">understanding react</td>
+            </tr>
+            <tr id="detail-tag-reactintro" class="expandable-row-content">
+              <td>
+                <h3>understanding react</h3>
+                <p>React is a powerful and widely used JavaScript library developed by Facebook that focuses on building efficient, dynamic, and interactive user interfaces, particularly for modern web applications. It was created to address the challenges developers faced when building complex front-end applications, where managing the state of the UI and ensuring that the interface accurately reflected changes in data became increasingly difficult as applications grew in size and complexity. Traditional approaches often led to tangled, hard-to-maintain codebases full of imperative DOM manipulation and tightly coupled logic, making it easy for bugs to creep in and difficult to scale applications effectively. React introduced a declarative programming model, allowing developers to describe what the user interface should look like for a given application state, while React itself handles efficiently updating the DOM when that state changes. This is achieved through its virtual DOM, a lightweight in-memory representation of the real DOM, which helps minimize costly direct DOM updates and improves application performance. Additionally, React’s component-based architecture promotes reusability, composability, and separation of concerns, enabling teams to build applications from modular, self-contained units that are easier to test, debug, and maintain over time. By solving these core issues of UI state management, performance, and code organization, React has become a fundamental tool in the modern web development ecosystem.</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-jsx">
+// 1. Simple Component that renders "Hello World"
+function HelloWorld() {
+  return &lt;h1&gt;Hello World&lt;/h1&gt;;
+}
+
+// 2. Component with Props
+function GreetUser(props) {
+  return &lt;p&gt;Hello, {props.name}!&lt;/p&gt;;
+}
+// Usage: &lt;GreetUser name="Alice" /&gt;
+
+// 3. Component with State
+function Counter() {
+  const [count, setCount] = React.useState(0);
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Count: {count}&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;Increment&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+
+// 4. Conditional Rendering
+function IsLoggedIn(props) {
+  return &lt;p&gt;{props.loggedIn ? "Welcome back!" : "Please log in."}&lt;/p&gt;;
+}
+// Usage: &lt;IsLoggedIn loggedIn={true} /&gt;
+
+// 5. Rendering a List
+function FruitList() {
+  const fruits = ["Apple", "Banana", "Orange"];
+  return (
+    &lt;ul&gt;
+      {fruits.map((fruit, index) =&gt; (
+        &lt;li key={index}&gt;{fruit}&lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+}
+
+// 6. Handling Input
+function NameInput() {
+  const [name, setName] = React.useState("");
+  return (
+    &lt;div&gt;
+      &lt;input 
+        value={name} 
+        onChange={(e) =&gt; setName(e.target.value)} 
+        placeholder="Enter your name" 
+      /&gt;
+      &lt;p&gt;Your name is: {name}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}
+
+// 7. Using useEffect (runs on mount)
+function Timer() {
+  React.useEffect(() =&gt; {
+    console.log("Component mounted!");
+  }, []);
+  return &lt;p&gt;Check the console for a message.&lt;/p&gt;;
+}
+
+// 8. Simple Toggle Component
+function Toggle() {
+  const [on, setOn] = React.useState(false);
+  return (
+    &lt;div&gt;
+      &lt;p&gt;{on ? "ON" : "OFF"}&lt;/p&gt;
+      &lt;button onClick={() =&gt; setOn(!on)}&gt;Toggle&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+
+// 9. Inline Styling
+function StyledText() {
+  return &lt;p style={{ color: "blue", fontSize: "20px" }}&gt;Styled Text&lt;/p&gt;;
+}
+
+// 10. Parent and Child Components
+function Parent() {
+  return &lt;Child message="Hello from Parent!" /&gt;;
+}
+
+function Child(props) {
+  return &lt;p&gt;{props.message}&lt;/p&gt;;
+}
+// Usage: &lt;Parent /&gt;
+
+              </code></pre>
+                <br />
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-gitcommit">git commit</td>
+            </tr>
+            <tr id="detail-tag-gitcommit" class="expandable-row-content">
+              <td>
+                <h3>git commit</h3>
+                <p>In HTML forms</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+
+              </code></pre>
+                <br />
+              </td>
+            </tr> 
+            <tr>
+              <td id="git" class="tableletters" data-number="1">git something
+                <div class="tablenr">[02]</div>
+              </td>
+            </tr>
+            <tr>
+              <td class="clickable" data-detail-id="detail-tag-gitcommit">git commit</td>
+            </tr>
+            <tr id="detail-tag-gitcommit" class="expandable-row-content">
+              <td>
+                <h3>git commit</h3>
+                <p>In HTML forms</p>
+                <h4><u>Specifications</u></h4>
+                <pre>
+             <code class="language-html">
+
+              </code></pre>
+                <br />
+              </td>
+            </tr>  
+            <tr>
+              <td id="git" class="tabletitle" data-number="1">
+                <div class="firstletter">[</div>
                 <div class="secondletter">GIT</div>
                 <div class="secondletter">]</div>
               </td>
@@ -18673,7 +18823,7 @@ example10();
                 <h4><u>Specifications</u></h4>
                 <pre>
              <code class="language-html">
-&lt;!-- Example 1: Basic checkbox input --&gt;
+
               </code></pre>
                 <br />
               </td>
