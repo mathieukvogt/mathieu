@@ -22,13 +22,14 @@
       name="twitter:title"
       content="Mathieu"
     />
-    <title>mathieu | programming</title>
+    <title>mathieu | hello world</title>
     <link href="encyclopedia.css" rel="stylesheet" />
     <link rel="stylesheet" href="github-dark.css" />
     <link rel="icon" href="M12.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=VT323&display=swap" rel="stylesheet">
+    <base href="https://mathieu.so">
   </head>
   <body>
     <canvas id="noise" class="noise"></canvas>  
@@ -44,28 +45,6 @@
       <div class="bar"></div>
       <div class="bar"></div>
     </div>
-    <div class="menu-overlay">
-      <div class="menu-bar">
-        <div class="menu-content">
-          <a href="encyclopedia.html" class="menu-line">
-            <div class="menu-title one">ENCYCLOPEDIA</div>
-            <div class="menu-title two">[01]</div>
-          </a>
-          <a href="articles.html" class="menu-line">
-            <div class="menu-title one">ARTICLES</div>
-            <div class="menu-title two">[02]</div>
-          </a>
-          <a href="about.html" class="menu-line">
-            <div class="menu-title one">ABOUT</div>
-            <div class="menu-title two">[03]</div>
-          </a>
-          <a href="domains.html" class="menu-line">
-            <div class="menu-title one">DOMAINS</div>
-            <div class="menu-title two">[04]</div>
-          </a>
-        </div>
-      </div>
-    </div>
     <header>
         <div class="fixed-box">
           <button id="darkModeButton">
@@ -74,16 +53,33 @@
               <div class="half right"></div>
             </div>
           </button>
-          <a href="index.html" class="center-text"><b>MATHIEU</b></a>
+          <a href="encyclopedia.html" class="center-text"><b>MATHIEU</b></a>
           <button class="burger">
-            <div class="square-container">
-              <div class="square-one"></div>
-              <div class="square-two"></div>
+            <audio src="bars.mp3" id="bars" preload="auto"></audio>
+            <div class="wave-container">
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
+              <div class="wave-bar"></div>
             </div>
           </button>
         </div>
     </header>
     <main role="main" class="main-content">
+      <div class="intro-line"></div>
+      <div class="intro">Hi, I dropped out of uni and started teaching myself how to code during the pandemic. Now I’m building personal projects / saas / startups solo as a fullstack developer. In my free time I wrestle freestyle. Next few years? Just me and my laptop. Shipping until something takes off.</div>
+      <div class="intro-line-two"></div>
+      <div>
+        <ul class="thoughts">
+          <li class="first-thought">Thoughts I’m rolling with (might be wrong)</li>
+          <li>Autodidacticism (yep, that’s a word) is your biggest superpower.</li>
+          <li>Solo developers can outpace entire teams when they’re focused. Speed is your advantage.</li>
+          <li>Build whatever interests you, not what the market tells you to build. Let your curiosity lead, not market demand.</li>
+          <li>Stop overthinking. Ship fast, and don’t be afraid to ditch bad ideas even faster.</li>
+          <li>Risk more. That’s where things get interesting.</li>
+          <li>Show up every day. Mastery lives in the mundane.</li>
+        </ul>
+      </div>
+      <div class="intro-line-two"></div>
       <section id="elements">
         <h2>Index [166]</h2>
       </section>
@@ -161,121 +157,8 @@
             <div class="left-javascript">VARIABLES</div>
           </div>
           <div class="left-image">
-            <img src="assets/vid103.gif" alt="gif" class="left-image-gif">
-            <pre class="ascii-overlay">
-,---,---,---,---,---,---,---,---,---,---,---,---,---,-------,
-| ~ | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 | [ | ] | <-    |
-|---'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-----|
-| ->| | " | , | . | P | Y | F | G | C | R | L | / | = |  \  |
-|-----',--',--',--',--',--',--',--',--',--',--',--',--'-----|
-| Caps | A | O | E | U | I | D | H | T | N | S | - |  Enter |
-|------'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'-,-'--------|
-|        | ; | Q | J | K | X | B | M | W | V | Z |          |
-|------,-',--'--,'---'---'---'---'---'---'-,-'---',--,------|
-| ctrl |  | alt |                          | alt  |  | ctrl |
-'------'  '-----'--------------------------'------'  '------'
-</pre>
             <canvas id="cubeCanvas"></canvas>
-          </div>
-          <div class="left-index">
-            <div class="navigation-title">Index [166]</div>
-            <div class="index-wrapper">
-              <div class="indexscroller">
-                <div class="navigation-container">
-                  <div class="navigationnumber">[00]</div>
-                  <div><a href="#data-types" class="titleindex">Data Types</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[01]</div>
-                  <div><a href="#variables" class="titleindex">Variables</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[02]</div>
-                  <div><a href="#conditionals" class="titleindex">Conditionals</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[03]</div>
-                  <div><a href="#ao" class="titleindex">Arithmetic Operators</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[04]</div>
-                  <div><a href="#functions" class="titleindex">Functions</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[05]</div>
-                  <div><a href="#scope" class="titleindex">Scope</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[06]</div>
-                  <div><a href="#arrays" class="titleindex">Arrays</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[07]</div>
-                  <div><a href="#array-access" class="titleindex">Array Inspection</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[08]</div>
-                  <div><a href="#array-transformation" class="titleindex">Array Transformation</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[09]</div>
-                  <div><a href="#array-iteration" class="titleindex">Array Iteration</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[10]</div>
-                  <div><a href="#array-mutation" class="titleindex">Array Mutation</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[11]</div>
-                  <div><a href="#array-utility" class="titleindex">Array Utility</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[12]</div>
-                  <div><a href="#loops" class="titleindex">Loops</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[13]</div>
-                  <div><a href="#objects" class="titleindex">Objects</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[14]</div>
-                  <div><a href="#dom" class="titleindex">Document Object Model</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[15]</div>
-                  <div><a href="#domevents" class="titleindex">Events</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[16]</div>
-                  <div><a href="#htmlforms" class="titleindex">HTML Forms</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[17]</div>
-                  <div><a href="#classes" class="titleindex">Classes</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[18]</div>
-                  <div><a href="#errorhandling" class="titleindex">Error Handling</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[19]</div>
-                  <div><a href="#testing" class="titleindex">Testing</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[20]</div>
-                  <div><a href="#comments" class="titleindex">Comments</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[21]</div>
-                  <div><a href="#asynchronous" class="titleindex">Asynchronous JavaScript</a></div>
-                </div>
-                <div class="navigation-container">
-                  <div class="navigationnumber">[22]</div>
-                  <div><a href="#httprequests" class="titleindex">HTTP Requests</a></div>
-                </div>
-              </div>
-            </div>
-          </div>          
+          </div>         
         </div>
         <div class="marquee-container">
           <div class="marquee">

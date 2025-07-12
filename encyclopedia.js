@@ -117,13 +117,18 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.registerPlugin(TextPlugin);
 
   const burgerButton = document.querySelector(".burger");
-  const squareOne = document.querySelector(".square-one");
-  const squareTwo = document.querySelector(".square-two");
+  const waveContainer = document.querySelector(".wave-container");
   const menuBars = document.querySelectorAll(".menu-bar");
   const menuOverlay = document.querySelector(".menu-overlay");
   const menuLines = document.querySelectorAll(".menu-line");
   const menuTitleTwos = document.querySelectorAll(".menu-title.two");
   const menuTitleOne = document.querySelectorAll(".menu-title.one");
+  const audioElement = document.getElementById("bars");
+
+  // Set audio volume (0.0 = muted, 1.0 = full volume)
+  if (audioElement) {
+    audioElement.volume = 0.3; // Set to 30% of original volume
+  }
 
   // Set initial positions for menu elements when page loads
   gsap.set(menuBars, { x: "100%" });
@@ -138,6 +143,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Toggle menu on burger button click
   burgerButton.addEventListener("click", () => {
+    // Handle audio play/pause and wave animation
+    if (audioElement) {
+      if (audioElement.paused) {
+        audioElement.play();
+        waveContainer.classList.add("playing");
+      } else {
+        audioElement.pause();
+        audioElement.currentTime = 0; // Reset to beginning
+        waveContainer.classList.remove("playing");
+      }
+    }
     if (!menuOpen) {
       menuOpen = true;
       // Animate menu bars dropping down
@@ -200,17 +216,13 @@ document.addEventListener("DOMContentLoaded", function () {
       menuOverlay.style.pointerEvents = "none";
     }
   });
-  let isRotated = false;
-  burgerButton.addEventListener("click", () => {
-    if (!isRotated) {
-      squareOne.style.animation = "moveSquareOne 0.3s forwards";
-      squareTwo.style.animation = "moveSquareTwo 0.3s forwards";
-    } else {
-      squareOne.style.animation = "moveSquareOneReverse 0.3s forwards";
-      squareTwo.style.animation = "moveSquareTwoReverse 0.3s forwards";
-    }
-    isRotated = !isRotated;
-  });
+
+  // Handle audio ended event to stop wave animation
+  if (audioElement) {
+    audioElement.addEventListener("ended", () => {
+      waveContainer.classList.remove("playing");
+    });
+  }
 
   // **Simplified Scramble Text on Hover Implementation**
 
