@@ -45,13 +45,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (mode === "dark") {
       document.documentElement.classList.add("dark-mode");
       document.body.classList.add("dark-mode");
-      leftHalf.style.backgroundColor = "var(--color-eight)"; // Dark side
+      leftHalf.style.backgroundColor = "var(--background-color-twenty)"; // Dark side
       rightHalf.style.backgroundColor = "transparent"; // Light side
     } else {
       document.documentElement.classList.remove("dark-mode");
       document.body.classList.remove("dark-mode");
       leftHalf.style.backgroundColor = "transparent"; // Light side
-      rightHalf.style.backgroundColor = "var(--color-eight)"; // Dark side
+      rightHalf.style.backgroundColor = "var(--background-color-twenty)"; // Dark side
     }
   }
 
@@ -272,6 +272,20 @@ document.addEventListener("DOMContentLoaded", function () {
   // Add event listener for mouseenter to trigger scramble
   const linkElement = document.querySelector(".center-text");
   linkElement.addEventListener("mouseenter", scrambleText);
+
+  // Add click event listener to scroll to top and trigger scramble
+  linkElement.addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent default anchor behavior
+
+    // Smooth scroll to top
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+
+    // Trigger scramble animation
+    scrambleText();
+  });
 
   // **End of Scramble Text Implementation**
 
