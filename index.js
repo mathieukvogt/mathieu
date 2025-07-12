@@ -555,7 +555,7 @@ document.addEventListener("DOMContentLoaded", function () {
       cubeCtx.clearRect(0, 0, cubeCanvas.width, cubeCanvas.height);
 
       // Set font for ASCII characters
-      cubeCtx.font = "12px Gridular"; // Increased font size for sharpness
+      cubeCtx.font = "11px DM Mono"; // Increased font size for sharpness
       cubeCtx.textAlign = "left";
       cubeCtx.textBaseline = "top";
 
