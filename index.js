@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
   ).matches;
 
   const currentMode =
-    urlMode || storedMode || (systemPrefersDark ? "dark" : "light");
+    urlMode || storedMode || (systemPrefersDark ? "light" : "dark");
   applyMode(currentMode);
 
   // If mode is specified in URL, update localStorage
