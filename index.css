@@ -135,6 +135,16 @@ body.dark-mode {
   border: 0;
 }
 
+::selection {
+  background-color: var(--color-twenty);
+  color: var(--background-color-one);
+}
+
+::-moz-selection {
+  background-color: var(--color-twenty);
+  color: var(--background-color-one);
+}
+
 .intro-line {
   margin-top: 85px;
   height: 1px;
